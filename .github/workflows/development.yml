@@ -20,6 +20,8 @@ jobs:
         run: |
           python3 scripts/test-source-guard.py
           python3 scripts/check-source.py
+          python3 scripts/test_bounded_project_build.py
+          python3 -O scripts/test_bounded_project_build.py
       - name: Install pinned Elan
         shell: bash
         run: |
@@ -34,6 +36,9 @@ jobs:
       - name: Fetch pinned mathematical dependencies
         run: lake exe cache get
       - name: Build completed proof modules and audit all project axioms
-        run: lake build DR Test
+        run: |
+          python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+            --report .verification/bounded-project-plan.json \
+            --log .verification/bounded-project-build.jsonl
       - name: Explain scope
         run: echo 'Development build only; complete release gates are documented in docs/VERIFICATION.md.'

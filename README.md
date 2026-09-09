@@ -24,6 +24,9 @@ a simpler sufficient threshold. The complete [three-row K=3 family](docs/THREE-R
 N>=3 and its transpose, is also proved locally. The [four-row K=3 strip](docs/ORDER-THREE-RANGES.md)
 for N>=960 and the separate [4-by-4 and 4-by-5 K=3 stability certificates](docs/FINITE-K3-CERTIFICATES.md)
 are complete too.
+The [finite K=3 block bridge](docs/FINITE-K3-BLOCK-SOUNDNESS.md) is complete,
+with the complete 4-by-N range 6<=N<=21 and a checked 4-by-959 pilot;
+the full 1,330-case replay is in progress.
 The [four-row K=4 analytic tail](docs/FOUR-ROW-MINORANT.md) is proved for every
 N>=500 and its transpose, including all boundary matrices and iff equality.
 The remaining promised
@@ -42,6 +45,8 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
   the actual four-sample averaging kernel and endpoint concentration prerequisites.
 - [Four-row inputs](docs/FOUR-ROW-INPUTS.md): actual collision remainders,
   the complete corrected minorant, analytic K=4 tail, and finite-certificate matrix reduction.
+- [Finite K=4 roles](docs/FINITE-K4-ROLES.md): complete physical role coverage,
+  quintic symmetrization and the remaining positivity obligations.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
   inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,

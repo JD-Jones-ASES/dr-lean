@@ -4,13 +4,30 @@
 
 ```sh
 python3 scripts/check-source.py
-lake build DR Test
+python3 scripts/test_bounded_project_build.py
+python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+  --report .verification/bounded-project-plan.json \
+  --log .verification/bounded-project-build.jsonl
 ```
 
 The source check rejects proof placeholders and prohibited trust extensions.
 Test.Axioms traverses the transitive axioms of all project declarations,
 including private helpers. The allowed set is propext, Classical.choice,
 and Quot.sound. A run matching no project declarations fails.
+
+The build helper orders the actual DR/Test import closure by dependencies
+and requests at most two project modules at a time. Strict tracked coverage
+rejects omitted tracked modules and imported untracked modules; source hashes
+must remain unchanged throughout the build. Final explicit DR and Test
+builds include the complete project axiom audit. Thirteen helper controls
+pass with and without Python optimization, including missing imports,
+cycles, omitted modules, source changes and subprocess failures.
+
+This limits overlap between project modules. It does not limit external
+dependency jobs or asynchronous declarations within one Lean module.
+Individual large finite checks also use small serialized kernel decisions.
+All literal proof checks remain required. A dry run verifies the build plan,
+not the Lean proofs.
 
 The development workflow runs these checks independently on GitHub. A green
 run validates the completed modules at that commit. It does not establish

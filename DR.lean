@@ -138,3 +138,9 @@ import DR.Rectangular.FourByFiveThree
 import DR.Certificates.FiniteK3Soundness
 import DR.Rectangular.FourRowFiniteParameter
 import DR.Rectangular.FourRowFinitePolynomial
+import DR.Certificates.FiniteK3EnvelopeSoundness
+import DR.Certificates.FiniteK3EnvelopeSparseEquations
+import DR.Certificates.FiniteK3Cases.M4N6
+import DR.Certificates.FiniteK3Cases.M4N959
+import DR.Certificates.FiniteK4Orbits
+import DR.Rectangular.OrderThreeFourRowFiniteInitial

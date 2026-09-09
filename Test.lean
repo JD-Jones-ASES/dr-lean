@@ -99,3 +99,14 @@ import Test.FourByFiveThreeQuadratic
 import Test.FourByFiveThree
 import Test.FourRowFiniteParameter
 import Test.FourRowFinitePolynomial
+import Test.PrincipalKernel
+import Test.FiniteK3Ordinary
+import Test.StrictGram
+import Test.FiniteK3EnvelopePilot
+import Test.FiniteK3EnvelopeInteger
+import Test.FiniteK3EnvelopeSparse
+import Test.FiniteK3Physical
+import Test.FiniteK3EnvelopeSoundness
+import Test.FourRowFiniteCertificate
+import Test.FiniteK4Orbits
+import Test.OrderThreeFourRowFiniteInitial

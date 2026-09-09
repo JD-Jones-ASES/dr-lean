@@ -1,9 +1,12 @@
 # Finite K=3 certificates and the actual sampling probability
 
 The separate 4-by-4 and 4-by-5 cases are complete, including all zero entries,
-exact uniform equality, and the transposed 5-by-4 case. The remaining 1,330
-finite rectangles still require their rational block certificates in Lean.
-This account separates the general soundness proof from those pending data.
+exact uniform equality, and the transposed 5-by-4 case. The finite-envelope
+soundness bridge is now complete, the contiguous range 4-by-N for 6<=N<=21
+is proved, and the 4-by-959 pilot certificate is checked.
+Full replay and dimension coverage for all 1,330 finite
+rectangles remain in progress. This account separates completed proofs from
+those pending data.
 
 ## Literal coefficient roles and polynomial identity
 
@@ -77,13 +80,21 @@ Squared distance vanishes exactly at uniform, independently of positivity.
 | 9 | 9 through 11 | 3 |
 | Total | | 1,330 |
 
-The ordinary-column decomposition is already proved in
-[OrdinaryColumnBlocks](../DR/Certificates/OrdinaryColumnBlocks.lean). Its
-remaining application must identify each physical seed, check the small
-aggregate kernel, and prove positive definiteness of all eight H/B0 blocks.
-The general quartic identity and soundness theorem do not replace those data.
-The exact complete dimension list must also be checked before the all-rectangle
-K=3 theorem can be assembled with [the infinite ranges](ORDER-THREE-RANGES.md).
+The [complete physical block bridge](FINITE-K3-BLOCK-SOUNDNESS.md) now identifies
+every seed from four representative pairs and transports its actual aggregate
+kernel and eight strict H/B0 blocks. `FiniteK3EnvelopeValid.uniformMaximizer`
+derives the original inequality and iff uniform equality directly from these
+finite rational obligations. The checked 4-by-6 instance has sharp value 13/18.
+[The first contiguous dispatcher](../DR/Rectangular/OrderThreeFourRowFiniteInitial.lean)
+proves `UniformMaximizer 4 n 3` for every 6<=n<=21 from sixteen actual checked
+certificates, with both endpoints included.
+
+The [self-contained source record](../data/FINITE_K3_SOURCE.md) and
+[exact dimension manifest](../data/finite_k3_manifest.json) contain all 1,330
+planned cases. The manifest is a coverage specification, not a completion log.
+Their bounded Lean replay and complete dispatcher must finish before the
+all-rectangle K=3 theorem can be assembled with
+[the infinite ranges](ORDER-THREE-RANGES.md).
 
 The generators reproduce the present source data with
 `python3 scripts/generate_finite_k3_quartic.py --check` and

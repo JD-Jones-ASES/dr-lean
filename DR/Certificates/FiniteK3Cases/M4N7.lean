@@ -1,0 +1,207 @@
+import DR.Certificates.FiniteK3EnvelopeSparseEquations
+
+/-! Exact mathematical rational data and kernel checks for K3 on 4x7.
+Reproduce with scripts/generate_finite_k3_envelope.py --case 4 7 --check. -/
+namespace DittertRybin.Certificates.FiniteK3Cases.C4N7
+open scoped BigOperators
+
+def numerators : Vector ℤ 93 :=
+  #v[74250,-9001,-4834,-319,294349,-39543,-8285,113209,-26827,253620,45317,-74833,-26776,296642,-2262,4059,-26397,315002,-71599,-3728,47967,83077,-41193,396998,-47500,25031,132496,-62268,579670,-60376,-17109,226756,-133590,-87628,347900,41152,48984,-3348,306668,23226,-30870,11956,24893,-44723,437080,9114,120148,-84672,1372,175518,-56840,353094,7840,-47500,-69814,431298,-20384,218336,-35786,297638,30674,-15974,98392,-73892,-10094,-6272,-34104,-14172,765184,55664,385728,48510,-21364,32830,-182378,470988,-32732,324870,-91826,23814,-78400,221872,-88788,458542,128282,90160,-25186,-180418,-106036,412482,73500,174930,-47500]
+def denominator : Nat := 98000
+def coeff (i : Fin 93) : ℚ := (numerators.get i:ℚ)/denominator
+
+def h0Weights : Vector ℚ 4 :=
+  #v[(83473/24500),(385536409/157314500),(5706980762148/2361410505125),(2472715827047/1041699164625)]
+def h0Factors : Vector (Vector ℚ 4) 4 :=
+  #v[#v[1,(2693/6421),(2693/6421),(2693/6421)],
+    #v[0,1,(-45389743/385536409),(-45389743/385536409)],
+    #v[0,0,1,(-45389743/340146666)],
+    #v[0,0,0,1]]
+def h0Gram : GramCertificate 4 4 :=
+  ⟨fun i => h0Weights.get i,fun i j => (h0Factors.get i).get j⟩
+
+def b0Weights : Vector ℚ 7 :=
+  #v[(297/392),(4701979361/1819125000),(2172420927850007/921587954756000),(314020850395737/162045445565500),(1158440442731/8923228804000),(5227571299/14484777300),(5227571299/19313036400)]
+def b0Factors : Vector (Vector ℚ 7) 7 :=
+  #v[#v[1,(-2417/37125),(-2417/37125),(-2417/37125),(-9001/74250),(-29/6750),(-29/6750)],
+    #v[0,1,(-2789858903/9403958722),(-2789858903/9403958722),(-164668021/4701979361),(840811301/4701979361),(-994830023/9403958722)],
+    #v[0,0,1,(-2789858903/6614099819),(-329336042/6614099819),(-125625607650440/2172420927850007),(351204690600727/2172420927850007)],
+    #v[0,0,0,1,(-164668021/1912120458),(-31406401912610/314020850395737),(-31406401912610/314020850395737)],
+    #v[0,0,0,0,1,(-1/3),(-1/3)],
+    #v[0,0,0,0,0,1,(-1/2)],
+    #v[0,0,0,0,0,0,1]]
+def b0Gram : GramCertificate 7 7 :=
+  ⟨fun i => b0Weights.get i,fun i j => (b0Factors.get i).get j⟩
+
+def h1Weights : Vector ℚ 4 :=
+  #v[(222249/49000),(534868787/236743500),(7237055871922/3276071320375),(5969163161757/2787684247250)]
+def h1Factors : Vector (Vector ℚ 4) 4 :=
+  #v[#v[1,(4234/9663),(4234/9663),(4234/9663)],
+    #v[0,1,(-79736665/534868787),(-79736665/534868787)],
+    #v[0,0,1,(-79736665/455132122)],
+    #v[0,0,0,1]]
+def h1Gram : GramCertificate 4 4 :=
+  ⟨fun i => h1Weights.get i,fun i j => (h1Factors.get i).get j⟩
+
+def b1Weights : Vector ℚ 11 :=
+  #v[(157501/49000),(94099843203/30870196000),(12769343643737773/2305446158473500),(6723075479814602901529/1251395677086301754000),(185758933178199113864389793/41178837313864442771865125),(205269140235960092005428139696/45510938628658782896775499285),(227822269319687554444502947/54009129705885667650041600),(197741769925972589897193771/47182126782183813050636705),(1948126988153121/5891460878030000),(76748983819/156602040000),(76748983819/208802720000)]
+def b1Factors : Vector (Vector ℚ 11) 11 :=
+  #v[#v[1,(-71599/315002),(47967/315002),(83077/315002),(47967/315002),(83077/315002),(47967/315002),(83077/315002),(-1864/157501),(-41193/315002),(-41193/315002)],
+    #v[0,1,(29603810387/94099843203),(21057931057/94099843203),(29603810387/94099843203),(21057931057/94099843203),(29603810387/94099843203),(21057931057/94099843203),(-3728/243403),(-41193/243403),(-41193/243403)],
+    #v[0,0,1,(-4425403922239973/25538687287475546),(8934111255403775/25538687287475546),(-3935058441186097/12769343643737773),(8934111255403775/25538687287475546),(-3935058441186097/12769343643737773),(2544280147317525/51077374574951092),(476954897942565/51077374574951092),(-1539717986222448/12769343643737773)],
+    #v[0,0,0,1,(-1715788225439316228083/6723075479814602901529),(2054594575747091789396/6723075479814602901529),(-1715788225439316228083/6723075479814602901529),(2054594575747091789396/6723075479814602901529),(6581152525/109225187546),(1233713565/109225187546),(-7965411296/54612593773)],
+    #v[0,0,0,0,1,(2320165603450191736481193/185758933178199113864389793),(299737735483947526720015591/1486071465425592910915118344),(-227550299261971634524422559/1486071465425592910915118344),(21577306412581915976180225/371517866356398227728779586),(-441745223895492498079950871/2972142930851185821830236688),(56251620882907508741204127/2972142930851185821830236688)],
+    #v[0,0,0,0,0,1,(-1715788225439316228083/11022271368548095438784),(2244601312986400747859/11022271368548095438784),(6581152525/114729541508),(-3588365553265027/24444735031860512),(456940715536299/24444735031860512)],
+    #v[0,0,0,0,0,0,1,(1406904348896829832658449/17524789947668273418807919),(13471249301698915213343680/227822269319687554444502947),(-172370334517894972403401448/1139111346598437772222514735),(-172370334517894972403401448/1139111346598437772222514735)],
+    #v[0,0,0,0,0,0,0,1,(1316230505/24046779094),(-3588365553265027/25617514704420080),(-3588365553265027/25617514704420080)],
+    #v[0,0,0,0,0,0,0,0,1,(-1/3),(-1/3)],
+    #v[0,0,0,0,0,0,0,0,0,1,(-1/2)],
+    #v[0,0,0,0,0,0,0,0,0,0,1]]
+def b1Gram : GramCertificate 11 11 :=
+  ⟨fun i => b1Weights.get i,fun i j => (b1Factors.get i).get j⟩
+
+def h2Weights : Vector ℚ 4 :=
+  #v[(4367/1000),(1336599/397000),(18517031/6457000),(2906222624371/1111484785775)]
+def h2Factors : Vector (Vector ℚ 4) 4 :=
+  #v[#v[1,(190/397),(2371/4367),(2371/4367)],
+    #v[0,1,(2371/6457),(2371/6457)],
+    #v[0,0,1,(269512059/907334519)],
+    #v[0,0,0,1]]
+def h2Gram : GramCertificate 4 4 :=
+  ⟨fun i => h2Weights.get i,fun i j => (h2Factors.get i).get j⟩
+
+def b2Weights : Vector ℚ 7 :=
+  #v[(76667/24500),(23273076331/7513366000),(48071648057/13514102000),(2048126162870019/588877688698250),(5493314121997926719/6902953202123052000),(238191259190065103711/549331412199792671900),(4998761317/29443659000)]
+def b2Factors : Vector (Vector ℚ 7) 7 :=
+  #v[#v[1,(-15435/153334),(24893/306668),(24893/306668),(11613/153334),(2989/76667),(-44723/306668)],
+    #v[0,1,(24893/275798),(24893/275798),(1095877307/23273076331),(1872938172/23273076331),(-44723/275798)],
+    #v[0,0,1,(-7169863949/48071648057),(-248695335/48071648057),(-248695335/48071648057),(2194417799/48071648057)],
+    #v[0,0,0,1,(-82898445/13633928036),(-82898445/13633928036),(-356735644305709/2048126162870019)],
+    #v[0,0,0,0,1,(-3705977453992945579/5493314121997926719),(-893668334002490570/5493314121997926719)],
+    #v[0,0,0,0,0,1,(-1/2)],
+    #v[0,0,0,0,0,0,1]]
+def b2Gram : GramCertificate 7 7 :=
+  ⟨fun i => b2Weights.get i,fun i j => (b2Factors.get i).get j⟩
+
+def h3Weights : Vector ℚ 4 :=
+  #v[(257/50),(260628/160625),(1548641/1174000),(607168858893/464785880125)]
+def h3Factors : Vector (Vector ℚ 4) 4 :=
+  #v[#v[1,(1063/1285),(317/514),(317/514)],
+    #v[0,1,(1585/4696),(1585/4696)],
+    #v[0,0,1,(7467385/75883409)],
+    #v[0,0,0,1]]
+def h3Gram : GramCertificate 4 4 :=
+  ⟨fun i => h3Weights.get i,fun i j => (h3Factors.get i).get j⟩
+
+def b3Weights : Vector ℚ 11 :=
+  #v[(148819/49000),(1157178271/148819000),(808160830416/144647283875),(95015167787024729/35199893947008000),(654454452127121608033/142522751680537093500),(53602407565112096517671/12707853439361584622000),(1031068384862956453559827/268012037825560482588355),(45703536066602209240799260413/13275005455110564339582772625),(2797532569520675111449411/10549050134210052970322500),(1797048741127938376669605849/6993831423801687778623527500),(9166469/38097500)]
+def b3Factors : Vector (Vector ℚ 11) 11 :=
+  #v[#v[1,(15337/148819),(49196/148819),(-36946/148819),(-3136/148819),(-17052/148819),(-3136/148819),(-17052/148819),(-49/913),(-5047/148819),(-7086/148819)],
+    #v[0,1,(570353236/1157178271),(160978374/1157178271),(-31460974/1157178271),(55191641/1157178271),(-31460974/1157178271),(55191641/1157178271),(87029123/1157178271),(75245116/1157178271),(-274734241/1157178271)],
+    #v[0,0,1,(11224708541/2155095547776),(532712106137/6465286643328),(-165333065705/3232643321664),(532712106137/6465286643328),(-165333065705/3232643321664),(11170919395/239455060864),(102074816879/1616321660832),(-348420772477/2155095547776)],
+    #v[0,0,0,1,(-35574146622524923/285045503361074187),(-21172587304589098/285045503361074187),(-35574146622524923/285045503361074187),(-21172587304589098/285045503361074187),(-7961411497445889/95015167787024729),(-27534716920222708/285045503361074187),(12292643/409615517)],
+    #v[0,0,0,0,1,(3626088420429298955/12707853439361584622),(-49037850168009485483/654454452127121608033),(-524406228283165896685/1308908904254243216066),(58651249897734400999/1308908904254243216066),(-242299535089594131491/1308908904254243216066),(271163283166437512355/1308908904254243216066)],
+    #v[0,0,0,0,0,1,(-22131365890749971917420/53602407565112096517671),(2298621512775606531729/53602407565112096517671),(-11548267064827577430981/53602407565112096517671),(5697093997453754576809/53602407565112096517671),(1168999550415/7252900017163)],
+    #v[0,0,0,0,0,0,1,(1671195488965110080530622/5155341924314782267799135),(-4128092641387568158230463/103106838486295645355982700),(-19528200070004797641186933/103106838486295645355982700),(-9363322448013018114253403/51553419243147822677991350)],
+    #v[0,0,0,0,0,0,0,1,(-49910053648719047729783/253177203221041271287740),(6042762922401746264747/253177203221041271287740),(-97457220571243/710533430967170)],
+    #v[0,0,0,0,0,0,0,0,1,(-493280419252454108387020/2797532569520675111449411),(-2304252150268221003062391/5595065139041350222898822)],
+    #v[0,0,0,0,0,0,0,0,0,1,(-1/2)],
+    #v[0,0,0,0,0,0,0,0,0,0,1]]
+def b3Gram : GramCertificate 11 11 :=
+  ⟨fun i => b3Weights.get i,fun i j => (b3Factors.get i).get j⟩
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem sparse_equations_checked : FiniteK3EnvelopeSparseIntegerEquations denominator (numerators.get 0) numerators.get := by
+  decide +kernel
+
+private theorem integer_equations_checked : FiniteK3EnvelopeIntegerEquations denominator (numerators.get 0) numerators.get :=
+  finiteK3EnvelopeIntegerEquations_of_sparse _ _ _ sparse_equations_checked
+
+private theorem equations_checked : FiniteK3EnvelopeEquations 4 7 coeff := by
+  exact finiteK3EnvelopeEquations_of_integer 4 7 denominator (numerators.get 0) numerators.get
+    (by decide) (by decide +kernel) integer_equations_checked
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem h0_checked : h0Gram.StrictValid (finiteK3EnvelopeTableH coeff 4 (by decide) 0) := by
+  change h0Gram.StrictValid (Matrix.of (fun i j : Fin 4 => (finiteK3EnvelopeTableH coeff 4 (by decide) 0) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem b0_checked : b0Gram.StrictValid (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 0) := by
+  change b0Gram.StrictValid (Matrix.of (fun i j : Fin 7 => (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 0) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem h1_checked : h1Gram.StrictValid (finiteK3EnvelopeTableH coeff 4 (by decide) 1) := by
+  change h1Gram.StrictValid (Matrix.of (fun i j : Fin 4 => (finiteK3EnvelopeTableH coeff 4 (by decide) 1) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem b1_checked : b1Gram.StrictValid (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 1) := by
+  change b1Gram.StrictValid (Matrix.of (fun i j : Fin 11 => (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 1) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem h2_checked : h2Gram.StrictValid (finiteK3EnvelopeTableH coeff 4 (by decide) 2) := by
+  change h2Gram.StrictValid (Matrix.of (fun i j : Fin 4 => (finiteK3EnvelopeTableH coeff 4 (by decide) 2) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem b2_checked : b2Gram.StrictValid (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 2) := by
+  change b2Gram.StrictValid (Matrix.of (fun i j : Fin 7 => (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 2) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem h3_checked : h3Gram.StrictValid (finiteK3EnvelopeTableH coeff 4 (by decide) 3) := by
+  change h3Gram.StrictValid (Matrix.of (fun i j : Fin 4 => (finiteK3EnvelopeTableH coeff 4 (by decide) 3) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem b3_checked : b3Gram.StrictValid (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 3) := by
+  change b3Gram.StrictValid (Matrix.of (fun i j : Fin 11 => (finiteK3EnvelopeTableB0 coeff 4 7 (by decide) 3) i j))
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 32000000 in
+private theorem kernels_checked : ∀ s : Fin 4,∀ i,
+    (∑ j,finiteK3EnvelopeFlatTableB coeff 4 7 (by decide) s i j*
+      finiteK3EnvelopeKernel 4 7 s j)=0 := by
+  decide +kernel
+
+theorem valid : FiniteK3EnvelopeValid 4 7 (by decide) coeff := by
+  refine ⟨equations_checked,?_⟩
+  intro s
+  have hk := kernels_checked s
+  rw [← finiteK3EnvelopeFlatB_eq_table coeff 4 7 (by decide) (by decide) s] at hk
+  fin_cases s
+  · refine ⟨?_,?_,hk⟩
+    · rw [finiteK3EnvelopeH_eq_table coeff 4 (by decide) (by decide)]
+      exact h0Gram.strictValid_posDef _ h0_checked
+    · rw [finiteK3EnvelopeB0_eq_table coeff 4 7 (by decide) (by decide)]
+      exact b0Gram.strictValid_posDef _ b0_checked
+  · refine ⟨?_,?_,hk⟩
+    · rw [finiteK3EnvelopeH_eq_table coeff 4 (by decide) (by decide)]
+      exact h1Gram.strictValid_posDef _ h1_checked
+    · rw [finiteK3EnvelopeB0_eq_table coeff 4 7 (by decide) (by decide)]
+      exact b1Gram.strictValid_posDef _ b1_checked
+  · refine ⟨?_,?_,hk⟩
+    · rw [finiteK3EnvelopeH_eq_table coeff 4 (by decide) (by decide)]
+      exact h2Gram.strictValid_posDef _ h2_checked
+    · rw [finiteK3EnvelopeB0_eq_table coeff 4 7 (by decide) (by decide)]
+      exact b2Gram.strictValid_posDef _ b2_checked
+  · refine ⟨?_,?_,hk⟩
+    · rw [finiteK3EnvelopeH_eq_table coeff 4 (by decide) (by decide)]
+      exact h3Gram.strictValid_posDef _ h3_checked
+    · rw [finiteK3EnvelopeB0_eq_table coeff 4 7 (by decide) (by decide)]
+      exact b3Gram.strictValid_posDef _ b3_checked
+
+end DittertRybin.Certificates.FiniteK3Cases.C4N7

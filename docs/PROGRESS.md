@@ -1,523 +1,84 @@
 # Current formalization state
 
-Updated 2026-09-09. The complete release goal remains active.
+Updated 2026-09-09. Private development continues toward the complete
+[twenty-target release](THEOREMS.md). Four principal targets are proved
+locally: all square Dittert orders with exact equality, all rectangular K=2,
+the all-order large-board bound, and its K^21 corollary. Full arbitrary-
+rectangle P2 remains open.
 
-The separate 4-by-5 and 5-by-4 K=3 cases are now complete, with global
-stability constant 1/5 and exact uniform equality. The general 33-equation
-quartic identity is connected to the actual signed iid functional, and its
-certificate soundness theorem covers the full closed probability simplex.
-The 1,330-case finite envelope still needs its individual block certificates.
-See [FINITE-K3-CERTIFICATES](FINITE-K3-CERTIFICATES.md).
+## Completed subfamilies and certificate foundations
 
-The complete corrected four-row minorant and K=4 analytic tail N>=500,
-including the transpose, remain proved. The complete three-row K=3 family,
-four-row K=3 strip N>=960, and separate 4-by-4 stability theorem are also
-proved. The finite K=4 interval and endpoint ranges remain incomplete.
-See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md) and
-[the full minorant proof](FOUR-ROW-MINORANT.md). The principal target count
-remains four of twenty.
+- [Three-row K=3](THREE-ROW-PROOF.md): every 3-by-N with N>=3 and transpose,
+  including all zero supports and uniform iff equality.
+- [K=3 infinite ranges](ORDER-THREE-RANGES.md): min(M,N)>=10,
+  the five-through-nine-row strips, and four-row N>=960.
+- [Small K=3 certificates](FINITE-K3-CERTIFICATES.md): 4-by-4 and 4-by-5
+  stability bounds, plus the complete 4-by-N range 6<=N<=21. The 4-by-959
+  pilot certificate is checked too.
+- [Finite K=3 block soundness](FINITE-K3-BLOCK-SOUNDNESS.md): all 33
+  coefficient equations, eight actual small blocks, exact aggregate kernels
+  and four-pair coverage imply the original sharp probability theorem.
+  Signed quartic algebra and closed-simplex uniform equality are proved.
+- [Four-row K=4 analytic tail](FOUR-ROW-MINORANT.md): every N>=500 and
+  transpose, using the complete corrected minorant and actual collision
+  remainder. Boundary matrices and unique equality are retained.
+- [Finite K=4 roles](FINITE-K4-ROLES.md): all 407 universal quintic roles,
+  the exact 391-role four-row restriction, actual 120-position
+  symmetrization, signed certificate evaluation and PSD/kernel soundness.
 
-Completed locally:
+The complete square proof has separate readable accounts for
+[order three](ORDER-THREE-PROOF.md), [order four](ORDER-FOUR-PROOF.md),
+[order five](ORDER-FIVE-PROOF.md), and [all orders at least six](SPECTRAL-PROOF.md).
+Its van der Waerden and stability prerequisites are proved internally.
+The proof is an attributed alternative to the earlier complete Dittert proof.
 
-- Exact real matrix domain, marginals and closed probability simplex.
-- Ordered iid sample mass, normalization, nonnegativity, inclusive-OR
-  inclusion-exclusion, complements, monotonicity and probability bounds.
-- Exact marginalization under any injective selection of iid sample indices,
-  including empty and full selections and arbitrary weighted observables.
-- Uniform semimatching value for every sample order, including zero,
-  one and orders exceeding board dimensions; explicit injection counts.
-- Finite weighted Bonferroni and the exact scalar concentration bootstrap.
-- Permanent monotonicity, constant evaluation, row/column scaling,
-  triangular-block factorization and diagonal-block lower bounds.
-- The full finite real-capacity transport cut criterion and dominated doubly
-  stochastic matrix construction, including zero demand and empty matrices.
-- Exact square endpoint identity and scaling, for arbitrary real matrices.
-- Equivalence of square P2 and Dittert, including equality, and complete
-  Dittert orders one and two.
-- Sample-index collision witnesses: exact count, exact failure union,
-  Bonferroni connection and uniform event mass, including overlapping pairs.
-- The complete K=2 uniform maximum and unique equality theorem, through
-  the exact squared-distance deficit identity.
-- The complete first collision-moment identity for every sample order at
-  least four: coincident, overlapping and disjoint witness classes are
-  counted exactly and every event mass comes from actual iid sampling.
-- Entropy on the closed simplex and the mixed/disjoint collision-moment
-  lower bounds; these give the uniform first-moment bound plus its exact
-  cell-variance term.
-- Continuity, compactness and global-maximizer existence for the actual
-  objective, with transpose, matrix-axis and sample-index symmetries.
-- The distinct-witness intersection bound from proved combinatorial
-  deletion and exact integration of the removed sample coordinate.
-- Actual-matrix contender concentration: the normalized cell variance and
-  largest marginal satisfy the two stated strict collision bounds.
-- All-order threshold arithmetic: the explicit dimension bound is at most
-  K^21, and every contender at that threshold meets the stated variance
-  and marginal smallness bounds.
-- The sharp univariate capacity step for nonnegative affine products,
-  including zero constants and slopes; exact doubly stochastic product
-  capacity one and the finite telescoping product of capacity losses.
-- The full polynomial capacity bridge for split real polynomials, including
-  all zero and degree-padding cases. The actual matrix polynomial is proved
-  homogeneous, coefficientwise nonnegative, H-stable and of capacity one.
-- Actual conditional occupation identities, including the diagonal term,
-  centered quadratic bound and exact rational constants. All conditional
-  collision controls are derived from the actual sampling law; the positive
-  kernel theorem has only explicit marginal and variance hypotheses.
-- Column-deletion mass and variance estimates: every sufficiently large-board
-  contender meets the normalized deletion hypotheses for every column pair.
-- Exact iid homogeneity and invariance of conditional occupation under
-  nonzero scaling; the general factorial-normalized rook decomposition.
-- A compactness/transpose closure lemma: column rigidity in both orientations
-  implies the sharp uniform inequality and unique equality.
-- The exact two-column blend identity, including its factorial factor and
-  occupation-kernel interpretation, for the actual iid objective.
-- **The complete all-order large-board theorem and its K^21 corollary.**
-  Both principal statements conclude the full sharp inequality and unique
-  equality on the closed probability simplex with independent dimension
-  lower bounds. Positivity, concentration and rigidity are proved internally.
-  An independent semantic/type/axiom review found no scope weakening.
-- Positive one-variable slices of homogeneous H-stable polynomials split
-  over the reals with nonpositive roots. Gurvits's norm comparison is proved
-  for homogeneous H-stable real polynomials without a coefficient-sign
-  restriction.
-- Coefficientwise limit closure preserves homogeneity, nonnegative
-  coefficients and the zero-or-H-stable alternative in finitely many
-  variables. Differentiation at zero preserves degree and coefficient signs;
-  its zero-or-H-stable alternative is now proved too, through positive
-  directional derivatives, Gauss–Lucas and coefficientwise limits.
-- Exact rational tensor Bernstein and Gram/LDL certificate soundness,
-  including closed-box boundaries, zero pivots, singular kernels and positive
-  denominator obligations. Lean rejects corrupted identities and margins.
-- All 47 rational Bernstein coefficients and the exact scalar gap identities
-  at n=7 and n=8. These are complete scalar base obligations, not the full
-  square matrix theorem.
-- The two square stationarity equations follow from feasible exponential
-  row and column scaling. The proof preserves arbitrary zero support.
-  Marginal positivity and the shared permanent-deficit budget are derived
-  from comparison to the uniform value, so the global-maximizer equations
-  have no additional support or marginal assumptions.
-- The normalized matrix is an exact contraction in the finite sum-of-squares
-  norm, and its two stationary singular-vector identities and weighted
-  orthogonality equations are proved without entrywise positivity.
-- The squarefree coefficient of the matrix product polynomial equals the
-  permanent for every real square matrix, including dimension zero. This
-  supplies the coefficient identification for capacity induction.
-- **The unconditional van der Waerden permanent lower bound** for every
-  doubly stochastic matrix, including dimensions zero and one. The proof
-  uses the actual multivariate capacity, proved stable differentiation,
-  finite variable reduction, capacity descent and coefficient identification.
-  Its complete equality classification is now proved too: equality holds
-  exactly at the uniform matrix, including dimensions zero and one.
-  The first-deletion capacity bound and strict x log x convexity include
-  unit entries and their 0^0 entropy factors.
-- The finite weighted sweep bound (N-1)E/(4V), with exact sorting, ties,
-  disconnected zero-energy cases and complement selection.
-- The full scalar dimension transfer for n>=8, the refined n=7 scalar
-  contradiction, and the exact two-block gamma-product bound, now connected
-  to the actual matrix cut and permanent floor.
-- Actual spectral scores, zero weighted mean, exact energy/gap identity,
-  positive variance at nonuniform global maxima, and the precise
-  0<=gap<=permanent/(1-delta) bound, including disconnected support.
-- The entropy-derived shared subset discrepancy bound and the n=7
-  marginal cap 23/20; empty/full subsets and zero cell entries are included.
-- The substochastic permanent floor and the two-block floor for arbitrary
-  row/column subsets of equal size, using actual transport and reindexing.
-- **The complete Dittert inequality and unique equality for every n>=6.**
-  The actual spectral cut, shared marginal discrepancy, capacity transport,
-  equal cut cardinalities and two-block permanent floor imply the checked
-  scalar contradiction. Compactness then gives the full inequality and iff
-  equality on all nonnegative mass-n matrices. No support, stationarity or
-  balanced-marginal assumption appears in the resulting theorem.
-- The exact fourteen-vertex path Poincare certificate and its refined sweep,
-  including zero energy and tied scores. This supplies the actual order-seven
-  matrix argument. Order six uses the proved sharper marginal estimates,
-  exact alternating path, actual singleton cell bound and permanent floor,
-  and all 546 proved scalar certificate coefficients.
+## Remaining work
 
-The complete K=3 inequality and unique equality are also proved whenever
-both dimensions are at least ten, and on the five-through-nine-row infinite
-strips listed in [ORDER-THREE-RANGES](ORDER-THREE-RANGES.md), in both
-orientations. The remaining small-side and finite cases still prevent
-completion of the all-rectangle K=3 release target.
+The finite K=3 source catalogue contains all 1,330 canonical rectangles.
+Their full generated replay is running in the working checkout. The present
+curated checkpoint includes seventeen checked case files: sixteen for
+4-by-N with 6<=N<=21, and the 4-by-959 pilot. The
+[dimension manifest](../data/finite_k3_manifest.json) describes the complete
+planned coverage; it is not a list of successful checks. The full dispatcher
+must finish before the all-rectangle K=3 target is marked complete.
 
-The complete square Dittert theorem is now proved for every n>=1, including
-unique equality on the full nonnegative mass-n domain. The order-four sextic
-identity and complete physical orbit coverage are connected to the actual
-probability; the order-five literal singleton numerator is connected to all
-proved Bernstein bounds and the actual deletion minor. Read
-[ORDER-FOUR-PROOF](ORDER-FOUR-PROOF.md) and [ORDER-FIVE-PROOF](ORDER-FIVE-PROOF.md).
-The all-order wrapper is `DittertRybin.dittert_unique_maximum`.
+Four-row K=4 still needs the complete finite interval proof and its physical
+matrix assembly. The separate 5-by-5 and 20-by-20 K=4 certificates and the
+endpoint ranges remain required. The endpoint work keeps original-row and
+deleted-column avoidance laws distinct. The full exact scopes and remaining
+corollaries are in [THEOREMS](THEOREMS.md).
 
-For K=3, positive global maximizers are now proved to be the original uniform
-board for all independent M,N>=3. Exact cubic interpolation and strict local
-uniqueness close this argument. The three-row boundary classification is complete; remaining K=3 finite
-rectangles are separate certificate obligations.
+## Verification boundary
 
-The complete three-row family now proves `UniformMaximizer 3 N 3` for every
-N>=3 and its transpose, including all boundary supports and exact equality.
-[The three-row proof](THREE-ROW-PROOF.md) describes the complete support
-classification. The four-row scalar gauge bound and unique uniform equality
-are proved by an exact sorted-gap certificate. Actual endpoint contender
-normalization, variance, column caps, and separate original/deleted row laws
-are complete prerequisites. [The rectangular foundation map](RECTANGULAR-FOUNDATIONS.md)
-states the remaining interfaces and obligations.
+The latest curated local build passed **4,044 jobs**, with all **17,003
+project declarations** audited against `propext`, `Classical.choice`, and
+`Quot.sound`. It emitted no warnings. Source guards, corruption controls,
+normal and optimized Python regeneration, and documentation checks passed.
+Large K4 catalogue checks are split and serialized to limit simultaneous
+kernel reduction caches; every literal check remains required.
+The independent workflow now builds the exact tracked DR/Test import closure
+in dependency order with at most two requested project modules per batch.
+Its strict plan covers 593 modules in 297 batches; thirteen scheduler
+controls pass in normal and optimized Python, and an actual seven-module
+Lean smoke build passed. This scheduling change does not constitute an
+independent replay of the mathematical checkpoint.
 
-The principal K=3, K=4 and large-endpoint release targets remain incomplete.
-Four of the twenty required principal targets are now proved locally.
-The full van der Waerden bound/equality and real-capacity
-transport prerequisites are now complete in this project.
-Read docs/THEOREMS.md for the full target inventory. Do not publish based on
-the completed foundations alone.
+Private main and the durable source checkout remain at independently
+verified `71ab5fb1e4bae27fbd43f26ab06f2e1646750836`.
+Its [main replay](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34387704231)
+succeeded. Later local proofs have not yet cleared independent CI:
 
-Initial private remote checkpoint: `007871efa78c9372be39f7b0b51e1286d758d75f`.
-Its local build passed and audited 282 project declarations. Seven source
-guard controls and six Lean semantic checks passed. Its
-[independent development CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34356306914)
-also passed. This checks completed modules and does not complete the release.
+| Checkpoint | Independent replay status |
+|---|---|
+| `ce018413` full square | Cancelled; unaccepted |
+| `bdd1db2f`, `486d70d7`, `2d4449e2`, `17406a61` | Failed with exit code 143; no Lean proof error reported in the retrieved failure logs; unaccepted |
+| `21b65fb5`, `f1fe2631` | Replay pending at this update |
 
-The subsequent local combined build including the first moment, entropy and
-compactness modules passed and audited 410 project declarations. Its exact
-commit `06b67b054494431c8b86a3e450c820956a63d531` also passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34357179545)
-and was advanced to private main. The new capacity route and its outstanding
-stability obligations are documented in [CAPACITY-ROUTE](CAPACITY-ROUTE.md).
+The termination cause is unconfirmed. A local build does not substitute for
+independent replay, default-branch verification, or the
+[full public-release gate](VERIFICATION.md). JD will submit to Palomar
+manually after the complete repository passes that gate.
 
-The next combined local build includes witness intersections, actual-matrix
-concentration, threshold arithmetic and both capacity modules: 3,221
-dependency jobs passed and the audit covered 526 project declarations.
-The new boundary checks retain the zero-capacity equality example and
-distinguish positive demand from zero demand on zero-capacity boards.
-That checkpoint, `de80dde73014a0144321ba2f0cdc596d416d95c2`, also passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34358562072)
-and was advanced to private main.
-
-The following combined local build adds occupation moments and bounds,
-normalized deletion, scaling, rook decomposition, maximizer closure and
-the polynomial/stability foundations: all 3,248 dependency jobs passed,
-and 718 project declarations passed the transitive axiom audit. Source
-guards, their seven corruption controls, and semantic/boundary tests passed.
-Its exact commit `b3797cd3c16d253deb92542916e3598849fb037f` passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34360127140).
-
-The all-order proof simplifies the Lab's final uniqueness argument: the exact
-blend identity forces identical columns at an actual global maximum; applying
-the same argument to the transpose forces identical rows. Total mass then
-determines the uniform matrix directly. This avoids a separate final
-product-distribution/Maclaurin step without changing the scope or constants.
-It does not imply the square sampling endpoint K=M=N, where the dimension
-threshold is not met.
-
-The combined all-order checkpoint passed all 3,464 dependency jobs and the
-transitive audit of 880 project declarations. The new scope tests expose
-both principal results as inequalities and iff equality statements on all
-nonnegative mass-one real matrices, and include the exact D_4 dimension
-boundary. Source guards and their seven corruption controls passed. These
-development checks complete three of the twenty required release targets;
-the complete release gate remains pending.
-That exact all-order commit, `ca62b079af2be280c2ffc4b8bb56c1d4761ebe18`, passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34361456001),
-was advanced to private main, and was pulled into the durable source checkout.
-
-The subsequent square-foundation checkpoint passed all 3,492 dependency
-jobs and audited 1,101 project declarations. It includes the stationary
-pair, closed-simplex contender bounds, homogeneous limit closure, both
-certificate soundness layers and the n=7/n=8 scalar bases. Persistent tests
-cover singular Gram matrices, zero pivots, empty dimensions, exact kernel
-lifting, rejected matrix mutations, corrupted Bernstein identities and
-inflated coefficient margins. None of the seventeen pending principal
-release targets is marked complete by these dependency proofs.
-That square-foundation commit, `ef8d112ff651366a72a09f90e71bf5ef1e215034`,
-passed [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34363221311)
-and was advanced to private main.
-
-The capacity-bound checkpoint adds genuine stable differentiation,
-permanent coefficient identification, normalized contraction, weighted
-sweep and the complete n>=7 scalar stage. Its combined build passed 3,506
-dependency jobs and audited 1,326 project declarations. The persistent
-tests include a stable polynomial that becomes zero under differentiation
-at zero, empty-matrix coefficient one, factorial multiplicity, exact sweep
-sharpness and disconnected zero-energy cuts. This establishes the permanent
-inequality prerequisite; its strict equality proof remains active work.
-
-The following combined checkpoint completes permanent equality and adds
-the actual spectral pair, marginal discrepancy and arbitrary-subset block
-floor. All 3,515 dependency jobs passed, and 1,500 project declarations
-passed the transitive standard-axiom audit. Persistent boundary tests include
-the unit-entry entropy factor, strict boundary/equality separation, sparse
-and empty blocks, independent noncontiguous row/column subsets, nonunit
-domination scaling, and rejection of an incorrect crossing-mass factor.
-The twenty-target release inventory still had only the same three completed
-principal rectangular declarations at that checkpoint; the square theorem
-was not yet assembled. Its exact commit `030c574e9c92d2cbda0fe2a34d1309e7b9244f7a`
-passed [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34366361102),
-was advanced to private main, and was pulled into the durable source checkout.
-
-The next development stage assembled the full n>=7 square range. Its source
-map is [SPECTRAL-PROOF](SPECTRAL-PROOF.md). The all-dimension square release
-target remains pending until the separate orders three through six are proved;
-the completed principal-target count remains three of twenty.
-The combined build passed all 3,527 dependency jobs and the transitive audit
-covered 1,938 project declarations. All seven source-guard corruption controls
-passed. The new tests expand the n>=7 theorem to the original matrix statement,
-check the endpoint normalization, and reject omission of a crossing rectangle.
-The order-six package includes all 63 cut comparisons and 546 exact Bernstein
-coefficients, with positive-denominator transfer and negative controls; its
-actual matrix assembly remains work in progress. An independent review of the
-complete n>=7 dependency chain found no semantic issue with the energy/crossing
-factors, cardinalities, zero cases or compactness-derived equality claim.
-That exact commit `76546a5688e8e902e44eec4ccebd0d1dcdd7ea93` passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34369034229),
-was advanced to private main, and was pulled into the durable source checkout.
-
-The following stage completes order six on the full closed simplex, including
-unique equality. The alternating path is proved by exact rational Gram bounds,
-strict Schur algebra, and a finite Cauchy-Schwarz transfer to the mean-zero
-vertex range. Minimizing over all even proper prefixes directly proves the
-cut bound; its strict upper bound forces balance. Choosing the smaller
-cardinality side preserves the singleton extremal orientation. These two
-simplifications remove a separate ordinary-path certificate and a volume
-rounding step from the source proof without weakening its conclusion.
-The actual matrix proof retains the distinguished singleton cell and applies
-the two scalar permanent comparisons to the same selected cut. The principal
-all-dimension target remains pending at orders four and five.
-
-Order three is now complete on the full nonnegative mass-three simplex.
-The support argument proves its Boolean exhaustion by ordinary kernel
-reduction, handles all canonical boundary faces, and reduces positive
-maximizers to uniform by three exact column blends. All 86 public
-order-three declarations passed the standard-axiom audit. The equivalent
-3-by-3 probability endpoint is also proved, with value 32/81 and unique
-equality. This is the established small Dittert case used as a prerequisite;
-it does not by itself prove arbitrary rectangular K=3. The source map is
-[ORDER-THREE-PROOF](ORDER-THREE-PROOF.md).
-
-The ten-vertex alternating path and even-prefix sweep have also been proved
-for use at order five. Their constants come from exact rational Gram bounds;
-paired tied-score zero-energy cases and a false stronger constant are covered
-by persistent controls. Order five still requires its actual marginal and
-permanent estimates, so this dependency is not recorded as its matrix theorem.
-
-The combined order-three/order-six checkpoint passed all 3,553 dependency
-jobs and audited 2,752 project declarations transitively against the standard
-axiom allowlist. Persistent tests expand both the original mass-three formula
-and the complete n>=6 statement, including the exact unique equality case.
-
-That exact order-three/order-six commit
-`77776c3de0d8b526dfab2ea48f7f8f97e5a824a4` passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34373242711),
-was advanced to private main, and was pulled into the durable source checkout.
-
-The following small-order foundation stage adds the complete order-four
-seed-matrix layer: all 8,448 canonical entries, 33 exact Gram identities,
-and 495 positive principal pivots pass ordinary kernel checks. The actual
-formula-defined seeds satisfy the 1/10 centered quadratic bound and have
-exactly the constant nullspace. The sextic identity and multiplier-orbit
-coverage were separate remaining obligations before the order-four matrix
-theorem can be claimed. Closed seed checks are cached in separate modules
-so their finite computations can be replayed efficiently.
-
-Order five now has its actual stationary marginal envelope, proved with a
-three-step bootstrap on the full closed domain, and all 67 scalar guard
-coefficients. The energy lower sign retains the physical deficit bound;
-its rational interval endpoint alone would give a negative energy and is
-explicitly tested. A reusable exact power-to-Bernstein conversion and affine
-coefficient transformation are proved over rational algebras, allowing later
-large certificates to use finite rational coefficient checks. Their tests
-cover degree zero, degree elevation, affine scaling and closed endpoints.
-The combined foundation build passed 3,566 dependency jobs and audited 4,524
-project declarations. It does not complete another principal release target.
-
-The next combined stage completes actual row/column-permutation coverage of
-all 3,876 quartic multiplier matrices by the 33 proved seeds. Every multiplier
-therefore satisfies the quantitative centered bound. The order-four sextic
-identity remains pending. Order five adds all 30 derivative coefficients and
-500 two-block scalar coefficients, with their exact gap and positive-floor
-consequences on the closed triangular domain.
-
-For rectangular K=3, the cubic failure polynomial is now proved equal to the
-actual ordered sampling event, including repeated cells and all six ordered
-L-shaped cases. The identity holds for signed weights; its probability
-corollary covers every nonnegative mass-one matrix. The exact dimension
-criterion is positive for min(M,N)>=10 and the stated six-through-nine-row
-strips; the matrix estimates connecting that criterion to the full maximum
-are a separate next stage. Tests retain false adjacent thresholds and the
-signed, repeated-cell, nonunit-mass and L-shape cases.
-
-This combined build passed all 3,585 dependency jobs and audited 5,463
-project declarations transitively. Source guards and their seven corruption
-controls passed. These are development foundations: the principal-target
-count remains three of twenty, and the repository remains private.
-
-That small-order/cubic-identity checkpoint,
-`68e64d0de5229ca235ffcf3030738044a683542a`, passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34377314242)
-and was advanced to private main. Its fresh CI build took about 38 minutes.
-The development job limit is increased to 120 minutes for the next larger
-certificate package; all proof, source and axiom checks remain required.
-
-The next combined checkpoint connects the actual cubic probability identity
-to the complete large-range and infinite-strip K=3 theorems. The centered
-expansion, orthogonal energy decomposition, mixed Cauchy bound and near/far
-estimates all hold on the closed probability simplex. For five rows and
-N>=121, the exact near-region margin is 27197/2772275; zero cell entries,
-zero row deviation and zero total centered energy remain covered.
-
-Order five now has its actual balanced spectral cut of cardinality one or
-two, preserving complete cross-subset marginal ordering, subset mass signs
-and singleton extrema. Homogeneous lower-order Dittert bounds include
-arbitrary nonnegative block mass and the zero-mass boundary. All 18,648
-rational singleton interval coefficient bounds and all 56 two-axis
-coefficient conversions pass ordinary kernel checks. The separate identity
-from the literal source numerator to its power table remains pending, so
-these checked data are not yet claimed as the completed singleton inequality.
-
-This combined build passed all 3,685 dependency jobs and audited 8,571
-project declarations against the standard-axiom allowlist. Persistent tests
-cover the actual K=3 ranges and their transposes, boundary supports, exact
-mixed-term constants, five-row margin, zero-mass scaling, and the degenerate
-singleton coordinate box. The complete-release target count stays at three
-of twenty. That exact checkpoint,
-`71ab5fb1e4bae27fbd43f26ab06f2e1646750836`, subsequently passed
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34382115147)
-and was advanced to private main and the durable source checkout.
-
-The full-square checkpoint adds the complete order-four certificate and
-order-five assembly. All 86 sparse arithmetic equalities identify the literal
-singleton numerator, all 56 coefficient transformations and 18,648 coefficient
-bounds apply to it, and the resulting actual matrix argument closes order five.
-The final order-five/all-order replay passed 3,677 dependency jobs; all seven
-stored final axiom audits contain only the standard three axioms. Sparse
-arithmetic uses a proved finite-fuel list merge and a proved zero filter,
-including arbitrary unsorted inputs and zero tensor entries. Deterministic
-reproduction agrees with all fourteen generated arithmetic-stage files.
-
-The additional K=3 support work derives full-simplex KKT equations, exact
-same-support averaging and a common support normal form; rules out empty
-rows and columns at maxima; proves signed cubic gradients and interpolation;
-and proves original-matrix uniqueness for every positive global maximizer.
-Proper doubleton support conditions retain zero residuals and the exact singular
-equality case. These are dependencies for the still-open all-rectangle K=3
-release target. The combined full-square build passed all 3,781 dependency jobs and audited
-11,359 project declarations transitively against the standard-axiom allowlist.
-All seven source-guard corruption controls, the exact four-of-twenty target
-inventory, forty-one relative documentation links, and whitespace checks passed.
-Independent CI for this full-square checkpoint is still required.
-
-The next rectangular foundation checkpoint adds the actual singleton exclusion,
-existence of a full column, and exclusion of all three doubleton types at a
-three-row global maximum. Its single-doubleton scalar proof keeps all four
-KKT conditions and strict integer borders. The four-row polynomial kernel is
-identified with the actual sampling kernel, including factor 24 and full-simplex
-pair rigidity under the stated concentration bounds. The closed-domain
-Newton--Maclaurin, exact variance, row-assignment, and factorial-decay modules
-supply common endpoint prerequisites; none assumes an endpoint conclusion.
-
-This combined checkpoint passed all 3,819 dependency jobs and audited 11,699
-project declarations transitively against the standard-axiom allowlist.
-Persistent tests include actual support boundaries, zero residuals, signed
-sampling formulas, row-normalization and factorial controls, repeated roots,
-and the nonunique first-order case. All seven source-guard corruption tests
-passed. The principal-target count remains four of twenty; full-square CI and
-independent CI for this subsequent checkpoint remain separate required gates.
-See [RECTANGULAR-FOUNDATIONS](RECTANGULAR-FOUNDATIONS.md) for readable proof
-interfaces and exact remaining obligations.
-
-The following checkpoint completes the entire three-row K=3 family and its
-transpose. Every zero-support class is excluded from an actual global maximum;
-compactness and the positive-matrix theorem give the full sharp inequality and
-unique equality. The N=2 countercontrol confirms the dimension guard. Independent
-semantic review checked the all-column two-doubleton argument, normalization,
-residual positivity and final equality scope.
-
-It also proves the four-row scalar gauge gap and exact equality via the
-homogeneous sorted-gap certificate, with deterministic source reproduction.
-The actual contender initial cap and the concentration/deletion assembly have
-independent semantic review; the corrected leading minorant and collision
-remainder remain explicit obligations. Endpoint normalization and caps now use
-actual original-row probabilities and a distinct deleted-row law. One duplicated
-endpoint lemma name was mechanically renamed during combined integration;
-all affected proofs and tests were replayed successfully.
-
-The combined build passed all 3,845 dependency jobs and audited 12,020 project
-declarations transitively against the standard-axiom allowlist. Source guards,
-generator reproduction, Python compilation, the twenty-target inventory and
-documentation/whitespace checks passed. Four principal targets remain proved;
-completing three rows does not yet complete the all-rectangle K=3 target.
-The preceding rectangular-foundation commit is
-`bdd1db2fd8861b01063cbdb6f62c6662b1b66cd3`, with
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34390255947)
-still running. Independent CI remains required for this subsequent checkpoint.
-
-The next collision/block checkpoint passed all 3,905 dependency jobs and
-audited 12,448 project declarations transitively against the standard-axiom
-allowlist. Independent semantic review checked the actual event restriction,
-all sampling factors, the corrected minorant's closed boundary families and
-coefficient coverage, and the K=3 copositive-to-probability bridge. The exact
-42,875-coefficient generator reproduces. The ordinary-column block reduction
-also includes PSD and exact constant-kernel transfer; its denominator and
-strict-positive-block negative controls pass. Independent CI remains required.
-The preceding three-row/gauge commit is
-`486d70d7bdf148cc88cbcfa32c6c61288478854a`, with
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34392339329)
-still running. None of these inputs is counted as a completed new principal target.
-
-The following checkpoint completes the actual four-row K=3 infinite strip.
-Its concentration assumptions are discharged, the residual kernel has a
-1/8 floor on all real vectors, and the actual midpoint gain is at least
-3/16 times the column-difference square sum. Positive-global uniqueness
-then closes the sharp full-simplex theorem and transpose. Independent review
-checked the exact uniform correction, dimension guards, deleted mass, signed
-kernel identification, and final equality scope.
-
-The finite K=3 role construction now has a proved arbitrary-label compression
-theorem, a complete fifteen-pattern census on each axis, and all 225 exact
-canonical-key checks for the 93 source roles. Independent review checked
-the source scan, sequential ranks, separate pair roles, physical symmetry
-and map invariance. All generator output reproduces. The corrected four-row
-minorant now also has the actual compact affine-product reduction, all
-feasible three-face stationary values, and the actual positive minimum's
-strict q<1/3 and stationary identification. The full row-optimizer structure
-and proper-face minimum-to-stationary step remain separate obligations.
-
-This combined build passed all 3,930 dependency jobs and audited 12,732 project
-declarations against the standard-axiom allowlist. The principal count remains
-four of twenty; complete K=3 still requires the finite certificates. The
-preceding collision/block commit is
-`2d4449e2407f29b5e4984f0e388b1b529a38f493`, with
-[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34394563364)
-still running. Independent CI is required for this subsequent checkpoint too.
-
-Working checkout during initial development: /private/tmp/dr-lean. The private
-remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
-exists at /Users/jjones/Documents/repos/dr-lean. This project
-is separate from Analytic-Lab; the Lab contains no Lean files from this work.
-
-The next combined local checkpoint completes the corrected four-row minorant,
-the entire K=4 analytic tail N>=500 with transpose, the 4-by-4 K=3 stability
-certificate, and generic pair normalization and weighted-pair stability.
-Its curated combined build passed 3,956 jobs and audited 12,923 project
-declarations. Independent semantic reviews passed the actual theorem
-interfaces and all zero-coordinate cases. The matrix Bernstein foundation
-for the finite K=4 families is also checked, without claiming its pending
-coefficient data or actual quintic identity. Four principal targets remain
-complete out of twenty.
-
-Independent replay has not yet accepted the full-square checkpoint ce018413
-or its descendants. Run 34386973143 was cancelled; run 34390255947 ended
-with exit 143 after otherwise successful module output. These outcomes do
-not establish a proof failure or a successful verification. Private main
-and the durable checkout remain at the independently verified 71ab5fb1
-checkpoint. No publication gate is passed by these local builds.
-
-The next curated local checkpoint connects all 33 finite K=3 coefficient
-equations to the actual signed quartic sampling identity and proves its
-closed-simplex certificate soundness. The separate 4-by-5 and 5-by-4 K=3
-theorems, including stability constant 1/5, are complete. It also includes
-the actual quintic polynomial and positive parameter-clearing foundations
-for the two pending finite K=4 families.
-
-The combined build passed 3,986 jobs and audited 13,578 project declarations,
-with only the permitted standard axioms. Independent semantic review passed
-all new proof interfaces and their signed/zero/boundary controls.
-The finite 1,330-case K=3 envelope remains in progress. This checkpoint
-therefore still completes only four of twenty principal release targets.
+The detailed earlier checkpoint observations are preserved in the
+[dated development record](history/2026-09-09-development.md). Its historical
+status text is superseded by this page and the actual verification receipts.
