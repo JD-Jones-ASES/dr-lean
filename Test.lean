@@ -17,3 +17,12 @@ import Test.SixMatrixBounds
 import Test.SpectralSixMatrix
 import Test.AlternatingSweepTen
 import Test.OrderThree
+import Test.BernsteinTransform
+import Test.SpectralFour
+import Test.FiveMarginalBounds
+import Test.SpectralFiveGuards
+import Test.OrderThreeSampling
+import Test.OrderThreeLargeDimensions
+import Test.SpectralFiveTensor
+import Test.SpectralFiveBounds
+import Test.OrderFourOrbit

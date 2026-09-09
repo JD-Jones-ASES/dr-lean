@@ -122,11 +122,11 @@ Completed locally:
 In progress:
 
 - The actual polynomial/orbit identities for the small-order matrix proofs.
-- The remaining square cases at orders three through five and their
+- The remaining square cases at orders four and five and their
   small-order matrix certificate identities.
 
 The principal all-dimension square, K=3, K=4 and large-endpoint results remain
-incomplete. Dittert is proved at orders one, two and every order at least six.
+incomplete. Dittert is proved at orders one, two, three and every order at least six.
 The full van der Waerden bound/equality and real-capacity
 transport prerequisites are now complete in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
@@ -264,6 +264,52 @@ The combined order-three/order-six checkpoint passed all 3,553 dependency
 jobs and audited 2,752 project declarations transitively against the standard
 axiom allowlist. Persistent tests expand both the original mass-three formula
 and the complete n>=6 statement, including the exact unique equality case.
+
+That exact order-three/order-six commit
+`77776c3de0d8b526dfab2ea48f7f8f97e5a824a4` passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34373242711),
+was advanced to private main, and was pulled into the durable source checkout.
+
+The following small-order foundation stage adds the complete order-four
+seed-matrix layer: all 8,448 canonical entries, 33 exact Gram identities,
+and 495 positive principal pivots pass ordinary kernel checks. The actual
+formula-defined seeds satisfy the 1/10 centered quadratic bound and have
+exactly the constant nullspace. The sextic identity and multiplier-orbit
+coverage were separate remaining obligations before the order-four matrix
+theorem can be claimed. Closed seed checks are cached in separate modules
+so their finite computations can be replayed efficiently.
+
+Order five now has its actual stationary marginal envelope, proved with a
+three-step bootstrap on the full closed domain, and all 67 scalar guard
+coefficients. The energy lower sign retains the physical deficit bound;
+its rational interval endpoint alone would give a negative energy and is
+explicitly tested. A reusable exact power-to-Bernstein conversion and affine
+coefficient transformation are proved over rational algebras, allowing later
+large certificates to use finite rational coefficient checks. Their tests
+cover degree zero, degree elevation, affine scaling and closed endpoints.
+The combined foundation build passed 3,566 dependency jobs and audited 4,524
+project declarations. It does not complete another principal release target.
+
+The next combined stage completes actual row/column-permutation coverage of
+all 3,876 quartic multiplier matrices by the 33 proved seeds. Every multiplier
+therefore satisfies the quantitative centered bound. The order-four sextic
+identity remains pending. Order five adds all 30 derivative coefficients and
+500 two-block scalar coefficients, with their exact gap and positive-floor
+consequences on the closed triangular domain.
+
+For rectangular K=3, the cubic failure polynomial is now proved equal to the
+actual ordered sampling event, including repeated cells and all six ordered
+L-shaped cases. The identity holds for signed weights; its probability
+corollary covers every nonnegative mass-one matrix. The exact dimension
+criterion is positive for min(M,N)>=10 and the stated six-through-nine-row
+strips; the matrix estimates connecting that criterion to the full maximum
+are a separate next stage. Tests retain false adjacent thresholds and the
+signed, repeated-cell, nonunit-mass and L-shape cases.
+
+This combined build passed all 3,585 dependency jobs and audited 5,463
+project declarations transitively. Source guards and their seven corruption
+controls passed. These are development foundations: the principal-target
+count remains three of twenty, and the repository remains private.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

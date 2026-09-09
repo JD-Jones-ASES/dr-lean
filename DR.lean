@@ -20,6 +20,12 @@ import DR.Collision.OccupationScaling
 import DR.Collision.Averaging
 import DR.Certificates.Bernstein
 import DR.Certificates.Gram
+import DR.Certificates.BernsteinTransform
+import DR.Certificates.BernsteinTensorTransform
+import DR.Certificates.SpectralFour
+import DR.Certificates.SpectralFiveGuards
+import DR.Certificates.SpectralFiveDerivative
+import DR.Certificates.SpectralFiveTwoBlockBounds
 import DR.Certificates.SpectralSeven
 import DR.Certificates.SpectralEight
 import DR.Certificates.SpectralTransfer
@@ -56,6 +62,7 @@ import DR.Square.SpectralAssembly
 import DR.Square.RefinedSweep
 import DR.Square.SpectralSeven
 import DR.Square.SixMarginalBounds
+import DR.Square.FiveMarginalBounds
 import DR.Square.IncidenceTransfer
 import DR.Square.AlternatingPath
 import DR.Square.AlternatingSweep
@@ -68,8 +75,12 @@ import DR.Square.SixSweepCut
 import DR.Square.SpectralSix
 import DR.Square.SpectralRange
 import DR.Square.OrderThreeFinal
+import DR.Square.OrderFourPolynomial
+import DR.Square.OrderFourOrbitPSD
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
+import DR.Rectangular.OrderThreeSampling
+import DR.Rectangular.OrderThreeLargeDimensions
 import DR.Square.Normalization
 import DR.Compactness
 import DR.Maximizers
