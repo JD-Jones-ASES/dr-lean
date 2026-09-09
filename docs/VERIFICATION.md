@@ -26,6 +26,9 @@ cycles, omitted modules, source changes and subprocess failures.
 This limits overlap between project modules. It does not limit external
 dependency jobs or asynchronous declarations within one Lean module.
 Individual large finite checks also use small serialized kernel decisions.
+The expanded development job has a 360-minute ceiling to allow the full
+serialized certificate replay. This changes only the time allowance; it
+does not diagnose earlier exit-143 failures or waive any proof check.
 All literal proof checks remain required. A dry run verifies the build plan,
 not the Lean proofs.
 

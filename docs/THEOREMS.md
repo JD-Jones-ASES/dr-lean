@@ -16,9 +16,9 @@ statements, their actual proofs and axiom dependencies determine completion.
 | `DittertRybin.dittert_unique_maximum` | All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n. | Proved locally; [square proof](ORDER-FIVE-PROOF.md) completes the last case |
 | `DittertRybin.uniform_maximum_order_two` | K=2 on every M,N>=2. | Proved locally |
 | `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Pending; complete three-row family, 4-by-4 and 4-by-5, four-row 6<=N<=21 and N>=960, all min(M,N)>=10 and five-through-nine-row infinite strips proved; see [range map](ORDER-THREE-RANGES.md) |
-| `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Pending; complete analytic tail N>=500 and transpose proved on the full closed simplex; see [foundation map](RECTANGULAR-FOUNDATIONS.md) |
-| `DittertRybin.uniform_maximum_five_by_five_order_four` | K=4 on the full 5 by 5 probability simplex. | Pending |
-| `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` | K=4 on the full 20 by 20 probability simplex. | Pending |
+| `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Pending; analytic tail N>=500 proved; finite coefficient identities, all Bernstein blocks and physical seed transport proved; final matrix/kernel assembly remains |
+| `DittertRybin.uniform_maximum_five_by_five_order_four` | K=4 on the full 5 by 5 probability simplex. | Pending; all 91 sharp coefficient equations proved; PSD/kernel assembly remains |
+| `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` | K=4 on the full 20 by 20 probability simplex. | Pending; all 91 sharp coefficient equations proved; PSD/kernel assembly remains |
 | `DittertRybin.uniform_maximum_large_boards` | Every K>=4 and M,N>=128(K-2)(binom(K,2)*binom(binom(K,2)^2,2)+1)^2. | Proved locally |
 | `DittertRybin.uniform_maximum_large_boards_power` | Every K>=4 and min(M,N)>=K^21. | Proved locally |
 | `DittertRybin.uniform_maximum_large_endpoints` | K=m on every m by N with m>=10^18 and N>=m, and transpose. | Pending |

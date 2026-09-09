@@ -29,7 +29,11 @@ with the complete 4-by-N range 6<=N<=21 and a checked 4-by-959 pilot;
 the full 1,330-case replay is in progress.
 The [four-row K=4 analytic tail](docs/FOUR-ROW-MINORANT.md) is proved for every
 N>=500 and its transpose, including all boundary matrices and iff equality.
-The remaining promised
+The [finite K=4 probability bridge](docs/FINITE-K4-QUINTIC-BRIDGE.md) now
+connects the literal equations to the signed functional, with all 2,704
+physical patterns and both fixed seeds checked. The
+[endpoint matrix estimate](docs/ENDPOINT-MATRIX-INTERFACE.md) proves the exact
+3/32 margin from explicit moment assumptions. The remaining promised
 rectangular families are in progress.
 The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
