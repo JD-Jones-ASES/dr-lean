@@ -134,3 +134,7 @@ import DR.Rectangular.FourRowFiniteBernstein
 import DR.Rectangular.FourByFourThree
 import DR.Certificates.PairNormalization
 import DR.Certificates.WeightedPair
+import DR.Rectangular.FourByFiveThree
+import DR.Certificates.FiniteK3Soundness
+import DR.Rectangular.FourRowFiniteParameter
+import DR.Rectangular.FourRowFinitePolynomial

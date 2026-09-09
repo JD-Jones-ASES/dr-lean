@@ -88,3 +88,14 @@ import Test.FourRowFiniteBernstein
 import Test.FourByFourThree
 import Test.PairNormalization
 import Test.WeightedPair
+import Test.FiniteK3QuarticLocal
+import Test.QuarticSampling
+import Test.FiniteK3QuarticProbability
+import Test.FiniteK3Soundness
+import Test.FourByFiveThreeSeed
+import Test.FourByFiveThreeOrbits
+import Test.FourByFiveThreeGeometry
+import Test.FourByFiveThreeQuadratic
+import Test.FourByFiveThree
+import Test.FourRowFiniteParameter
+import Test.FourRowFinitePolynomial

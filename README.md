@@ -22,7 +22,8 @@ locally. For K>=4 the latter applies whenever
 both dimensions are at least the explicit D_K in the theorem plan; K^21 is
 a simpler sufficient threshold. The complete [three-row K=3 family](docs/THREE-ROW-PROOF.md), with arbitrary
 N>=3 and its transpose, is also proved locally. The [four-row K=3 strip](docs/ORDER-THREE-RANGES.md)
-for N>=960 and the separate 4-by-4 K=3 stability certificate are complete too.
+for N>=960 and the separate [4-by-4 and 4-by-5 K=3 stability certificates](docs/FINITE-K3-CERTIFICATES.md)
+are complete too.
 The [four-row K=4 analytic tail](docs/FOUR-ROW-MINORANT.md) is proved for every
 N>=500 and its transpose, including all boundary matrices and iff equality.
 The remaining promised

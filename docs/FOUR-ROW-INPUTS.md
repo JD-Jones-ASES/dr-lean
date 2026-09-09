@@ -102,6 +102,8 @@ type; all fifteen patterns and 225 row/column pattern pairs are complete;
 all table entries match the literal sequential-rank canonical key. Actual
 entries preserve independent multiplier/quadratic-pair reversal and injective
 row/column maps. Transposition is deliberately a separate operation.
-The quartic identity, physical seed-kernel coverage, and all 1,330 rational
-certificate instantiations still have to be connected.
+The [general quartic identity](FINITE-K3-CERTIFICATES.md) is now connected
+to the actual signed sampling functional, and the complete 4-by-5 stability
+theorem is proved. Physical seed-kernel coverage and the 1,330 rational
+certificate instantiations remain active work.
 This matrix reduction alone is not a finite-rectangle P2 theorem.

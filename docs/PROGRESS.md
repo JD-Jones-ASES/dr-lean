@@ -2,15 +2,20 @@
 
 Updated 2026-09-09. The complete release goal remains active.
 
-The complete corrected four-row minorant and the analytic K=4 tail are now
-proved. Every 4-by-N board with N>=500, and its transpose, has uniform as
-the unique global maximizer on the full closed simplex. The separate 4-by-4
-K=3 certificate also gives its explicit 1/20 variance stability bound.
-The four-row K=3 strip remains complete for N>=960. The remaining K=3
-rectangles require their finite certificates; the K=4 finite interval and
-endpoint ranges remain incomplete. See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md)
-and [the full minorant proof](FOUR-ROW-MINORANT.md). The principal target
-count remains four of twenty.
+The separate 4-by-5 and 5-by-4 K=3 cases are now complete, with global
+stability constant 1/5 and exact uniform equality. The general 33-equation
+quartic identity is connected to the actual signed iid functional, and its
+certificate soundness theorem covers the full closed probability simplex.
+The 1,330-case finite envelope still needs its individual block certificates.
+See [FINITE-K3-CERTIFICATES](FINITE-K3-CERTIFICATES.md).
+
+The complete corrected four-row minorant and K=4 analytic tail N>=500,
+including the transpose, remain proved. The complete three-row K=3 family,
+four-row K=3 strip N>=960, and separate 4-by-4 stability theorem are also
+proved. The finite K=4 interval and endpoint ranges remain incomplete.
+See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md) and
+[the full minorant proof](FOUR-ROW-MINORANT.md). The principal target count
+remains four of twenty.
 
 Completed locally:
 
@@ -503,3 +508,16 @@ with exit 143 after otherwise successful module output. These outcomes do
 not establish a proof failure or a successful verification. Private main
 and the durable checkout remain at the independently verified 71ab5fb1
 checkpoint. No publication gate is passed by these local builds.
+
+The next curated local checkpoint connects all 33 finite K=3 coefficient
+equations to the actual signed quartic sampling identity and proves its
+closed-simplex certificate soundness. The separate 4-by-5 and 5-by-4 K=3
+theorems, including stability constant 1/5, are complete. It also includes
+the actual quintic polynomial and positive parameter-clearing foundations
+for the two pending finite K=4 families.
+
+The combined build passed 3,986 jobs and audited 13,578 project declarations,
+with only the permitted standard axioms. Independent semantic review passed
+all new proof interfaces and their signed/zero/boundary controls.
+The finite 1,330-case K=3 envelope remains in progress. This checkpoint
+therefore still completes only four of twenty principal release targets.
