@@ -128,3 +128,9 @@ import DR.Rectangular.FourRowMinorantThreeBoundary
 import DR.Rectangular.FourRowMinorantStationaryMin
 import DR.Rectangular.FourRowMinorantOneLarge
 import DR.Rectangular.FourRowMinorantThreeFeasible
+import DR.Rectangular.FourRowMinorantFinal
+import DR.Rectangular.FourRowTail
+import DR.Rectangular.FourRowFiniteBernstein
+import DR.Rectangular.FourByFourThree
+import DR.Certificates.PairNormalization
+import DR.Certificates.WeightedPair

@@ -27,21 +27,32 @@ factor two is proved explicitly. No column cap, extremality, positive-entry
 assumption, or dimension threshold is required. The signed homogeneous
 column formula retains the total-mass factor on its cubic term.
 
-[The concentration assembly](../DR/Rectangular/FourRowLeadingConcentration.lean)
-now needs only the separate corrected column minorant for contenders at
-N>=500. The scalar gauge gap and actual remainder are discharged internally.
-The corrected minorant is proved on every zero-row boundary, every column
-law supported on at most two rows, and the full repeated-row three-support
-family. Its repeated-row polynomial has 42,875 nonnegative degree-34 tensor
-Bernstein coefficients; the compactification and all coefficient conversions
-are identities in Lean. The exact compact three-moment affine-product
-reduction and nonnegativity at every feasible three-face stationary vector
-are now proved, including zero stationary coordinates. Actual
-strictly positive column-law minima also imply q<1/3 and the literal
-stationary vector; feasible one-large-row stationary values are positive.
-Deriving stationarity from an actual proper-face minimum and the full row-extremum
-structure are still required for the complete minorant. The two finite quintic families
-below the analytic range also remain separate obligations.
+[The complete corrected minorant](FOUR-ROW-MINORANT.md) is now proved for
+all nonnegative probability vectors r and v, with every boundary case:
+
+    sum_i v_i (1-g_i(r)) <= v^T B_4(r) v.
+
+Its proof derives the actual compact minima, all proper-face reductions,
+singular-discriminant exclusions, feasible stationary vectors, and fixed-q
+row-optimizer structure. The repeated-row polynomial has 42,875 checked
+nonnegative Bernstein coefficients. No minorant or optimizer shape is an
+assumption of the final theorem.
+
+[The column-gauge proof](../DR/Rectangular/FourRowGaugeMinorant.lean) handles
+zero columns directly and uses normalization and weighted Cauchy for positive
+column mass. Thus actual contenders at N>=500 supply every concentration,
+deletion and kernel premise. [The final tail](../DR/Rectangular/FourRowTail.lean)
+proves uniform unique maximality on the full closed simplex, with sharp value
+
+    1 - (29/32) (6/N - 11/N^2 + 6/N^3).
+
+Actual strict column averaging gives equal columns at every global maximum;
+the exact independent-coordinate sampling formula and row-product equality
+give uniform rows. The transposed theorem is included. The finite quintic
+families below 500 columns remain separate proof obligations. Their
+[matrix Bernstein soundness](../DR/Rectangular/FourRowFiniteBernstein.lean)
+is now proved on the entire closed parameter interval; the literal block
+identities and finite data have not yet been connected.
 
 ## Three-sample four-row leading bound
 

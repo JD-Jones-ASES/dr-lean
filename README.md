@@ -22,7 +22,10 @@ locally. For K>=4 the latter applies whenever
 both dimensions are at least the explicit D_K in the theorem plan; K^21 is
 a simpler sufficient threshold. The complete [three-row K=3 family](docs/THREE-ROW-PROOF.md), with arbitrary
 N>=3 and its transpose, is also proved locally. The [four-row K=3 strip](docs/ORDER-THREE-RANGES.md)
-for N>=960 is complete too. The remaining promised
+for N>=960 and the separate 4-by-4 K=3 stability certificate are complete too.
+The [four-row K=4 analytic tail](docs/FOUR-ROW-MINORANT.md) is proved for every
+N>=500 and its transpose, including all boundary matrices and iff equality.
+The remaining promised
 rectangular families are in progress.
 The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
@@ -37,7 +40,7 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
 - [Rectangular foundations](docs/RECTANGULAR-FOUNDATIONS.md): support exclusions,
   the actual four-sample averaging kernel and endpoint concentration prerequisites.
 - [Four-row inputs](docs/FOUR-ROW-INPUTS.md): actual collision remainders,
-  completed minorant families, and the finite-certificate matrix reduction.
+  the complete corrected minorant, analytic K=4 tail, and finite-certificate matrix reduction.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
   inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,

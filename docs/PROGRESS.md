@@ -2,14 +2,15 @@
 
 Updated 2026-09-09. The complete release goal remains active.
 
-The four-row K=3 strip is now complete for every N>=960 and its transpose,
-including unique equality on the full closed simplex. The remaining K=3
-rectangles form the finite certificate envelope.
-The latest verified inputs include the actual full-simplex four-row collision
-remainder, corrected-minorant boundary families, the four-row K=3 leading
-gauge bound, and the finite-certificate ordinary-column matrix reduction.
-See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md) for exact hypotheses and outstanding
-obligations. The principal target count remains four of twenty.
+The complete corrected four-row minorant and the analytic K=4 tail are now
+proved. Every 4-by-N board with N>=500, and its transpose, has uniform as
+the unique global maximizer on the full closed simplex. The separate 4-by-4
+K=3 certificate also gives its explicit 1/20 variance stability bound.
+The four-row K=3 strip remains complete for N>=960. The remaining K=3
+rectangles require their finite certificates; the K=4 finite interval and
+endpoint ranges remain incomplete. See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md)
+and [the full minorant proof](FOUR-ROW-MINORANT.md). The principal target
+count remains four of twenty.
 
 Completed locally:
 
@@ -144,7 +145,8 @@ The all-order wrapper is `DittertRybin.dittert_unique_maximum`.
 
 For K=3, positive global maximizers are now proved to be the original uniform
 board for all independent M,N>=3. Exact cubic interpolation and strict local
-uniqueness close this argument. Boundary-support classification remains active.
+uniqueness close this argument. The three-row boundary classification is complete; remaining K=3 finite
+rectangles are separate certificate obligations.
 
 The complete three-row family now proves `UniformMaximizer 3 N 3` for every
 N>=3 and its transpose, including all boundary supports and exact equality.
@@ -484,3 +486,20 @@ Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
 exists at /Users/jjones/Documents/repos/dr-lean. This project
 is separate from Analytic-Lab; the Lab contains no Lean files from this work.
+
+The next combined local checkpoint completes the corrected four-row minorant,
+the entire K=4 analytic tail N>=500 with transpose, the 4-by-4 K=3 stability
+certificate, and generic pair normalization and weighted-pair stability.
+Its curated combined build passed 3,956 jobs and audited 12,923 project
+declarations. Independent semantic reviews passed the actual theorem
+interfaces and all zero-coordinate cases. The matrix Bernstein foundation
+for the finite K=4 families is also checked, without claiming its pending
+coefficient data or actual quintic identity. Four principal targets remain
+complete out of twenty.
+
+Independent replay has not yet accepted the full-square checkpoint ce018413
+or its descendants. Run 34386973143 was cancelled; run 34390255947 ended
+with exit 143 after otherwise successful module output. These outcomes do
+not establish a proof failure or a successful verification. Private main
+and the durable checkout remain at the independently verified 71ab5fb1
+checkpoint. No publication gate is passed by these local builds.

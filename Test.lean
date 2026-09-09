@@ -80,3 +80,11 @@ import Test.FourRowMinorantThreeStationary
 import Test.FourRowMinorantInterior
 import Test.FourRowMinorantVariations
 import Test.FourRowMinorantThreeFeasible
+import Test.FourRowMinorantThreeFace
+import Test.FourRowMinorantRowExtrema
+import Test.FourRowMinorantFinal
+import Test.FourRowTail
+import Test.FourRowFiniteBernstein
+import Test.FourByFourThree
+import Test.PairNormalization
+import Test.WeightedPair

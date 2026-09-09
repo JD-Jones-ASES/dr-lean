@@ -60,9 +60,10 @@ three leading inputs in
 [FourRowContenderConcentration](../DR/Rectangular/FourRowContenderConcentration.lean).
 The scalar input and actual collision remainder are discharged. The
 [four-row input account](FOUR-ROW-INPUTS.md) gives the exact remainder and
-the corrected minorant's completed boundary families. The complete corrected
-minorant still requires its constrained-extremum reductions. Two finite quintic certificate families
-cover the intermediate column counts; both remain pending. The complete
+the complete corrected minorant and its actual compact-extremum reductions.
+The full closed-simplex K=4 analytic tail N>=500 and its transpose are now proved
+in [FourRowTail](../DR/Rectangular/FourRowTail.lean). Two finite quintic certificate
+families cover the intermediate column counts; both remain pending. The complete
 square N=4 case is already proved independently. The source is
 `FOUR_ROW_K4_GLOBAL.md`, whose analytic cutoff N>=500 supersedes the earlier
 N>=6400 cutoff. No conditional kernel estimate is counted as the complete

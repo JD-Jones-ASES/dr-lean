@@ -11,6 +11,7 @@ After transposition, write m<=n. The compiled ranges are:
 | Smaller side | Larger side | Declaration |
 |---|---|---|
 | 3 | n>=3 | `uniformMaximizer_three_rows` |
+| 4 | n=4 | `uniformMaximizer_four_by_four_three` |
 | 4 | n>=960 | `uniformMaximizer_orderThree_four_rows` |
 | m>=10 | n>=m | `uniform_maximum_order_three_of_min_ge_ten` |
 | 9 | n>=12 | `uniform_maximum_order_three_nine` |
