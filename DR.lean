@@ -85,3 +85,15 @@ import DR.Square.Normalization
 import DR.Compactness
 import DR.Maximizers
 import DR.Rectangular.LargeBoards
+import DR.Certificates.BernsteinTensorRational
+import DR.Certificates.SpectralFiveSingletonDataPositive
+import DR.Certificates.SpectralFiveSingletonBounds
+import DR.Certificates.SpectralFiveSingletonMonotonicity
+import DR.Certificates.SpectralFiveCrossingMonotonicity
+import DR.Certificates.BernsteinPositiveBlend
+import DR.Rectangular.OrderThreeLarge
+import DR.Rectangular.OrderThreeLargeFive
+import DR.Square.FiveSweepCut
+import DR.Square.HomogeneousDittert
+import DR.Certificates.SpectralFiveSingletonCoordinates
+import DR.Certificates.SpectralFiveSingletonCoefficientCheck

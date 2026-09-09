@@ -1,0 +1,64 @@
+import DR.Certificates.SpectralFiveSingleton.Block00
+import DR.Certificates.SpectralFiveSingleton.Block01
+import DR.Certificates.SpectralFiveSingleton.Block02
+import DR.Certificates.SpectralFiveSingleton.Block03
+import DR.Certificates.SpectralFiveSingleton.Block04
+import DR.Certificates.SpectralFiveSingleton.Block05
+import DR.Certificates.SpectralFiveSingleton.Block06
+import DR.Certificates.SpectralFiveSingleton.Block07
+import DR.Certificates.SpectralFiveSingleton.Block08
+import DR.Certificates.SpectralFiveSingleton.Block09
+import DR.Certificates.SpectralFiveSingleton.Block10
+import DR.Certificates.SpectralFiveSingleton.Block11
+import DR.Certificates.SpectralFiveSingleton.Block12
+import DR.Certificates.SpectralFiveSingleton.Block13
+import DR.Certificates.SpectralFiveSingleton.Block14
+import DR.Certificates.SpectralFiveSingleton.Block15
+import DR.Certificates.SpectralFiveSingleton.Block16
+import DR.Certificates.SpectralFiveSingleton.Block17
+import DR.Certificates.SpectralFiveSingleton.Block18
+import DR.Certificates.SpectralFiveSingleton.Block19
+import DR.Certificates.SpectralFiveSingleton.Block20
+import DR.Certificates.SpectralFiveSingleton.Block21
+import DR.Certificates.SpectralFiveSingleton.Block22
+import DR.Certificates.SpectralFiveSingleton.Block23
+import DR.Certificates.SpectralFiveSingleton.Block24
+import DR.Certificates.SpectralFiveSingleton.Block25
+import DR.Certificates.SpectralFiveSingleton.Block26
+import DR.Certificates.SpectralFiveSingleton.Block27
+import DR.Certificates.SpectralFiveSingleton.Block28
+import DR.Certificates.SpectralFiveSingleton.Block29
+import DR.Certificates.SpectralFiveSingleton.Block30
+import DR.Certificates.SpectralFiveSingleton.Block31
+import DR.Certificates.SpectralFiveSingleton.Block32
+import DR.Certificates.SpectralFiveSingleton.Block33
+import DR.Certificates.SpectralFiveSingleton.Block34
+import DR.Certificates.SpectralFiveSingleton.Block35
+import DR.Certificates.SpectralFiveSingleton.Block36
+import DR.Certificates.SpectralFiveSingleton.Block37
+import DR.Certificates.SpectralFiveSingleton.Block38
+import DR.Certificates.SpectralFiveSingleton.Block39
+import DR.Certificates.SpectralFiveSingleton.Block40
+import DR.Certificates.SpectralFiveSingleton.Block41
+import DR.Certificates.SpectralFiveSingleton.Block42
+import DR.Certificates.SpectralFiveSingleton.Block43
+import DR.Certificates.SpectralFiveSingleton.Block44
+import DR.Certificates.SpectralFiveSingleton.Block45
+import DR.Certificates.SpectralFiveSingleton.Block46
+import DR.Certificates.SpectralFiveSingleton.Block47
+import DR.Certificates.SpectralFiveSingleton.Block48
+import DR.Certificates.SpectralFiveSingleton.Block49
+import DR.Certificates.SpectralFiveSingleton.Block50
+import DR.Certificates.SpectralFiveSingleton.Block51
+import DR.Certificates.SpectralFiveSingleton.Block52
+import DR.Certificates.SpectralFiveSingleton.Block53
+import DR.Certificates.SpectralFiveSingleton.Block54
+import DR.Certificates.SpectralFiveSingleton.Block55
+
+namespace DittertRybin.Certificates.SpectralFiveSingleton
+noncomputable section
+def blockPowerCoefficients : Fin 8 → Fin 7 → Fin 37 → ℚ :=
+  ![![block00PowerCoefficients, block01PowerCoefficients, block02PowerCoefficients, block03PowerCoefficients, block04PowerCoefficients, block05PowerCoefficients, block06PowerCoefficients], ![block07PowerCoefficients, block08PowerCoefficients, block09PowerCoefficients, block10PowerCoefficients, block11PowerCoefficients, block12PowerCoefficients, block13PowerCoefficients], ![block14PowerCoefficients, block15PowerCoefficients, block16PowerCoefficients, block17PowerCoefficients, block18PowerCoefficients, block19PowerCoefficients, block20PowerCoefficients], ![block21PowerCoefficients, block22PowerCoefficients, block23PowerCoefficients, block24PowerCoefficients, block25PowerCoefficients, block26PowerCoefficients, block27PowerCoefficients], ![block28PowerCoefficients, block29PowerCoefficients, block30PowerCoefficients, block31PowerCoefficients, block32PowerCoefficients, block33PowerCoefficients, block34PowerCoefficients], ![block35PowerCoefficients, block36PowerCoefficients, block37PowerCoefficients, block38PowerCoefficients, block39PowerCoefficients, block40PowerCoefficients, block41PowerCoefficients], ![block42PowerCoefficients, block43PowerCoefficients, block44PowerCoefficients, block45PowerCoefficients, block46PowerCoefficients, block47PowerCoefficients, block48PowerCoefficients], ![block49PowerCoefficients, block50PowerCoefficients, block51PowerCoefficients, block52PowerCoefficients, block53PowerCoefficients, block54PowerCoefficients, block55PowerCoefficients]]
+
+end
+end DittertRybin.Certificates.SpectralFiveSingleton

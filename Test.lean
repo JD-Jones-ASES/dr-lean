@@ -26,3 +26,8 @@ import Test.OrderThreeLargeDimensions
 import Test.SpectralFiveTensor
 import Test.SpectralFiveBounds
 import Test.OrderFourOrbit
+import Test.OrderThreeLarge
+import Test.SpectralFiveScalarBridges
+import Test.BernsteinTensorRational
+import Test.OrderThreeLargeFive
+import Test.FiveCutAndScaling

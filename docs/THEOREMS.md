@@ -15,7 +15,7 @@ statements, their actual proofs and axiom dependencies determine completion.
 |---|---|---|
 | `DittertRybin.dittert_unique_maximum` | All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n. | Pending; orders 1, 2, 3 and all n>=6 proved |
 | `DittertRybin.uniform_maximum_order_two` | K=2 on every M,N>=2. | Proved locally |
-| `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Pending |
+| `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Pending; all min(M,N)>=10 and five-through-nine-row infinite strips proved; see [range map](ORDER-THREE-RANGES.md) |
 | `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_five_by_five_order_four` | K=4 on the full 5 by 5 probability simplex. | Pending |
 | `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` | K=4 on the full 20 by 20 probability simplex. | Pending |

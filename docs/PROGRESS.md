@@ -119,6 +119,12 @@ Completed locally:
   exact alternating path, actual singleton cell bound and permanent floor,
   and all 546 proved scalar certificate coefficients.
 
+The complete K=3 inequality and unique equality are also proved whenever
+both dimensions are at least ten, and on the five-through-nine-row infinite
+strips listed in [ORDER-THREE-RANGES](ORDER-THREE-RANGES.md), in both
+orientations. The remaining small-side and finite cases still prevent
+completion of the all-rectangle K=3 release target.
+
 In progress:
 
 - The actual polynomial/orbit identities for the small-order matrix proofs.
@@ -310,6 +316,36 @@ This combined build passed all 3,585 dependency jobs and audited 5,463
 project declarations transitively. Source guards and their seven corruption
 controls passed. These are development foundations: the principal-target
 count remains three of twenty, and the repository remains private.
+
+That small-order/cubic-identity checkpoint,
+`68e64d0de5229ca235ffcf3030738044a683542a`, passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34377314242)
+and was advanced to private main. Its fresh CI build took about 38 minutes.
+The development job limit is increased to 120 minutes for the next larger
+certificate package; all proof, source and axiom checks remain required.
+
+The next combined checkpoint connects the actual cubic probability identity
+to the complete large-range and infinite-strip K=3 theorems. The centered
+expansion, orthogonal energy decomposition, mixed Cauchy bound and near/far
+estimates all hold on the closed probability simplex. For five rows and
+N>=121, the exact near-region margin is 27197/2772275; zero cell entries,
+zero row deviation and zero total centered energy remain covered.
+
+Order five now has its actual balanced spectral cut of cardinality one or
+two, preserving complete cross-subset marginal ordering, subset mass signs
+and singleton extrema. Homogeneous lower-order Dittert bounds include
+arbitrary nonnegative block mass and the zero-mass boundary. All 18,648
+rational singleton interval coefficient bounds and all 56 two-axis
+coefficient conversions pass ordinary kernel checks. The separate identity
+from the literal source numerator to its power table remains pending, so
+these checked data are not yet claimed as the completed singleton inequality.
+
+This combined build passed all 3,685 dependency jobs and audited 8,571
+project declarations against the standard-axiom allowlist. Persistent tests
+cover the actual K=3 ranges and their transposes, boundary supports, exact
+mixed-term constants, five-row margin, zero-mass scaling, and the degenerate
+singleton coordinate box. The complete-release target count stays at three
+of twenty. Independent CI for this new checkpoint is still required.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
