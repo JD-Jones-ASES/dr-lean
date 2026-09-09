@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "required_targets": [
+    {
+      "declaration": "DittertRybin.dittert_unique_maximum",
+      "scope": "All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_order_two",
+      "scope": "K=2 on every M,N>=2.",
+      "status": "proved locally",
+      "file": "DR/Rectangular/OrderTwo.lean"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_order_three",
+      "scope": "K=3 on every M,N>=3.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_four_rows",
+      "scope": "K=4 on every 4 by N, N>=4, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_five_by_five_order_four",
+      "scope": "K=4 on the full 5 by 5 probability simplex.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_twenty_by_twenty_order_four",
+      "scope": "K=4 on the full 20 by 20 probability simplex.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_large_boards",
+      "scope": "Every K>=4 and M,N>=128(K-2)(binom(K,2)*binom(binom(K,2)^2,2)+1)^2.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_large_boards_power",
+      "scope": "Every K>=4 and min(M,N)>=K^21.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_large_endpoints",
+      "scope": "K=m on every m by N with m>=10^18 and N>=m, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_quadratic_endpoint_strip",
+      "scope": "K=m, m>=96, N>=10000 m^2, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_quartic_endpoint_strip",
+      "scope": "K=m, m>=16, N>=20000 m^4, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_combined_endpoint_strip",
+      "scope": "K=m, m>=5, N>=10^11 m^2, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_consecutive_endpoint",
+      "scope": "K=m on m by (m+1), m>=19, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_short_endpoint",
+      "scope": "K=m on m by N with m>=117 and m<=N<=2m, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_square_near_endpoint",
+      "scope": "K=n-1 on n by n, n>=21.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_arithmetic_endpoint",
+      "scope": "K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_double_endpoint",
+      "scope": "K=m on m by 2m for m>=80, and transpose.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_lll_endpoint",
+      "scope": "K=m, m>=128, 64m^(3/2)<=N<=m(m-1)/20, and transpose, when the interval is nonempty.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_small_side",
+      "scope": "Every 2<=K<=min(M,N) when 2<=min(M,N)<=4.",
+      "status": "pending"
+    },
+    {
+      "declaration": "DittertRybin.uniform_maximum_five_by_five",
+      "scope": "Every 2<=K<=5 on 5 by 5.",
+      "status": "pending"
+    }
+  ],
+  "full_P2": "open; not a claimed release target"
+}
