@@ -11,6 +11,7 @@ After transposition, write m<=n. The compiled ranges are:
 | Smaller side | Larger side | Declaration |
 |---|---|---|
 | 3 | n>=3 | `uniformMaximizer_three_rows` |
+| 4 | n>=960 | `uniformMaximizer_orderThree_four_rows` |
 | m>=10 | n>=m | `uniform_maximum_order_three_of_min_ge_ten` |
 | 9 | n>=12 | `uniform_maximum_order_three_nine` |
 | 8 | n>=15 | `uniform_maximum_order_three_eight` |
@@ -20,8 +21,9 @@ After transposition, write m<=n. The compiled ranges are:
 
 The [complete three-row proof](THREE-ROW-PROOF.md) includes all N>=3 and
 its transpose. The 3-by-3 endpoint is also proved independently in the square
-package. The four-row family and remaining finite rectangles are still work
-in progress. A criterion failing outside the table is
+package. The remaining rectangles are finite: 4-by-4, 4-by-5, and the
+1,330 stored certificate cases (4-by-6 through 4-by-959 and the remaining
+five-through-nine-row ranges). A criterion failing outside the table is
 not a counterexample to P2.
 
 ## Actual probability and energy bounds
@@ -41,7 +43,7 @@ squared centered norm is at least 2/(mn). The
 [near bound](../DR/Rectangular/OrderThreeLargeNear.lean) multiplies that
 norm by an explicit rational dimension criterion. Its
 [dimension proof](../DR/Rectangular/OrderThreeLargeDimensions.lean)
-establishes the first five rows of the table without sampling dimensions.
+establishes the general large-board and six-through-nine-row ranges without sampling dimensions.
 [OrderThreeLarge](../DR/Rectangular/OrderThreeLarge.lean) gives the final
 probability inequalities, exact equality case and transposition wrappers.
 
@@ -63,6 +65,22 @@ row-coordinate bound, threshold values, transposition and matrices with
 zero entries. See [the general tests](../Test/OrderThreeLarge.lean) and
 [the five-row tests](../Test/OrderThreeLargeFive.lean).
 
-The mathematical source is Analytic-Lab's P0174 `LARGE_RECTANGLES.md`;
+## Four rows
+
+The complete N>=960 strip is proved in
+[OrderThreeFourRowFinal](../DR/Rectangular/OrderThreeFourRowFinal.lean), including
+the transposed family. The [leading gauge account](FOUR-ROW-INPUTS.md) gives
+the exact scalar and copositive inequalities. Their actual contender bootstrap
+proves gauge variance times N^2<5, row variance times N<14, each column
+mass<7/N, and row variance<1/64.
+
+The first-order residual averaging kernel then has a 1/8 quadratic floor
+on every real vector after any two distinct columns are removed. Exact
+sampling gives a midpoint gain at least 3/16 times the squared difference
+of those columns. Hence global maximizers have equal columns; positive
+row masses and the proved positive-matrix K=3 uniqueness theorem finish
+the result. Every concentration and support statement is derived internally.
+
+The mathematical sources are Analytic-Lab's P0174 `LARGE_RECTANGLES.md` and `FOUR_ROW_STRIP.md`;
 the formal proof keeps its constants and full boundary scope. This range
 map concerns compiled partial families, not the entire twenty-target release.

@@ -34,8 +34,13 @@ The corrected minorant is proved on every zero-row boundary, every column
 law supported on at most two rows, and the full repeated-row three-support
 family. Its repeated-row polynomial has 42,875 nonnegative degree-34 tensor
 Bernstein coefficients; the compactification and all coefficient conversions
-are identities in Lean. The remaining constrained-extremum reductions are
-still required for the complete minorant. The two finite quintic families
+are identities in Lean. The exact compact three-moment affine-product
+reduction and nonnegativity at every feasible three-face stationary vector
+are now proved, including zero stationary coordinates. Actual
+strictly positive column-law minima also imply q<1/3 and the literal
+stationary vector; feasible one-large-row stationary values are positive.
+Deriving stationarity from an actual proper-face minimum and the full row-extremum
+structure are still required for the complete minorant. The two finite quintic families
 below the analytic range also remain separate obligations.
 
 ## Three-sample four-row leading bound
@@ -51,8 +56,11 @@ uses an exact six-square identity for a copositive quadratic minorant.
 A continuity argument covers zero elementary-symmetric denominator and
 zero-column cases. This is copositivity on nonnegative columns; a stored
 signed-column counterexample rejects an unrestricted PSD interpretation.
-Contender concentration and final uniqueness for N>=960 are subsequent
-obligations, not hypotheses hidden in this leading bound.
+Contender concentration and final uniqueness for N>=960 are now proved in
+[the final strip theorem](../DR/Rectangular/OrderThreeFourRowFinal.lean).
+The residual signed-vector kernel floor is 1/8; the actual midpoint gain is
+at least 3/16 times the squared column difference. This proves equal columns
+at every global maximum and closes the theorem, including transposition.
 
 ## Interchangeable ordinary columns in finite K=3 certificates
 
@@ -77,6 +85,12 @@ kernel step after a checked principal certificate and reindexing.
 
 Tests detect the missing factor 1/ell and show why merely semidefinite H
 does not establish strict uniqueness. The dimension-independent 93-entry
-orbit construction, quartic identity, physical seed-kernel coverage, and
-all 1,330 rational certificate instantiations still have to be connected.
+[orbit construction](../DR/Certificates/FiniteK3Orbits.lean) is now proved:
+first-position compression preserves every equality relation on any ambient
+type; all fifteen patterns and 225 row/column pattern pairs are complete;
+all table entries match the literal sequential-rank canonical key. Actual
+entries preserve independent multiplier/quadratic-pair reversal and injective
+row/column maps. Transposition is deliberately a separate operation.
+The quartic identity, physical seed-kernel coverage, and all 1,330 rational
+certificate instantiations still have to be connected.
 This matrix reduction alone is not a finite-rectangle P2 theorem.

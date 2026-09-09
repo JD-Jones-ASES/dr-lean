@@ -15,8 +15,9 @@ and exclusion of every one-, two-, and three-doubleton boundary family.
 entry. All original zero entries are covered. The N=2 countercontrol proves
 that the lower dimension guard is necessary for uniqueness.
 
-The full K=3 release target still requires four rows and the remaining finite
-five-through-nine-row cases. See [the range map](ORDER-THREE-RANGES.md).
+The four-row K=3 strip N>=960 is also proved, including its transpose.
+The full K=3 release target still requires the remaining finite
+four-through-nine-row cases. See [the range map](ORDER-THREE-RANGES.md).
 
 ## Four rows at four samples
 

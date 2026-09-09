@@ -121,3 +121,10 @@ import DR.Certificates.OrdinaryColumnBlocks
 import DR.Rectangular.FourRowMinorantEqualRows
 import DR.Rectangular.FourRowLeadingConcentration
 import DR.Rectangular.OrderThreeFourRowLeading
+import DR.Certificates.FiniteK3Orbits
+import DR.Rectangular.OrderThreeFourRowFinal
+import DR.Rectangular.FourRowMinorantThreeStationary
+import DR.Rectangular.FourRowMinorantThreeBoundary
+import DR.Rectangular.FourRowMinorantStationaryMin
+import DR.Rectangular.FourRowMinorantOneLarge
+import DR.Rectangular.FourRowMinorantThreeFeasible

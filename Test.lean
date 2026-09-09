@@ -72,3 +72,11 @@ import Test.FourRowRemainder
 import Test.OrderThreeFourRowGauge
 import Test.OrderThreeFourRowCopositive
 import Test.OrderThreeFourRowLeading
+import Test.FiniteK3Orbits
+import Test.OrderThreeFourRowConcentration
+import Test.OrderThreeFourRowFinal
+import Test.FourRowMinorantThreeExtrema
+import Test.FourRowMinorantThreeStationary
+import Test.FourRowMinorantInterior
+import Test.FourRowMinorantVariations
+import Test.FourRowMinorantThreeFeasible

@@ -2,6 +2,9 @@
 
 Updated 2026-09-09. The complete release goal remains active.
 
+The four-row K=3 strip is now complete for every N>=960 and its transpose,
+including unique equality on the full closed simplex. The remaining K=3
+rectangles form the finite certificate envelope.
 The latest verified inputs include the actual full-simplex four-row collision
 remainder, corrected-minorant boundary families, the four-row K=3 leading
 gauge bound, and the finite-certificate ordinary-column matrix reduction.
@@ -450,6 +453,32 @@ The preceding three-row/gauge commit is
 `486d70d7bdf148cc88cbcfa32c6c61288478854a`, with
 [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34392339329)
 still running. None of these inputs is counted as a completed new principal target.
+
+The following checkpoint completes the actual four-row K=3 infinite strip.
+Its concentration assumptions are discharged, the residual kernel has a
+1/8 floor on all real vectors, and the actual midpoint gain is at least
+3/16 times the column-difference square sum. Positive-global uniqueness
+then closes the sharp full-simplex theorem and transpose. Independent review
+checked the exact uniform correction, dimension guards, deleted mass, signed
+kernel identification, and final equality scope.
+
+The finite K=3 role construction now has a proved arbitrary-label compression
+theorem, a complete fifteen-pattern census on each axis, and all 225 exact
+canonical-key checks for the 93 source roles. Independent review checked
+the source scan, sequential ranks, separate pair roles, physical symmetry
+and map invariance. All generator output reproduces. The corrected four-row
+minorant now also has the actual compact affine-product reduction, all
+feasible three-face stationary values, and the actual positive minimum's
+strict q<1/3 and stationary identification. The full row-optimizer structure
+and proper-face minimum-to-stationary step remain separate obligations.
+
+This combined build passed all 3,930 dependency jobs and audited 12,732 project
+declarations against the standard-axiom allowlist. The principal count remains
+four of twenty; complete K=3 still requires the finite certificates. The
+preceding collision/block commit is
+`2d4449e2407f29b5e4984f0e388b1b529a38f493`, with
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34394563364)
+still running. Independent CI is required for this subsequent checkpoint too.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
