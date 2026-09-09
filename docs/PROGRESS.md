@@ -91,24 +91,32 @@ Completed locally:
   doubly stochastic matrix, including dimensions zero and one. The proof
   uses the actual multivariate capacity, proved stable differentiation,
   finite variable reduction, capacity descent and coefficient identification.
-  Its equality classification is still in progress.
+  Its complete equality classification is now proved too: equality holds
+  exactly at the uniform matrix, including dimensions zero and one.
+  The first-deletion capacity bound and strict x log x convexity include
+  unit entries and their 0^0 entropy factors.
 - The finite weighted sweep bound (N-1)E/(4V), with exact sorting, ties,
   disconnected zero-energy cases and complement selection.
 - The full scalar dimension transfer for n>=8, the refined n=7 scalar
   contradiction, and the exact two-block gamma-product bound. Connecting
   these scalar results to an actual matrix cut remains in progress.
+- Actual spectral scores, zero weighted mean, exact energy/gap identity,
+  positive variance at nonuniform global maxima, and the precise
+  0<=gap<=permanent/(1-delta) bound, including disconnected support.
+- The entropy-derived shared subset discrepancy bound and the n=7
+  marginal cap 23/20; empty/full subsets and zero cell entries are included.
+- The substochastic permanent floor and the two-block floor for arbitrary
+  row/column subsets of equal size, using actual transport and reindexing.
 
 In progress:
 
-- Van der Waerden's equality classification.
 - The actual polynomial/orbit identities for the small-order matrix proofs.
 - The spectral/marginal cut and block domination argument, and remaining
   small-order matrix certificate identities.
 
 The principal square, K=3, K=4 and large-endpoint results remain
-unformalized. Van der Waerden's bound is now proved in this project; its
-equality classification remains to be proved. The real-capacity transport
-prerequisite is also complete.
+unformalized. The full van der Waerden bound/equality and real-capacity
+transport prerequisites are now complete in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
 the completed foundations alone.
 
@@ -181,6 +189,16 @@ tests include a stable polynomial that becomes zero under differentiation
 at zero, empty-matrix coefficient one, factorial multiplicity, exact sweep
 sharpness and disconnected zero-energy cuts. This establishes the permanent
 inequality prerequisite; its strict equality proof remains active work.
+
+The following combined checkpoint completes permanent equality and adds
+the actual spectral pair, marginal discrepancy and arbitrary-subset block
+floor. All 3,515 dependency jobs passed, and 1,500 project declarations
+passed the transitive standard-axiom audit. Persistent boundary tests include
+the unit-entry entropy factor, strict boundary/equality separation, sparse
+and empty blocks, independent noncontiguous row/column subsets, nonunit
+domination scaling, and rejection of an incorrect crossing-mass factor.
+The twenty-target release inventory still has only the same three completed
+principal rectangular declarations; the square theorem is not yet assembled.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

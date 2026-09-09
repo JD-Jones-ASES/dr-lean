@@ -1,8 +1,10 @@
 # Capacity route for the full square permanent prerequisite
 
-Status: bounded formalization checkpoint, 2026-09-09. The van der Waerden
-inequality and its equality characterization are not yet formalized here.
-This is a plan for proving them, not an assumption or conditional replacement.
+Status: completed prerequisite, 2026-09-09. The unconditional van der Waerden
+inequality and its full equality characterization are proved in
+`DR/Square/CapacityEquality.lean`, including dimensions zero and one.
+`vanDerWaerden_with_equality` assumes only that the input matrix is doubly
+stochastic. The square Dittert theorem remains separate work.
 
 Later completion update: `CapacityPolynomial.lean` now proves the full
 split-polynomial bridge, including nonpositive roots derived from
@@ -11,11 +13,18 @@ defines actual complex half-plane nonvanishing and proves the initial
 matrix polynomial is homogeneous, coefficientwise nonnegative, H-stable
 and of capacity one. The initial-checkpoint inventory below is preserved;
 its former missing root bridge and initial stability steps are now complete.
-`StableSlices.lean` now supplies positive-slice splitting, and
-`NormComparison.lean` proves Gurvits's norm comparison for homogeneous
-H-stable real polynomials. The remaining frontier is derivative and boundary
-specialization closure, capacity descent, coefficient identification and
-matrix equality. See [PROGRESS](PROGRESS.md) for the current checkpoint.
+`StableSlices.lean` supplies positive-slice splitting, and
+`NormComparison.lean` proves Gurvits's norm comparison. `StableClosure.lean`
+and `StableDerivative.lean` prove coefficientwise limits, positive directional
+derivative stability by Gauss–Lucas, coordinate differentiation and zero
+specialization, retaining the zero-polynomial alternative.
+`CapacityDescent.lean` and `CapacityBound.lean` prove actual capacity descent
+and induction; `PermanentCoefficient.lean` identifies the squarefree
+coefficient with the permanent. The two equality modules prove the actual
+first-deletion capacity bound and the column-permutation argument;
+`CapacityEqualityEntropy.lean` proves the strict closed-simplex entropy step.
+All previously outstanding operations listed in the original plan below are
+now discharged. See [PROGRESS](PROGRESS.md) for current combined verification.
 
 ## Primary sources and selected route
 

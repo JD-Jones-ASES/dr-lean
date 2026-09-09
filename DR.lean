@@ -37,10 +37,17 @@ import DR.Square.StableDerivative
 import DR.Square.PermanentCoefficient
 import DR.Square.CapacityDescent
 import DR.Square.CapacityBound
+import DR.Square.CapacityEqualityEntropy
+import DR.Square.CapacityEqualityDeletion
+import DR.Square.CapacityEquality
+import DR.Square.BlockFloor
 import DR.Square.Stationarity
 import DR.Square.Contenders
 import DR.Square.NormalizedMatrix
 import DR.Square.WeightedSweep
+import DR.Square.SweepReindex
+import DR.Square.SpectralPair
+import DR.Square.MarginalDiscrepancy
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization

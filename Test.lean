@@ -6,3 +6,5 @@ import Test.Bernstein
 import Test.Gram
 import Test.Stability
 import Test.WeightedSweep
+import Test.BlockFloor
+import Test.CapacityEquality

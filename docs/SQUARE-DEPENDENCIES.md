@@ -20,7 +20,11 @@ real-capacity transport criterion in `DR/Square/Transport.lean`.
 Transport sufficiency uses compact maximization followed by a secondary
 row-energy minimization and a deficient-cut contradiction. Both the cut
 criterion and doubly stochastic domination are unconditional compiled
-theorems. Van der Waerden with equality remains a missing prerequisite.
+theorems. The full van der Waerden inequality and equality characterization
+have also now been proved in `DR/Square/CapacityEquality.lean`, through the
+completed [capacity route](CAPACITY-ROUTE.md). The inventory and implementation
+order below preserve the initial library audit; they do not describe these
+project prerequisites as still missing.
 
 ## Library audit conclusion
 
