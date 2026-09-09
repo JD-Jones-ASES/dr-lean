@@ -137,6 +137,13 @@ For K=3, positive global maximizers are now proved to be the original uniform
 board for all independent M,N>=3. Exact cubic interpolation and strict local
 uniqueness close this argument. Boundary-support classification remains active.
 
+Three-row global maxima now have full or doubleton columns, at least one
+full column, and at most two occurring doubleton types. The single-doubleton
+scalar KKT exclusion, actual four-row sampling-kernel bridge, closed-simplex
+Newton--Maclaurin variance bounds, row-assignment normalization and exact
+factorial decay are proved. [The rectangular foundation map](RECTANGULAR-FOUNDATIONS.md)
+states the interfaces and remaining obligations.
+
 The principal K=3, K=4 and large-endpoint release targets remain incomplete.
 Four of the twenty required principal targets are now proved locally.
 The full van der Waerden bound/equality and real-capacity
@@ -351,7 +358,10 @@ project declarations against the standard-axiom allowlist. Persistent tests
 cover the actual K=3 ranges and their transposes, boundary supports, exact
 mixed-term constants, five-row margin, zero-mass scaling, and the degenerate
 singleton coordinate box. The complete-release target count stays at three
-of twenty. Independent CI for this new checkpoint is still required.
+of twenty. That exact checkpoint,
+`71ab5fb1e4bae27fbd43f26ab06f2e1646750836`, subsequently passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34382115147)
+and was advanced to private main and the durable source checkout.
 
 The full-square checkpoint adds the complete order-four certificate and
 order-five assembly. All 86 sparse arithmetic equalities identify the literal
@@ -374,6 +384,25 @@ release target. The combined full-square build passed all 3,781 dependency jobs 
 All seven source-guard corruption controls, the exact four-of-twenty target
 inventory, forty-one relative documentation links, and whitespace checks passed.
 Independent CI for this full-square checkpoint is still required.
+
+The next rectangular foundation checkpoint adds the actual singleton exclusion,
+existence of a full column, and exclusion of all three doubleton types at a
+three-row global maximum. Its single-doubleton scalar proof keeps all four
+KKT conditions and strict integer borders. The four-row polynomial kernel is
+identified with the actual sampling kernel, including factor 24 and full-simplex
+pair rigidity under the stated concentration bounds. The closed-domain
+Newton--Maclaurin, exact variance, row-assignment, and factorial-decay modules
+supply common endpoint prerequisites; none assumes an endpoint conclusion.
+
+This combined checkpoint passed all 3,819 dependency jobs and audited 11,699
+project declarations transitively against the standard-axiom allowlist.
+Persistent tests include actual support boundaries, zero residuals, signed
+sampling formulas, row-normalization and factorial controls, repeated roots,
+and the nonunique first-order case. All seven source-guard corruption tests
+passed. The principal-target count remains four of twenty; full-square CI and
+independent CI for this subsequent checkpoint remain separate required gates.
+See [RECTANGULAR-FOUNDATIONS](RECTANGULAR-FOUNDATIONS.md) for readable proof
+interfaces and exact remaining obligations.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

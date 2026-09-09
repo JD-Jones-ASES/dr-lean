@@ -104,3 +104,11 @@ import DR.Rectangular.ThreeRowComparison
 import DR.Rectangular.ThreeRowLocal
 import DR.Rectangular.ThreeRowPositive
 import DR.Rectangular.ThreeRowProperMasses
+import DR.ElementarySymmetricBoundsVariance
+import DR.Endpoint.RowProduct
+import DR.Rectangular.ThreeRowFullColumn
+import DR.Rectangular.ThreeRowSingletonShape
+import DR.Rectangular.ThreeRowSingleDoubletScalar
+import DR.Rectangular.ThreeRowThreeDoublets
+import DR.Rectangular.FourRowAveraging
+import DR.Endpoint.FactorialDecay

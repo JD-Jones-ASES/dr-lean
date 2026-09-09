@@ -31,6 +31,8 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
   Cheon–Wanless, the earlier public complete Dittert proof, and Lab evidence.
 - [Theorems and dependency order](docs/THEOREMS.md): every required target and
   its current status; no replacement of a global result by finite tests.
+- [Rectangular foundations](docs/RECTANGULAR-FOUNDATIONS.md): support exclusions,
+  the actual four-sample averaging kernel and endpoint concentration prerequisites.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
   inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,

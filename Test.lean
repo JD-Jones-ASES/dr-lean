@@ -47,3 +47,14 @@ import Test.ThreeRowGradient
 import Test.ThreeRowLocal
 import Test.ThreeRowPositive
 import Test.ThreeRowProper
+import Test.ElementarySymmetricBounds
+import Test.RowProduct
+import Test.ThreeRowTwoStar
+import Test.ThreeRowSingletons
+import Test.ThreeRowSingletonShape
+import Test.ThreeRowGlobalSupport
+import Test.ThreeRowSingleDoubletScalar
+import Test.ThreeRowThreeDoublets
+import Test.FourRowKernel
+import Test.FourRowAveraging
+import Test.FactorialDecay
