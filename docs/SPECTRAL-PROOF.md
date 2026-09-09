@@ -1,13 +1,14 @@
 # The completed square spectral range
 
-`DittertRybin.dittert_ge_seven` proves the full Dittert inequality and unique
-equality for every integer n>=7, including matrices with zero entries. The
+`DittertRybin.dittert_ge_six` proves the full Dittert inequality and unique
+equality for every integer n>=6, including matrices with zero entries. The
 expanded original statement is checked in `Test/SpectralSquare.lean`.
 
-The proof follows the Lab's `SPECTRAL_SQUARE_ENDPOINT.md`, with the source
+The proof follows the Lab's `SPECTRAL_SQUARE_ENDPOINT.md` and
+`SQUARE_ENDPOINT_6.md`, with the source
 attribution retained in the project provenance records. It is an alternative
 proof, with no claim to the first complete resolution of Dittert. Orders three
-through six remain separate work, so the all-dimension release target is open.
+through five remain separate work, so the all-dimension release target is open.
 
 The dependency chain is:
 
@@ -27,6 +28,15 @@ The dependency chain is:
    the refined order-seven case.
 6. `Square/Maximizers` supplies compactness and converts classification of
    every actual maximizer into the full inequality and iff equality.
+
+For n=6, `SixMarginalBounds` proves the sharper shared discrepancy envelope.
+`AlternatingPath` and `AlternatingSweep` supply a balanced cut through exact
+Gram algebra and a minimum over even prefixes. `ScoreOrder` preserves the
+singleton's extremal marginal orientation under complementation, and
+`SixMatrixBounds` retains that actual singleton entry in its permanent floor.
+`Certificates/SpectralSix` checks all 546 Bernstein coefficients and the
+positive denominator transfer. `Square/SpectralSix` applies both floors to
+the same cut and concludes full unique maximization.
 
 The formal proof includes zero permanent, disconnected support, tied score
 values, empty/full capacity cuts and deficit zero. It does not need to remove

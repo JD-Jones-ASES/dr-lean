@@ -107,7 +107,7 @@ Completed locally:
   marginal cap 23/20; empty/full subsets and zero cell entries are included.
 - The substochastic permanent floor and the two-block floor for arbitrary
   row/column subsets of equal size, using actual transport and reindexing.
-- **The complete Dittert inequality and unique equality for every n>=7.**
+- **The complete Dittert inequality and unique equality for every n>=6.**
   The actual spectral cut, shared marginal discrepancy, capacity transport,
   equal cut cardinalities and two-block permanent floor imply the checked
   scalar contradiction. Compactness then gives the full inequality and iff
@@ -115,17 +115,18 @@ Completed locally:
   balanced-marginal assumption appears in the resulting theorem.
 - The exact fourteen-vertex path Poincare certificate and its refined sweep,
   including zero energy and tied scores. This supplies the actual order-seven
-  matrix argument. The sharper order-six marginal bounds and shared-deficit
-  estimates are also proved; their remaining matrix assembly is in progress.
+  matrix argument. Order six uses the proved sharper marginal estimates,
+  exact alternating path, actual singleton cell bound and permanent floor,
+  and all 546 proved scalar certificate coefficients.
 
 In progress:
 
 - The actual polynomial/orbit identities for the small-order matrix proofs.
-- The remaining square cases at orders three through six and their
+- The remaining square cases at orders three through five and their
   small-order matrix certificate identities.
 
 The principal all-dimension square, K=3, K=4 and large-endpoint results remain
-incomplete. Dittert is proved at orders one, two and every order at least seven.
+incomplete. Dittert is proved at orders one, two and every order at least six.
 The full van der Waerden bound/equality and real-capacity
 transport prerequisites are now complete in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
@@ -214,7 +215,7 @@ was not yet assembled. Its exact commit `030c574e9c92d2cbda0fe2a34d1309e7b9244f7
 passed [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34366361102),
 was advanced to private main, and was pulled into the durable source checkout.
 
-The next development stage assembles the full n>=7 square range. Its source
+The next development stage assembled the full n>=7 square range. Its source
 map is [SPECTRAL-PROOF](SPECTRAL-PROOF.md). The all-dimension square release
 target remains pending until the separate orders three through six are proved;
 the completed principal-target count remains three of twenty.
@@ -227,6 +228,42 @@ coefficients, with positive-denominator transfer and negative controls; its
 actual matrix assembly remains work in progress. An independent review of the
 complete n>=7 dependency chain found no semantic issue with the energy/crossing
 factors, cardinalities, zero cases or compactness-derived equality claim.
+That exact commit `76546a5688e8e902e44eec4ccebd0d1dcdd7ea93` passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34369034229),
+was advanced to private main, and was pulled into the durable source checkout.
+
+The following stage completes order six on the full closed simplex, including
+unique equality. The alternating path is proved by exact rational Gram bounds,
+strict Schur algebra, and a finite Cauchy-Schwarz transfer to the mean-zero
+vertex range. Minimizing over all even proper prefixes directly proves the
+cut bound; its strict upper bound forces balance. Choosing the smaller
+cardinality side preserves the singleton extremal orientation. These two
+simplifications remove a separate ordinary-path certificate and a volume
+rounding step from the source proof without weakening its conclusion.
+The actual matrix proof retains the distinguished singleton cell and applies
+the two scalar permanent comparisons to the same selected cut. The principal
+all-dimension target remains pending at orders four and five.
+
+Order three is now complete on the full nonnegative mass-three simplex.
+The support argument proves its Boolean exhaustion by ordinary kernel
+reduction, handles all canonical boundary faces, and reduces positive
+maximizers to uniform by three exact column blends. All 86 public
+order-three declarations passed the standard-axiom audit. The equivalent
+3-by-3 probability endpoint is also proved, with value 32/81 and unique
+equality. This is the established small Dittert case used as a prerequisite;
+it does not by itself prove arbitrary rectangular K=3. The source map is
+[ORDER-THREE-PROOF](ORDER-THREE-PROOF.md).
+
+The ten-vertex alternating path and even-prefix sweep have also been proved
+for use at order five. Their constants come from exact rational Gram bounds;
+paired tied-score zero-energy cases and a false stronger constant are covered
+by persistent controls. Order five still requires its actual marginal and
+permanent estimates, so this dependency is not recorded as its matrix theorem.
+
+The combined order-three/order-six checkpoint passed all 3,553 dependency
+jobs and audited 2,752 project declarations transitively against the standard
+axiom allowlist. Persistent tests expand both the original mass-three formula
+and the complete n>=6 statement, including the exact unique equality case.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

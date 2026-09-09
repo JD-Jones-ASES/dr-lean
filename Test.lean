@@ -12,3 +12,8 @@ import Test.RefinedSweep
 import Test.SixMarginalBounds
 import Test.SpectralSquare
 import Test.SpectralSix
+import Test.AlternatingSweep
+import Test.SixMatrixBounds
+import Test.SpectralSixMatrix
+import Test.AlternatingSweepTen
+import Test.OrderThree

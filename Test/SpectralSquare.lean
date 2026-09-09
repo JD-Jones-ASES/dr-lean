@@ -1,4 +1,4 @@
-import DR.Square.SpectralSeven
+import DR.Square.SpectralRange
 
 /-! Scope expansion and exact crossing-mass controls for the completed spectral range. -/
 
@@ -6,13 +6,13 @@ open scoped BigOperators
 open DittertRybin
 
 /-- This is the original mass-n domain, with no support, stationarity or marginal premise. -/
-example {n : ℕ} (hn : 7 ≤ n) (A : Matrix (Fin n) (Fin n) ℝ)
+example {n : ℕ} (hn : 6 ≤ n) (A : Matrix (Fin n) (Fin n) ℝ)
     (hA : ∀ i j, 0 ≤ A i j) (hmass : (∑ i, ∑ j, A i j) = (n : ℝ)) :
     (∏ i, ∑ j, A i j) + (∏ j, ∑ i, A i j) - A.permanent ≤
       2 - (n.factorial : ℝ) / (n : ℝ) ^ n ∧
     ((∏ i, ∑ j, A i j) + (∏ j, ∑ i, A i j) - A.permanent =
       2 - (n.factorial : ℝ) / (n : ℝ) ^ n ↔ A = fun _ _ => (n : ℝ)⁻¹) := by
-  exact dittert_ge_seven hn A hA hmass
+  exact dittert_ge_six hn A hA hmass
 
 example : DittertMaximizer 7 := dittert_order_seven
 example : DittertMaximizer 8 := dittert_ge_eight (by decide)
@@ -45,5 +45,6 @@ example : sweepBoundary (squareConductance testCrossBoard) testCrossSet ≠ 1 / 
     show ({0} : Finset (Fin 2))ᶜ = {1} by decide]
 
 #print axioms DittertRybin.dittert_ge_seven
+#print axioms DittertRybin.dittert_ge_six
 #print axioms DittertRybin.dittert_globalMax_cut_seven
 #print axioms DittertRybin.spectral_cut_contradiction
