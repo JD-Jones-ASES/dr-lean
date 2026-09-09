@@ -1,6 +1,7 @@
 import DR.Definitions
 import DR.Probability
 import DR.Marginalization
+import DR.ProbabilityScaling
 import DR.Entropy
 import DR.Semimatching
 import DR.Uniform
@@ -11,10 +12,18 @@ import DR.Collision.MomentBounds
 import DR.Collision.Intersections
 import DR.Collision.Concentration
 import DR.Collision.Thresholds
+import DR.Collision.Occupation
+import DR.Collision.OccupationBounds
+import DR.Collision.Deletion
+import DR.Collision.OccupationScaling
+import DR.Rook
 import DR.Square.Permanent
 import DR.Square.Transport
 import DR.Square.CapacityMatrix
+import DR.Square.CapacityPolynomial
+import DR.Square.CapacityStability
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization
 import DR.Compactness
+import DR.Maximizers

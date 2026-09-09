@@ -41,10 +41,24 @@ Completed locally:
 - The sharp univariate capacity step for nonnegative affine products,
   including zero constants and slopes; exact doubly stochastic product
   capacity one and the finite telescoping product of capacity losses.
+- The full polynomial capacity bridge for split real polynomials, including
+  all zero and degree-padding cases. The actual matrix polynomial is proved
+  homogeneous, coefficientwise nonnegative, H-stable and of capacity one.
+- Actual conditional occupation identities, including the diagonal term,
+  centered quadratic bound and exact rational constants. The final positive
+  kernel estimate still requires the conditional collision controls listed
+  explicitly in its hypotheses; deriving those is active work.
+- Column-deletion mass and variance estimates: every sufficiently large-board
+  contender meets the normalized deletion hypotheses for every column pair.
+- Exact iid homogeneity and invariance of conditional occupation under
+  nonzero scaling; the general factorial-normalized rook decomposition.
+- A compactness/transpose closure lemma: column rigidity in both orientations
+  implies the sharp uniform inequality and unique equality. Its rigidity
+  hypotheses still have to be proved by the exact averaging argument.
 
 In progress:
 
-- Conditional occupation quadratic inequalities and the exact blending identity.
+- Conditional collision controls and the exact two-column blending identity.
 - Van der Waerden's permanent lower bound and equality prerequisites.
 
 The principal square, K=3, K=4, all-order and large-endpoint results remain
@@ -72,6 +86,15 @@ concentration, threshold arithmetic and both capacity modules: 3,221
 dependency jobs passed and the audit covered 526 project declarations.
 The new boundary checks retain the zero-capacity equality example and
 distinguish positive demand from zero demand on zero-capacity boards.
+That checkpoint, `de80dde73014a0144321ba2f0cdc596d416d95c2`, also passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34358562072)
+and was advanced to private main.
+
+The following combined local build adds occupation moments and bounds,
+normalized deletion, scaling, rook decomposition, maximizer closure and
+the polynomial/stability foundations: all 3,248 dependency jobs passed,
+and 718 project declarations passed the transitive axiom audit. Source
+guards, their seven corruption controls, and semantic/boundary tests passed.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

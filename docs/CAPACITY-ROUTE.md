@@ -4,6 +4,17 @@ Status: bounded formalization checkpoint, 2026-09-09. The van der Waerden
 inequality and its equality characterization are not yet formalized here.
 This is a plan for proving them, not an assumption or conditional replacement.
 
+Later completion update: `CapacityPolynomial.lean` now proves the full
+split-polynomial bridge, including nonpositive roots derived from
+coefficient signs, multiplicities and degree padding. `CapacityStability.lean`
+defines actual complex half-plane nonvanishing and proves the initial
+matrix polynomial is homogeneous, coefficientwise nonnegative, H-stable
+and of capacity one. The initial-checkpoint inventory below is preserved;
+its former missing root bridge and initial stability steps are now complete.
+The remaining frontier is positive-slice splitting, derivative and boundary
+specialization closure, capacity descent, coefficient identification and
+matrix equality. See [PROGRESS](PROGRESS.md) for the current checkpoint.
+
 ## Primary sources and selected route
 
 1. Leonid Gurvits, *Van der Waerden/Schrijver–Valiant like conjectures and
