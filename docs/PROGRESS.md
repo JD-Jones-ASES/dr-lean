@@ -1,9 +1,10 @@
 # Current formalization state
 
 Updated 2026-09-09. Private development continues toward the complete
-[twenty-target release](THEOREMS.md). Four principal targets are proved
+[twenty-target release](THEOREMS.md). Eight principal targets are proved
 locally: all square Dittert orders with exact equality, all rectangular K=2,
-the all-order large-board bound, and its K^21 corollary. Full arbitrary-
+the complete four-row K=4 family, both fixed-board K=4 theorems, the LLL
+endpoint strip, the all-order large-board bound, and its K^21 corollary. Full arbitrary-
 rectangle P2 remains open.
 
 ## Completed subfamilies and certificate foundations
@@ -19,19 +20,34 @@ rectangle P2 remains open.
   coefficient equations, eight actual small blocks, exact aggregate kernels
   and four-pair coverage imply the original sharp probability theorem.
   Signed quartic algebra and closed-simplex uniform equality are proved.
-- [Four-row K=4 analytic tail](FOUR-ROW-MINORANT.md): every N>=500 and
-  transpose, using the complete corrected minorant and actual collision
-  remainder. Boundary matrices and unique equality are retained.
+- [Complete four-row K=4](FOUR-ROW-PROOF.md): every N>=4 and transpose,
+  joining the square case, exact finite intervals and analytic tail.
+  Boundary matrices and unique equality are retained.
 - [Finite K=4 probability bridge](FINITE-K4-QUINTIC-BRIDGE.md): all 2,704
   physical equality patterns, 91 sparse equations, exact ten-seed host
   transport, and the actual signed quintic probability identity. Both
   four-row polynomial families and the two fixed seeds have their exact
   sharp coefficient identities. All 680 four-row Bernstein matrices and
-  2,760 positive pivots are checked; final physical assembly remains.
+  2,760 positive pivots and twenty full weighted kernels are checked;
+  the final physical assembly is complete.
 - [Endpoint collision matrix estimate](ENDPOINT-MATRIX-INTERFACE.md): the
   exact 3/32 quadratic margin from explicit moment bounds, with signed and
   zero test vectors. Actual deletion-pattern classification, participation
   masses, local-lemma ratios and their localized expectation bound are proved.
+- [Fixed-board K=4](FIXED-BOARD-ORDER-FOUR.md): complete 5-by-5 and 20-by-20
+  sharp probability theorems, with iff uniform equality. Twenty exact full
+  weighted kernels and eighty strict blocks certify all physical seeds.
+- [Actual endpoint kernel](ENDPOINT-ACTUAL-KERNEL-POSITIVITY.md): exact
+  deleted-row rook normalization and quadratic conjugacy. The
+  [elementary lower bound](ENDPOINT-ELEMENTARY-LOWER-BOUND.md),
+  [uniform avoidance estimate](ENDPOINT-UNIFORM-AVOIDANCE-BOUND.md),
+  [deleted-row balance](ENDPOINT-DELETED-ROW-BALANCE.md),
+  [localized bounds](ENDPOINT-LOCALIZED-KERNEL-BOUNDS.md), and
+  [one-sided equality closure](ENDPOINT-COLUMN-RIGIDITY.md) are proved.
+- [LLL endpoint strip](ENDPOINT-LLL-STRIP-PROOF.md): m>=128 and
+  64m^(3/2)<=N<=m(m-1)/20, including transpose, closed-simplex boundary
+  and iff uniform equality. Lean proves equivalence of the real-power
+  cutoff and the integer squared cutoff used in the release declaration.
 
 The complete square proof has separate readable accounts for
 [order three](ORDER-THREE-PROOF.md), [order four](ORDER-FOUR-PROOF.md),
@@ -49,28 +65,31 @@ curated checkpoint includes seventeen checked case files: sixteen for
 planned coverage; it is not a list of successful checks. The full dispatcher
 must finish before the all-rectangle K=3 target is marked complete.
 
-Four-row K=4 still needs its final physical matrix and kernel assembly.
-The 5-by-5 and 20-by-20 K=4 seeds still need their actual matrix PSD and
-constant-kernel certificates. The endpoint ranges still need rook
-normalization, contender bounds and their complete parameter arguments.
+The other endpoint ranges still need their complete parameter arguments and
+actual global-maximizer assembly; proved conditional kernel bounds alone
+do not complete those principal targets.
 The endpoint work keeps original-row and deleted-column avoidance laws
 distinct. The full exact scopes and remaining
 corollaries are in [THEOREMS](THEOREMS.md).
 
 ## Verification boundary
 
-The latest curated local build passed **4,433 jobs**, with all **32,030
+The latest curated local build passed **4,559 jobs**, with all **38,776
 project declarations** audited against `propext`, `Classical.choice`, and
 `Quot.sound`. It emitted no warnings; hashes of every curated Lean source
 remained unchanged during the completed combined build. The closure contains
-982 Lean modules. Source guards, corruption controls, normal and optimized
+1,107 Lean modules. Source guards, corruption controls, normal and optimized
 Python regeneration, and documentation checks passed.
 
 Independent CI builds the exact tracked DR/Test import closure in dependency
-order with at most two requested project modules per batch (491 batches
+order with at most two requested project modules per batch (554 batches
 for this checkpoint). Thirteen scheduler controls pass in normal and
 optimized Python. Literal K4 checks are split and serialized, including all
 52-by-52 pattern gates and all 182 fixed-seed coefficient equations.
+The square order-four coefficient checker is now split into fourteen
+serialized chunks; all 450 theorem statements and proof bodies are preserved.
+The exact fixed-board generator and its fourteen rejection controls also
+run in independent CI, with and without Python optimization.
 The expanded CI job has a 360-minute ceiling; this grants replay time and
 does not diagnose earlier termination failures or replace any required gate.
 
@@ -84,8 +103,9 @@ succeeded. Later local proofs have not yet cleared independent CI:
 | `ce018413` full square | Cancelled; unaccepted |
 | `bdd1db2f`, `486d70d7`, `2d4449e2`, `17406a61`, `f1fe2631` | Failed with exit code 143; no Lean proof error reported in the retrieved failure logs; unaccepted |
 | `21b65fb5` | Cancelled; unaccepted |
-| `232a8383` | Independent replay still running at this update |
-| Quintic/endpoint checkpoint documented here | Local verification passed; independent CI required |
+| `232a8383` | Failed with exit code 143 while checking the square order-four coefficient module; no Lean proof error reported; unaccepted |
+| `04fa7de3` | Independent replay still running at this update |
+| Fixed-board/endpoint checkpoint documented here | Local verification passed; independent CI required |
 
 The termination cause is unconfirmed. A local build does not substitute for
 independent replay, default-branch verification, or the
@@ -94,5 +114,6 @@ manually after the complete repository passes that gate.
 
 The detailed earlier checkpoint observations are preserved in the
 [dated development record](history/2026-09-09-development.md) and the
-[quintic/endpoint record](history/2026-09-09-quintic-endpoint-development.md).
+[quintic/endpoint record](history/2026-09-09-quintic-endpoint-development.md), and the
+[fixed-board/endpoint record](history/2026-09-09-fixed-board-endpoint-development.md).
 Their historical status text is superseded by this page and the actual verification receipts.

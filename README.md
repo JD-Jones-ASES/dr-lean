@@ -27,13 +27,22 @@ are complete too.
 The [finite K=3 block bridge](docs/FINITE-K3-BLOCK-SOUNDNESS.md) is complete,
 with the complete 4-by-N range 6<=N<=21 and a checked 4-by-959 pilot;
 the full 1,330-case replay is in progress.
-The [four-row K=4 analytic tail](docs/FOUR-ROW-MINORANT.md) is proved for every
-N>=500 and its transpose, including all boundary matrices and iff equality.
+The complete [four-row K=4 theorem](docs/FOUR-ROW-PROOF.md) is proved locally
+for every N>=4 and its transpose, including all boundary matrices and iff equality.
 The [finite K=4 probability bridge](docs/FINITE-K4-QUINTIC-BRIDGE.md) now
 connects the literal equations to the signed functional, with all 2,704
 physical patterns and both fixed seeds checked. The
+[fixed-board K=4 theorems](docs/FIXED-BOARD-ORDER-FOUR.md) are complete locally
+for 5-by-5 and 20-by-20, with exact uniform equality on the closed simplex. The
 [endpoint matrix estimate](docs/ENDPOINT-MATRIX-INTERFACE.md) proves the exact
-3/32 margin from explicit moment assumptions. The remaining promised
+3/32 margin from explicit moment assumptions. Its
+[actual deleted-board kernel](docs/ENDPOINT-ACTUAL-KERNEL-POSITIVITY.md),
+[localized load bounds](docs/ENDPOINT-LOCALIZED-KERNEL-BOUNDS.md), and
+[one-sided equality closure](docs/ENDPOINT-COLUMN-RIGIDITY.md) are proved.
+The [LLL endpoint strip](docs/ENDPOINT-LLL-STRIP-PROOF.md) is complete locally:
+m>=128 and 64m^(3/2)<=N<=m(m-1)/20, whenever this interval is nonempty,
+including transpose and iff uniform equality.
+The remaining promised
 rectangular families are in progress.
 The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
