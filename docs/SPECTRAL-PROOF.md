@@ -7,8 +7,10 @@ expanded original statement is checked in `Test/SpectralSquare.lean`.
 The proof follows the Lab's `SPECTRAL_SQUARE_ENDPOINT.md` and
 `SQUARE_ENDPOINT_6.md`, with the source
 attribution retained in the project provenance records. It is an alternative
-proof, with no claim to the first complete resolution of Dittert. Orders three
-through five remain separate work, so the all-dimension release target is open.
+proof, with no claim to the first complete resolution of Dittert. The separate [order-three](ORDER-THREE-PROOF.md),
+[order-four](ORDER-FOUR-PROOF.md), and [order-five](ORDER-FIVE-PROOF.md)
+proofs are now complete. `Square/AllOrders` combines them with this range
+and the elementary orders one and two to prove all positive dimensions.
 
 The dependency chain is:
 

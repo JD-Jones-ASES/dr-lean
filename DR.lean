@@ -97,3 +97,10 @@ import DR.Square.FiveSweepCut
 import DR.Square.HomogeneousDittert
 import DR.Certificates.SpectralFiveSingletonCoordinates
 import DR.Certificates.SpectralFiveSingletonCoefficientCheck
+import DR.Square.AllOrders
+import DR.Rectangular.ThreeRowSupportNormal
+import DR.Rectangular.ThreeRowNoEmpty
+import DR.Rectangular.ThreeRowComparison
+import DR.Rectangular.ThreeRowLocal
+import DR.Rectangular.ThreeRowPositive
+import DR.Rectangular.ThreeRowProperMasses

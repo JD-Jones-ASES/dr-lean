@@ -16,11 +16,14 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
-The complete K=2 theorem and the all-order large-board theorem, including
-unique equality, are now proved locally. For K>=4 the latter applies whenever
+The complete square Dittert theorem for every n>=1, the K=2 theorem and
+the all-order large-board theorem, including unique equality, are proved
+locally. For K>=4 the latter applies whenever
 both dimensions are at least the explicit D_K in the theorem plan; K^21 is
-a simpler sufficient threshold. The square Dittert proof and the other
-promised rectangular families remain in progress.
+a simpler sufficient threshold. The remaining promised rectangular families are in progress.
+The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
+[order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
+and [all orders at least six](docs/SPECTRAL-PROOF.md).
 
 ## Read and build
 
@@ -29,7 +32,7 @@ promised rectangular families remain in progress.
 - [Theorems and dependency order](docs/THEOREMS.md): every required target and
   its current status; no replacement of a global result by finite tests.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
-  inventory, completed transport proof and remaining permanent prerequisites.
+  inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,
   complete proof checks, independent replay, and the exact public-release gate.
 

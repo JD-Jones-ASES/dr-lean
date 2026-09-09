@@ -125,14 +125,20 @@ strips listed in [ORDER-THREE-RANGES](ORDER-THREE-RANGES.md), in both
 orientations. The remaining small-side and finite cases still prevent
 completion of the all-rectangle K=3 release target.
 
-In progress:
+The complete square Dittert theorem is now proved for every n>=1, including
+unique equality on the full nonnegative mass-n domain. The order-four sextic
+identity and complete physical orbit coverage are connected to the actual
+probability; the order-five literal singleton numerator is connected to all
+proved Bernstein bounds and the actual deletion minor. Read
+[ORDER-FOUR-PROOF](ORDER-FOUR-PROOF.md) and [ORDER-FIVE-PROOF](ORDER-FIVE-PROOF.md).
+The all-order wrapper is `DittertRybin.dittert_unique_maximum`.
 
-- The actual polynomial/orbit identities for the small-order matrix proofs.
-- The remaining square cases at orders four and five and their
-  small-order matrix certificate identities.
+For K=3, positive global maximizers are now proved to be the original uniform
+board for all independent M,N>=3. Exact cubic interpolation and strict local
+uniqueness close this argument. Boundary-support classification remains active.
 
-The principal all-dimension square, K=3, K=4 and large-endpoint results remain
-incomplete. Dittert is proved at orders one, two, three and every order at least six.
+The principal K=3, K=4 and large-endpoint release targets remain incomplete.
+Four of the twenty required principal targets are now proved locally.
 The full van der Waerden bound/equality and real-capacity
 transport prerequisites are now complete in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
@@ -346,6 +352,28 @@ cover the actual K=3 ranges and their transposes, boundary supports, exact
 mixed-term constants, five-row margin, zero-mass scaling, and the degenerate
 singleton coordinate box. The complete-release target count stays at three
 of twenty. Independent CI for this new checkpoint is still required.
+
+The full-square checkpoint adds the complete order-four certificate and
+order-five assembly. All 86 sparse arithmetic equalities identify the literal
+singleton numerator, all 56 coefficient transformations and 18,648 coefficient
+bounds apply to it, and the resulting actual matrix argument closes order five.
+The final order-five/all-order replay passed 3,677 dependency jobs; all seven
+stored final axiom audits contain only the standard three axioms. Sparse
+arithmetic uses a proved finite-fuel list merge and a proved zero filter,
+including arbitrary unsorted inputs and zero tensor entries. Deterministic
+reproduction agrees with all fourteen generated arithmetic-stage files.
+
+The additional K=3 support work derives full-simplex KKT equations, exact
+same-support averaging and a common support normal form; rules out empty
+rows and columns at maxima; proves signed cubic gradients and interpolation;
+and proves original-matrix uniqueness for every positive global maximizer.
+Proper doubleton support conditions retain zero residuals and the exact singular
+equality case. These are dependencies for the still-open all-rectangle K=3
+release target. The combined full-square build passed all 3,781 dependency jobs and audited
+11,359 project declarations transitively against the standard-axiom allowlist.
+All seven source-guard corruption controls, the exact four-of-twenty target
+inventory, forty-one relative documentation links, and whitespace checks passed.
+Independent CI for this full-square checkpoint is still required.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
