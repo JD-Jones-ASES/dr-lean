@@ -11,7 +11,9 @@ defines actual complex half-plane nonvanishing and proves the initial
 matrix polynomial is homogeneous, coefficientwise nonnegative, H-stable
 and of capacity one. The initial-checkpoint inventory below is preserved;
 its former missing root bridge and initial stability steps are now complete.
-The remaining frontier is positive-slice splitting, derivative and boundary
+`StableSlices.lean` now supplies positive-slice splitting, and
+`NormComparison.lean` proves Gurvits's norm comparison for homogeneous
+H-stable real polynomials. The remaining frontier is derivative and boundary
 specialization closure, capacity descent, coefficient identification and
 matrix equality. See [PROGRESS](PROGRESS.md) for the current checkpoint.
 

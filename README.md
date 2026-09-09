@@ -16,6 +16,12 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
+The complete K=2 theorem and the all-order large-board theorem, including
+unique equality, are now proved locally. For K>=4 the latter applies whenever
+both dimensions are at least the explicit D_K in the theorem plan; K^21 is
+a simpler sufficient threshold. The square Dittert proof and the other
+promised rectangular families remain in progress.
+
 ## Read and build
 
 - [Sources and attribution](docs/SOURCES.md): Rybin's supplied post,

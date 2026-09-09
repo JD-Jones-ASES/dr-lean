@@ -19,8 +19,8 @@ statements, their actual proofs and axiom dependencies determine completion.
 | `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_five_by_five_order_four` | K=4 on the full 5 by 5 probability simplex. | Pending |
 | `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` | K=4 on the full 20 by 20 probability simplex. | Pending |
-| `DittertRybin.uniform_maximum_large_boards` | Every K>=4 and M,N>=128(K-2)(binom(K,2)*binom(binom(K,2)^2,2)+1)^2. | Pending |
-| `DittertRybin.uniform_maximum_large_boards_power` | Every K>=4 and min(M,N)>=K^21. | Pending |
+| `DittertRybin.uniform_maximum_large_boards` | Every K>=4 and M,N>=128(K-2)(binom(K,2)*binom(binom(K,2)^2,2)+1)^2. | Proved locally |
+| `DittertRybin.uniform_maximum_large_boards_power` | Every K>=4 and min(M,N)>=K^21. | Proved locally |
 | `DittertRybin.uniform_maximum_large_endpoints` | K=m on every m by N with m>=10^18 and N>=m, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_quadratic_endpoint_strip` | K=m, m>=96, N>=10000 m^2, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_quartic_endpoint_strip` | K=m, m>=16, N>=20000 m^4, and transpose. | Pending |

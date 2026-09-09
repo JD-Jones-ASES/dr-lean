@@ -35,12 +35,14 @@
     {
       "declaration": "DittertRybin.uniform_maximum_large_boards",
       "scope": "Every K>=4 and M,N>=128(K-2)(binom(K,2)*binom(binom(K,2)^2,2)+1)^2.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Rectangular/LargeBoards.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_large_boards_power",
       "scope": "Every K>=4 and min(M,N)>=K^21.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Rectangular/LargeBoards.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_large_endpoints",

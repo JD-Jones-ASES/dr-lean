@@ -45,23 +45,33 @@ Completed locally:
   all zero and degree-padding cases. The actual matrix polynomial is proved
   homogeneous, coefficientwise nonnegative, H-stable and of capacity one.
 - Actual conditional occupation identities, including the diagonal term,
-  centered quadratic bound and exact rational constants. The final positive
-  kernel estimate still requires the conditional collision controls listed
-  explicitly in its hypotheses; deriving those is active work.
+  centered quadratic bound and exact rational constants. All conditional
+  collision controls are derived from the actual sampling law; the positive
+  kernel theorem has only explicit marginal and variance hypotheses.
 - Column-deletion mass and variance estimates: every sufficiently large-board
   contender meets the normalized deletion hypotheses for every column pair.
 - Exact iid homogeneity and invariance of conditional occupation under
   nonzero scaling; the general factorial-normalized rook decomposition.
 - A compactness/transpose closure lemma: column rigidity in both orientations
-  implies the sharp uniform inequality and unique equality. Its rigidity
-  hypotheses still have to be proved by the exact averaging argument.
+  implies the sharp uniform inequality and unique equality.
+- The exact two-column blend identity, including its factorial factor and
+  occupation-kernel interpretation, for the actual iid objective.
+- **The complete all-order large-board theorem and its K^21 corollary.**
+  Both principal statements conclude the full sharp inequality and unique
+  equality on the closed probability simplex with independent dimension
+  lower bounds. Positivity, concentration and rigidity are proved internally.
+  An independent semantic/type/axiom review found no scope weakening.
+- Positive one-variable slices of homogeneous H-stable polynomials split
+  over the reals with nonpositive roots. Gurvits's norm comparison is proved
+  for homogeneous H-stable real polynomials without a coefficient-sign
+  restriction.
 
 In progress:
 
-- Conditional collision controls and the exact two-column blending identity.
 - Van der Waerden's permanent lower bound and equality prerequisites.
+- Exact polynomial certificate soundness for the small-order proofs.
 
-The principal square, K=3, K=4, all-order and large-endpoint results remain
+The principal square, K=3, K=4 and large-endpoint results remain
 unformalized. Van der Waerden with equality is not present in the pinned
 Mathlib and still requires a proof. The real-capacity transport prerequisite
 has been proved in this project.
@@ -95,6 +105,24 @@ normalized deletion, scaling, rook decomposition, maximizer closure and
 the polynomial/stability foundations: all 3,248 dependency jobs passed,
 and 718 project declarations passed the transitive axiom audit. Source
 guards, their seven corruption controls, and semantic/boundary tests passed.
+Its exact commit `b3797cd3c16d253deb92542916e3598849fb037f` passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34360127140).
+
+The all-order proof simplifies the Lab's final uniqueness argument: the exact
+blend identity forces identical columns at an actual global maximum; applying
+the same argument to the transpose forces identical rows. Total mass then
+determines the uniform matrix directly. This avoids a separate final
+product-distribution/Maclaurin step without changing the scope or constants.
+It does not imply the square sampling endpoint K=M=N, where the dimension
+threshold is not met.
+
+The combined all-order checkpoint passed all 3,464 dependency jobs and the
+transitive audit of 880 project declarations. The new scope tests expose
+both principal results as inequalities and iff equality statements on all
+nonnegative mass-one real matrices, and include the exact D_4 dimension
+boundary. Source guards and their seven corruption controls passed. These
+development checks complete three of the twenty required release targets;
+the complete release gate remains pending.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
