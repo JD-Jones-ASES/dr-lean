@@ -98,8 +98,8 @@ Completed locally:
 - The finite weighted sweep bound (N-1)E/(4V), with exact sorting, ties,
   disconnected zero-energy cases and complement selection.
 - The full scalar dimension transfer for n>=8, the refined n=7 scalar
-  contradiction, and the exact two-block gamma-product bound. Connecting
-  these scalar results to an actual matrix cut remains in progress.
+  contradiction, and the exact two-block gamma-product bound, now connected
+  to the actual matrix cut and permanent floor.
 - Actual spectral scores, zero weighted mean, exact energy/gap identity,
   positive variance at nonuniform global maxima, and the precise
   0<=gap<=permanent/(1-delta) bound, including disconnected support.
@@ -107,15 +107,26 @@ Completed locally:
   marginal cap 23/20; empty/full subsets and zero cell entries are included.
 - The substochastic permanent floor and the two-block floor for arbitrary
   row/column subsets of equal size, using actual transport and reindexing.
+- **The complete Dittert inequality and unique equality for every n>=7.**
+  The actual spectral cut, shared marginal discrepancy, capacity transport,
+  equal cut cardinalities and two-block permanent floor imply the checked
+  scalar contradiction. Compactness then gives the full inequality and iff
+  equality on all nonnegative mass-n matrices. No support, stationarity or
+  balanced-marginal assumption appears in the resulting theorem.
+- The exact fourteen-vertex path Poincare certificate and its refined sweep,
+  including zero energy and tied scores. This supplies the actual order-seven
+  matrix argument. The sharper order-six marginal bounds and shared-deficit
+  estimates are also proved; their remaining matrix assembly is in progress.
 
 In progress:
 
 - The actual polynomial/orbit identities for the small-order matrix proofs.
-- The spectral/marginal cut and block domination argument, and remaining
+- The remaining square cases at orders three through six and their
   small-order matrix certificate identities.
 
-The principal square, K=3, K=4 and large-endpoint results remain
-unformalized. The full van der Waerden bound/equality and real-capacity
+The principal all-dimension square, K=3, K=4 and large-endpoint results remain
+incomplete. Dittert is proved at orders one, two and every order at least seven.
+The full van der Waerden bound/equality and real-capacity
 transport prerequisites are now complete in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
 the completed foundations alone.
@@ -197,8 +208,25 @@ passed the transitive standard-axiom audit. Persistent boundary tests include
 the unit-entry entropy factor, strict boundary/equality separation, sparse
 and empty blocks, independent noncontiguous row/column subsets, nonunit
 domination scaling, and rejection of an incorrect crossing-mass factor.
-The twenty-target release inventory still has only the same three completed
-principal rectangular declarations; the square theorem is not yet assembled.
+The twenty-target release inventory still had only the same three completed
+principal rectangular declarations at that checkpoint; the square theorem
+was not yet assembled. Its exact commit `030c574e9c92d2cbda0fe2a34d1309e7b9244f7a`
+passed [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34366361102),
+was advanced to private main, and was pulled into the durable source checkout.
+
+The next development stage assembles the full n>=7 square range. Its source
+map is [SPECTRAL-PROOF](SPECTRAL-PROOF.md). The all-dimension square release
+target remains pending until the separate orders three through six are proved;
+the completed principal-target count remains three of twenty.
+The combined build passed all 3,527 dependency jobs and the transitive audit
+covered 1,938 project declarations. All seven source-guard corruption controls
+passed. The new tests expand the n>=7 theorem to the original matrix statement,
+check the endpoint normalization, and reject omission of a crossing rectangle.
+The order-six package includes all 63 cut comparisons and 546 exact Bernstein
+coefficients, with positive-denominator transfer and negative controls; its
+actual matrix assembly remains work in progress. An independent review of the
+complete n>=7 dependency chain found no semantic issue with the energy/crossing
+factors, cardinalities, zero cases or compactness-derived equality claim.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

@@ -8,3 +8,7 @@ import Test.Stability
 import Test.WeightedSweep
 import Test.BlockFloor
 import Test.CapacityEquality
+import Test.RefinedSweep
+import Test.SixMarginalBounds
+import Test.SpectralSquare
+import Test.SpectralSix

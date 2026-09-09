@@ -13,7 +13,7 @@ statements, their actual proofs and axiom dependencies determine completion.
 
 | Required declaration | Exact scope | Current status |
 |---|---|---|
-| `DittertRybin.dittert_unique_maximum` | All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n. | Pending |
+| `DittertRybin.dittert_unique_maximum` | All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n. | Pending; orders 1, 2 and all n>=7 proved |
 | `DittertRybin.uniform_maximum_order_two` | K=2 on every M,N>=2. | Proved locally |
 | `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Pending |
 | `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Pending |

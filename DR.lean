@@ -24,6 +24,8 @@ import DR.Certificates.SpectralSeven
 import DR.Certificates.SpectralEight
 import DR.Certificates.SpectralTransfer
 import DR.Certificates.SpectralParameters
+import DR.Certificates.SpectralSixGuards
+import DR.Certificates.SpectralSix
 import DR.Rook
 import DR.Square.Permanent
 import DR.Square.Transport
@@ -48,6 +50,12 @@ import DR.Square.WeightedSweep
 import DR.Square.SweepReindex
 import DR.Square.SpectralPair
 import DR.Square.MarginalDiscrepancy
+import DR.Square.Maximizers
+import DR.Square.SpectralCut
+import DR.Square.SpectralAssembly
+import DR.Square.RefinedSweep
+import DR.Square.SpectralSeven
+import DR.Square.SixMarginalBounds
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization
