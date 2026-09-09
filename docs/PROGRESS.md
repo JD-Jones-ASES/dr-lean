@@ -68,7 +68,8 @@ Completed locally:
 - Coefficientwise limit closure preserves homogeneity, nonnegative
   coefficients and the zero-or-H-stable alternative in finitely many
   variables. Differentiation at zero preserves degree and coefficient signs;
-  its H-stability is still being proved.
+  its zero-or-H-stable alternative is now proved too, through positive
+  directional derivatives, Gauss–Lucas and coefficientwise limits.
 - Exact rational tensor Bernstein and Gram/LDL certificate soundness,
   including closed-box boundaries, zero pivots, singular kernels and positive
   denominator obligations. Lean rejects corrupted identities and margins.
@@ -80,18 +81,34 @@ Completed locally:
   Marginal positivity and the shared permanent-deficit budget are derived
   from comparison to the uniform value, so the global-maximizer equations
   have no additional support or marginal assumptions.
+- The normalized matrix is an exact contraction in the finite sum-of-squares
+  norm, and its two stationary singular-vector identities and weighted
+  orthogonality equations are proved without entrywise positivity.
+- The squarefree coefficient of the matrix product polynomial equals the
+  permanent for every real square matrix, including dimension zero. This
+  supplies the coefficient identification for capacity induction.
+- **The unconditional van der Waerden permanent lower bound** for every
+  doubly stochastic matrix, including dimensions zero and one. The proof
+  uses the actual multivariate capacity, proved stable differentiation,
+  finite variable reduction, capacity descent and coefficient identification.
+  Its equality classification is still in progress.
+- The finite weighted sweep bound (N-1)E/(4V), with exact sorting, ties,
+  disconnected zero-energy cases and complement selection.
+- The full scalar dimension transfer for n>=8, the refined n=7 scalar
+  contradiction, and the exact two-block gamma-product bound. Connecting
+  these scalar results to an actual matrix cut remains in progress.
 
 In progress:
 
-- Van der Waerden's permanent lower bound and equality prerequisites.
+- Van der Waerden's equality classification.
 - The actual polynomial/orbit identities for the small-order matrix proofs.
-- The spectral dimension transfer, weighted sweep and remaining small-order
-  matrix certificate identities.
+- The spectral/marginal cut and block domination argument, and remaining
+  small-order matrix certificate identities.
 
 The principal square, K=3, K=4 and large-endpoint results remain
-unformalized. Van der Waerden with equality is not present in the pinned
-Mathlib and still requires a proof. The real-capacity transport prerequisite
-has been proved in this project.
+unformalized. Van der Waerden's bound is now proved in this project; its
+equality classification remains to be proved. The real-capacity transport
+prerequisite is also complete.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
 the completed foundations alone.
 
@@ -152,6 +169,18 @@ cover singular Gram matrices, zero pivots, empty dimensions, exact kernel
 lifting, rejected matrix mutations, corrupted Bernstein identities and
 inflated coefficient margins. None of the seventeen pending principal
 release targets is marked complete by these dependency proofs.
+That square-foundation commit, `ef8d112ff651366a72a09f90e71bf5ef1e215034`,
+passed [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34363221311)
+and was advanced to private main.
+
+The capacity-bound checkpoint adds genuine stable differentiation,
+permanent coefficient identification, normalized contraction, weighted
+sweep and the complete n>=7 scalar stage. Its combined build passed 3,506
+dependency jobs and audited 1,326 project declarations. The persistent
+tests include a stable polynomial that becomes zero under differentiation
+at zero, empty-matrix coefficient one, factorial multiplicity, exact sweep
+sharpness and disconnected zero-energy cuts. This establishes the permanent
+inequality prerequisite; its strict equality proof remains active work.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

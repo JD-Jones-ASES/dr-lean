@@ -4,3 +4,5 @@ import Test.Boundaries
 import Test.LargeBoards
 import Test.Bernstein
 import Test.Gram
+import Test.Stability
+import Test.WeightedSweep

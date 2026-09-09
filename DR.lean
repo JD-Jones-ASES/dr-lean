@@ -22,6 +22,8 @@ import DR.Certificates.Bernstein
 import DR.Certificates.Gram
 import DR.Certificates.SpectralSeven
 import DR.Certificates.SpectralEight
+import DR.Certificates.SpectralTransfer
+import DR.Certificates.SpectralParameters
 import DR.Rook
 import DR.Square.Permanent
 import DR.Square.Transport
@@ -31,8 +33,14 @@ import DR.Square.CapacityStability
 import DR.Square.StableSlices
 import DR.Square.NormComparison
 import DR.Square.StableClosure
+import DR.Square.StableDerivative
+import DR.Square.PermanentCoefficient
+import DR.Square.CapacityDescent
+import DR.Square.CapacityBound
 import DR.Square.Stationarity
 import DR.Square.Contenders
+import DR.Square.NormalizedMatrix
+import DR.Square.WeightedSweep
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization
