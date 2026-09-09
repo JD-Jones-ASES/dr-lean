@@ -31,11 +31,20 @@ Completed locally:
   cell-variance term.
 - Continuity, compactness and global-maximizer existence for the actual
   objective, with transpose, matrix-axis and sample-index symmetries.
+- The distinct-witness intersection bound from proved combinatorial
+  deletion and exact integration of the removed sample coordinate.
+- Actual-matrix contender concentration: the normalized cell variance and
+  largest marginal satisfy the two stated strict collision bounds.
+- All-order threshold arithmetic: the explicit dimension bound is at most
+  K^21, and every contender at that threshold meets the stated variance
+  and marginal smallness bounds.
+- The sharp univariate capacity step for nonnegative affine products,
+  including zero constants and slopes; exact doubly stochastic product
+  capacity one and the finite telescoping product of capacity losses.
 
 In progress:
 
-- Distinct-witness intersection bounds and the matrix concentration argument.
-- Exact conditional occupation identity and its quadratic inequalities.
+- Conditional occupation quadratic inequalities and the exact blending identity.
 - Van der Waerden's permanent lower bound and equality prerequisites.
 
 The principal square, K=3, K=4, all-order and large-endpoint results remain
@@ -52,7 +61,17 @@ guard controls and six Lean semantic checks passed. Its
 also passed. This checks completed modules and does not complete the release.
 
 The subsequent local combined build including the first moment, entropy and
-compactness modules passed and audited 410 project declarations.
+compactness modules passed and audited 410 project declarations. Its exact
+commit `06b67b054494431c8b86a3e450c820956a63d531` also passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34357179545)
+and was advanced to private main. The new capacity route and its outstanding
+stability obligations are documented in [CAPACITY-ROUTE](CAPACITY-ROUTE.md).
+
+The next combined local build includes witness intersections, actual-matrix
+concentration, threshold arithmetic and both capacity modules: 3,221
+dependency jobs passed and the audit covered 526 project declarations.
+The new boundary checks retain the zero-capacity equality example and
+distinguish positive demand from zero demand on zero-capacity boards.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

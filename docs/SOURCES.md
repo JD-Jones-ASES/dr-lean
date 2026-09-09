@@ -28,6 +28,16 @@ The mathematical statement and the proof are separate provenance questions.
   [Li–Xiong–Yang, arXiv:2607.29191v2](https://arxiv.org/abs/2607.29191v2).
   These concern square endpoint cases. Their scope is not silently widened
   to arbitrary rectangles or intermediate orders.
+- **Van der Waerden prerequisite:** Leonid Gurvits,
+  [stable homogeneous polynomial capacity proof](https://arxiv.org/abs/0711.3496v2),
+  Electronic Journal of Combinatorics 15 (2008), R66; and Monique Laurent
+  and Alexander Schrijver,
+  [On Leonid Gurvits' proof for permanents](https://ir.cwi.nl/pub/16667),
+  American Mathematical Monthly 117 (2010), 903–911. The latter supplies
+  the selected matrix-specific equality route. [CAPACITY-ROUTE](CAPACITY-ROUTE.md)
+  identifies completed formal prerequisites, remaining stability obligations
+  and the zero-capacity boundary correction when reading the univariate
+  equality statement.
 
 The informal source of this development is Analytic-Lab P0174, audited at
 `bdce7f70f49d8b79ee756df6724ed3822e0c7f20` and integrated on main at

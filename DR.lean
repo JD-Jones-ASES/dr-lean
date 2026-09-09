@@ -8,8 +8,12 @@ import DR.Collision.Bonferroni
 import DR.Collision.Witnesses
 import DR.Collision.FirstMoment
 import DR.Collision.MomentBounds
+import DR.Collision.Intersections
+import DR.Collision.Concentration
+import DR.Collision.Thresholds
 import DR.Square.Permanent
 import DR.Square.Transport
+import DR.Square.CapacityMatrix
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization
