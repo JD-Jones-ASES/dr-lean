@@ -18,6 +18,10 @@ import DR.Collision.OccupationCollisions
 import DR.Collision.Deletion
 import DR.Collision.OccupationScaling
 import DR.Collision.Averaging
+import DR.Certificates.Bernstein
+import DR.Certificates.Gram
+import DR.Certificates.SpectralSeven
+import DR.Certificates.SpectralEight
 import DR.Rook
 import DR.Square.Permanent
 import DR.Square.Transport
@@ -26,6 +30,9 @@ import DR.Square.CapacityPolynomial
 import DR.Square.CapacityStability
 import DR.Square.StableSlices
 import DR.Square.NormComparison
+import DR.Square.StableClosure
+import DR.Square.Stationarity
+import DR.Square.Contenders
 import DR.EndpointIdentity
 import DR.Rectangular.OrderTwo
 import DR.Square.Normalization

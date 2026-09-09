@@ -65,11 +65,28 @@ Completed locally:
   over the reals with nonpositive roots. Gurvits's norm comparison is proved
   for homogeneous H-stable real polynomials without a coefficient-sign
   restriction.
+- Coefficientwise limit closure preserves homogeneity, nonnegative
+  coefficients and the zero-or-H-stable alternative in finitely many
+  variables. Differentiation at zero preserves degree and coefficient signs;
+  its H-stability is still being proved.
+- Exact rational tensor Bernstein and Gram/LDL certificate soundness,
+  including closed-box boundaries, zero pivots, singular kernels and positive
+  denominator obligations. Lean rejects corrupted identities and margins.
+- All 47 rational Bernstein coefficients and the exact scalar gap identities
+  at n=7 and n=8. These are complete scalar base obligations, not the full
+  square matrix theorem.
+- The two square stationarity equations follow from feasible exponential
+  row and column scaling. The proof preserves arbitrary zero support.
+  Marginal positivity and the shared permanent-deficit budget are derived
+  from comparison to the uniform value, so the global-maximizer equations
+  have no additional support or marginal assumptions.
 
 In progress:
 
 - Van der Waerden's permanent lower bound and equality prerequisites.
-- Exact polynomial certificate soundness for the small-order proofs.
+- The actual polynomial/orbit identities for the small-order matrix proofs.
+- The spectral dimension transfer, weighted sweep and remaining small-order
+  matrix certificate identities.
 
 The principal square, K=3, K=4 and large-endpoint results remain
 unformalized. Van der Waerden with equality is not present in the pinned
@@ -123,6 +140,18 @@ nonnegative mass-one real matrices, and include the exact D_4 dimension
 boundary. Source guards and their seven corruption controls passed. These
 development checks complete three of the twenty required release targets;
 the complete release gate remains pending.
+That exact all-order commit, `ca62b079af2be280c2ffc4b8bb56c1d4761ebe18`, passed
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34361456001),
+was advanced to private main, and was pulled into the durable source checkout.
+
+The subsequent square-foundation checkpoint passed all 3,492 dependency
+jobs and audited 1,101 project declarations. It includes the stationary
+pair, closed-simplex contender bounds, homogeneous limit closure, both
+certificate soundness layers and the n=7/n=8 scalar bases. Persistent tests
+cover singular Gram matrices, zero pivots, empty dimensions, exact kernel
+lifting, rejected matrix mutations, corrupted Bernstein identities and
+inflated coefficient margins. None of the seventeen pending principal
+release targets is marked complete by these dependency proofs.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
