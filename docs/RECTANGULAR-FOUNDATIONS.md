@@ -57,8 +57,10 @@ The actual initial contender cap is unconditional, and the complete sharper
 concentration and pair-deletion normalization argument is proved from the
 three leading inputs in
 [FourRowContenderConcentration](../DR/Rectangular/FourRowContenderConcentration.lean).
-The scalar input above is discharged; the corrected leading minorant and
-actual collision remainder remain. Two finite quintic certificate families
+The scalar input and actual collision remainder are discharged. The
+[four-row input account](FOUR-ROW-INPUTS.md) gives the exact remainder and
+the corrected minorant's completed boundary families. The complete corrected
+minorant still requires its constrained-extremum reductions. Two finite quintic certificate families
 cover the intermediate column counts; both remain pending. The complete
 square N=4 case is already proved independently. The source is
 `FOUR_ROW_K4_GLOBAL.md`, whose analytic cutoff N>=500 supersedes the earlier

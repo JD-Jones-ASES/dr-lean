@@ -35,6 +35,8 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
   its current status; no replacement of a global result by finite tests.
 - [Rectangular foundations](docs/RECTANGULAR-FOUNDATIONS.md): support exclusions,
   the actual four-sample averaging kernel and endpoint concentration prerequisites.
+- [Four-row inputs](docs/FOUR-ROW-INPUTS.md): actual collision remainders,
+  completed minorant families, and the finite-certificate matrix reduction.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
   inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,

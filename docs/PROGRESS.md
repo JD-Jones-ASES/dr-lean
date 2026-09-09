@@ -2,6 +2,12 @@
 
 Updated 2026-09-09. The complete release goal remains active.
 
+The latest verified inputs include the actual full-simplex four-row collision
+remainder, corrected-minorant boundary families, the four-row K=3 leading
+gauge bound, and the finite-certificate ordinary-column matrix reduction.
+See [FOUR-ROW-INPUTS](FOUR-ROW-INPUTS.md) for exact hypotheses and outstanding
+obligations. The principal target count remains four of twenty.
+
 Completed locally:
 
 - Exact real matrix domain, marginals and closed probability simplex.
@@ -431,6 +437,19 @@ The preceding rectangular-foundation commit is
 `bdd1db2fd8861b01063cbdb6f62c6662b1b66cd3`, with
 [independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34390255947)
 still running. Independent CI remains required for this subsequent checkpoint.
+
+The next collision/block checkpoint passed all 3,905 dependency jobs and
+audited 12,448 project declarations transitively against the standard-axiom
+allowlist. Independent semantic review checked the actual event restriction,
+all sampling factors, the corrected minorant's closed boundary families and
+coefficient coverage, and the K=3 copositive-to-probability bridge. The exact
+42,875-coefficient generator reproduces. The ordinary-column block reduction
+also includes PSD and exact constant-kernel transfer; its denominator and
+strict-positive-block negative controls pass. Independent CI remains required.
+The preceding three-row/gauge commit is
+`486d70d7bdf148cc88cbcfa32c6c61288478854a`, with
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34392339329)
+still running. None of these inputs is counted as a completed new principal target.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

@@ -117,3 +117,7 @@ import DR.Endpoint.LargeRowCaps
 import DR.Endpoint.DeletedLaw
 import DR.Rectangular.FourRowContenderConcentration
 import DR.Rectangular.FourRowScalarGauge
+import DR.Certificates.OrdinaryColumnBlocks
+import DR.Rectangular.FourRowMinorantEqualRows
+import DR.Rectangular.FourRowLeadingConcentration
+import DR.Rectangular.OrderThreeFourRowLeading

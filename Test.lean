@@ -64,3 +64,11 @@ import Test.ThreeRowFinal
 import Test.EndpointContenders
 import Test.FourRowConcentration
 import Test.FourRowScalarGauge
+import Test.OrdinaryColumnBlocks
+import Test.FourRowMinorantRepeated
+import Test.FourRowMinorantFaces
+import Test.FourRowColumnCollision
+import Test.FourRowRemainder
+import Test.OrderThreeFourRowGauge
+import Test.OrderThreeFourRowCopositive
+import Test.OrderThreeFourRowLeading
