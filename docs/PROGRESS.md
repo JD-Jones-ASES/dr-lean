@@ -23,12 +23,19 @@ Completed locally:
   Bonferroni connection and uniform event mass, including overlapping pairs.
 - The complete K=2 uniform maximum and unique equality theorem, through
   the exact squared-distance deficit identity.
+- The complete first collision-moment identity for every sample order at
+  least four: coincident, overlapping and disjoint witness classes are
+  counted exactly and every event mass comes from actual iid sampling.
+- Entropy on the closed simplex and the mixed/disjoint collision-moment
+  lower bounds; these give the uniform first-moment bound plus its exact
+  cell-variance term.
+- Continuity, compactness and global-maximizer existence for the actual
+  objective, with transpose, matrix-axis and sample-index symmetries.
 
 In progress:
 
-- Exact first collision moment, including overlapping and disjoint witnesses.
 - Distinct-witness intersection bounds and the matrix concentration argument.
-- Compactness and existence of a maximizer for the actual probability objective.
+- Exact conditional occupation identity and its quadratic inequalities.
 - Van der Waerden's permanent lower bound and equality prerequisites.
 
 The principal square, K=3, K=4, all-order and large-endpoint results remain
@@ -38,7 +45,16 @@ has been proved in this project.
 Read docs/THEOREMS.md for the full target inventory. Do not publish based on
 the completed foundations alone.
 
-Working checkout during initial development: /private/tmp/dr-lean. Private
-remote checkpoints preserve all accepted source. A durable checkout will
-also be maintained at /Users/jjones/Documents/repos/dr-lean. This project
+Initial private remote checkpoint: `007871efa78c9372be39f7b0b51e1286d758d75f`.
+Its local build passed and audited 282 project declarations. Seven source
+guard controls and six Lean semantic checks passed. Its
+[independent development CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34356306914)
+also passed. This checks completed modules and does not complete the release.
+
+The subsequent local combined build including the first moment, entropy and
+compactness modules passed and audited 410 project declarations.
+
+Working checkout during initial development: /private/tmp/dr-lean. The private
+remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout
+exists at /Users/jjones/Documents/repos/dr-lean. This project
 is separate from Analytic-Lab; the Lab contains no Lean files from this work.
