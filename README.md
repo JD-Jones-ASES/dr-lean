@@ -20,7 +20,9 @@ The complete square Dittert theorem for every n>=1, the K=2 theorem and
 the all-order large-board theorem, including unique equality, are proved
 locally. For K>=4 the latter applies whenever
 both dimensions are at least the explicit D_K in the theorem plan; K^21 is
-a simpler sufficient threshold. The remaining promised rectangular families are in progress.
+a simpler sufficient threshold. The complete [three-row K=3 family](docs/THREE-ROW-PROOF.md), with arbitrary
+N>=3 and its transpose, is also proved locally. The remaining promised
+rectangular families are in progress.
 The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
 and [all orders at least six](docs/SPECTRAL-PROOF.md).

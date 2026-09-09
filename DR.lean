@@ -112,3 +112,8 @@ import DR.Rectangular.ThreeRowSingleDoubletScalar
 import DR.Rectangular.ThreeRowThreeDoublets
 import DR.Rectangular.FourRowAveraging
 import DR.Endpoint.FactorialDecay
+import DR.Rectangular.ThreeRowFinal
+import DR.Endpoint.LargeRowCaps
+import DR.Endpoint.DeletedLaw
+import DR.Rectangular.FourRowContenderConcentration
+import DR.Rectangular.FourRowScalarGauge

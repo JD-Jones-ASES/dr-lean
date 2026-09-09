@@ -7,40 +7,16 @@ proved. Every mathematical source below is in Analytic-Lab's P0174 evidence.
 
 ## Three rows at three samples
 
-At an actual global maximum on a 3-by-N probability simplex, N>=3, every
-physical column is now proved to be full or a doubleton: singleton and empty
-columns are excluded. At least one full column exists. All three doubleton
-types cannot occur simultaneously. The statements quantify over arbitrary
-physical-column multiplicities, and support-preserving normalization retains
-the original zeros and a positive lower floor on every occupied entry.
+The complete sharp inequality and exact equality case now hold on every
+3-by-N probability simplex, N>=3, and its transpose. The
+[three-row proof](THREE-ROW-PROOF.md) explains the support-preserving reduction
+and exclusion of every one-, two-, and three-doubleton boundary family.
+[ThreeRowFinal](../DR/Rectangular/ThreeRowFinal.lean) is the final integration
+entry. All original zero entries are covered. The N=2 countercontrol proves
+that the lower dimension guard is necessary for uniqueness.
 
-[ThreeRowFullColumn](../DR/Rectangular/ThreeRowFullColumn.lean) and
-[ThreeRowThreeDoublets](../DR/Rectangular/ThreeRowThreeDoublets.lean) contain
-these global statements. The two-star reduction used to exclude singleton
-supports has actual normalized separation value N(N-1)/(N+1)^2. Its gap below
-uniform is
-
-    (N-2)(6N^2-7N-7) / [9N^2(N+1)^2] > 0,  N>=3.
-
-The formula and its N=2 equality boundary are proved in
-[ThreeRowTwoStar](../DR/Rectangular/ThreeRowTwoStar.lean).
-
-For the remaining single-doubleton pattern, the scalar module
-[ThreeRowSingleDoubletScalar](../DR/Rectangular/ThreeRowSingleDoubletScalar.lean)
-excludes all positive blocks with S columns (0,b,b) and T columns (c,d,d),
-where S,T>=1 and S+T>=3, from satisfying all four full-simplex first-order
-conditions. This checkpoint contains that scalar exclusion; deriving every
-condition from a normalized actual matrix is a separate bridge. The proof
-uses both zero-entry derivative inequalities. Persistent tests show that
-the positive-entry equations alone, N=2, and a zero full-block parameter
-each permit configurations that the complete hypotheses exclude.
-
-After that bridge, the two-doubleton-plus-full case is still required to
-finish three rows. Four rows and the finite five-through-nine-row gaps also
-remain before the complete K=3 release target can be claimed. Existing
-unconditional infinite ranges are recorded in [the range map](ORDER-THREE-RANGES.md).
-Sources: `SUPPORT_NORMAL_FORM.md`, `SINGLE_ZERO_RECTANGLE_K3.md`, and the
-subsequent three-row support proofs.
+The full K=3 release target still requires four rows and the remaining finite
+five-through-nine-row cases. See [the range map](ORDER-THREE-RANGES.md).
 
 ## Four rows at four samples
 
@@ -64,8 +40,25 @@ actual global maxima satisfying these explicit deletion bounds have equal
 selected columns; the bounds themselves still have to be proved for every
 contender in the intended range.
 
-The remaining analytic inputs are the corrected leading minorant, scalar
-gauge and contender concentration. Two finite quintic certificate families
+The scalar gauge bound is now proved independently in
+[FourRowScalarGauge](../DR/Rectangular/FourRowScalarGauge.lean):
+
+    (sum_i r_i sqrt(1-g_i))^2 >= 29/32 + (61/512) sum_i(r_i-1/4)^2.
+
+Equality at 29/32 is equivalent to uniform rows. A degree-seven symmetric
+polynomial is moved to sorted gap coordinates; the exact quantitative
+residual has 115 positive integer coefficients after scaling by 1024. Lean
+proves its literal identity, permutation invariance, nonnegativity, and the
+boundary-safe square-root step. The generator reproduces this certificate
+from the source formula. The tests retain zero mass and the sharp polynomial
+constant at a simplex vertex.
+
+The actual initial contender cap is unconditional, and the complete sharper
+concentration and pair-deletion normalization argument is proved from the
+three leading inputs in
+[FourRowContenderConcentration](../DR/Rectangular/FourRowContenderConcentration.lean).
+The scalar input above is discharged; the corrected leading minorant and
+actual collision remainder remain. Two finite quintic certificate families
 cover the intermediate column counts; both remain pending. The complete
 square N=4 case is already proved independently. The source is
 `FOUR_ROW_K4_GLOBAL.md`, whose analytic cutoff N>=500 supersedes the earlier
@@ -103,6 +96,24 @@ There is no factorial in this row-assignment formula. The separate iid-cell
 intersection has an m! factor. Tests include unequal row masses, signed
 weights, the empty assignment and zero-row normalization. Original row laws
 and laws after deleting columns must be handled separately in later proofs.
+
+The [endpoint contender bridge](../DR/Endpoint/Contenders.lean) now proves,
+for a=m!/m^m, b=(N)_m/N^m, normalized row product R, normalized column
+success S, and normalized rook value T,
+
+    F_m(P)=a R+b S-a T,
+    (1-R)+(b/a)(1-S) <= b-T,
+    1-b <= R(1-p_original).
+
+Every contender has positive original row sums before its probability law
+is normalized. Its original avoidance obeys 0<=p_original<=b<1. Exact
+row and column variance bounds follow from Maclaurin. The remaining factor
+1-p_original is retained in the row-product deficit bound. For m>=128,
+[LargeRowCaps](../DR/Endpoint/LargeRowCaps.lean) proves the actual contender
+column cap c_j<1/N+1/m^4. The
+[deleted-law module](../DR/Endpoint/DeletedLaw.lean) uses its own retained
+row masses; positive retained total mass alone does not justify treating
+all retained rows as probability laws.
 
 Finally [FactorialDecay](../DR/Endpoint/FactorialDecay.lean) proves
 

@@ -137,12 +137,14 @@ For K=3, positive global maximizers are now proved to be the original uniform
 board for all independent M,N>=3. Exact cubic interpolation and strict local
 uniqueness close this argument. Boundary-support classification remains active.
 
-Three-row global maxima now have full or doubleton columns, at least one
-full column, and at most two occurring doubleton types. The single-doubleton
-scalar KKT exclusion, actual four-row sampling-kernel bridge, closed-simplex
-Newton--Maclaurin variance bounds, row-assignment normalization and exact
-factorial decay are proved. [The rectangular foundation map](RECTANGULAR-FOUNDATIONS.md)
-states the interfaces and remaining obligations.
+The complete three-row family now proves `UniformMaximizer 3 N 3` for every
+N>=3 and its transpose, including all boundary supports and exact equality.
+[The three-row proof](THREE-ROW-PROOF.md) describes the complete support
+classification. The four-row scalar gauge bound and unique uniform equality
+are proved by an exact sorted-gap certificate. Actual endpoint contender
+normalization, variance, column caps, and separate original/deleted row laws
+are complete prerequisites. [The rectangular foundation map](RECTANGULAR-FOUNDATIONS.md)
+states the remaining interfaces and obligations.
 
 The principal K=3, K=4 and large-endpoint release targets remain incomplete.
 Four of the twenty required principal targets are now proved locally.
@@ -403,6 +405,32 @@ passed. The principal-target count remains four of twenty; full-square CI and
 independent CI for this subsequent checkpoint remain separate required gates.
 See [RECTANGULAR-FOUNDATIONS](RECTANGULAR-FOUNDATIONS.md) for readable proof
 interfaces and exact remaining obligations.
+
+The following checkpoint completes the entire three-row K=3 family and its
+transpose. Every zero-support class is excluded from an actual global maximum;
+compactness and the positive-matrix theorem give the full sharp inequality and
+unique equality. The N=2 countercontrol confirms the dimension guard. Independent
+semantic review checked the all-column two-doubleton argument, normalization,
+residual positivity and final equality scope.
+
+It also proves the four-row scalar gauge gap and exact equality via the
+homogeneous sorted-gap certificate, with deterministic source reproduction.
+The actual contender initial cap and the concentration/deletion assembly have
+independent semantic review; the corrected leading minorant and collision
+remainder remain explicit obligations. Endpoint normalization and caps now use
+actual original-row probabilities and a distinct deleted-row law. One duplicated
+endpoint lemma name was mechanically renamed during combined integration;
+all affected proofs and tests were replayed successfully.
+
+The combined build passed all 3,845 dependency jobs and audited 12,020 project
+declarations transitively against the standard-axiom allowlist. Source guards,
+generator reproduction, Python compilation, the twenty-target inventory and
+documentation/whitespace checks passed. Four principal targets remain proved;
+completing three rows does not yet complete the all-rectangle K=3 target.
+The preceding rectangular-foundation commit is
+`bdd1db2fd8861b01063cbdb6f62c6662b1b66cd3`, with
+[independent CI](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34390255947)
+still running. Independent CI remains required for this subsequent checkpoint.
 
 Working checkout during initial development: /private/tmp/dr-lean. The private
 remote is https://github.com/JD-Jones-ASES/dr-lean, and a durable source checkout

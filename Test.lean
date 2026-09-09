@@ -58,3 +58,9 @@ import Test.ThreeRowThreeDoublets
 import Test.FourRowKernel
 import Test.FourRowAveraging
 import Test.FactorialDecay
+import Test.ThreeRowSingleDoublet
+import Test.ThreeRowTwoDoublets
+import Test.ThreeRowFinal
+import Test.EndpointContenders
+import Test.FourRowConcentration
+import Test.FourRowScalarGauge

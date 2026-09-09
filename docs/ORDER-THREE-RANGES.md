@@ -10,6 +10,7 @@ After transposition, write m<=n. The compiled ranges are:
 
 | Smaller side | Larger side | Declaration |
 |---|---|---|
+| 3 | n>=3 | `uniformMaximizer_three_rows` |
 | m>=10 | n>=m | `uniform_maximum_order_three_of_min_ge_ten` |
 | 9 | n>=12 | `uniform_maximum_order_three_nine` |
 | 8 | n>=15 | `uniform_maximum_order_three_eight` |
@@ -17,9 +18,10 @@ After transposition, write m<=n. The compiled ranges are:
 | 6 | n>=238 | `uniform_maximum_order_three_six` |
 | 5 | n>=121 | `uniform_maximum_order_three_five` |
 
-The complete 3-by-3 endpoint is proved separately in the square package.
-The three-row family, four-row family and remaining finite rectangles
-are still work in progress. A criterion failing outside the table is
+The [complete three-row proof](THREE-ROW-PROOF.md) includes all N>=3 and
+its transpose. The 3-by-3 endpoint is also proved independently in the square
+package. The four-row family and remaining finite rectangles are still work
+in progress. A criterion failing outside the table is
 not a counterexample to P2.
 
 ## Actual probability and energy bounds
