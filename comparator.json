@@ -1,0 +1,33 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "DittertRybinRelease.dittert_unique_maximum",
+    "DittertRybinRelease.uniform_maximum_order_two",
+    "DittertRybinRelease.uniform_maximum_order_three",
+    "DittertRybinRelease.uniform_maximum_four_rows",
+    "DittertRybinRelease.uniform_maximum_five_by_five_order_four",
+    "DittertRybinRelease.uniform_maximum_twenty_by_twenty_order_four",
+    "DittertRybinRelease.uniform_maximum_large_boards",
+    "DittertRybinRelease.uniform_maximum_large_boards_power",
+    "DittertRybinRelease.uniform_maximum_large_endpoints",
+    "DittertRybinRelease.uniform_maximum_quadratic_endpoint_strip",
+    "DittertRybinRelease.uniform_maximum_quartic_endpoint_strip",
+    "DittertRybinRelease.uniform_maximum_combined_endpoint_strip",
+    "DittertRybinRelease.uniform_maximum_consecutive_endpoint",
+    "DittertRybinRelease.uniform_maximum_short_endpoint",
+    "DittertRybinRelease.uniform_maximum_square_near_endpoint",
+    "DittertRybinRelease.uniform_maximum_arithmetic_endpoint",
+    "DittertRybinRelease.uniform_maximum_double_endpoint",
+    "DittertRybinRelease.uniform_maximum_lll_endpoint",
+    "DittertRybinRelease.uniform_maximum_small_side",
+    "DittertRybinRelease.uniform_maximum_five_by_five"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

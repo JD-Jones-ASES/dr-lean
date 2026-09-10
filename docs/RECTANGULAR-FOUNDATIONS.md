@@ -1,9 +1,10 @@
 # Rectangular proof foundations
 
-These modules advance the remaining rectangular targets. They do not replace
-those targets with conditional inequalities or support-restricted statements.
-The [theorem inventory](THEOREMS.md) still has four of twenty principal targets
-proved. Every mathematical source below is in Analytic-Lab's P0174 evidence.
+These modules supply the rectangular proofs. Their intermediate conditional
+inequalities are connected to actual probability matrices in the complete
+theorems linked below. The [theorem inventory](THEOREMS.md) owns current
+principal completion and release status. Mathematical sources are recorded
+in Analytic-Lab's P0174 evidence and the linked proof accounts.
 
 ## Three rows at three samples
 
@@ -16,8 +17,8 @@ entry. All original zero entries are covered. The N=2 countercontrol proves
 that the lower dimension guard is necessary for uniqueness.
 
 The four-row K=3 strip N>=960 is also proved, including its transpose.
-The full K=3 release target still requires the remaining finite
-four-through-nine-row cases. See [the range map](ORDER-THREE-RANGES.md).
+The finite four-through-nine-row cases and all infinite ranges are now joined
+in the [complete K=3 proof](ORDER-THREE-COMPLETE.md).
 
 ## Four rows at four samples
 
@@ -38,8 +39,8 @@ kernel identification, and [FourRowAveraging](../DR/Rectangular/FourRowAveraging
 turns it into a strict increase in the actual four-sample probability for
 unequal columns and an interior blend. The factorial factor is 24. Thus
 actual global maxima satisfying these explicit deletion bounds have equal
-selected columns; the bounds themselves still have to be proved for every
-contender in the intended range.
+selected columns. The actual contender bounds are supplied by the analytic
+tail argument described below.
 
 The scalar gauge bound is now proved independently in
 [FourRowScalarGauge](../DR/Rectangular/FourRowScalarGauge.lean):
@@ -63,8 +64,9 @@ The scalar input and actual collision remainder are discharged. The
 the complete corrected minorant and its actual compact-extremum reductions.
 The full closed-simplex K=4 analytic tail N>=500 and its transpose are now proved
 in [FourRowTail](../DR/Rectangular/FourRowTail.lean). Two finite quintic certificate
-families cover the intermediate column counts; both remain pending. The complete
-square N=4 case is already proved independently. The source is
+families now cover the intermediate column counts in the
+[complete four-row theorem](FOUR-ROW-PROOF.md). The square N=4 case is proved
+independently. The source is
 `FOUR_ROW_K4_GLOBAL.md`, whose analytic cutoff N>=500 supersedes the earlier
 N>=6400 cutoff. No conditional kernel estimate is counted as the complete
 4-by-N theorem.
@@ -130,5 +132,5 @@ concentration prerequisite from `ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`, not
 a sampled factorial check or a completed endpoint range.
 
 All modules use the standard Lean axiom allowlist. The full release still
-requires the remaining principal proofs and the separate packaging and
-independent verification gates in [VERIFICATION](VERIFICATION.md).
+requires the exact current principal and packaging checks recorded in
+[PROGRESS](PROGRESS.md) and [VERIFICATION](VERIFICATION.md).

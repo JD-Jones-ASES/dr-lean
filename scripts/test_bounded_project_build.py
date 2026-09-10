@@ -113,12 +113,30 @@ def text := "import DR.NotAnImport"
         plan = make_plan(self.root)
 
         def git(command, **kwargs):
-            self.assertEqual(command, ['git', 'ls-files', '-z', '--', 'DR.lean', 'Test.lean', 'DR', 'Test'])
+            self.assertEqual(command, ['git', 'ls-files', '-z', '--', 'DR.lean', 'Test.lean', 'Solution.lean', 'DR', 'Test'])
             return subprocess.CompletedProcess(command, 0,
                 '\0'.join(info['path'] for info in plan.modules.values()) + '\0', '')
 
         check_tracked_coverage(plan, git)
         self.assertEqual(set(plan.tracked), set(plan.order))
+
+    def test_solution_is_bounded_and_hashed_through_test_import(self):
+        write(self.root, 'Solution', 'import DR.Top\n')
+        write(self.root, 'Test.Cases', 'import Solution\n')
+        plan = make_plan(self.root)
+        self.assertIn('Solution', plan.modules)
+        self.assertLess(plan.order.index('Solution'), plan.order.index('Test.Cases'))
+        paths = [info['path'] for info in plan.modules.values()]
+        validate_tracked_coverage(plan, paths + ['Challenge.lean'])
+        with self.assertRaisesRegex(ValueError, 'coverage mismatch'):
+            validate_tracked_coverage(plan, [p for p in paths if p != 'Solution.lean'])
+
+    def test_unimported_solution_is_not_silently_accepted(self):
+        write(self.root, 'Solution', 'import DR.Top\n')
+        plan = make_plan(self.root)
+        self.assertIn('Solution', plan.excluded)
+        with self.assertRaisesRegex(ValueError, 'coverage mismatch'):
+            validate_tracked_coverage(plan, [info['path'] for info in plan.modules.values()] + ['Solution.lean'])
 
     def test_safe_module_targets_bounded_batches_and_complete_root_check(self):
         plan = make_plan(self.root)

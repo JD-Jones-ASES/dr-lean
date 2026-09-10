@@ -27,7 +27,7 @@ statements, their actual proofs and axiom dependencies determine completion.
 | `DittertRybin.uniform_maximum_combined_endpoint_strip` | K=m, m>=5, N>=10^11 m^2, and transpose. | Proved locally; [complete endpoint proof](ENDPOINT-COMBINED.md) |
 | `DittertRybin.uniform_maximum_consecutive_endpoint` | K=m on m by (m+1), m>=19, and transpose. | Proved locally; [finite cuts and infinite tail](ENDPOINT_CONSECUTIVE_CUTS.md) |
 | `DittertRybin.uniform_maximum_short_endpoint` | K=m on m by N with m>=117 and m<=N<=2m, and transpose. | Proved locally; [exact recurrence and boundary scaling](ENDPOINT_NEAR_DOUBLE.md) |
-| `DittertRybin.uniform_maximum_square_near_endpoint` | K=n-1 on n by n, n>=21. | Pending |
+| `DittertRybin.uniform_maximum_square_near_endpoint` | K=n-1 on n by n, n>=21. | Proved locally; [complete two-zero boundary proof](SQUARE_NEAR_ENDPOINT.md) |
 | `DittertRybin.uniform_maximum_arithmetic_endpoint` | K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose. | Proved locally; [boundary scaling](ENDPOINT-BOUNDARY-SCALING.md) |
 | `DittertRybin.uniform_maximum_double_endpoint` | K=m on m by 2m for m>=80, and transpose. | Proved locally; [exact recurrence and boundary scaling](ENDPOINT_NEAR_DOUBLE.md) |
 | `DittertRybin.uniform_maximum_lll_endpoint` | K=m, m>=128, 64m^(3/2)<=N<=m(m-1)/20, and transpose, when the interval is nonempty. | Proved locally; [actual collision proof](ENDPOINT-LLL-STRIP-PROOF.md); lower cutoff equivalence proved |
@@ -52,7 +52,7 @@ statements, their actual proofs and axiom dependencies determine completion.
    every rectangle at K=3. The four-row K=4 proof joins n=4, the two exact
    certificate intervals and the analytic tail. Include the standalone
    5-by-5 and 20-by-20 cases and all stated equality/corollary results.
-5. **Remaining endpoint ranges.** Formalize the arithmetic, entropy/cut,
+5. **Endpoint ranges.** The completed proofs formalize the arithmetic, entropy/cut,
    local-lemma and collision-strip arguments; keep their different domains,
    the original-row and deleted-column avoidance probabilities distinct,
    and prove their overlap inequalities rather than sampling dimensions.

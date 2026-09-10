@@ -10,8 +10,9 @@ General P2 is not asserted.
 The finite part follows Section I of Analytic-Lab's P0174 note
 `ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md`, SHA-256
 `4ae2b41d7b6e1969c180501bc336cb567f12fe787ff853bcf465f1d37f32e28e`.
-That note credits the minimum-dilation argument to Cheon–Wanless (2012),
-Lemma 2.3, and the balanced domination criterion there to C.-K. Li.
+The minimum-dilation antecedent is Cheon–Wanless (2012),
+[Some results towards the Dittert conjecture on permanents](https://users.monash.edu.au/~iwanless/papers/DittertIndecompLAA.pdf),
+Lemma 2.3. Their Lemma 2.2 credits the domination criterion to C.-K. Li.
 This implementation uses the proved finite transport theorem and actual
 minimum in `MinimumDilation.lean`. The permanent inputs are proved in
 `BoundaryPermanent.lean` and `Square/ZeroRectangle.lean`; the latter uses

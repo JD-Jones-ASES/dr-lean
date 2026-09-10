@@ -69,8 +69,11 @@ three times supplies a strictly positive multiplier, so an exact constant
 quadratic kernel yields uniform equality even on the simplex boundary.
 
 The finite coefficient identities, actual small-block matrix reductions,
-positive Gram gates and complete parameter coverage remain separate
-obligations before this foundation can prove a finite K=4 range.
+positive Gram gates and complete parameter coverage are connected in the
+[full four-row proof](FOUR-ROW-PROOF.md) and the
+[fixed-board proofs](FIXED-BOARD-ORDER-FOUR.md). This role catalogue supplies
+their exhaustive physical classification; positivity comes from those
+separately proved certificate and kernel arguments.
 
 ## Replay
 

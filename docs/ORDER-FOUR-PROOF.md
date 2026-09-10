@@ -86,4 +86,5 @@ The optional `python3 scripts/generate_order_four_orbits.py` reproduces the
 finite data using exact arithmetic. It supplies no proof authority: all
 finite gates use ordinary Lean kernel reduction. The implementing agent's
 complete replay and another agent's semantic review both passed. The full
-project still requires its combined build and independent release gate.
+project combined build has passed; the separate independent release gate
+is described in [VERIFICATION](VERIFICATION.md).

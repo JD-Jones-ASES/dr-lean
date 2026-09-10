@@ -1,3 +1,4 @@
+import DR.Endpoint.SquareNearEndpoint
 import DR.Definitions
 import DR.Probability
 import DR.Marginalization
@@ -217,3 +218,5 @@ import DR.Endpoint.NearEndpointTwoZeroPolynomial
 import DR.Endpoint.TwoZeroLogTail
 import DR.Endpoint.NearEndpointTransportParameters
 import DR.Endpoint.Combined
+import DR.Endpoint.TwoZeroReduction
+import DR.Endpoint.NearEndpointConditional

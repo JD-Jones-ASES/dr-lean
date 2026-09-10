@@ -1,4 +1,5 @@
 import DR
+import Solution
 import Lean.Util.CollectAxioms
 
 /-! Audit every project declaration, including private helper declarations. -/
@@ -10,7 +11,8 @@ run_cmd do
   let allowed : Array Name := #[`propext, `Classical.choice, `Quot.sound]
   for (name, _) in env.constants.toList do
     let label := name.toString
-    if label.startsWith "DittertRybin." || label.startsWith "_private.DR." then
+    if label.startsWith "DittertRybin." || label.startsWith "_private.DR." ||
+        label.startsWith "DittertRybinRelease." || label.startsWith "_private.Solution." then
       checked := checked + 1
       for ax in ← collectAxioms name do
         unless allowed.contains ax do

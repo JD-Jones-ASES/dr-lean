@@ -17,6 +17,7 @@ import subprocess
 import time
 
 ROOTS = ('DR', 'Test')
+PROJECT_MODULE_ROOTS = (*ROOTS, 'Solution')
 NAME = re.compile(r"[A-Za-z_][A-Za-z0-9_']*(?:\.[A-Za-z_][A-Za-z0-9_']*)*")
 
 
@@ -93,7 +94,7 @@ def lean_imports(text):
 
 
 def is_project_module(name):
-    return name.split('.')[0] in ROOTS
+    return name.split('.')[0] in PROJECT_MODULE_ROOTS
 
 
 def source_path(root, name):
@@ -154,6 +155,8 @@ def make_plan(root, batch_size=2):
     for name in ROOTS:
         visit(name)
     all_local = set(ROOTS)
+    if (root / 'Solution.lean').is_file():
+        all_local.add('Solution')
     for prefix in ROOTS:
         for path in (root / prefix).rglob('*.lean'):
             all_local.add('.'.join(path.relative_to(root).with_suffix('').parts))
@@ -175,6 +178,10 @@ def validate_tracked_coverage(plan, paths):
         path = Path(value)
         if path.suffix != '.lean':
             continue
+        # Challenge contains only independently compared statement holes.
+        # It is compiled separately without the proof warning-as-error rule.
+        if value == 'Challenge.lean':
+            continue
         if path.is_absolute() or '..' in path.parts:
             raise ValueError(f'Unsafe tracked project source path: {value}')
         name = '.'.join(path.with_suffix('').parts)
@@ -191,7 +198,7 @@ def validate_tracked_coverage(plan, paths):
 
 
 def check_tracked_coverage(plan, runner=subprocess.run):
-    result = runner(['git', 'ls-files', '-z', '--', 'DR.lean', 'Test.lean', 'DR', 'Test'],
+    result = runner(['git', 'ls-files', '-z', '--', 'DR.lean', 'Test.lean', 'Solution.lean', 'DR', 'Test'],
                     cwd=plan.root, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if result.returncode:
         raise ValueError('Could not read tracked project source coverage: ' + result.stderr)

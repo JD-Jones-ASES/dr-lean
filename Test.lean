@@ -1,3 +1,6 @@
+import Test.SquareNearEndpoint
+import Test.TwoZeroPermanent
+import Test.TwoZeroReducedCounting
 import Test.Axioms
 import Test.Semantics
 import Test.Boundaries
@@ -225,3 +228,8 @@ import Test.TwoZeroPolynomial
 import Test.NearEndpointTwoZeroPolynomial
 import Test.TwoZeroLogTail
 import Test.Combined
+import Test.StableQuadratic
+import Test.TwoZeroMixedStability
+import Test.TwoZeroMixedCoefficients
+import Test.TwoZeroReduction
+import Test.NearEndpointConditional

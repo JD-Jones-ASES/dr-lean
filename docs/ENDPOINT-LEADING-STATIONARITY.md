@@ -44,9 +44,10 @@ full-board minimum then restricts to the fixed **original** normalized
 row law, and its stationarity theorem is exported directly. No deleted
 law is substituted in this argument.
 
-The upper-strip theorem is still pending: the minimum must next be
-compared with uniform and the scalar row-spread criterion, then combined
-with the product/norm gap and actual contender concentration estimates.
+The completed [coarse gauge](ENDPOINT-COARSE-GAUGE.md) compares this minimum
+with uniform and the scalar row-spread criterion. The product/norm gap and
+actual contender concentration then feed the completed
+[quadratic](ENDPOINT-QUADRATIC.md) and [combined](ENDPOINT-COMBINED.md) strips.
 
 Verification: `lake --wfail build Test.EndpointLeadingBoundary
 Test.EndpointLeadingStationarity` passed 2,533 jobs, 12 examples and

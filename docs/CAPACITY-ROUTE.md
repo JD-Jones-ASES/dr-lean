@@ -4,27 +4,14 @@ Status: completed prerequisite, 2026-09-09. The unconditional van der Waerden
 inequality and its full equality characterization are proved in
 `DR/Square/CapacityEquality.lean`, including dimensions zero and one.
 `vanDerWaerden_with_equality` assumes only that the input matrix is doubly
-stochastic. The square Dittert theorem remains separate work.
+stochastic. These prerequisites feed the completed all-order square Dittert
+theorem listed in [THEOREMS](THEOREMS.md).
 
-Later completion update: `CapacityPolynomial.lean` now proves the full
-split-polynomial bridge, including nonpositive roots derived from
-coefficient signs, multiplicities and degree padding. `CapacityStability.lean`
-defines actual complex half-plane nonvanishing and proves the initial
-matrix polynomial is homogeneous, coefficientwise nonnegative, H-stable
-and of capacity one. The initial-checkpoint inventory below is preserved;
-its former missing root bridge and initial stability steps are now complete.
-`StableSlices.lean` supplies positive-slice splitting, and
-`NormComparison.lean` proves Gurvits's norm comparison. `StableClosure.lean`
-and `StableDerivative.lean` prove coefficientwise limits, positive directional
-derivative stability by Gauss–Lucas, coordinate differentiation and zero
-specialization, retaining the zero-polynomial alternative.
-`CapacityDescent.lean` and `CapacityBound.lean` prove actual capacity descent
-and induction; `PermanentCoefficient.lean` identifies the squarefree
-coefficient with the permanent. The two equality modules prove the actual
-first-deletion capacity bound and the column-permutation argument;
-`CapacityEqualityEntropy.lean` proves the strict closed-simplex entropy step.
-All previously outstanding operations listed in the original plan below are
-now discharged. See [PROGRESS](PROGRESS.md) for current combined verification.
+The proof proceeds through an explicit split-polynomial bridge, actual
+complex half-plane stability, positive slices, closure under differentiation
+and specialization, capacity descent, the permanent coefficient identity,
+and the exact matrix equality case. All these dependencies are internal
+proved lemmas; the completed module map appears below.
 
 ## Primary sources and selected route
 
@@ -67,10 +54,11 @@ zero, so equality holds despite roots at zero. Our proved inequality
 includes this boundary. No unrestricted equality characterization is
 copied from that statement. In the doubly stochastic application the
 initial capacity is 1, so the positive-capacity case is the relevant one.
-The Q(t)=t^2 zero-capacity equality was independently replayed in Lean in
-`/private/tmp/DRCapacityBoundary.lean`.
+The Q(t)=t^2 zero-capacity equality was independently replayed during
+development. Persistent vanished-derivative and empty-product controls are
+in [Test.Stability](../Test/Stability.lean).
 
-## Actual Lean increment
+## Univariate and matrix capacity lemmas
 
 `DR/Square/CapacityUnivariate.lean` proves:
 
@@ -101,13 +89,13 @@ The Q(t)=t^2 zero-capacity equality was independently replayed in Lean in
 
 The standalone `lake build DR.Square.CapacityMatrix` passed cleanly under
 Lean v4.33.0 and Mathlib db584cd6d46c92f209a44c0f1c829460d327499d (3153 jobs).
-All 28 theorem declarations were inspected with `#print axioms` using
-`/private/tmp/DRCapacityAxioms.lean`; each depends only on `propext`,
+All 28 theorem declarations received an individual axiom audit during
+development; each depends only on `propext`,
 `Classical.choice`, and `Quot.sound`. No placeholder, added axiom, unsafe
 code, or native decision procedure occurs in these modules.
-The root/factorization bridge
-from a `Polynomial ℝ` has not been written yet; the current input is an
-explicit finite affine-factor representation.
+The completed `CapacityPolynomial.lean` bridge converts a split real
+polynomial to this explicit finite affine-factor representation, including
+nonpositive roots, multiplicities, degree padding and the zero polynomial.
 
 ## Available Mathlib components
 
@@ -135,39 +123,32 @@ No ready declaration for multivariate real/H-stability or its derivative
 and boundary-specialization closure was found in the pinned Mathlib.
 No van der Waerden lower bound or equality theorem was found.
 The 13 named root, homogeneous-polynomial, and convexity APIs were checked
-against the pinned environment using `/private/tmp/DRCapacityLibraryChecks.lean`.
+against the pinned environment during development. The complete final
+project now includes and audits the actual dependencies.
 
-## Remaining proof obligations in an honest implementation order
+## Completed dependency map
 
-1. Initial normalization: completed in `CapacityMatrix.lean`.
-2. Polynomial bridge: turn a split real polynomial with nonnegative
-   coefficients and nonpositive roots into the proved affine product form,
-   including degree 0/1 and zero polynomial cases. Relate functional
-   derivatives to polynomial derivatives. If the actual slice degree is
-   smaller than the variable count, pad with constant-one factors (zero
-   slopes), already allowed by our lemma; no monotonicity proof for G(k)
-   is needed for this route.
-3. Define homogeneous H-stability (nonvanishing when every complex
-   coordinate has positive real part), coefficient nonnegativity, and
-   variable deletion/specialization. Prove the initial matrix product is
-   H-stable directly from positivity of each row linear form.
-4. Prove slice/root properties and closure. A faithful Gurvits Section 4
-   route needs the homogeneous positive-direction root characterization,
-   the norm comparison |p(z)|>=|p(Re z)|, coefficient-limit preservation,
-   and derivative-plus-zero-specialization preservation. Mathlib's
-   Gauss–Lucas theorem is an ingredient, not a replacement for those steps.
-   Alternatively Laurent–Schrijver's complex-cone separation proof can be
-   formalized, but that geometry is not currently an available theorem.
-5. Apply the actual univariate lemma to each positive slice, obtain
-   multivariate capacity descent, and handle the zero-capacity and
-   vanished-polynomial cases without division by zero.
-6. The finite telescoping product is completed in `CapacityMatrix.lean`.
-   Identify the final mixed derivative coefficient with the existing Matrix.permanent.
-   This yields the unconditional van der Waerden lower bound.
-7. Formalize Laurent–Schrijver's matrix-specific first-derivative capacity
-   bound with zero weights, then strict x log x convexity and column
-   permutation. This yields the exact equality characterization.
+1. `CapacityMatrix.lean` gives the initial capacity normalization and finite
+   telescoping product.
+2. `CapacityPolynomial.lean` gives the actual root/factorization bridge,
+   including degree padding and zero cases.
+3. `CapacityStability.lean` defines homogeneous half-plane nonvanishing and
+   proves the nonnegative matrix polynomial satisfies it with capacity one.
+4. `StableSlices.lean` and `NormComparison.lean` prove positive-slice splitting
+   and Gurvits's norm comparison. `StableClosure.lean` and
+   `StableDerivative.lean` prove coefficient limits, positive directional
+   derivatives, coordinate derivatives and zero specialization, retaining
+   the zero-polynomial alternative.
+5. `CapacityDescent.lean` and `CapacityBound.lean` apply the actual univariate
+   lemma to each positive slice and iterate the capacity inequality. They
+   handle zero capacity without dividing by it.
+6. `PermanentCoefficient.lean` identifies the final squarefree coefficient
+   with `Matrix.permanent`, yielding the unconditional lower bound.
+7. `CapacityEqualityDeletion.lean`, `CapacityEqualityEntropy.lean` and
+   `CapacityEquality.lean` prove the first-deletion entropy bound, strict
+   closed-simplex equality, and the column-permutation argument. The final
+   `vanDerWaerden_with_equality` covers every doubly stochastic matrix.
 
-Items 3–5 are still the substantial new formalization work. The univariate
-lemma removes a real dependency, but it is not evidence that stability
-closure or the van der Waerden theorem has already been proved in Lean.
+[PROGRESS](PROGRESS.md) records the combined build and global axiom audit.
+[Capacity equality tests](../Test/CapacityEquality.lean) retain unit column
+entries, zero weights and exact uniform attainment.

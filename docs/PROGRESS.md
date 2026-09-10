@@ -1,8 +1,10 @@
 # Current formalization state
 
-Updated 2026-09-09. Nineteen of the twenty required release targets are
-proved locally. The repository remains private, and the complete release
-gate has not passed. Full arbitrary-rectangle Rybin P2 remains open.
+Updated 2026-09-09. All twenty required release targets are
+proved locally. This dated record captures local completion before
+independent release verification. The exact-commit
+[CI workflow](https://github.com/JD-Jones-ASES/dr-lean/actions/workflows/development.yml)
+records that separate outcome. Full arbitrary-rectangle Rybin P2 remains open.
 
 ## Completed principal results
 
@@ -26,73 +28,74 @@ gate has not passed. Full arbitrary-rectangle Rybin P2 remains open.
 - The [quadratic](ENDPOINT-QUADRATIC.md), [quartic](ENDPOINT-QUARTIC.md), and
   [combined](ENDPOINT-COMBINED.md) endpoint strips: respectively
   m>=96,N>=10000m^2; m>=16,N>=20000m^4; m>=5,N>=10^11m^2.
+- The [square near-endpoint](SQUARE_NEAR_ENDPOINT.md): n>=21 and K=n-1.
 
-All results concern actual nonnegative probability matrices, allow zero
-entries, and give the sharp uniform bound with equality exactly at uniform.
+Every rectangular result concerns nonnegative matrices of mass one; the
+Dittert statement uses mass n. All allow zero entries and give the sharp
+uniform bound with equality exactly at the corresponding uniform matrix.
 Rectangular endpoint families include transposition. K=1 retains its
 separate nonuniqueness exception. Exact declarations and hypotheses are in
 [THEOREMS](THEOREMS.md) and [release-targets.json](../release-targets.json).
 
-## Remaining work
+## Completed final proof and remaining release work
 
-The sole pending principal target is the square near-endpoint K=n-1 for
-n>=21. Its actual corner-zero padding, shared marginal discrepancy, balanced
-dilation, [finite cut certificates](../data/NEAR_ENDPOINT_FINITE_CUTS_SOURCE.md)
-and infinite scalar tail are proved. The [two-parameter scalar permanent
-bound](../data/TWO_ZERO_POLYNOMIAL_SOURCE.md), including its
-[logarithmic tail](../data/TWO_ZERO_LOG_TAIL_SOURCE.md), is also proved.
+The square near-endpoint theorem has only its dimension hypothesis. The
+[actual two-zero matrix reduction](TWO_ZERO_REDUCTION.md),
+[exact matrix permanent floors](TWO_ZERO_PERMANENT.md), finite dimensions
+21 through 25, and infinite range from 26 now form a complete proof.
+Additional zeros, zero deficit, unit dilation, and exact uniform equality
+remain covered. The principal and its boundary tests passed a clean
+3,565-job replay, with only the three standard logical axioms.
 
-The [actual face stationarity](PERMANENT_FACE_STATIONARITY.md) and
-[strict support structure](TWO_ZERO_FACE_SUPPORT.md) apply to minima on the
-full two-zero doubly stochastic face, permitting additional zeros.
-Repeated-support averaging, matrix reduction to the scalar formula, and
-final near-endpoint assembly remain active. The scalar formula alone is
-not an arbitrary-matrix permanent theorem.
-
-The long-column principal proofs now derive the actual row and column caps
-from the [leading comparison](ENDPOINT-LEADING-COMPARISON.md),
-[coarse gauge](ENDPOINT-COARSE-GAUGE.md), and
-[saturated gauge](ENDPOINT-SATURATED-GAUGE.md). Original-row and deleted-row
-avoidance laws remain distinct through the retained-kernel argument.
+The remaining work is repository-wide release verification: all twenty
+public statements and matching proofs, metadata, independent Linux CI,
+Comparator and NanoDa, and exact default-branch verification. Full P2
+outside the stated ranges remains open.
 
 ## Verification boundary
 
-The nineteen-target integration passed `lake --wfail build +DR +Test`:
-**6,168 jobs**, **197,200 project declarations audited**, and **2,708 included
-Lean source hashes unchanged**, with no warnings. Only `propext`,
-`Classical.choice` and `Quot.sound` are permitted transitive axioms.
-It adds 70 independently reviewed Lean modules to the fifteen-target closure.
+The complete twenty-target integration passed
+`lake --wfail build +DR +Test +Solution`: **6,196 jobs**, **197,437 project
+and wrapper declarations audited**, and **2,736 included Lean source hashes
+unchanged**, with no warnings. Only `propext`, `Classical.choice` and
+`Quot.sound` are permitted transitive axioms. The public wrappers separately
+passed a complete 47-declaration audit and exact statement/semantic controls.
 
-The isolated **2,869-file** source package passed **26** generator/control
-commands, including ordinary and optimized Python, and **319** local Markdown
-links. Strict import coverage contains **1,354** batches of at most two
-requested modules, with every included production module reachable by the
-global axiom audit. Frozen source bytes and explicit whitespace were checked.
 The complete K3 [receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) retains all
-1,330 case proofs and 87 exact dispatch shards. Its historical cold replay
-was not repeated; unchanged sources and all regeneration/corruption controls
-were checked again.
+1,330 case proofs and 87 exact dispatch shards. Its historical local cold
+replay was not repeated; the independent Linux job starts from pinned
+mathematical dependencies and checks the complete tracked proof closure.
+The isolated **2,913-file** source package passed
+**30** generator/source/control commands, including
+normal and optimized Python, and **344** local Markdown links.
+Strict tracked coverage has **1,368** batches of at most two requested modules.
+All included production modules are reachable by the global axiom audit.
+The verifier driver's 35 static/mock controls pass normally and optimized;
+they establish orchestration behavior, not a Linux kernel pass.
 
 Independent CI is required for the exact private checkpoint and its default
-branch before release. Private main and the durable source checkout remain
-at independently verified `71ab5fb1e4bae27fbd43f26ab06f2e1646750836`.
+branch before release. At local integration, private main and the durable
+source checkout were at independently verified `71ab5fb1e4bae27fbd43f26ab06f2e1646750836`.
 Its [main replay](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34387704231)
-succeeded. Later local proofs have not yet cleared that independent gate.
+succeeded. It is historical evidence for that earlier commit only.
 Earlier exit-143 runs remain unaccepted; their termination cause is
 unconfirmed. A local proof or a dry build plan does not replace CI.
 
-The complete [public-release gate](VERIFICATION.md), including all twenty
-targets, Challenge/Solution, Comparator and NanoDa, remains pending. JD
-will submit to Palomar manually after that gate passes.
+The [public-release gate](VERIFICATION.md) requires both complete proof
+build and independent kernels on the exact commit. This record establishes
+local completion. At this checkpoint, complete twenty-target CI, Comparator
+and NanoDa remain pending; the current exact-commit workflow and its artifacts
+record that separate outcome, not the historical run cited above. JD submits to Palomar manually after the gate passes.
 
 ## Detailed records
 
-The [latest development record](history/2026-09-09-long-column-endpoints.md)
+The [latest development record](history/2026-09-09-complete-twenty-targets.md)
 explains the mathematical additions and verification. Earlier records retain
 [initial development](history/2026-09-09-development.md),
 [quintic/endpoint work](history/2026-09-09-quintic-endpoint-development.md), and
 [the eight-target checkpoint](history/2026-09-09-fixed-board-endpoint-development.md),
 and [the fourteen-target checkpoint](history/2026-09-09-complete-low-orders-endpoints.md),
-and [the fifteen-target checkpoint](history/2026-09-09-consecutive-endpoint.md).
+and [the fifteen-target checkpoint](history/2026-09-09-consecutive-endpoint.md),
+and [the nineteen-target checkpoint](history/2026-09-09-long-column-endpoints.md).
 Their historical state is superseded by the current inventory and actual
 verification receipts.

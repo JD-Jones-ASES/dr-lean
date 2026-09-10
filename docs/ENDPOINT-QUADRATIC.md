@@ -27,8 +27,9 @@ simplex, with no stationarity or positive-support premise on the input.
 The source is the accepted P0174 `ENDPOINT_COLLISION_CLUSTER_STRIPS.md`,
 using its separate `ENDPOINT_SATURATED_STABILITY.md` input. The formal
 dependency graph separates the gauge minimum from the probability maximum.
-The quartic, combined and all-aspect endpoint families remain separate
-targets until their exact ranges are independently assembled.
+The independently assembled [quartic](ENDPOINT-QUARTIC.md),
+[combined](ENDPOINT-COMBINED.md) and [all-aspect](ENDPOINT-ALL-ASPECTS.md)
+endpoint families are also complete, each with its own exact range.
 
 `lake --wfail build Test.Quadratic Test.LongColumnVariance` passed 3,337
 jobs, 23 persistent examples and 14 standard-only axiom audits. Controls

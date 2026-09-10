@@ -88,7 +88,8 @@
     {
       "declaration": "DittertRybin.uniform_maximum_square_near_endpoint",
       "scope": "K=n-1 on n by n, n>=21.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/SquareNearEndpoint.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_arithmetic_endpoint",

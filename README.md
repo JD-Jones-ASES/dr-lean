@@ -1,9 +1,10 @@
 # dr-lean — Dittert and rectangular semimatching inequalities
 
 A Lean 4 formalization of the square Dittert inequality and the rectangular
-semimatching results developed in Analytic-Lab. **Private development;
-the complete release theorem set is not yet formalized.** A successful development
-build checks completed modules only. It is not a release-readiness claim.
+semimatching results developed in Analytic-Lab. **All twenty intended principal theorems are proved locally.**
+The local completion record is in [PROGRESS](docs/PROGRESS.md). Complete
+independent verification is a separate release gate, with outcomes recorded
+by the [exact-commit CI workflow](https://github.com/JD-Jones-ASES/dr-lean/actions/workflows/development.yml).
 
 For a nonnegative M-by-N matrix of total mass one, draw K cells independently
 with replacement. P2 asks whether the probability of distinct rows **or**
@@ -16,14 +17,14 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
-Nineteen of the twenty required release targets are now proved locally:
+The twenty required release targets are now proved locally:
 all square Dittert orders, K=2 and K=3 on all admissible rectangles,
 K=4 on every four-row rectangle and on 5-by-5 and 20-by-20,
 the two large-board thresholds, all admissible orders for smaller side at
 most four and for 5-by-5, the arithmetic, consecutive, near-square and doubled endpoint
 ranges, the LLL endpoint strip, all large-row aspect ratios, and the quadratic,
-quartic and combined long-column strips. The square near-endpoint K=n-1
-family from n=21 is the sole remaining principal proof.
+quartic and combined long-column strips, and the
+[square near-endpoint K=n-1 family from n=21](docs/SQUARE_NEAR_ENDPOINT.md).
 
 The [complete K=3 proof](docs/ORDER-THREE-COMPLETE.md) joins all 1,330
 kernel-verified finite certificates and 87 coverage shards with the proved
@@ -68,7 +69,7 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
 - [Four-row inputs](docs/FOUR-ROW-INPUTS.md): actual collision remainders,
   the complete corrected minorant, analytic K=4 tail, and finite-certificate matrix reduction.
 - [Finite K=4 roles](docs/FINITE-K4-ROLES.md): complete physical role coverage,
-  quintic symmetrization and the remaining positivity obligations.
+  quintic symmetrization and its connection to the completed positivity proofs.
 - [Square prerequisites](docs/SQUARE-DEPENDENCIES.md): verified Mathlib
   inventory and the completed transport and permanent prerequisites.
 - [Verification and publication](docs/VERIFICATION.md): development checks,
@@ -76,7 +77,8 @@ and [all orders at least six](docs/SPECTRAL-PROOF.md).
 
 ```sh
 lake exe cache get
-lake build DR Test
+python3 scripts/bounded_project_build.py --check-tracked-coverage
+lake build Challenge
 python3 scripts/check-source.py
 ```
 
@@ -86,10 +88,11 @@ identities. `DR/Collision/` supplies the rectangular probability arguments;
 `DR/Square/` supplies the permanent and stationary-cut arguments. Proofs use
 Lean's kernel, without custom axioms or native computation trust extensions.
 
-The public release will include readable Challenge/Solution modules,
-source metadata, a complete transitive axiom audit, and Comparator/NanoDa
-verification. The repository stays private until the advertised theorem set
-passes those checks and independent CI on its exact default-branch commit.
+The public interface consists of [Challenge](Challenge.lean) and
+[Solution](Solution.lean), with [source metadata](formalization.yaml),
+and a complete transitive axiom audit. Public release also requires
+Comparator/NanoDa verification and independent CI to pass for the advertised
+theorem set on its exact default-branch commit.
 JD will submit to Palomar manually.
 
 Human responsibility: JD Jones. Mathematical and formal development uses

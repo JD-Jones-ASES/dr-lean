@@ -14,3 +14,9 @@ name = "DR"
 
 [[lean_lib]]
 name = "Test"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

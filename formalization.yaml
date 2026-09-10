@@ -1,0 +1,190 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "dr-lean: Dittert and rectangular semimatching inequalities"
+  description: >-
+    A Lean 4 alternative proof of the square Dittert inequality in every
+    positive dimension, and sharp rectangular semimatching inequalities.
+    Rectangular results include every admissible rectangle at K=2 and K=3,
+    every four-row rectangle at K=4, the 5-by-5 and 20-by-20 K=4 cases,
+    all-order large-board thresholds, the stated endpoint strips, and
+    their small-side corollaries, and K=n-1 on every square of order n>=21.
+    The probability event is distinct rows
+    or distinct columns in independent draws with replacement. Every
+    theorem includes nonnegative boundary matrices and unique equality
+    at the uniform matrix. Full arbitrary-rectangle Rybin P2 remains open.
+  authors: ["JD Jones"]
+  responsible_maintainers: ["JD Jones"]
+  license: "MIT"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05A20", "15A15"]
+
+sources:
+  - title: "Analytic-Lab P0174: Dittert and rectangular semimatching proof notes"
+    type: "research notes"
+    id: "JD-Jones-ASES/Analytic-Lab@bdce7f70f49d8b79ee756df6724ed3822e0c7f20"
+    relationship: "formalizes"
+    note: >-
+      Private exploratory mathematics and exact replay evidence preceded
+      this separate formalization. The public repository contains the
+      substantive proofs and readable accounts; no private repository
+      is a proof dependency. This attribution is not a priority claim.
+  - title: "Rybin P2: independent-cell rectangular semimatching problem"
+    authors: ["Dmitry Rybin"]
+    type: "web post"
+    location: "https://x.com/DmitryRybin1/status/2096907360140697791"
+    relationship: "background"
+    author_endorsement: "not-contacted"
+    note: >-
+      JD supplied this as the statement location. Independent retrieval
+      of the post text was not established. The exact probability
+      formulation is stated directly in Challenge and the proof definitions.
+      No immediate paper source or full solution of P2 is asserted.
+  - title: "An interpretation of the Dittert conjecture in terms of semi-matchings"
+    authors: ["G.-S. Cheon", "Ian M. Wanless"]
+    id: "doi:10.1016/j.disc.2007.01.008"
+    type: "paper"
+    location: "https://doi.org/10.1016/j.disc.2007.01.008"
+    relationship: "background"
+    author_endorsement: "not-contacted"
+    note: "Published antecedent for the square semimatching interpretation."
+  - title: "Public Dittert conjecture proof project"
+    authors: ["Pedro Paulo Marques do Nascimento"]
+    contributors:
+      - name: "Hongyuan Lu"
+        role: "Attributed small-order contribution in the source project"
+    type: "proof project"
+    location: "https://github.com/pedromnasc/dittert-conjecture-proof/tree/894066bbaa715138c98bf3cb7c6fdb4f39a37701"
+    relationship: "independently-proves"
+    author_endorsement: "not-contacted"
+    note: >-
+      The earlier public complete square argument passed a separate local
+      mathematical audit. Our square proof uses different dependencies;
+      its code and certificates do not import that project. This is an
+      alternative proof, with no first-resolution or journal-acceptance claim.
+  - title: "Van der Waerden/Schrijver-Valiant like Conjectures and Stable (aka Hyperbolic) Homogeneous Polynomials: One Theorem for all"
+    authors: ["Leonid Gurvits"]
+    id: "arXiv:0711.3496v2"
+    type: "paper"
+    location: "https://arxiv.org/abs/0711.3496v2"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: "Stable homogeneous polynomial capacity method for permanent prerequisites, proved internally in Lean."
+  - title: "On Leonid Gurvits's proof for permanents"
+    authors: ["Monique Laurent", "Alexander Schrijver"]
+    type: "paper"
+    location: "https://ir.cwi.nl/pub/16667"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: "Matrix-specific capacity and equality argument; zero-capacity boundaries are retained explicitly."
+  - title: "Minimum permanents on two faces of the polytope of doubly stochastic matrices"
+    authors: ["Kyle Pula", "Seok-Zun Song", "Ian M. Wanless"]
+    type: "paper"
+    location: "https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: >-
+      Repeated-support face reduction and scalar equalization context.
+      The actual face minimum, cofactor bounds, Alexandrov inequality,
+      averaging and matrix representation are proved internally, allowing
+      additional zeros; the paper is not added as a formal axiom.
+
+  - title: "Some results towards the Dittert conjecture on permanents"
+    authors: ["Gi-Sang Cheon", "Ian M. Wanless"]
+    id: "doi:10.1016/j.laa.2010.08.041"
+    type: "paper"
+    location: "https://users.monash.edu.au/~iwanless/papers/DittertIndecompLAA.pdf"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: >-
+      The 2012 paper's minimum-dilation argument (Lemma 2.3) informs the
+      active-cut method. Its domination criterion (Lemma 2.2) credits
+      C.-K. Li. This is distinct from the 2007 semimatching paper;
+      the rectangular transport and minimum are proved internally.
+  - title: "Proof of Dittert's conjecture for dimensions n >= 17"
+    authors: ["Zhekai Pang"]
+    id: "arXiv:2606.01531v1"
+    type: "paper"
+    location: "https://arxiv.org/abs/2606.01531v1"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: >-
+      Boundary scaling and the quantitative permanent-ratio method inform
+      the rectangular endpoint arguments. The cited paper's theorem is
+      square-only; its scope is not widened. It credits the Knopp-Sinkhorn
+      one-zero permanent floor, which this repository proves internally.
+      The original Knopp-Sinkhorn paper was not independently used here.
+  - title: "New Constructive Aspects of the Lovasz Local Lemma"
+    authors: ["Bernhard Haeupler", "Barna Saha", "Aravind Srinivasan"]
+    id: "arXiv:1001.1231v5"
+    type: "paper"
+    location: "https://arxiv.org/abs/1001.1231v5"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: >-
+      Conditional local-lemma framework for the collision strip arguments.
+      The finite weighted-sum conditioning proof and actual row independence
+      are established internally; no resampling-algorithm formalization is
+      claimed and no external probability theorem is added as an axiom.
+
+status:
+  scope: >-
+    The twenty principal declarations have the precise ranges recorded in
+    docs/THEOREMS.md and release-targets.json. Rectangular statements impose
+    only nonnegativity and total mass one; Dittert uses total mass n.
+    Endpoint families include transpose and all statements give sharp
+    inequality and iff uniform equality. K=1 is separated from the general
+    uniqueness claim. The deliberate Challenge statement placeholders are
+    excluded from proof counts. Solution does not import Challenge.
+    No full arbitrary-rectangle P2 or unrestricted new Dittert priority
+    claim is made.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["OpenAI Codex (GPT-6)"]
+      framework: "Codex with parallel mathematical and Lean agents"
+      tool_setup: >-
+        Agents developed substantial mathematics, Lean proofs and exact
+        finite certificates under JD Jones's direction. Lean 4.33.0 and
+        Mathlib are pinned. Ordinary kernel proofs check finite identities,
+        positive-semidefinite certificates and complete dispatch coverage.
+        No native-evaluation trust extension or custom proof axiom is used.
+      prompting_notes: >-
+        JD selected the problem, requested a separate substantive proof
+        repository, and required exact scope, independently replayable
+        evidence, attribution, and verification before public release.
+  spend_usd: "not tracked"
+  notes: "See DISCLOSURE.md; detailed prompt and monetary accounting was not retained."
+
+fidelity:
+  divergences: >-
+    The square proof is an alternative spectral and stationary-cut argument.
+    The rectangular proof uses actual collision laws, matrix averaging,
+    retained kernels, finite certificates and permanent boundary bounds.
+    Algebraic identities retain signed inputs where proved, but their
+    probabilistic conclusions require nonnegative matrices. Original-row
+    and deleted-row avoidance probabilities remain distinct. All-integer
+    ranges and exact closed thresholds replace no theorem by a finite sample.
+
+review:
+  status: "self-assessed"
+  notes: >-
+    AI agents developed and independently cross-reviewed the proof chains.
+    No independent human expert refereeing or source-author endorsement is
+    claimed. docs/VERIFICATION.md and exact-commit receipts distinguish
+    source checks, Lean kernel compilation, Comparator and NanoDa replay,
+    independent CI and manual registry intake. Mechanical acceptance alone
+    establishes neither novelty nor mathematical significance.
+
+acknowledgements: >-
+  The cited mathematical authors and problem proposers; Grok for building
+  the original Analytic-Lab station; Lean, Mathlib, Comparator, lean4export,
+  NanoDa, Landrun, and the Palomar policy and verifier projects. AI assistance
+  is disclosed in this metadata and DISCLOSURE.md.

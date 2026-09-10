@@ -1,7 +1,7 @@
 # Four-row leading bounds and finite-certificate reduction
 
-These are completed inputs to the rectangular proofs. The full four-row
-K=4 theorem and the full rectangular K=3 theorem remain separate targets.
+These are completed inputs to the [full four-row K=4 theorem](FOUR-ROW-PROOF.md)
+and the [full rectangular K=3 theorem](ORDER-THREE-COMPLETE.md).
 All formulas refer to the actual iid-cell probability F_K with inclusive OR.
 Sources are Analytic-Lab P0174 `HIGHER_ORDER_COLLISIONS.md`,
 `FOUR_ROW_STRIP.md`, and `FINITE_RECTANGLE_CERTIFICATES_K3.md`.
@@ -49,10 +49,11 @@ proves uniform unique maximality on the full closed simplex, with sharp value
 Actual strict column averaging gives equal columns at every global maximum;
 the exact independent-coordinate sampling formula and row-product equality
 give uniform rows. The transposed theorem is included. The finite quintic
-families below 500 columns remain separate proof obligations. Their
+families below 500 columns are connected to the final theorem. Their
 [matrix Bernstein soundness](../DR/Rectangular/FourRowFiniteBernstein.lean)
-is now proved on the entire closed parameter interval; the literal block
-identities and finite data have not yet been connected.
+holds on the entire closed parameter interval; the literal block identities,
+finite data, physical kernels and equality are joined in
+[FourRowFinal](../DR/Rectangular/FourRowFinal.lean).
 
 ## Three-sample four-row leading bound
 
@@ -104,6 +105,7 @@ entries preserve independent multiplier/quadratic-pair reversal and injective
 row/column maps. Transposition is deliberately a separate operation.
 The [general quartic identity](FINITE-K3-CERTIFICATES.md) is now connected
 to the actual signed sampling functional, and the complete 4-by-5 stability
-theorem is proved. Physical seed-kernel coverage and the 1,330 rational
-certificate instantiations remain active work.
-This matrix reduction alone is not a finite-rectangle P2 theorem.
+theorem is proved. Physical seed-kernel coverage and all 1,330 rational
+certificate instantiations are joined with 87 exact coverage shards in the
+[complete K=3 proof](ORDER-THREE-COMPLETE.md). The matrix reduction is one
+component of that complete finite and infinite argument.

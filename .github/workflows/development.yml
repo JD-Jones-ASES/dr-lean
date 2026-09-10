@@ -1,10 +1,11 @@
-name: Development proof checks
+name: Complete proof and independent kernel checks
 on:
   push:
   pull_request:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: dr-development-${{ github.ref }}
   cancel-in-progress: true
@@ -18,6 +19,10 @@ jobs:
           persist-credentials: false
       - name: Check proof source
         run: |
+          python3 scripts/check-release.py
+          python3 -O scripts/check-release.py
+          python3 scripts/test_verifier_driver.py
+          python3 -O scripts/test_verifier_driver.py
           python3 scripts/test-source-guard.py
           python3 scripts/check-source.py
           python3 scripts/test_bounded_project_build.py
@@ -58,5 +63,136 @@ jobs:
           python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
             --report .verification/bounded-project-plan.json \
             --log .verification/bounded-project-build.jsonl
-      - name: Explain scope
-        run: echo 'Development build only; complete release gates are documented in docs/VERIFICATION.md.'
+      - name: Compile public Challenge and check actual semantic controls
+        run: |
+          lake build +Challenge
+          python3 scripts/check-release.py --lean-controls
+      - name: Archive this exact successful Linux proof build
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -cf - .lake/build | gzip -1 > "$RUNNER_TEMP/dr-proof-build.tar.gz"
+          python3 - <<'PYTHON'
+          import hashlib, json, os, pathlib, subprocess
+          temp = pathlib.Path(os.environ['RUNNER_TEMP'])
+          archive = temp / 'dr-proof-build.tar.gz'
+          with archive.open('rb') as source:
+              digest = hashlib.file_digest(source, 'sha256').hexdigest()
+          receipt = {'commit': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                     'archive_sha256': digest,
+                     'toolchain': pathlib.Path('lean-toolchain').read_text().strip()}
+          (temp / 'dr-proof-build.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          PYTHON
+      - name: Preserve the exact Linux build for independent checking
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: linux-proof-build-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/dr-proof-build.tar.gz
+            ${{ runner.temp }}/dr-proof-build.json
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve source and build receipts
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: proof-receipts-${{ github.sha }}
+          path: |
+            .verification/bounded-project-plan.json
+            .verification/bounded-project-build.jsonl
+            .verification/release-checks/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11.10"
+      - name: Validate the pinned official metadata profile
+        shell: bash
+        run: |
+          git clone --filter=blob:none --no-checkout \
+            https://github.com/PalomarRegistry/PalomarSubmission.git "$RUNNER_TEMP/dr-metadata-pipeline"
+          git -C "$RUNNER_TEMP/dr-metadata-pipeline" checkout --detach ef2fa1eadcb246c2346ddba39b52eaa53d4bb763
+          python3 -m pip install --disable-pip-version-check --require-hashes --no-deps \
+            -r "$RUNNER_TEMP/dr-metadata-pipeline/requirements.txt"
+          python3 scripts/check-official-metadata.py --pipeline "$RUNNER_TEMP/dr-metadata-pipeline"
+      - name: Preserve official metadata receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: metadata-receipt-${{ github.sha }}
+          path: .verification/official-metadata.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+  independent-kernels:
+    needs: [build, metadata]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11.10"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+        with:
+          go-version: "1.24.0"
+      - name: Install pinned Elan
+        shell: bash
+        run: |
+          curl --fail --location --proto '=https' --tlsv1.2 \
+            --output "$RUNNER_TEMP/elan.tar.gz" \
+            https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo "df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/dr-elan"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/dr-elan"
+          "$RUNNER_TEMP/dr-elan/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch exact mathematical dependencies and proof build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          lake exe cache get
+          gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name "linux-proof-build-$GITHUB_SHA" --dir "$RUNNER_TEMP/proof-build"
+          python3 - <<'PYTHON'
+          import hashlib, json, os, pathlib, subprocess
+          source = pathlib.Path(os.environ['RUNNER_TEMP']) / 'proof-build'
+          receipt = json.loads((source/'dr-proof-build.json').read_text())
+          commit = subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          if receipt['commit'] != commit or commit != os.environ['GITHUB_SHA']:
+              raise SystemExit('Build artifact does not belong to this exact source commit')
+          if receipt['toolchain'] != pathlib.Path('lean-toolchain').read_text().strip():
+              raise SystemExit('Build artifact toolchain differs')
+          with (source/'dr-proof-build.tar.gz').open('rb') as data:
+              if hashlib.file_digest(data,'sha256').hexdigest() != receipt['archive_sha256']:
+                  raise SystemExit('Build archive digest mismatch')
+          PYTHON
+          tar -xzf "$RUNNER_TEMP/proof-build/dr-proof-build.tar.gz"
+      - name: Build the pinned independent verifiers
+        env:
+          PALOMAR_COMPARATOR_CACHE: ${{ runner.temp }}/dr-verifier-tools
+        run: bash scripts/verify-comparator.sh --prepare-only
+      - name: Compare all twenty statements and replay both kernels
+        env:
+          PALOMAR_COMPARATOR_CACHE: ${{ runner.temp }}/dr-verifier-tools
+        run: bash scripts/verify-comparator.sh --verify-only --expected-commit "$GITHUB_SHA"
+      - name: Preserve independent verification receipts
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: independent-kernel-receipts-${{ github.sha }}
+          path: |
+            .verification/independent-verifier/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
