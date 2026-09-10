@@ -35,7 +35,9 @@ does not diagnose earlier exit-143 failures or waive any proof check.
 All literal proof checks remain required. A dry run verifies the build plan,
 not the Lean proofs.
 
-The workflow first builds the complete source from the pinned dependencies.
+The workflow frees unused preinstalled runner software with the same pinned
+cleanup action as the official verifier, preserving its tool cache and swap.
+It then builds the complete source from the pinned dependencies.
 It archives only a successful exact-commit Linux build. A separate job verifies
 its source commit, toolchain and archive digest before restoring those outputs
 and running the independent kernels. Both jobs must succeed for the same SHA.
