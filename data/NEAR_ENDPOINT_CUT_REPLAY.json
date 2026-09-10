@@ -1,0 +1,85 @@
+{
+  "source": "/Users/jjones/Documents/Grok-Repos/Analytic-Lab/probes/P0174_rybin_semimatchings/ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md",
+  "source_sha256": "4ae2b41d7b6e1969c180501bc336cb567f12fe787ff853bcf465f1d37f32e28e",
+  "literal_cases": [
+    [
+      21,
+      4976889,
+      4976890,
+      1112507
+    ],
+    [
+      22,
+      4741862,
+      4741863,
+      1014678
+    ],
+    [
+      23,
+      4527961,
+      4527962,
+      929196
+    ],
+    [
+      24,
+      4332468,
+      4332469,
+      854069
+    ],
+    [
+      25,
+      4153110,
+      4153111,
+      787692
+    ]
+  ],
+  "ordered_cut_count": 1380,
+  "records": [
+    {
+      "n": 21,
+      "cut_count": 230,
+      "worst_cut": [
+        1,
+        21
+      ],
+      "minimum_relative_margin": "387709183196416939303819351/1030244752342149960725000000000"
+    },
+    {
+      "n": 22,
+      "cut_count": 252,
+      "worst_cut": [
+        1,
+        22
+      ],
+      "minimum_relative_margin": "132814384202520012036798974020689/195709075260637282631200000000000000"
+    },
+    {
+      "n": 23,
+      "cut_count": 275,
+      "worst_cut": [
+        1,
+        23
+      ],
+      "minimum_relative_margin": "23969946125571139126590977832753957921/30837174216167779773157741892968750000000"
+    },
+    {
+      "n": 24,
+      "cut_count": 299,
+      "worst_cut": [
+        1,
+        24
+      ],
+      "minimum_relative_margin": "564386436868054368023957099993903/718019238854350667420800000000000000"
+    },
+    {
+      "n": 25,
+      "cut_count": 324,
+      "worst_cut": [
+        1,
+        25
+      ],
+      "minimum_relative_margin": "84095677441113545361681865719893197897359/111022301977790340188269854809082031250000000"
+    }
+  ],
+  "status": "all source literals matched; independent rational checks passed; actual matrix floor is separate"
+}

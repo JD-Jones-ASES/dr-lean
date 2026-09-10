@@ -52,22 +52,26 @@
     {
       "declaration": "DittertRybin.uniform_maximum_large_endpoints",
       "scope": "K=m on every m by N with m>=10^18 and N>=m, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/AllAspects.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_quadratic_endpoint_strip",
       "scope": "K=m, m>=96, N>=10000 m^2, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Quadratic.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_quartic_endpoint_strip",
       "scope": "K=m, m>=16, N>=20000 m^4, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Quartic.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_combined_endpoint_strip",
       "scope": "K=m, m>=5, N>=10^11 m^2, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Combined.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_consecutive_endpoint",

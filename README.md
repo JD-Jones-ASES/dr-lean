@@ -16,12 +16,14 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
-Fifteen of the twenty required release targets are now proved locally:
+Nineteen of the twenty required release targets are now proved locally:
 all square Dittert orders, K=2 and K=3 on all admissible rectangles,
 K=4 on every four-row rectangle and on 5-by-5 and 20-by-20,
 the two large-board thresholds, all admissible orders for smaller side at
 most four and for 5-by-5, the arithmetic, consecutive, near-square and doubled endpoint
-ranges, and the LLL endpoint strip. The remaining endpoint families are active work.
+ranges, the LLL endpoint strip, all large-row aspect ratios, and the quadratic,
+quartic and combined long-column strips. The square near-endpoint K=n-1
+family from n=21 is the sole remaining principal proof.
 
 The [complete K=3 proof](docs/ORDER-THREE-COMPLETE.md) joins all 1,330
 kernel-verified finite certificates and 87 coverage shards with the proved
@@ -36,14 +38,20 @@ internally proved boundary permanent bound. The
 [LLL endpoint strip](docs/ENDPOINT-LLL-STRIP-PROOF.md) applies for m>=128 and
 64m^(3/2)<=N<=m(m-1)/20 when nonempty. A separate
 [transition theorem](docs/ENDPOINT-TRANSITION-PROOF.md) now covers
-m>=10^18, m<=N, m(m-1)<=20N and N<=10000m^2. This transition result is one component
-of the still-pending all-aspect endpoint theorem, not an additional completed
-release target. All these results include transpose and iff uniform equality. The
+m>=10^18, m<=N, m(m-1)<=20N and N<=10000m^2. This transition result is a component
+of the [complete all-aspect endpoint theorem](docs/ENDPOINT-ALL-ASPECTS.md),
+which covers every N>=m once m>=10^18. All these results include transpose and iff uniform equality. The
 [near-square and doubled ranges](docs/ENDPOINT_NEAR_DOUBLE.md) now cover
 m>=117 with m<=N<=2m, and m>=80 with N=2m, respectively.
 The [consecutive endpoint proof](docs/ENDPOINT_CONSECUTIVE_CUTS.md) covers
 every m>=19 on m by (m+1), and transpose. Exact finite cut inequalities for
 19<=m<=29 join an all-integer factorial recurrence from m=30.
+
+The [quadratic strip](docs/ENDPOINT-QUADRATIC.md) covers m>=96 and N>=10000m^2;
+the [quartic strip](docs/ENDPOINT-QUARTIC.md) covers m>=16 and N>=20000m^4;
+and the [combined strip](docs/ENDPOINT-COMBINED.md) covers m>=5 and
+N>=10^11m^2. Each derives concentration and retained-kernel positivity for
+actual contenders on the complete closed probability simplex.
 
 The square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
