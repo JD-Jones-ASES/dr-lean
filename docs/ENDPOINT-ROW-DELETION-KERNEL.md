@@ -1,9 +1,8 @@
 # Actual endpoint kernel conjugacy
 
-`DR/Endpoint/RowDeletionKernel.lean` proves P0174
-`ENDPOINT_LOCALIZED_COLLISION_KERNEL.md`, equation (1), and
-`ENDPOINT_LLL_STRIP.md`, equation (12), directly from the actual rook sum
-and independent row law.
+The endpoint averaging kernel is conjugate, by row-mass scaling, to
+a rank-one elementary-coefficient matrix minus the expected deletion
+matrix. The following identity specifies every factor in that conversion.
 
 Writing r for row masses and h for a nonzero scale, it proves
 
@@ -18,7 +17,7 @@ elementary-symmetric coefficient, and L is the zero-diagonal deletion
 matrix sampled under `normalizeRows P`. Thus the kernel being bounded
 is the one in the exact full-probability column-blending identity.
 There is no factorial in gamma. The separate full-probability blend
-formula retains its already-proved m! multiplier.
+formula retains its proved m! multiplier.
 
 The row-mass and normalized-entry identities require nonzero row masses;
 the scale is also explicitly nonzero. The algebra accepts signed masses
@@ -27,8 +26,6 @@ entry identity retains empty and singleton row hosts whenever its inputs
 exist. Applying the theorem to a column-deleted board uses that board's
 own normalized law.
 
-Replay: `lake build Test.RowDeletionKernel`. Tests retain the zero diagonal,
-the event after deleting both rows of a two-row host, non-unit and signed
-normalization scales, and a rejected omitted-denominator mutation.
-The actual quadratic identity is available for the positive-kernel
-criterion; no new endpoint dimension range follows from normalization alone.
+## Formal statements
+
+[RowDeletionKernel](../DR/Endpoint/RowDeletionKernel.lean).

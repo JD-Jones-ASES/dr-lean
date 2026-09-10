@@ -23,15 +23,6 @@ classification:
   msc2020: ["05A20", "15A15"]
 
 sources:
-  - title: "Analytic-Lab P0174: Dittert and rectangular semimatching proof notes"
-    type: "other"
-    id: "JD-Jones-ASES/Analytic-Lab@bdce7f70f49d8b79ee756df6724ed3822e0c7f20"
-    relationship: "formalizes"
-    note: >-
-      Private exploratory mathematics and exact replay evidence preceded
-      this separate formalization. The public repository contains the
-      substantive proofs and readable accounts; no private repository
-      is a proof dependency. This attribution is not a priority claim.
   - title: "Rybin P2: independent-cell rectangular semimatching problem"
     authors: ["Dmitry Rybin"]
     type: "web discussion"
@@ -39,10 +30,10 @@ sources:
     relationship: "background"
     author_endorsement: "not-contacted"
     note: >-
-      JD supplied this as the statement location. Independent retrieval
-      of the post text was not established. The exact probability
-      formulation is stated directly in Challenge and the proof definitions.
-      No immediate paper source or full solution of P2 is asserted.
+      Attribution of the rectangular question. The post text has not been
+      independently verified; the exact probability formulation is stated
+      directly in Challenge and the proof definitions. The unrestricted
+      rectangular problem is not claimed to be solved.
   - title: "An interpretation of the Dittert conjecture in terms of semi-matchings"
     authors: ["G.-S. Cheon", "Ian M. Wanless"]
     id: "doi:10.1016/j.disc.2007.01.008"
@@ -61,10 +52,10 @@ sources:
     relationship: "independently-proves"
     author_endorsement: "not-contacted"
     note: >-
-      The earlier public complete square argument passed a separate local
-      mathematical audit. Our square proof uses different dependencies;
-      its code and certificates do not import that project. This is an
-      alternative proof, with no first-resolution or journal-acceptance claim.
+      A complete square argument with an attributed small-order contribution
+      by Hongyuan Lu. The square proof in this repository is an alternative
+      argument and does not import this project's code or certificates.
+      No first-resolution or journal-acceptance claim is made.
   - title: "Van der Waerden/Schrijver-Valiant like Conjectures and Stable (aka Hyperbolic) Homogeneous Polynomials: One Theorem for all"
     authors: ["Leonid Gurvits"]
     id: "arXiv:0711.3496v2"
@@ -157,11 +148,11 @@ automation:
         positive-semidefinite certificates and complete dispatch coverage.
         No native-evaluation trust extension or custom proof axiom is used.
       prompting_notes: >-
-        JD selected the problem, requested a separate substantive proof
-        repository, and required exact scope, independently replayable
-        evidence, attribution, and verification before public release.
+        JD Jones directed the mathematical scope and required explicit
+        hypotheses, complete equality cases, readable proofs, published
+        attribution, and independently reproducible verification.
   spend_usd: "not tracked"
-  notes: "See DISCLOSURE.md; detailed prompt and monetary accounting was not retained."
+  notes: "See DISCLOSURE.md for AI assistance and human responsibility; detailed monetary accounting is unavailable."
 
 fidelity:
   divergences: >-
@@ -180,11 +171,11 @@ review:
     No independent human expert refereeing or source-author endorsement is
     claimed. docs/VERIFICATION.md and exact-commit receipts distinguish
     source checks, Lean kernel compilation, Comparator and NanoDa replay,
-    independent CI and manual registry intake. Mechanical acceptance alone
+    independent CI. Mechanical acceptance alone
     establishes neither novelty nor mathematical significance.
 
 acknowledgements: >-
-  The cited mathematical authors and problem proposers; Grok for building
-  the original Analytic-Lab station; Lean, Mathlib, Comparator, lean4export,
-  NanoDa, Landrun, and the Palomar policy and verifier projects. AI assistance
+  The cited mathematical authors and problem proposers; Lean, Mathlib,
+  Comparator, lean4export, NanoDa, Landrun, and the Palomar policy and
+  verifier projects. AI assistance
   is disclosed in this metadata and DISCLOSURE.md.

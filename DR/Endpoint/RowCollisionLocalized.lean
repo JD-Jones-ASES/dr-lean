@@ -2,8 +2,7 @@ import DR.Endpoint.RowCollisionTwoClasses
 import DR.Endpoint.RowPairMoments
 import DR.Endpoint.RowCollisionBounds
 
-/-! Localized exact collision-pattern loads from P0174
-ENDPOINT_RELATIVE_COLLISIONS, equations (6) and (7). Increasing pairs make
+/-! Localized exact collision-pattern loads. Increasing pairs make
 the tripleton and second-doubleton counts unique. The first doubleton in
 a two-doubleton term is the one containing the specified row. -/
 

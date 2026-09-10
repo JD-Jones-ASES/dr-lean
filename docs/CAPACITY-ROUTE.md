@@ -1,17 +1,17 @@
 # Capacity route for the full square permanent prerequisite
 
-Status: completed prerequisite, 2026-09-09. The unconditional van der Waerden
-inequality and its full equality characterization are proved in
+The van der Waerden inequality and its full equality characterization are
+proved in
 `DR/Square/CapacityEquality.lean`, including dimensions zero and one.
 `vanDerWaerden_with_equality` assumes only that the input matrix is doubly
-stochastic. These prerequisites feed the completed all-order square Dittert
+stochastic. These prerequisites feed the all-order square Dittert
 theorem listed in [THEOREMS](THEOREMS.md).
 
 The proof proceeds through an explicit split-polynomial bridge, actual
 complex half-plane stability, positive slices, closure under differentiation
 and specialization, capacity descent, the permanent coefficient identity,
 and the exact matrix equality case. All these dependencies are internal
-proved lemmas; the completed module map appears below.
+proved lemmas; the module map appears below.
 
 ## Primary sources and selected route
 
@@ -54,8 +54,7 @@ zero, so equality holds despite roots at zero. Our proved inequality
 includes this boundary. No unrestricted equality characterization is
 copied from that statement. In the doubly stochastic application the
 initial capacity is 1, so the positive-capacity case is the relevant one.
-The Q(t)=t^2 zero-capacity equality was independently replayed during
-development. Persistent vanished-derivative and empty-product controls are
+The zero-capacity, vanished-derivative, and empty-product cases are covered
 in [Test.Stability](../Test/Stability.lean).
 
 ## Univariate and matrix capacity lemmas
@@ -87,15 +86,9 @@ in [Test.Stability](../Test/Stability.lean).
   stochastic matrix, including zero entries and n=0.
 - `prod_capacityFactor`: prod_{k=0}^{n-1} G(k+1) = n!/n^n, including n=0.
 
-The standalone `lake build DR.Square.CapacityMatrix` passed cleanly under
-Lean v4.33.0 and Mathlib db584cd6d46c92f209a44c0f1c829460d327499d (3153 jobs).
-All 28 theorem declarations received an individual axiom audit during
-development; each depends only on `propext`,
-`Classical.choice`, and `Quot.sound`. No placeholder, added axiom, unsafe
-code, or native decision procedure occurs in these modules.
-The completed `CapacityPolynomial.lean` bridge converts a split real
-polynomial to this explicit finite affine-factor representation, including
-nonpositive roots, multiplicities, degree padding and the zero polynomial.
+[CapacityPolynomial.lean](../DR/Square/CapacityPolynomial.lean) converts a
+split real polynomial to the finite affine-factor representation, including
+nonpositive roots, multiplicities, degree padding, and the zero polynomial.
 
 ## Available Mathlib components
 
@@ -119,14 +112,11 @@ nonpositive roots, multiplicities, degree padding and the zero polynomial.
 - Standard `MvPolynomial` evaluation, partial derivatives, coefficient
   extraction, finite products, and polynomial splits/root multiplicities.
 
-No ready declaration for multivariate real/H-stability or its derivative
-and boundary-specialization closure was found in the pinned Mathlib.
-No van der Waerden lower bound or equality theorem was found.
-The 13 named root, homogeneous-polynomial, and convexity APIs were checked
-against the pinned environment during development. The complete final
-project now includes and audits the actual dependencies.
+Half-plane stability, its differentiation and specialization rules, and
+the permanent inequality with equality are proved in the modules below.
+They build on the listed polynomial and convexity results from Mathlib.
 
-## Completed dependency map
+## Dependency map
 
 1. `CapacityMatrix.lean` gives the initial capacity normalization and finite
    telescoping product.
@@ -149,6 +139,6 @@ project now includes and audits the actual dependencies.
    closed-simplex equality, and the column-permutation argument. The final
    `vanDerWaerden_with_equality` covers every doubly stochastic matrix.
 
-[PROGRESS](PROGRESS.md) records the combined build and global axiom audit.
+[Verification](VERIFICATION.md) gives the build and transitive axiom checks.
 [Capacity equality tests](../Test/CapacityEquality.lean) retain unit column
 entries, zero weights and exact uniform attainment.

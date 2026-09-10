@@ -2,8 +2,9 @@
 
 This prerequisite concerns an actual minimum of the permanent over the full
 doubly stochastic face defined by a Boolean support mask. Additional zero entries
-are permitted. It does not yet prove repeated-support averaging or the
-two-independent-zero permanent gap.
+are permitted. It supplies the cofactor inequalities used in the
+[two-zero support argument](TWO_ZERO_FACE_SUPPORT.md) and the
+[repeated-support reduction](TWO_ZERO_REDUCTION.md).
 
 `PermanentFaceCofactors` defines a cofactor directly by the permutation expansion.
 It proves row and column Euler identities and the derivative of the permanent

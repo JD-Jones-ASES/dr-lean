@@ -23,9 +23,6 @@ is assumed. Applying this theorem to a board obtained by deleting columns
 uses that board's own row normalization. It does not substitute the
 original-board collision-avoidance probability.
 
-Replay: `lake build Test.RowDeletionRook`. A literal four-row, two-column
-board has deleted two-rook sum six and remaining-row avoidance one,
-while its full four-row avoidance is zero. A factor-two mutation is
-rejected. Empty remaining rows and signed exact normalization are retained.
-The matrix conjugacy and the final endpoint dimension estimates are the
-next distinct obligations.
+## Formal statements
+
+[RowDeletionRook](../DR/Endpoint/RowDeletionRook.lean).

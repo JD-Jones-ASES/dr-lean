@@ -6,10 +6,9 @@ is at most 61/32, with equality exactly when every entry is 1/4.
 Equivalently, the four-sample separation probability on the full probability
 simplex is at most 183/1024, with equality exactly at the uniform board.
 
-The source is the Lab's P0174 note `SIXTH_DEGREE_FOUR_BY_FOUR_K4.md` and its
-exact coefficient data. This is the order-four component of the alternative
-square proof described in [SOURCES](SOURCES.md); the broader priority and
-attribution qualifications there apply here too.
+This is the order-four component of the alternative square proof.
+[Sources](SOURCES.md) credits earlier Dittert results. The certificate below
+is an exact identity for the original sampling probability.
 
 ## The identity that proves the bound
 
@@ -82,9 +81,7 @@ formula, checks the exact probability value, rejects a smaller constant,
 and proves strictness when a probability board has a zero cell. Its five
 final axiom audits allow only `propext`, `Classical.choice`, and `Quot.sound`.
 
-The optional `python3 scripts/generate_order_four_orbits.py` reproduces the
-finite data using exact arithmetic. It supplies no proof authority: all
-finite gates use ordinary Lean kernel reduction. The implementing agent's
-complete replay and another agent's semantic review both passed. The full
-project combined build has passed; the separate independent release gate
-is described in [VERIFICATION](VERIFICATION.md).
+`python3 scripts/generate_order_four_orbits.py` reproduces the
+finite data using exact arithmetic. Lean checks all finite identities with
+ordinary kernel reduction. [Verification](VERIFICATION.md) describes the
+complete source, axiom, and independent-kernel checks.

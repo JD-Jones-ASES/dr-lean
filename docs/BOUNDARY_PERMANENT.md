@@ -6,8 +6,7 @@ For every doubly stochastic real n by n matrix A with at least one zero,
     per(A) >= mu_n = (n-2)! * ((n-2)/(n-1)^2)^(n-2), n>=3.
 
 No positivity of the other entries is required. This is the Knopp--Sinkhorn
-boundary floor used in the accepted rectangular scaling argument. The exact
-source checked here is [Pang, arXiv:2606.01531v1, Lemma 1 and equations (8)--(12)](https://arxiv.org/html/2606.01531v1). Pang states the boundary theorem for n>3
+boundary floor used in rectangular scaling. The source is [Pang, arXiv:2606.01531v1, Lemma 1 and equations (8)--(12)](https://arxiv.org/html/2606.01531v1). Pang states the boundary theorem for n>3
 and cites the corollary following Knopp and Sinkhorn, *Minimum permanents of
 doubly stochastic matrices with at least one zero entry*, Linear and
 Multilinear Algebra 11 (1982), 351--355,

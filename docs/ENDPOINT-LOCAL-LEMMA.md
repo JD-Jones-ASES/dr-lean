@@ -1,13 +1,15 @@
 # Finite conditional local lemma and actual row laws
 
-The finite probability input to the endpoint collision argument is proved in
-[FiniteAvoidance](../DR/Endpoint/FiniteAvoidance.lean) and
-[FiniteLocalLemma](../DR/Endpoint/FiniteLocalLemma.lean). The source is the
-finite induction spelled out in Analytic-Lab P0174,
-`ENDPOINT_RELATIVE_COLLISIONS.md`, section 1. That note attributes the
-asymmetric local lemma and its conditional-distribution extension to
-Haeupler, Saha and Srinivasan, *New Constructive Aspects of the Lovasz Local
-Lemma*, arXiv:1001.1231v5, Theorems 1.1 and 2.1.
+For finitely many events under a probability law, neighborhood-product
+bounds and independence from joint nonneighbor avoidance imply positive
+probability of avoiding every event. The conditional form also controls
+an additional event depending on a specified set of coordinates.
+
+The conditional local-lemma framework is due to Haeupler, Saha and
+Srinivasan, [New Constructive Aspects of the Lovasz Local Lemma](https://arxiv.org/abs/1001.1231v5),
+Theorems 1.1 and 2.1. The finite argument here derives the conditional
+product bound from finite weighted sums and independence of disjoint
+row coordinates.
 
 For a finite sample space with nonnegative weights of total one, the
 formal theorem derives positive avoidance and the conditional bound
@@ -34,17 +36,6 @@ collision is independent of joint avoidance of collision pairs whose
 endpoints are disjoint from its two rows. Shared-row independence is
 neither assumed nor asserted.
 
-The generic local lemma does not yet assert an endpoint range, a relative
-exact-pattern estimate, or a positive blend matrix. The collision-graph
-specialization must still establish its neighborhood-product hypothesis.
-For exact patterns, internal prescribed collision edges must be removed
-from the avoidance family and then accounted for separately. Original and
-deleted normalized row laws remain distinct.
+## Formal statements
 
-Verification: `lake build Test.FiniteLocalLemma` passed 1,510 jobs with four
-standard-only axiom audits (`propext`, `Classical.choice`, `Quot.sound`).
-Persistent tests cover sharp independent events, a duplicate-event failure
-of nonneighbor independence, zero events with zero parameters, exclusion
-of parameter one, and the arbitrary-event extension. The separate row-law
-tests passed 1,723 jobs and five standard-only audits, including a concrete
-shared-row negative control and empty selected-row sets.
+[FiniteAvoidance](../DR/Endpoint/FiniteAvoidance.lean), [FiniteLocalLemma](../DR/Endpoint/FiniteLocalLemma.lean), [RowAssignmentIndependence](../DR/Endpoint/RowAssignmentIndependence.lean).

@@ -2,7 +2,6 @@ import DR.Endpoint.LeadingConstants
 import DR.ElementarySymmetricBoundsVariance
 
 /-! Exact scalar interval argument for the all-m>=5 leading gauge.
-Source: Analytic-Lab P0174 ENDPOINT_LEADING_GLOBAL.md, sections 3 and 5.
 The shifted cubic proves the discriminant sign for every real k>=3,
 without finite sampling or a premise asserting kernel positivity. -/
 namespace DittertRybin

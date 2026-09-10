@@ -1,29 +1,32 @@
-# Exact reduced-board permanent
+# Permanent of the reduced two-zero matrix
 
-Source: Analytic-Lab P0174 `TWO_ZERO_PERMANENT_GAP.md`, equations (3)--(4).
-The source hash and scalar definition provenance are recorded in
-`TWO_ZERO_POLYNOMIAL_SOURCE.md`.
+[TwoZeroReducedBoard](../DR/Endpoint/TwoZeroReducedBoard.lean) defines a matrix
+with two exceptional diagonal entries 1−na,1−nb, two exceptional off-diagonal
+zeros, symmetric borders a,b, and constant ordinary core x=(1−a−b)/n.
+For n≥2 and arbitrary signed real a,b,
+[TwoZeroReducedCounting](../DR/Endpoint/TwoZeroReducedCounting.lean) proves
 
-`TwoZeroReducedCounting` proves the exact permanent of Schrodinger's actual
-`twoZeroReducedBoard n a b` for every n>=2 and arbitrary signed real a,b.
-The board has two exceptional diagonal entries 1-na,1-nb, two exceptional
-off-diagonal zeros, symmetric borders a,b, and constant ordinary core
-x=(1-a-b)/n. Its permanent is
+```
+permanent = n! [ (1−na)(1−nb)xⁿ
+              + n((1−na)b²+(1−nb)a²)xⁿ⁻¹
+              + n(n−1)a²b²xⁿ⁻² ].
+```
 
-    n! [ (1-na)(1-nb)x^n
-       + n((1-na)b^2+(1-nb)a^2)x^(n-1)
-       + n(n-1)a^2b^2 x^(n-2) ].
+The proof begins with five independent signed parameters for the two
+exceptional diagonals, borders and core. Two Laplace expansions leave identical
+rows, whose permutations contribute n!. Removing an ordinary column preserves
+the exceptional coordinates; ordinary choices contribute n and n(n−1).
+No division by entries or positive approximation is used.
 
-The proof works first with five independent signed parameters for the two
-diagonal entries, borders and core. Two actual Laplace expansions leave
-identical rows; summing their permutations contributes n!. Increasing column
-deletion preserves the two exceptional coordinates when an ordinary column is
-removed. The ordinary choices contribute n and n(n-1), respectively. No
-division by entries, positive approximation, or assumed permanent formula is
-used. The actual matrix definition is then identified entry by entry and the
-displayed expansion is factored into `twoZeroReducedPermanent`.
+The matrix entries are then identified with `twoZeroReducedBoard`, and the
+expansion factors into the [scalar formula](TWO_ZERO_POLYNOMIAL_SOURCE.md).
+The [face reduction](../DR/Endpoint/TwoZeroReduction.lean) separately justifies
+using this form for a permanent minimizer.
 
-Replay: `lake build Test.TwoZeroReducedCounting`. Controls retain ordinary
-count two, a zero core, zero borders, zero exceptional diagonals, a negative
-signed permanent, rejection of a missing factorial, and an independently
-computed n=1 counterexample to removing the dimension guard.
+```sh
+lake --wfail build Test.TwoZeroReducedCounting
+```
+
+Tests include n=2, a zero core, zero borders, zero exceptional diagonals,
+negative signed permanents, a missing-factorial mutation, and an n=1
+counterexample to removing the dimension guard.

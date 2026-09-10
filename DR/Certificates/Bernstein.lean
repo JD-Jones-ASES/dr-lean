@@ -19,7 +19,7 @@ the boundary. A positive margin gives strict positivity. The final denominator
 lemmas retain the explicit sign and cleared-identity obligations.
 
 This is the certificate family used by the scalar and tensor box checks in the
-Lab square-endpoint proof. The K=3 and order-four Gram certificates have separate
+square-endpoint estimates. The K=3 and order-four Gram certificates have separate
 matrix-positivity and orbit-identity obligations; this module does not certify
 those obligations or any Dittert inequality by itself.
 -/

@@ -4,7 +4,7 @@ The sampling event is the inclusive OR of distinct rows and distinct
 columns for three ordered iid cells. Every theorem here uses all
 nonnegative real probability matrices, including zeros, and proves
 both the sharp uniform bound and equality iff the matrix is uniform.
-The all-rectangle K=3 release target is now proved locally; see the
+For the all-rectangle theorem, see the
 [complete assembly](ORDER-THREE-COMPLETE.md).
 
 After transposition, write m<=n. The compiled ranges are:
@@ -25,7 +25,7 @@ After transposition, write m<=n. The compiled ranges are:
 The [complete three-row proof](THREE-ROW-PROOF.md) includes all N>=3 and
 its transpose. The 3-by-3 endpoint is also proved independently in the square
 package. The separate 4-by-4 and 4-by-5 proofs and all 1,330 finite certificate
-cases now complete the gaps in this table. The [replay receipt](../data/FINITE_K3_COMPLETE_REPLAY.md)
+cases complete the gaps in this table. The [finite coefficient catalogue](../data/FINITE_K3_COMPLETE_REPLAY.md)
 records exact coverage and the final closed-simplex assembly.
 
 ## Actual probability and energy bounds
@@ -83,6 +83,6 @@ of those columns. Hence global maximizers have equal columns; positive
 row masses and the proved positive-matrix K=3 uniqueness theorem finish
 the result. Every concentration and support statement is derived internally.
 
-The mathematical sources are Analytic-Lab's P0174 `LARGE_RECTANGLES.md` and `FOUR_ROW_STRIP.md`;
-the formal proof keeps its constants and full boundary scope. This range
-map concerns compiled partial families, not the entire twenty-target release.
+The estimates above preserve the stated constants and the full boundary
+scope. Together with the finite certificates, they prove the all-rectangle
+three-sample result in [OrderThreeFinal](../DR/Rectangular/OrderThreeFinal.lean).

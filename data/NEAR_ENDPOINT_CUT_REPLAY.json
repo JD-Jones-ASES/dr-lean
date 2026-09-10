@@ -1,6 +1,6 @@
 {
-  "source": "/Users/jjones/Documents/Grok-Repos/Analytic-Lab/probes/P0174_rybin_semimatchings/ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md",
-  "source_sha256": "4ae2b41d7b6e1969c180501bc336cb567f12fe787ff853bcf465f1d37f32e28e",
+  "source": "DR/Endpoint/NearEndpointCutRational.lean",
+  "source_sha256": "54c1a68e1fc33d3deaec78aa2b53f89637a87882ed35bf4dd27df9bfb7110a79",
   "literal_cases": [
     [
       21,

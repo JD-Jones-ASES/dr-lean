@@ -1,11 +1,9 @@
 # Literal doubleton, tripleton and two-doubleton probabilities
 
-[RowCollisionClasses](../DR/Endpoint/RowCollisionClasses.lean) and
-[RowCollisionTwoClasses](../DR/Endpoint/RowCollisionTwoClasses.lean) prove
-the three estimates in Analytic-Lab P0174
-`ENDPOINT_RELATIVE_COLLISIONS.md`, equation (1), for actual independent row
-assignments. With nonnegative normalized rows and every collision load at
-most `1/8`, the results are
+Let X be a nonnegative matrix whose rows each sum to one. Draw one
+column independently from each row, and suppose each row’s sum of pair
+collision probabilities is at most 1/8. Then the exact collision-pattern
+probabilities satisfy
 
 ```
 Pr(exact doubleton {i,h}) / p0 <= (16/9) p_ih,
@@ -32,16 +30,12 @@ permit signed normalized row weights. Nonnegativity is required when
 applying the local-lemma ratio theorem. The nonempty condition in the
 common-column identity is explicit and necessary.
 
-Verification: `lake build Test.RowCollisionClasses` passed 2,192 jobs with
-eight standard-only axiom audits and no warnings. A three-row model at
-the closed `1/8` local-load threshold has exact positive tripleton mass
-`1/64`. The tests show that overlapping pair classes do not factor
-(`1/64` differs from `1/256`), reject a repeated-row disjointness gate,
-and expose the false empty-class common-column formula. The actual
-two-doubleton theorem is tested on four distinct row indices with its
-full probability functional.
+Summing these exact pattern bounds gives the
+[localized collision loads](ENDPOINT-LOCALIZED-COLLISION-LOADS.md).
+Their [incidence identities](ENDPOINT-PARTICIPATION-LOCALIZATION.md)
+then place them in the expected two-row deletion matrix. Each application
+uses the original or retained board’s own normalized row law.
 
-This freezes the exact pattern-ratio input. Summing these patterns into
-the localized penalties and completing the collision-matrix argument
-remain separate proof obligations. No new endpoint dimension range is
-claimed here, and original and deleted row laws remain distinct.
+## Formal statements
+
+[RowCollisionClasses](../DR/Endpoint/RowCollisionClasses.lean), [RowCollisionTwoClasses](../DR/Endpoint/RowCollisionTwoClasses.lean).

@@ -1,10 +1,13 @@
 # Actual transition row-variance bootstrap
 
-`TransitionBootstrap.lean` proves Section 4 of the accepted Lab
-`ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`, on exactly the transition domain
-`m>=10^18`, `m<=n`, `m*(m-1)<=20*n`, `n<=10000*m^2`.
+For every endpoint contender in the range m≥10^18, m≤n,
+m(m−1)≤20n and n≤10000m², the scaled row variance is less than 1/100.
+The proof combines relative collision avoidance with the exact row-product
+constraint.
 
-The proved actual contender relation gives
+Let π=∏_i(m r_i), b=(n)_m/n^m, and p_original be the probability
+that independently choosing one column from each normalized original row
+gives distinct columns. The contender relation gives
 
 ```
 1-pi <= (b-p_original)/(1-p_original).
@@ -27,11 +30,6 @@ row shape or endpoint gauge. It concerns every full-probability contender
 on the closed simplex. Subsequent column deletion must introduce its own
 normalized row law and its own avoidance probability.
 
-Replay: `lake build Test.TransitionAvoidance Test.TransitionBootstrap`
-passed 3174 jobs with eight standard-only axiom audits and no warnings.
-Tests retain zero exponential error, reject an omitted avoidance comparison
-and a removed denominator, check exact threshold constants, and instantiate
-the full actual-matrix statement at nonempty transition dimensions.
+## Formal statements
 
-This completes the transition row estimate. The final deletion/kernel and
-optimization assembly remain separate from this theorem.
+[TransitionBootstrap](../DR/Endpoint/TransitionBootstrap.lean).

@@ -6,7 +6,7 @@ import Mathlib.Analysis.Convex.SpecificFunctions.Basic
 
 Concavity of the logarithm proves monotonicity of `(1+a/n)^n` whenever
 the base is positive. The same lemma handles both the decreasing-bracket
-power and the increasing permanent prefactor in the Lab spectral argument.
+power and the increasing permanent prefactor in the spectral comparison.
 This transfers the proved dimension-eight scalar certificate to every
 larger integer; it is not a finite dimension census.
 -/

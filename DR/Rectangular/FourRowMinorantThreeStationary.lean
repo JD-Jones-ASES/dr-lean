@@ -4,8 +4,8 @@ import DR.Rectangular.FourRowMinorantThreeExtrema
 /-!
 # Exact stationary algebra on a proper three-coordinate face
 
-The formulas are copied from the Lab's accepted HIGHER_ORDER_COLLISIONS.md
-(9)--(10), and proved as identities of the actual homogeneous objective.
+The stationary coordinates and value are proved as identities of the
+actual homogeneous objective on a three-coordinate face.
 The fixed-moment numerator is affine in the three-coordinate product.
 No feasibility or sign of an unconstrained stationary vector is asserted.
 -/

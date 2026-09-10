@@ -1,16 +1,14 @@
-# The completed square spectral range
+# The square spectral range
 
 `DittertRybin.dittert_ge_six` proves the full Dittert inequality and unique
 equality for every integer n>=6, including matrices with zero entries. The
 expanded original statement is checked in `Test/SpectralSquare.lean`.
 
-The proof follows the Lab's `SPECTRAL_SQUARE_ENDPOINT.md` and
-`SQUARE_ENDPOINT_6.md`, with the source
-attribution retained in the project provenance records. It is an alternative
-proof, with no claim to the first complete resolution of Dittert. The separate [order-three](ORDER-THREE-PROOF.md),
-[order-four](ORDER-FOUR-PROOF.md), and [order-five](ORDER-FIVE-PROOF.md)
-proofs are now complete. `Square/AllOrders` combines them with this range
-and the elementary orders one and two to prove all positive dimensions.
+This is the spectral part of the alternative square proof credited in
+[Sources](SOURCES.md). [AllOrders](../DR/Square/AllOrders.lean) combines
+it with the elementary orders one and two and the separate
+[order-three](ORDER-THREE-PROOF.md), [order-four](ORDER-FOUR-PROOF.md),
+and [order-five](ORDER-FIVE-PROOF.md) arguments.
 
 The dependency chain is:
 
@@ -43,9 +41,8 @@ the same cut and concludes full unique maximization.
 The formal proof includes zero permanent, disconnected support, tied score
 values, empty/full capacity cuts and deficit zero. It does not need to remove
 the zero-deficit endpoint before forming the scalar coordinate. It also needs
-only that the two equal cut sizes lie strictly between zero and n; the sharper
-half-dimension bound in the informal source is unnecessary for the permanent
-floor used here.
+only that the two equal cut sizes lie strictly between zero and n for the
+permanent floor used here.
 
-Replay with `lake build DR Test`. The complete public-release gate remains
-the full twenty-target inventory and its independent verification.
+Run `lake build DR Test`. See [Verification](VERIFICATION.md) for the
+complete axiom and independent-kernel checks.

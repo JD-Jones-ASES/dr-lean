@@ -1,17 +1,17 @@
 # General endpoint leading-gauge foundation
 
-The frozen foundation for the accepted P0174 `ENDPOINT_LEADING_GLOBAL.md`
-and `ENDPOINT_SATURATED_STABILITY.md` consists of `LeadingKernel`,
-`LeadingBounds`, and `LeadingRows` under `DR/Endpoint/`.
+The leading gauge is built from a complementary-product matrix on the
+row marginals. Its entries are polynomial, so its identities remain valid
+when some row masses vanish. Positive definiteness, when needed, follows
+from an explicit row-spread inequality rather than the definition.
 
 The actual polynomial kernel is
 `B_ii = 1`, `B_ij = 1 - (m-2)! prod_{a outside {i,j}} r_a`.
 Its row conjugacy holds with signed or zero row coordinates. Finite
 Cauchy--Schwarz proves positive definiteness under the explicit marginal
 criterion `(m-1)(sum r_i² + (m-2)! prod r_i) < 1`, with positive mass-one
-rows. This is not an unconditional PSD claim: a persistent five-row
-counterexample has positive mass-one marginals and quadratic value
-`-3/80` on an explicit signed vector.
+rows. The condition is needed: B need not be positive semidefinite
+for arbitrary positive mass-one row marginals.
 
 For all nonnegative mass-one row marginals and nonnegative column vectors,
 AM--GM bounds each complementary product by `a_(m-2)` and gives the actual
@@ -43,15 +43,12 @@ There is no stationarity premise or inference in this derivative package.
 Its only imported square helper is the general finite-product derivative
 from `Square/Stationarity`; it does not use a Dittert maximization theorem.
 
-The pending step is the actual constrained minimum of the gauge minus a
-row penalty, followed by the sharp scalar row-spread analysis and the
-contender concentration bootstrap. No upper endpoint strip is claimed by
-these foundations.
+The [stationarity argument](ENDPOINT-LEADING-STATIONARITY.md) applies
+these derivatives at a compact minimum of the gauge minus a row penalty.
+The [coarse](ENDPOINT-COARSE-GAUGE.md) and
+[saturated](ENDPOINT-SATURATED-GAUGE.md) estimates then prove the
+row-spread criterion at that minimum and transfer its value to every board.
 
-Verification: `lake --wfail build Test.EndpointLeadingRows
-Test.EndpointLeadingKernel Test.EndpointLeadingBounds` passed 2,433 jobs,
-22 persistent examples and 18 standard-only axiom audits, without warnings.
-Controls include the indefinite positive kernel, the exact `2/9`
-complementary-product endpoint and `8/45` diagonal defect, selected-factor
-AM--GM with a signed unselected coordinate, zero columns, empty domains,
-and a nonstationary row variation with exact derivative `43/36`.
+## Formal statements
+
+[LeadingKernel](../DR/Endpoint/LeadingKernel.lean), [LeadingBounds](../DR/Endpoint/LeadingBounds.lean), [LeadingRows](../DR/Endpoint/LeadingRows.lean).

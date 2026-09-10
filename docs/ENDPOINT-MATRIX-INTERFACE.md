@@ -1,12 +1,9 @@
 # Endpoint collision matrix estimate
 
-The matrix estimate is proved in
-[CollisionSquareCompletion](../DR/Endpoint/CollisionSquareCompletion.lean),
-using the exact scalar completion in
-[CollisionSquareCompletionScalar](../DR/Endpoint/CollisionSquareCompletionScalar.lean).
-The source is Analytic-Lab P0174 `ENDPOINT_LOCALIZED_COLLISION_KERNEL.md`,
-sections 2 and 3. This is a matrix criterion; the accepted endpoint parameter
-ranges still require the actual contender and rook normalization arguments.
+A completion of squares gives a uniform lower bound for a diagonal
+matrix plus two low-rank terms. The criterion below applies to arbitrary
+real vectors; its endpoint application substitutes localized collision
+loads and the normalized elementary coefficient.
 
 For `m ≥ 3`, real vectors `s,t,v`, and real `sigma`, define
 
@@ -30,7 +27,7 @@ from these explicit assumptions:
 - `v(i) ≤ 1/4` for every row;
 - `sigma ≥ 4*m^2`.
 
-No assumption `sum_i s(i)=1` is needed. All real test vectors, zero vectors,
+No assumption `sum_i s(i)=1` is needed. All real vectors, zero vectors,
 and negative `v` entries are retained. Neither positivity of `Q` nor the
 endpoint maximizer conclusion is taken as a premise.
 
@@ -44,17 +41,14 @@ remaining negative terms, leaving
 1/2 - 1/6 - 1/12 - (2/5)*(5/8)^2 = 3/32.
 ```
 
-[The persistent tests](../Test/CollisionSquareCompletion.lean) include seven
-examples: exact attainment of the scalar estimate, rejection of an enlarged
-`1/8` margin, signed and zero vectors, and explicit negative quadratic forms
-when the `v` or `sigma` bound is dropped. The targeted build passed 1,856 jobs
-with three axiom audits using only `propext`, `Classical.choice`, and
-`Quot.sound`, and no warnings.
-
 The probability side supplies the normalized localized doubleton and
 deficit-two loads. The actual deletion expectation is constructed in
 [RowDeletionExpectation](../DR/Endpoint/RowDeletionExpectation.lean).
-Actual endpoint use must still connect its normalization to
-`sigma = E/(gamma*p0)` and establish the stated moment and numerical bounds
-from a true contender in each accepted parameter range. This module alone
-completes none of the remaining endpoint targets.
+The [rook normalization](ENDPOINT-ROW-DELETION-ROOK.md) identifies
+`sigma = E/(gamma*p0)`. The [actual kernel theorem](ENDPOINT-ACTUAL-KERNEL-POSITIVITY.md)
+transfers this lower bound to the averaging kernel. The endpoint strip
+proofs then derive the scalar bounds from the contender inequality.
+
+## Formal statements
+
+[CollisionSquareCompletionScalar](../DR/Endpoint/CollisionSquareCompletionScalar.lean), [CollisionSquareCompletion](../DR/Endpoint/CollisionSquareCompletion.lean).

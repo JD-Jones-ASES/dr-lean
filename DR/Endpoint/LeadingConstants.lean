@@ -7,7 +7,7 @@ import Mathlib.Analysis.Complex.ExponentialBounds
 
 The factorial ratio is exact. The exponential comparison uses Mathlib's
 proved rational bound on exp(1), rather than a floating approximation.
-The resulting constants are those in P0174 ENDPOINT_LEADING_GLOBAL.md.
+The constants bound the factorial defect and the row-dependent column cost.
 -/
 namespace DittertRybin
 open scoped BigOperators

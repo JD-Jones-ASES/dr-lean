@@ -1,9 +1,7 @@
 import DR.Certificates.Gram
 
 /-!
-Exact Analytic-Lab P0174 order-four sextic data from
-`sextic_four_by_four_coefficients.json`, SHA256
-efba4aaa73e080beb3254d84a02fa999b277540298f57f65df216fde02aa24bc.
+Exact rational data for the order-four sextic identity and its Gram factors.
 Role keys, seed multipliers, entry roles, and fraction-free Gram data were
 independently reconstructed from the mathematical first-occurrence specification.
 Each integer Gram row is divided by its positive gcd, and its weight is

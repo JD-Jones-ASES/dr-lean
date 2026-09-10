@@ -3,8 +3,9 @@ import DR.Certificates.SpectralSixGuards
 /-!
 # Exact degree-38 scalar certificates for the order-six endpoint
 
-These are the two gap numerators in Section 5 of Analytic-Lab P0174
-`SQUARE_ENDPOINT_6.md`. The seven rational subintervals cover [0,31/100].
+The two gap numerators compare the spectral crossing estimate with
+the singleton and larger-block permanent floors. Seven rational
+subintervals cover [0,31/100].
 All 546 Bernstein coefficients are explicit rationals, with exact polynomial
 identities and positive margins proved in Lean. Denominator clearing and the
 transfer to the real permanent floors are proved separately below.

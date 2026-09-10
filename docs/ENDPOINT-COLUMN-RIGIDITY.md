@@ -21,15 +21,15 @@ F(P)≥F(U) must have R=1, hence every cell equals 1/(mn). Compactness
 then converts the assumed global-maximizer column rigidity into the
 sharp bound and its complete equality case.
 
-The production theorem is
-`uniform_maximizer_endpoint_of_column_rigidity`. The actual averaging or
-endpoint parameter argument must still establish its premise; this closure
-lemma alone does not complete any pending endpoint family.
+The general closure theorem is
+`uniform_maximizer_endpoint_of_column_rigidity`. Its premise is supplied
+by strict midpoint averaging whenever every retained two-column kernel
+is positive definite; see [kernel closure](../DR/Endpoint/EndpointKernelClosure.lean).
 
-The proof also covers n<m and n=1. Its tests retain a board with a zero
-row, evaluate its exact success probability, and show why it is not a
-contender. A separate order-one counterexample checks that m≥2 is necessary.
+The proof also covers n<m and n=1. The restriction m≥2 is necessary
+for unique equality: with one sampled cell, the separation probability is
+one for every probability board.
 
-```
-lake --wfail build +Test.EndpointColumnRigidity
-```
+## Formal statements
+
+[ColumnRigidity](../DR/Endpoint/ColumnRigidity.lean).

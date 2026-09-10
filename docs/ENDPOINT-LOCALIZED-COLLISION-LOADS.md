@@ -1,11 +1,8 @@
 # Localized exact collision-pattern loads
 
-[RowPairMoments](../DR/Endpoint/RowPairMoments.lean) and
-[RowCollisionLocalized](../DR/Endpoint/RowCollisionLocalized.lean) prove
-equations (6) and (7) in Analytic-Lab P0174
-`ENDPOINT_RELATIVE_COLLISIONS.md`. With actual nonnegative normalized row
-laws, local collision loads `d_i <= 1/8`, total unordered intensity `D`,
-and a column-sum cap `cap`, the results are
+Under independent nonnegative normalized row laws X, suppose each
+incident collision load d_i is at most 1/8, let D be the total unordered
+intensity, and suppose every column sum of X is at most cap. Then
 
 ```
 localizedDoubleton_i <= (16/9)*d_i,
@@ -33,16 +30,6 @@ bound `sum_triples Pr(equalities) <= cap*d_i/2`. For two doubletons, the
 restricted second-pair sum is bounded by `D`. The coarser column-cap form
 uses the proved actual bounds `d_i <= cap` and `D <= m*cap/2`.
 
-Verification: `lake build Test.RowCollisionLocalized` passed 3,159 jobs
-with nine standard-only axiom audits. Tests check exact unordered counts,
-the signed quadratic identity, the non-duplicated factor two, a rational
-four-row bound derived directly from a column cap, vanishing actual
-localized penalties when all collision loads are zero, and empty row
-sets. Source files contain no added axioms, placeholders, or native
-decision shortcuts.
+## Formal statements
 
-The distribution of exact collision patterns is now bounded locally.
-Identifying these sums with the deletion matrix's expected incidence
-vectors, proving the pointwise deletion-matrix inequality, and completing
-its square-completion and endpoint-range inputs remain separate steps.
-No endpoint range is widened by this package.
+[RowPairMoments](../DR/Endpoint/RowPairMoments.lean), [RowCollisionLocalized](../DR/Endpoint/RowCollisionLocalized.lean).

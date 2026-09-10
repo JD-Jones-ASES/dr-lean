@@ -8,8 +8,8 @@ import Mathlib.Algebra.CharZero.Infinite
 /-!
 # Exact spectral scalar certificates at dimension seven
 
-These are the two degree-fourteen scalar certificates from Analytic-Lab
-`probes/P0174_rybin_semimatchings/SPECTRAL_SQUARE_ENDPOINT.md`.
+The two degree-fourteen scalar certificates compare the spectral cut
+estimate with the permanent lower bound at dimension seven.
 Their exact rational domains are [0,1/2] and [1/2,1]. Each coefficient
 identity is proved as a rational polynomial identity. Both complete
 coefficient tables have a positive checked margin. The two semantic box

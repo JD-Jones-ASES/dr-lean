@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Exact finite K4 quintic template, independently reconstructed by counting.
 
-No Lab implementation is imported or executed. The optional source audit reads
-only pinned source bytes and rational coefficient data. Mathematical provenance
-and the boundary between data checks and Lean proofs are in data/FINITE_K4_QUINTIC_SOURCE.md.
+The generator counts every equality pattern and coefficient role using exact
+integer arithmetic. The optional source audit reads pinned rational data.
+The coefficient equations and their Lean interpretation are described in
+data/FINITE_K4_QUINTIC_SOURCE.md.
 """
 from __future__ import annotations
 

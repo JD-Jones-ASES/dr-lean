@@ -20,11 +20,12 @@ the public theorems.
 matrix-to-scalar reduction on every order n+2 with n at least two. This is the
 interface used to discharge the near-endpoint permanent premise.
 
-The mathematical face and scalar model follows
-[Pula, Song and Wanless (2011)](https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf)
-and the Lab's audited `TWO_ZERO_PERMANENT_GAP.md` derivation. The formal support
-and averaging arguments are internal proofs using the previously verified
-stable-polynomial prerequisites.
+The face and scalar model follow
+[Pula, Song and Wanless (2011)](https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf).
+The support and averaging arguments use the internally proved
+stable-polynomial lemmas. [The reduction](TWO_ZERO_REDUCTION.md) gives the
+exact matrix form; the polynomial and logarithmic estimates then prove
+the stated gap.
 
 Run `lake build +Test.TwoZeroPermanent`. The examples check the first tail
 order with an actual identity matrix, both finite endpoint orders, the exact

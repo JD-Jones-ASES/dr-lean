@@ -19,15 +19,11 @@ bound, and the existing factorial decay a_m≤m⁻¹⁴. The constant 512/289 is
 exactly twice (16/17)². The argument holds for every integer dimension in
 the stated domain; it does not extrapolate a finite scan.
 
-This is the elementary parameter part of the Lab's
-`ENDPOINT_ARITHMETIC_SCALING.md` sufficient criterion without its optional
-gcd improvement. Balanced transport, boundary permanent comparison and
-the resulting unique-maximizer theorem remain separate obligations.
-This lemma alone completes no new principal release target.
+Substitute these inequalities into the common-divisor criterion with g=1
+in [boundary scaling](ENDPOINT-BOUNDARY-SCALING.md). This proves the
+arithmetic endpoint theorem: uniform is the unique maximizer for m≥128,
+m≤n≤m(m−1)/(22 log m), in both orientations.
 
-Tests include an admitted 256×256 dimension, the logarithm bound at m=128,
-and rejected missing-cutoff and small-dimension variants.
+## Formal statements
 
-```
-lake --wfail build +Test.ArithmeticParameters
-```
+[Arithmetic](../DR/Endpoint/Arithmetic.lean), [ArithmeticParameters](../DR/Endpoint/ArithmeticParameters.lean).

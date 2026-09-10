@@ -3,7 +3,7 @@
 
 The JSON supplies mathematical rational coefficients only. This generator
 independently reconstructs the documented eight blocks and exact LDL factors;
-it imports no Lab implementation. Lean checks every formula and factor.
+Lean checks every formula and factor against the physical matrix definitions.
 """
 import argparse
 import ast

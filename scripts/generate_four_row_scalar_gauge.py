@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Reproduce the degree-seven four-row scalar certificate from its literal formula.
 
-Source: Analytic-Lab P0174 K4_LEADING_FOUR_ROWS.md, equations (5) and (5a).
+The polynomial compares the row-weighted collision moments with their
+uniform value and centered row variance.
 SymPy derives rational data; Lean proves the displayed identity and nonnegativity.
 Run with --check to compare the deterministic generated file without editing it.
 """

@@ -5,21 +5,13 @@ are `dittert_order_five : DittertMaximizer 5` and
 `uniformMaximizer_five_five_five : UniformMaximizer 5 5 5`.
 The all-dimension wrapper is `DR/Square/AllOrders.lean`.
 
-**Build status:** the complete actual order-five proof and all-order square
-wrapper passed `lake build Test.SpectralFive Test.AllSquareOrders` (3,677
-jobs). All seven final axiom audits returned only `propext`,
-`Classical.choice`, and `Quot.sound`. The literal singleton identity and
-positive-gap dependency were proved before this build; neither is a
-hypothesis of the principal results. Integration and independent
-exact-commit CI remain root-maintained.
-
 For a nonnegative 5-by-5 real matrix A with total mass five, write r and c
 for its row and column sums, and p for its permanent. The proved bound is
 
-\[
+$$
 \Phi(A)=\prod_i r_i+\prod_j c_j-p\le 2-\frac{24}{625}
 =\frac{1226}{625},
-\]
+$$
 
 with equality exactly at the matrix whose every entry is 1/5. In the
 probability normalization, the equivalent sharp semimatching probability
@@ -31,19 +23,19 @@ Compactness reduces the statement to classifying every actual global
 maximum on the closed simplex. The contender lemmas derive positive
 marginals and the shared deficit budget
 
-\[
+$$
 \rho=1-\prod_i r_i\ge0,\quad
 \sigma=1-\prod_j c_j\ge0,\quad
 \rho+\sigma\le\delta=24/625-p\le24/625.
-\]
+$$
 
 Set t=sqrt(5 delta/(1-delta)), so 0<=t<9/20 and
 delta=t^2/(5+t^2). `FiveMarginalBounds` derives, from the actual stationary
 equations and a three-step inverse-variance bootstrap,
 
-\[
+$$
 L=1-\frac{23}{50}t\le r_i,c_j\le 1+\frac t2=H.
-\]
+$$
 
 The ten-vertex alternating sweep uses the actual stationary score and
 conductance. Define q=1-t, h=H(24/625-(601/3125)t^2), d=(19/100)q-h,
@@ -54,9 +46,9 @@ The proof does not extend the physical sign of h to t=9/20.
 `FiveSweepCut` shows that any nonuniform actual maximum has row and column
 subsets I,J of the same size, either one or two, with actual crossing
 
-\[
+$$
 w=A(I,J^c)+A(I^c,J)\le W.
-\]
+$$
 
 `ScoreSubsetOrder` retains full marginal ordering between the chosen and
 complementary subsets. Transposition, when needed, makes chosen rows the
@@ -70,29 +62,29 @@ u=(23/50)t x and v=(t/2)y with x,y in [0,1], including the collapsed t=0
 case. The actual entry is (a+b-w)/2. For the complementary 4-by-4 minor D,
 finite product-loss estimates give
 
-\[
+$$
 R_D\ge R\frac{3a-b-w}{2a^2},\qquad
 C_D\ge C\frac{2L-w-a+b}{2Lb},
-\]
+$$
 
 where R and C are the whole-matrix marginal products. Both factors lie in
 (0,1]. The shared budget, followed by the independently proved order-four
 inequality in its homogeneous form, yields
 
-\[
+$$
 \operatorname{per}D\ge E(w):=
 \frac{3a-b-w}{2a^2}+\frac{2L-w-a+b}{2Lb}-\delta
 -\frac{61}{32}\left(\frac{10-a-b-w}{8}\right)^4.
-\]
+$$
 
 The actual retained-permutation inequality gives
 p >= (a+b-w)E(w)/2. An exact derivative certificate proves E is decreasing
 for 0<=w<=13/50 on the entire required marginal domain. The singleton
 certificate proves
 
-\[
+$$
 p<\frac{a+b-W}{2}E(W)\le\frac{a+b-w}{2}E(w),
-\]
+$$
 
 contradicting the actual permanent floor. The last comparison also proves
 the positivity of the relevant minor floor from the strict endpoint gap;
@@ -110,25 +102,25 @@ nonnegative crossing rectangles imply u+v<=w. Put
 e=(w-u-v)/2, f=(w+u+v)/2, r0=1+u/3, s0=1-v/3,
 a0=1-u/2, b0=1+v/2, and L0=79/100. The four actual product factors are
 
-\[
+$$
 A_r=\frac{1-e/L_0}{r_0^3},\quad
 B_c=\frac{s_0-f}{s_0^4},\quad
 C_r=\frac{a_0-f}{a_0^3},\quad
 D_c=\frac{1-e/L_0}{b_0^2}.
-\]
+$$
 
 Each lies in (0,1]. `FiveMinorTwoBlockProducts` derives them by finite
 product loss and arithmetic-geometric mean bounds on the complementary
 marginals. The shared budget and the proved orders two and three give
 permanent floors X(w)-delta and Y(w)-delta, where
 
-\[
+$$
 X(w)=A_r+B_c-\frac32\left(\frac{2+(v-u-w)/2}{2}\right)^2,
-\]
+$$
 
-\[
+$$
 Y(w)=C_r+D_c-\frac{16}{9}\left(\frac{3+(u-v-w)/2}{3}\right)^3.
-\]
+$$
 
 The scalar certificates prove both floors positive and their product
 strictly greater than p after comparison with w0=13/50. The product of
@@ -169,14 +161,12 @@ The finite equalities use ordinary Lean kernel reduction (`decide +kernel`)
 and proved generic algebra. No native evaluation axiom, added axiom,
 admitted goal, or assumed polynomial identity is part of the method.
 
-## Provenance and replay boundary
+## Attribution and verification
 
-The mathematical order-five source is Analytic-Lab P0174,
-`SQUARE_ENDPOINT_5.md`, especially its actual-minor Appendices B and C.
-The formalization reconstructs those arguments and the exact algebra in
-this repository. The sparse evaluator, staged coefficient identities,
-finite product-loss lemmas and all-order wrapper are local formal proof
-infrastructure; the private Lab's replay is evidence, not a Lean premise.
+The proof expands the actual minors and checks the resulting polynomial
+bounds inside Lean. The sparse evaluator, coefficient identities, and
+finite product-loss lemmas connect those bounds to the original matrix
+functional, including zero-mass minors and interval endpoints.
 
 [SOURCES](SOURCES.md) owns attribution of the square formulation to
 Cheon-Wanless, Rybin's rectangular statement, the established permanent
@@ -186,13 +176,11 @@ The project claims an alternative formalized square proof, not priority
 for resolving the conjecture. Novelty outside the recorded source comparison
 has not been established. No peer implementation is a formal dependency.
 
-The final replay commands are `lake build Test.SpectralFive` and
-`lake build Test.AllSquareOrders`. Their combined replay passed. They
-expand both principal theorem types and audit their axioms. Earlier persistent controls cover sparse and tied
-supports, zero deficit, zero-mass homogeneous minors, coefficient mutation,
-affine interval normalization and strict-margin transfer. The full release
-inventory and independent exact-commit CI remain separate requirements in
-[VERIFICATION](VERIFICATION.md).
+Run `lake build Test.SpectralFive Test.AllSquareOrders` to check the
+principal theorem types and their axiom audits. The tests cover sparse and
+tied supports, zero deficit, zero-mass homogeneous minors, coefficient
+mutation, affine interval normalization, and strict-margin transfer.
+[Verification](VERIFICATION.md) describes the complete independent checks.
 
 `AllOrders` combines the proved orders one through five with
 `dittert_ge_six`. Its release declaration is

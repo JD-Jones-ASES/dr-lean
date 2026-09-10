@@ -1,7 +1,8 @@
 # Quadratic bounds for actual deletion patterns
 
-`DR/Endpoint/RowDeletionQuadratic.lean` proves the pointwise quadratic
-ingredients of P0174 `ENDPOINT_LOCALIZED_COLLISION_KERNEL.md`, Section 1.
+For the deletion matrices associated with the four possible collision
+patterns, exact identities and weighted 2xy≤x²+y² estimates give
+lower bounds for the negative quadratic form.
 
 For any symmetric matrix with nonnegative entries, its quadratic form is
 at most the sum of its row sums times the corresponding coordinate squares.
@@ -20,8 +21,6 @@ identity with the square of its incidence-weighted coordinate sum retained.
 The lower bound drops precisely that nonnegative square. For an injective
 assignment it proves the exact identity-minus-ones form.
 
-Replay: `lake build Test.RowDeletionQuadratic`. Controls show the sharp
-factor two on both K3 and K2,2, refute replacement by one, check a mixed-sign
-single-pair vector, and retain an empty finite host. Averaging these actual
-pointwise statements and connecting them to the deleted-board rook kernel
-remain separate proof obligations.
+## Formal statements
+
+[RowDeletionQuadratic](../DR/Endpoint/RowDeletionQuadratic.lean).

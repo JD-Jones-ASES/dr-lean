@@ -1,8 +1,9 @@
 # Selected-row conditioning and removed collision edges
 
-Three modules prove the probability comparison used for exact collision
-patterns in Analytic-Lab P0174 `ENDPOINT_RELATIVE_COLLISIONS.md`, equations
-(4) and (5):
+For an event determined by selected rows, the conditional local lemma
+bounds its probability relative to full collision avoidance even when
+specified collision edges are removed from the avoidance condition.
+The proof has three parts:
 
 * [FinitePatternBound](../DR/Endpoint/FinitePatternBound.lean) restores the
   local-lemma product for the forbidden edges removed from avoidance.
@@ -38,17 +39,6 @@ Mathlib's concavity of the logarithm gives the closed chord inequality
 proves the touching-edge product is at least `(3/4)^|V|`. The bound depends
 on the number of selected rows, with no total collision intensity cap.
 
-Verification: `lake build Test.FinitePatternBound
-Test.RowCollisionSelectedEvents` passed 2,191 jobs and nine standard-only
-axiom audits with no warnings. A one-event test proves the restored
-factor and refutes the inequality obtained by dropping it. An actual
-two-row model gives positive prescribed-collision mass `1/16`, obtains
-the `16/9` ratio bound after removing that edge, and verifies that keeping
-the edge in avoidance instead gives mass zero. Further controls cover
-internal-edge counting, both endpoints of the log chord, zero parameters,
-and the empty selected set.
+## Formal statements
 
-This establishes the general selected-event comparison. It does not yet
-sum the explicit doubleton/tripleton patterns into the source's localized
-collision penalties or conclude an endpoint maximizer range. Original
-and deleted row laws remain separate inputs.
+[FinitePatternBound](../DR/Endpoint/FinitePatternBound.lean), [RowCollisionSelectedEvents](../DR/Endpoint/RowCollisionSelectedEvents.lean), [RowCollisionTouchProduct](../DR/Endpoint/RowCollisionTouchProduct.lean).

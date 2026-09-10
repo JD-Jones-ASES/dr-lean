@@ -5,12 +5,9 @@ actual zero-diagonal matrix `L(z)`: for distinct rows `a,b`, its entry is
 one exactly when deleting those two rows leaves distinct sampled columns.
 It is symmetric, and its diagonal is explicitly zero.
 
-For the exact one-class and two-class events already used in the
-probability bounds, the module proves the complete row-equality relation.
-After deleting any row set `S`, distinctness is therefore equivalent to
-each prescribed class retaining at most one member. This derives the
-source's pointwise matrix forms in P0174
-`ENDPOINT_LOCALIZED_COLLISION_KERNEL.md`, section 1:
+For an exact one-class or two-class collision event, deleting a row set S
+leaves distinct columns precisely when each prescribed class retains at
+most one member. Consequently the pointwise deletion matrices are:
 
 * With no collisions, `L = J-I`.
 * For one doubleton with incidence vector `e`,
@@ -20,20 +17,15 @@ source's pointwise matrix forms in P0174
 * A single class of size at least four cannot be repaired by deleting
   two rows, so its deletion matrix is zero.
 
-These are dimension-independent conditional statements whose hypotheses
-are literal sample-pattern events. They do not assume the desired matrix
-inequality. Classification of every assignment admitting a successful
-two-row deletion, the full higher-deficit exclusion, and the expectation
-comparison remain separate obligations. The rook normalization and
-endpoint parameter-range proof also remain unfinished.
+The [exhaustive classification](ENDPOINT-ROW-DELETION-CLASSIFICATION.md)
+shows that these cases cover every nonzero deletion matrix. The
+[quadratic estimates](ENDPOINT-ROW-DELETION-QUADRATIC.md) and
+[expectation identity](ENDPOINT-ROW-DELETION-EXPECTATION.md) therefore
+apply to every assignment, without a support restriction on the input law.
 
-Verification: `lake build Test.RowDeletionPatterns` passed 2,193 jobs,
-with nine standard-only axiom audits and no warnings. Exact finite sample
-assignments exercise all four collision patterns, successful and failed
-deletions, the zero diagonal, and exclusion of within-class edges from
-the two-doubleton `K2,2`. A negative control shows that dropping the
-positive incidence rank-one term changes the exact doubleton identity.
+The [matrix completion](ENDPOINT-MATRIX-INTERFACE.md) bounds the
+resulting averaged form after its collision loads have been estimated.
 
-The independent square-completion target is recorded separately in
-[ENDPOINT-MATRIX-INTERFACE](ENDPOINT-MATRIX-INTERFACE.md), explicitly as
-an unproved proposed interface for a later available work slot.
+## Formal statements
+
+[RowDeletionPatterns](../DR/Endpoint/RowDeletionPatterns.lean).

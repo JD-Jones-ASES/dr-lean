@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Rebuild exact four-row quintic family data; no Lab dependency after import.
+"""Rebuild exact four-row quintic family data from the included rational tables.
 
 This generator is not a proof. Lean checks must connect the literal role
 catalogue, polynomial identities and reduced blocks to the physical matrices.
 Block polynomials are formed by exact multiplication and cancellation, never
-interpolation. The two input files are the rational research certificates.
+interpolation. The two input files contain rational coefficient and matrix-factor certificates.
 """
 from __future__ import annotations
 

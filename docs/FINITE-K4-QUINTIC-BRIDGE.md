@@ -1,9 +1,10 @@
 # From finite quintic equations to the actual probability
 
-The coefficient and matrix obligations are connected to the original K=4
-probability on the entire closed simplex. A coefficient identity by itself
-is not a positivity proof. The complete four-row finite interval and the
-separate 5-by-5 and 20-by-20 results still require their final assembly.
+The coefficient and matrix identities connect to the original four-sample
+probability on the entire closed simplex. Positivity is proved separately
+from coefficient matching and then applied in the
+[four-row theorem](FOUR-ROW-PROOF.md) and the
+[fixed-board theorems](FIXED-BOARD-ORDER-FOUR.md).
 
 ## Literal coefficient meaning
 
@@ -111,8 +112,7 @@ permutations, and a negative singleton matrix showing that coverage alone
 is not PSD. The two-axis tests include negative absent sectors and a
 counterexample to weakening a present standard sector from PD to PSD.
 
-The finite gate generator splits the 52 proof rows across eight modules
-and checks every column in each row with Lean kernel reduction. Data
-regeneration and its corruption controls also run with Python optimization
-on. See [progress](PROGRESS.md) for the latest completed replay and the
-[full release gate](VERIFICATION.md) for the independent verification hold.
+The finite gate generator splits the 52 proof rows across eight modules.
+Each module checks every column in its rows by Lean kernel reduction.
+The generator checks and their corruption controls also run under Python
+`-O`; [Verification](VERIFICATION.md) gives the complete commands.

@@ -19,8 +19,6 @@ The elementary lower bound has exactly `(m-2)!` as its ordered-sample
 normalization. The only numerical induction is the proved factorial guard
 starting at dimension 16.
 
-Replay: `lake build Test.EndpointCoefficient`. Tests retain nonunit mass,
-zero cells, the exact base dimension, and the generic actual-law signature;
-omitting the mass-square normalization has an explicit counterexample.
-This is the fifth scalar input to the endpoint kernel criterion, not an
-assumed bound on the kernel itself.
+## Formal statements
+
+[EndpointCoefficient](../DR/Endpoint/EndpointCoefficient.lean).

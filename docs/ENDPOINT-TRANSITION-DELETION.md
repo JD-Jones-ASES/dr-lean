@@ -1,14 +1,14 @@
 # Actual transition column deletion
 
-`TransitionDeletionBalance.lean` and `TransitionDeletion.lean` supply the
-retained-board estimates in Section 5 of the accepted Lab
-`ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md` on exactly
+Deleting any two distinct columns of an endpoint contender preserves
+the row and column estimates needed for the localized kernel criterion
+throughout the range
 
 ```
 10^18<=m, m<=n, m*(m-1)<=20*n, n<=10000*m^2.
 ```
 
-The original contender row budget is the newly proved `<1/100`, not the
+The original contender row budget is `<1/100`, not the
 earlier LLL strip's stronger `<1/1024` budget. The exact centered deletion
 vector and squared triangle estimate give retained normalized squared row
 deviation `<1/9` when `m*w<=1/16`. Unequal deletion masses and zero deleted
@@ -22,7 +22,6 @@ mass `h>15/16`. The retained board's own normalized row law has column cap
 cap holds as well. No bound for original-row avoidance is substituted for
 retained-row avoidance.
 
-Replay: `lake build Test.TransitionDeletion`. The tests include an original
-row vector with budget between `1/1024` and `1/100`, unequal deletion with
-a zero coordinate, a failed large-deletion control, and exact lower-edge
-arithmetic without a rounding gap.
+## Formal statements
+
+[TransitionDeletionBalance](../DR/Endpoint/TransitionDeletionBalance.lean), [TransitionDeletion](../DR/Endpoint/TransitionDeletion.lean).

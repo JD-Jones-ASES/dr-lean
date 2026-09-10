@@ -13,7 +13,7 @@ The public declarations are
 [FiveByFiveOrderFour](../DR/Rectangular/FiveByFiveOrderFour.lean) and
 `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` in
 [TwentyByTwentyOrderFour](../DR/Rectangular/TwentyByTwentyOrderFour.lean).
-These are two of the required release targets. They do not prove the full
+These are two instances of the rectangular inequality. They do not prove the full
 arbitrary-rectangle P2 conjecture.
 
 ## Mathematical argument
@@ -46,8 +46,7 @@ Across both boards, Lean checks 20 full weighted kernels, 80 strict blocks
 and 300 positive pivots. The largest principal block has size 15×15.
 Exact rational generation is only a source of certificates: the compiled
 identities and proved real-matrix soundness supply the mathematical evidence.
-The [source note](../data/FINITE_K4_FIXED_BLOCKS_SOURCE.md) records generation
-and provenance; see [attribution](SOURCES.md) for the Lab research context.
+The [source note](../data/FINITE_K4_FIXED_BLOCKS_SOURCE.md) explains how to reconstruct the exact coefficient and block data.
 
 ## Verification
 
@@ -66,5 +65,5 @@ lake --wfail build +Test.FiveByFiveOrderFour +Test.TwentyByTwentyOrderFour
 ```
 
 For a cold checkout use the bounded dependency builder in
-[verification](VERIFICATION.md). Local completion is separate from exact-commit
-independent CI and the full public-release gate.
+[Verification](VERIFICATION.md), which also describes the exact-commit
+independent checks. The repository remains private for inspection.

@@ -15,7 +15,7 @@ factor. Checking a rational entry identity is enough to transfer the resulting
 sum of squares to every real vector. Zero weights and singular factors are
 allowed. Positive definiteness requires a separate injectivity witness.
 
-This is the matrix soundness layer needed by the Lab's cubic/quartic K=3
+This is the matrix soundness layer for the cubic/quartic K=3
 certificates and the shifted 16-by-16 seeds of the sextic square-order-four
 certificate. Polynomial identities and permutation-orbit coverage remain
 separate obligations; a positive Gram matrix alone does not prove P2.
@@ -302,7 +302,7 @@ theorem rational_principal_gram_posSemidef {n r : ℕ}
   · exact_mod_cast hvlast
   · exact C.posSemidef (Q.submatrix Fin.castSucc Fin.castSucc) hC
 
-/-- Rational centering projection, in the entry convention used by the Lab's shifted seeds. -/
+/-- Rational centering projection, in the entry convention used by the shifted Gram matrices. -/
 def centeringMatrix (n : ℕ) : Matrix (Fin n) (Fin n) ℚ :=
   Matrix.of (fun i j => (if i = j then 1 else 0) - (n : ℚ)⁻¹)
 

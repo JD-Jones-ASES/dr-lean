@@ -1,5 +1,12 @@
 # Complete large-row endpoint theorem
 
+For an m×n nonnegative matrix P of total mass one, let F_k(P) be the
+probability that k independent cell draws have distinct rows or distinct
+columns, with inclusive OR. Write U_ij=1/(mn) and (n)_m=n(n−1)…(n−m+1).
+At the endpoint k=m, put a=m!/m^m and b=(n)_m/n^m. The sharp statement is
+F_m(P)≤a+b−ab, with equality if and only if P=U. A contender means a
+probability board satisfying F_m(P)≥F_m(U).
+
 `uniform_maximum_large_endpoints` proves the sharp uniform maximum and unique
 equality for K=m on every m by N probability matrix with m>=10^18 and N>=m,
 including transpose, arbitrary marginals and zero entries.
@@ -19,12 +26,11 @@ Consequently `log(m)<sqrt(m)/2816`. If `N^2<4096m^3`, then
 The constants have strict margins; no numerical interval sampling replaces
 this all-integer overlap proof.
 
-The compactness and equality arguments belong to the component theorems;
-the assembly preserves their actual `UniformMaximizer` statements. This
-is the accepted P0174 `ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md` result. The
-other endpoint strips and square near-endpoint target are separate results.
+Each component proves the sharp bound and unique equality on the full
+closed probability simplex. Their dimension conditions cover every N≥m
+once m≥10^18, so choosing the applicable component proves the theorem
+without any further assumption on the support or marginals.
 
-`Test.AllAspects` covers the square boundary, an arbitrarily long rectangle,
-representative points in all four intervals, the integer transition boundary,
-the lower row cutoff and a rejected extension of the logarithmic estimate.
-Three transitive axiom reports accompany its nine persistent examples.
+## Formal statements
+
+[AllAspectParameters](../DR/Endpoint/AllAspectParameters.lean), [AllAspects](../DR/Endpoint/AllAspects.lean).

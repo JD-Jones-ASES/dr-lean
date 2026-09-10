@@ -6,13 +6,14 @@ probability is at least the uniform value. It assumes 3 ≤ m ≤ n and
 b = (n)_m/n^m ≤ 1/4. Individual cells may vanish.
 
 Write a = m!/m^m, R = m^m product of the row sums, S for the normalized
-column elementary sum, and δ = b − m^m rookSum(P,m). The already proved
+column elementary sum S=m! e_m(c)/b, where c is the vector of column sums,
+and δ = b − m^m rookSum(P,m). The
 contender identity gives
 
     (1−R) + (b/a)(1−S) ≤ δ,  0 ≤ δ ≤ b.
 
 For every row subset I and column subset J, let x and y be the absolute
-differences between their marginal masses and |I|/m, |J|/n. The new theorem is
+differences between their marginal masses and |I|/m, |J|/n. The joint bound is
 
     (x+y)^2 ≤ [2/(3m)] [1+(n−1)a/b] δ.
 
@@ -31,18 +32,12 @@ coordinate and deficit 1/4; positivity of the row sums is derived from the
 contender condition. The variance lemma itself allows signed vectors of
 mass one. No cut criterion or matrix domination is assumed here.
 
-The mathematical derivation is the rectangular adaptation recorded in
-Analytic-Lab P0174, PANG_RECTANGULAR_ENDPOINT.md, with Pang's binary estimate
-as the attributed antecedent. This is a formalization of that accepted
-argument, not a claim of a new unrestricted P2 theorem.
+The binary-entropy method follows the marginal comparison used in
+[Pang’s square boundary argument](https://arxiv.org/abs/2606.01531v1).
+Here the row and column estimates are coupled by the rectangular rook
+deficit. The resulting bound supplies the marginal error term in
+[balanced boundary scaling](ENDPOINT-BOUNDARY-SCALING.md).
 
-Replay:
+## Formal statements
 
-```sh
-lake --wfail build +Test.EndpointMarginalDiscrepancy
-```
-
-The persistent tests include a sharp boundary variance example, signed
-mass-one input, rejected normalization and constant weakenings, a genuine
-zero-column elementary vector at deficit 1/4, and the weighted shared budget.
-The six principal APIs use only propext, Classical.choice and Quot.sound.
+[MarginalDiscrepancy](../DR/Endpoint/MarginalDiscrepancy.lean).

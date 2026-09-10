@@ -12,13 +12,30 @@ The final declaration has only the dimension hypothesis. It does not assume a
 permanent bound, optimizer form, scalar certificate, positivity of the input
 matrix, or existence of a balanced dominated matrix.
 
-## Proof dependencies
+## Proof
 
 The exact sampling and near-endpoint rook identities provide a shared deficit
 for the row and column marginals. Actual finite transport yields balanced
-domination. Padding a balanced board into order n+1 turns an original zero into
-two independent zeros and converts its rook ratio into a permanent with the
-exact boundary-floor normalization.
+domination. For a balanced probability board B, with each row and column
+sum equal to 1/n, form the (n+1)×(n+1) matrix
+
+```
+D = [ 0           (1/n) 1ᵀ ]
+    [ (1/n) 1     (n−1) B  ].
+```
+
+Every row and column of D sums to one. A zero of B lies in a different
+row and column from D's upper-left zero, giving two independent zeros.
+Expansion along the added row and column proves, even for signed B,
+
+```
+per D = ((n−1)^(n−1)/n²) rookSum(B,n−1).
+```
+
+Here rookSum(B,k) sums the products of entries over k-cell matchings,
+counting each matching once. The formula converts the normalized rook
+value exactly to the one-zero boundary scale
+μ_(n+1)=(n−1)!((n−1)/n²)^(n−1); it introduces no additional factorial.
 
 On the closed two-zero doubly stochastic face, compactness and least squared
 norm select a genuine face minimum. Supported and one-sided cofactor arguments,
@@ -32,21 +49,18 @@ For n=21,...,25 the full ordered active-cut certificates strengthen the bound
 with the actual complementary zero rectangle of a minimum dilation. For n at
 least 26 the logarithmic scalar tail supplies a dimension-uniform gap. Both
 routes exclude every boundary contender, including zero deficit and unit
-dilation. The existing positivity-of-all-global-maximizers theorem then gives
+dilation. The positivity-of-all-global-maximizers theorem then gives
 the sharp inequality and exact equality case on the full probability simplex.
 
-## Source and replay
+## Mathematical references
 
-Mathematical source: Analytic-Lab P0174 `NEAR_ENDPOINT_SCALING.md`,
-`TWO_ZERO_PERMANENT_GAP.md`, and `ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md`.
-Exact source receipts and the finite data checks are preserved in the
-corresponding `data/NEAR_ENDPOINT_*` and `data/TWO_ZERO_*` notes.
-These are mathematical sources; no external proof implementation is imported.
+The two-zero face argument follows the repeated-support model studied
+by Pula, Song and Wanless,
+[Minimum permanents on two faces of the polytope of doubly stochastic matrices](https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf).
+The [face reduction](TWO_ZERO_REDUCTION.md) and
+[permanent bounds](TWO_ZERO_PERMANENT.md) derive the matrix and scalar
+steps used above, allowing additional zero entries.
 
-Replay `lake build Test.SquareNearEndpoint`. Tests instantiate all five finite
-cases, the first analytic dimension, a large dimension, the exact closed-simplex
-equality statement, transposition, strictness at an arbitrary zero cell, and
-uniform attainment. A nonuniform n=2,K=1 probability matrix rejects removing the
-dimension guard. The final declaration's axiom audit reports only the standard
-Lean logical axioms. Parent integration separately checks the complete roots
-and release wrappers on the checkpoint commit.
+## Formal statements
+
+[NearEndpointPadding](../DR/Endpoint/NearEndpointPadding.lean), [NearEndpointConditional](../DR/Endpoint/NearEndpointConditional.lean), [TwoZeroPermanent](../DR/Endpoint/TwoZeroPermanent.lean), [SquareNearEndpoint](../DR/Endpoint/SquareNearEndpoint.lean).

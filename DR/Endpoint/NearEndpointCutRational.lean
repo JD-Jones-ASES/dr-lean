@@ -2,7 +2,7 @@ import DR.Endpoint.NearEndpointCutFloors
 
 /-! Formula-defined rational gates for the five finite near-endpoint cases.
 The literal cubic brackets and excesses are mathematical certificate data
-from P0174 ACTIVE_CUT_RECTANGULAR_EXTENSIONS. No permanent lower bound is
+for dimensions 21 through 25. No permanent lower bound is
 assumed from the data alone: its matrix interpretation is a separate step. -/
 namespace DittertRybin.Certificates
 

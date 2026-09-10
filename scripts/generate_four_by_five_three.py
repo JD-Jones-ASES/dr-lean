@@ -72,7 +72,7 @@ def render():
         all_factors.append("#v[" + ",\n    ".join(vector(map(rational, row)) for row in factors) + "]")
     return "\n".join([
         "import DR.Certificates.Gram", "import Mathlib.Data.Vector.Basic", "",
-        "/-! Exact data from Lab FOUR_BY_FIVE.md. Regenerate with",
+        "/-! Exact rational coefficient and Gram data for the 4×5, K=3 inequality. Regenerate with",
         "scripts/generate_four_by_five_three.py --check. Lean checks validity separately. -/",
         "namespace DittertRybin.Certificates", "",
         "def fourByFiveThreeNumerators : Vector ℤ 93 :=", "  " + vector(map(str, NUMERATORS)), "",

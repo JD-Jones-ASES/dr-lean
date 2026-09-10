@@ -3,8 +3,8 @@
 These are completed inputs to the [full four-row K=4 theorem](FOUR-ROW-PROOF.md)
 and the [full rectangular K=3 theorem](ORDER-THREE-COMPLETE.md).
 All formulas refer to the actual iid-cell probability F_K with inclusive OR.
-Sources are Analytic-Lab P0174 `HIGHER_ORDER_COLLISIONS.md`,
-`FOUR_ROW_STRIP.md`, and `FINITE_RECTANGLE_CERTIFICATES_K3.md`.
+The collision identities, scalar bounds, and matrix reductions are described
+below and linked to their Lean proofs.
 
 ## Actual four-sample collision remainder
 
@@ -27,7 +27,7 @@ factor two is proved explicitly. No column cap, extremality, positive-entry
 assumption, or dimension threshold is required. The signed homogeneous
 column formula retains the total-mass factor on its cubic term.
 
-[The complete corrected minorant](FOUR-ROW-MINORANT.md) is now proved for
+[The complete corrected minorant](FOUR-ROW-MINORANT.md) is proved for
 all nonnegative probability vectors r and v, with every boundary case:
 
     sum_i v_i (1-g_i(r)) <= v^T B_4(r) v.
@@ -68,7 +68,7 @@ uses an exact six-square identity for a copositive quadratic minorant.
 A continuity argument covers zero elementary-symmetric denominator and
 zero-column cases. This is copositivity on nonnegative columns; a stored
 signed-column counterexample rejects an unrestricted PSD interpretation.
-Contender concentration and final uniqueness for N>=960 are now proved in
+Contender concentration and final uniqueness for N>=960 are proved in
 [the final strip theorem](../DR/Rectangular/OrderThreeFourRowFinal.lean).
 The residual signed-vector kernel floor is 1/8; the actual midpoint gain is
 at least 3/16 times the squared column difference. This proves equal columns
@@ -97,13 +97,13 @@ kernel step after a checked principal certificate and reindexing.
 
 Tests detect the missing factor 1/ell and show why merely semidefinite H
 does not establish strict uniqueness. The dimension-independent 93-entry
-[orbit construction](../DR/Certificates/FiniteK3Orbits.lean) is now proved:
+[orbit construction](../DR/Certificates/FiniteK3Orbits.lean) is proved:
 first-position compression preserves every equality relation on any ambient
 type; all fifteen patterns and 225 row/column pattern pairs are complete;
 all table entries match the literal sequential-rank canonical key. Actual
 entries preserve independent multiplier/quadratic-pair reversal and injective
 row/column maps. Transposition is deliberately a separate operation.
-The [general quartic identity](FINITE-K3-CERTIFICATES.md) is now connected
+The [general quartic identity](FINITE-K3-CERTIFICATES.md) is connected
 to the actual signed sampling functional, and the complete 4-by-5 stability
 theorem is proved. Physical seed-kernel coverage and all 1,330 rational
 certificate instantiations are joined with 87 exact coverage shards in the

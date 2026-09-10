@@ -27,7 +27,7 @@ Success means distinct rows OR distinct columns, including their intersection.
 Every stated maximum includes the full closed simplex and exact uniform equality.
 The remaining unrestricted rectangular problem is not claimed here.
 
-This proof draft implements all twenty completed release targets. It does not
+This file proves all twenty principal theorems. It does not
 import Challenge; all fixed definitions and statement types match it exactly.
 -/
 

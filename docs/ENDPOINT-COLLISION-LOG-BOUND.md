@@ -1,8 +1,8 @@
 # Exact logarithmic collision bound
 
-[RowCollisionLogBound](../DR/Endpoint/RowCollisionLogBound.lean) proves
-equation (10) of the accepted Analytic-Lab P0174 note
-`ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`:
+For an independent normalized row law X, let D be its total unordered
+pair-collision intensity and p0 its probability of choosing distinct columns.
+If every incident row load is at most d, then
 
 ```
 -log(rowAvoidance X) <= rowCollisionIntensity X / (1-5*d),
@@ -15,7 +15,7 @@ each row of mass one, `0 <= d <= 1/8`, and every row collision load at most
 the original row law or to a separately normalized deleted law without
 identifying their avoidance probabilities.
 
-The proof uses the already proved refined local-lemma product from
+The proof uses the proved refined local-lemma product from
 [RowCollisionLocalLemma](../DR/Endpoint/RowCollisionLocalLemma.lean), the
 exact increasing-edge sum for the intensity, and Mathlib's scalar
 `Real.one_sub_inv_le_log_of_pos`. The scalar logarithm inequality is
@@ -24,15 +24,6 @@ positive. The exact algebra produces `1-5*d`; this denominator is not
 dropped or replaced by an asymptotic approximation. Zero events and
 `d=0` remain included.
 
-Verification: `lake build Test.RowCollisionLogBound` passed 2,113 jobs,
-with four standard-only axiom audits. Persistent controls cover the zero
-scalar boundary, mixed zero and positive parameters, empty row laws,
-the exponential corollary at the closed local threshold, and the false
-claim obtained by dropping the logarithmic denominator. The actual
-33-row test with total intensity greater than one remains in the
-upstream local-lemma test.
+## Formal statements
 
-This supplies the continuous probability input to the transition
-argument. It does not yet prove the source's subsequent uniform
-benchmark comparison, contender concentration improvement, positive
-blend matrix, or any new endpoint range.
+[RowCollisionLogBound](../DR/Endpoint/RowCollisionLogBound.lean).

@@ -9,8 +9,8 @@ import Mathlib.Algebra.CharZero.Infinite
 /-!
 # Exact scalar guards for order five
 
-The 67 complete rational Bernstein coefficients are reconstructed from
-Appendices B and C of Analytic-Lab P0174 `SQUARE_ENDPOINT_5.md`.
+The 67 rational Bernstein coefficients certify the scalar guards used by
+the singleton and two-block permanent comparisons.
 Every coefficient table has a proved polynomial identity and positive margin.
 -/
 

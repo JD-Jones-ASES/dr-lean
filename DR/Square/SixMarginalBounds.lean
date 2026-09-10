@@ -5,8 +5,8 @@ import Mathlib.Tactic.FinCases
 /-!
 # Sharper marginal and cut bounds in dimension six
 
-Section 2 of the Analytic-Lab P0174 order-six proof uses the local Bernoulli
-variance, rather than its global bound `1/4`. The variance estimate below is
+The entropy estimate uses the local Bernoulli variance on the relevant
+interval. This sharpens its global bound `1/4`. The variance estimate below is
 proved throughout the interval between the two entropy arguments. All subset
 bounds refer to the actual positive marginals and their actual product deficit.
 -/

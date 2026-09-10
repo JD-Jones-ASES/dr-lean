@@ -35,8 +35,6 @@ ten column-standard blocks and ten positive interaction scalars, together
 with the sharp coefficient equations. No desired global inequality is
 assumed. The fixed-board final declarations must discharge all these gates.
 
-[Persistent tests](../Test/FiniteK4FixedSoundness.lean) verify the omitted
-weights 4 and 289, a negative actual matrix despite a valid role lookup,
-and nonzero weights at every index. The targeted build passed 3,239 jobs
-with five examples, six standard-only axiom audits and no warnings. The
-full soundness chain received an independent semantic review.
+[Tests](../Test/FiniteK4FixedSoundness.lean) verify the omitted weights
+4 and 289, a negative matrix despite a valid role lookup, and nonzero
+weights at every index. The public declarations include axiom audits.

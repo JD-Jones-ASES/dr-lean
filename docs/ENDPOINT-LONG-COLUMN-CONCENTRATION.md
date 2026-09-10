@@ -1,12 +1,11 @@
 # Actual long-column contender concentration
 
-The leading costs are `alpha_j = endpointLeadingColumnCost P j`, with
-`G=sum alpha_j`. Their variance is centered at `G/N`, because their total
-need not equal one. For every probability board with m>=5, the proved cost
-bounds give `(1-rho)c_j<=alpha_j<=c_j`, where
-`rho=1-sqrt(1-endpointLeadingDefect m)`, `0<=rho<1/8` and `rho<=5a`.
-This uses the available sharper defect; it implies the bounds required by
-the accepted P0174 polynomial-strip argument.
+For a probability board with m≥5, write a=m!/m^m,
+alpha_j=√(v_jᵀB(r)v_j) and G=∑alpha_j. Here B(r) is the
+[leading kernel](ENDPOINT-LEADING-FOUNDATION.md) and v_j is column j.
+Its cost bounds give (1−rho)c_j≤alpha_j≤c_j, where
+rho=1−√(1−endpointLeadingDefect(m)), 0≤rho<1/8, and rho≤5a.
+The cost variance is centered at G/N because the costs need not sum to one.
 
 `LongColumnVariance` centers `c=alpha+(c-alpha)` and proves
 `Vc<=3 Valpha+3 rho^2/N` and `c_j^2<=4/N^2+4 Valpha` for actual column
@@ -38,10 +37,11 @@ m>=16 and N>=6m^2. Either the linear or saturated gauge modulus then gives
 the same normalized bound `<503b/N`. No global endpoint theorem is used
 to obtain these concentration estimates.
 
-These are the variance and bootstrap arguments of P0174
-`ENDPOINT_POLYNOMIAL_STRIPS.md` and `ENDPOINT_COLLISION_CLUSTER_STRIPS.md`.
-They combine with the separate [quadratic proof](ENDPOINT-QUADRATIC.md).
-Persistent controls include non-unit cost mass, the difference between
-centering at cost mean and at uniformity, zero columns, empty vectors,
-rejected missing cost bounds, actual boundary probability inputs, and the
-strict quadratic margin at the proposed column cap.
+Combining these estimates with saturated gauge stability gives the
+[quadratic strip](ENDPOINT-QUADRATIC.md); the linear gauge modulus
+gives the [quartic strip](ENDPOINT-QUARTIC.md). Both uses retain the
+cost mean G/N and the original marginal mean 1/N as distinct quantities.
+
+## Formal statements
+
+[LongColumnVariance](../DR/Endpoint/LongColumnVariance.lean), [LongColumnParameters](../DR/Endpoint/LongColumnParameters.lean), [LongColumnAbsorption](../DR/Endpoint/LongColumnAbsorption.lean), [LongColumnConcentration](../DR/Endpoint/LongColumnConcentration.lean).

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Exact 33-equation quartic template and complete equality-pattern mapping.
 
-The enumeration is the literal inclusive-OR coefficient expansion in
-P0174 FINITE_RECTANGLE_CERTIFICATES_K3.md. The Lean semantic bridge checks
+The enumeration expands the literal inclusive-OR event over four samples. The Lean semantic bridge checks
 the six-position-pair symmetrization against these integer equations.
 """
 from pathlib import Path

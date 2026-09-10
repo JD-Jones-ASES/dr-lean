@@ -9,12 +9,12 @@ same theorem holds on N×4 boards. The exact maximum is
 1 - (29/32) * (6/N - 11/N^2 + 6/N^3).
 ```
 
-The single release declaration
+The declaration
 `DittertRybin.uniform_maximum_four_rows` in
 [FourRowFinal](../DR/Rectangular/FourRowFinal.lean) returns both orientations,
 including the sharp bound and equality exactly at the uniform board.
 
-The proof covers the whole integer range through three completed arguments:
+The proof covers the whole integer range through three arguments:
 
 - N=4 uses the [square order-four theorem](ORDER-FOUR-PROOF.md).
 - 5≤N≤500 uses two exact polynomial certificate families, for the closed
@@ -48,5 +48,4 @@ lake --wfail build +Test.FourRowFiniteCertifiedKernels +Test.FourRowFinal
 
 See [the quintic bridge](FINITE-K4-QUINTIC-BRIDGE.md),
 [source attribution](SOURCES.md) and [verification](VERIFICATION.md).
-This scoped theorem does not settle arbitrary-rectangle P2. Independent
-exact-commit CI and the complete release gate remain separate obligations.
+This scoped theorem does not settle arbitrary-rectangle P2. The complete verification instructions are linked above.

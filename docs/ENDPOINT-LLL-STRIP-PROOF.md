@@ -1,6 +1,13 @@
 # The collision-local endpoint strip
 
-`DR/Endpoint/LLLStrip.lean` exports the fixed release declaration
+For an m×n nonnegative matrix P of total mass one, let F_k(P) be the
+probability that k independent cell draws have distinct rows or distinct
+columns, with inclusive OR. Write U_ij=1/(mn) and (n)_m=n(n−1)…(n−m+1).
+At the endpoint k=m, put a=m!/m^m and b=(n)_m/n^m. The sharp statement is
+F_m(P)≤a+b−ab, with equality if and only if P=U. A contender means a
+probability board satisfying F_m(P)≥F_m(U).
+
+`DR/Endpoint/LLLStrip.lean` exports the theorem
 `DittertRybin.uniform_maximum_lll_endpoint`, proving both
 `UniformMaximizer m n m` and `UniformMaximizer n m m` under exactly
 
@@ -11,15 +18,13 @@ m <= n
 20*n <= m*(m-1).
 ```
 
-These are the accepted Lab `ENDPOINT_LLL_STRIP.md` dimensions
-`64*m^(3/2)<=n<=m*(m-1)/20`.
-`DittertRybin.endpoint_lll_lower_edge_iff` in `LLLStripDomain.lean`
-proves the exact real-power/integer equivalence by nonnegative squaring
-and the real-power identity `(m^(3/2))^2=m^3`, including `m=0`.
-The core theorem derives `m<=n`; the release wrapper retains it explicitly. The interval is nonempty, for example at
-`m=2^22,n=2^39`, but is not claimed nonempty at every nominal row count.
-The transposed theorem is also proved. Both retain arbitrary nonnegative
-entries, mass one, the exact sharp value
+Equivalently, the column interval is 64m^(3/2)≤n≤m(m−1)/20.
+The equivalence between the real-power lower bound and 4096m³≤n²
+follows by nonnegative squaring, using (m^(3/2))²=m³; it also holds
+at m=0. The other hypotheses imply m≤n. This interval is nonempty
+at m=2^22,n=2^39, but need not be nonempty for each nominal m≥128.
+The theorem permits arbitrary nonnegative entries of total mass one.
+Its sharp value is
 
 ```
 a_m + (1-a_m)*(n)_m/n^m,  a_m=m!/m^m,
@@ -27,7 +32,7 @@ a_m + (1-a_m)*(n)_m/n^m,  a_m=m!/m^m,
 
 and equality if and only if the board is uniform.
 
-## Actual proof chain
+## Proof
 
 1. Full-probability contender inequalities and the exact uniform avoidance
    product force scaled-row squared deviation below `1/1024` and column
@@ -50,35 +55,22 @@ and equality if and only if the board is uniform.
    the resulting product-board probability and applies exact Maclaurin
    equality to force the uniform board. Compactness supplies existence.
 
-The source's retained norm bound `1/10` is replaced by a proved squared
-bound `1/81`, still strictly below the criterion's `1/9`. This changes no
-dimension assumption or final theorem.
+The retained squared deviation bound `1/81<1/9` provides a strict margin
+in the matrix criterion, including boards with some zero entries.
 
-## Attribution and verification boundary
+## Mathematical references
 
-The accepted mathematical argument and collision-pattern specialization
-are the local P0174 Lab work. Published probabilistic antecedents are the
-conditional local-lemma framework in Haeupler, Saha, and Srinivasan,
-*New Constructive Aspects of the Lovasz Local Lemma*, arXiv:1001.1231v5,
-Theorems 1.1 and 2.1. The finite conditional argument is proved here from
-finite weighted sums and actual row independence; no external probability
-or endpoint theorem is imported as an axiom. Mathlib supplies standard
-finite algebra, real analysis, compactness, and matrix theory.
+The conditional local-lemma framework is due to Haeupler, Saha and
+Srinivasan, [New Constructive Aspects of the Lovasz Local Lemma](https://arxiv.org/abs/1001.1231v5),
+Theorems 1.1 and 2.1. The finite argument here derives the conditional
+product bound from finite weighted sums and independence of disjoint
+row coordinates.
 
-The foundational probability, deletion, normalization and strip assembly
-were formalized by the collision-foundation agent. The root agent supplied
-the exact scalar/matrix square completion, elementary coefficient lower
-bound, factorial guard, and one-sided column-rigidity closure. Mathematical
-interfaces receive independent semantic review before integration.
+This interval combines with the [arithmetic](ENDPOINT-BOUNDARY-SCALING.md),
+[transition](ENDPOINT-TRANSITION-PROOF.md), and
+[quadratic](ENDPOINT-QUADRATIC.md) ranges in the
+[all-aspect endpoint theorem](ENDPOINT-ALL-ASPECTS.md).
 
-Replay: `lake build Test.LLLStrip Test.LLLStripDeletion Test.EndpointCoefficient`.
-The principal tests retain the nonempty integer instance, transpose, explicit
-closed-simplex sharp-value iff, actual contender-kernel signature, and a
-vacuous-range control. The supporting tests retain zero entries, unequal
-mass/deletion, signed exact identities, and failed normalization/conditioning
-mutations. All proof checks use the ordinary Lean kernel. Independent CI for
-an integrated exact commit remains a separate root-maintained release gate.
+## Formal statements
 
-This is one complete endpoint range. It is neither the all-aspect-ratio
-endpoint theorem nor full rectangular P2, and it does not change the scope
-of any remaining target.
+[LLLStrip](../DR/Endpoint/LLLStrip.lean), [LLLStripDomain](../DR/Endpoint/LLLStripDomain.lean), [LLLStripDeletion](../DR/Endpoint/LLLStripDeletion.lean), [EndpointCoefficient](../DR/Endpoint/EndpointCoefficient.lean).

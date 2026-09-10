@@ -11,11 +11,10 @@ sums are `1/m`, column sums are `1/n`, and which has a zero entry, it proves
 b * kappa_n ≤ m^m * rookSum B m.
 ```
 
-The source is the rectangular padding step in the Lab's
-`P0174_rybin_semimatchings/PANG_RECTANGULAR_ENDPOINT.md`, combined with
-the internally proved one-zero floor documented in
-`docs/BOUNDARY_PERMANENT.md`. No boundary minimizer classification is
-assumed. The normalized square theorem includes its sharp `n=3` boundary.
+The proof pads the rectangular board to a doubly stochastic square matrix
+and applies the [one-zero permanent floor](BOUNDARY_PERMANENT.md).
+The normalized square theorem includes its sharp order-three boundary.
+The exact transfer is given below.
 
 ## Exact transfer
 

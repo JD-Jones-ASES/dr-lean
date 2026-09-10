@@ -8,7 +8,7 @@ import Mathlib.Tactic.FinCases
 
 Thirty exact tensor Bernstein coefficients prove the polynomial controlling
 the crossing derivative is positive on the complete marginal rectangle.
-This is Appendix B of Analytic-Lab P0174 `SQUARE_ENDPOINT_5.md`.
+The derivative bound permits monotone comparison with the maximal crossing.
 -/
 
 namespace DittertRybin.Certificates.SpectralFiveDerivative

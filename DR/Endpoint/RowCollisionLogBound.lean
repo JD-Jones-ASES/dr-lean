@@ -2,8 +2,9 @@ import DR.Endpoint.RowCollisionLocalLemma
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 /-! The refined local-lemma product gives the exact logarithmic collision
-bound from P0174 ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M, equation (10). The
-denominator 1-5d is retained. No Poisson approximation is assumed. -/
+bound -log(p₀) ≤ D/(1-5d), where D is total pair-collision intensity
+and d bounds incident collision load. The denominator 1-5d is retained.
+No Poisson approximation is assumed. -/
 
 namespace DittertRybin
 open scoped BigOperators

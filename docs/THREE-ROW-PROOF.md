@@ -72,17 +72,9 @@ positive and hence uniform. Compactness gives the sharp inequality for all
 P; any matrix attaining the same value is itself a maximizer, proving the
 exact equality statement. A zero entry in P therefore gives strict loss.
 
-## Sources and remaining scope
+## Relation to the full three-sample theorem
 
-The sources are Analytic-Lab P0174 `THREE_ROW_GLOBAL.md`,
-`THREE_ROW_SINGLETONS_K3.md`, `THREE_ROW_PROPER_SUPPORTS_K3.md`,
-`SINGLE_ZERO_RECTANGLE_K3.md`, and their exact derivative/support identities.
-The formal proof supplies actual weighted sums and derivative conditions;
-finite examples are controls, not substitutes for arbitrary multiplicities.
-Independent semantic review checked normalization, all support alternatives,
-residual positivity, determinant boundaries and the final equality domain.
-
-This completes an infinite rectangular family. The four-row K=3 family and
-remaining finite five-through-nine-row cases are still needed for the full
-K=3 release target. See [the range map](ORDER-THREE-RANGES.md) and
-[the complete release inventory](THEOREMS.md).
+This proves an infinite rectangular family by exact support and derivative
+arguments. [The range map](ORDER-THREE-RANGES.md) explains the remaining
+infinite estimates, and [the complete assembly](ORDER-THREE-COMPLETE.md)
+joins them with finite certificates to cover every admissible rectangle.

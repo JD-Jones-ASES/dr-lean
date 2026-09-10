@@ -1,8 +1,7 @@
 # Coarse actual row bounds for the transition argument
 
-`TransitionProductBounds.lean` and `TransitionRowBounds.lean` formalize
-Section 1 of the accepted Lab `ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`.
-For an actual endpoint contender on `2<=m<=n<=10000*m^2`, they derive
+For an endpoint contender with 2≤m≤n≤10000m², let
+b=(n)_m/n^m. Its original row masses satisfy
 
 ```
 q=1-b >= 1/40001 > 1/50000,
@@ -26,12 +25,11 @@ matrix results require only nonnegativity, total mass one, the endpoint
 contender relation and the stated dimensions. No stationary condition,
 row-shape hypothesis, endpoint gauge or deleted-board replacement is used.
 
-Verification: `lake build Test.TransitionRowBounds` passed 3166 jobs,
-with ten standard-only axiom audits and no warnings. Tests cover a nonconstant
-rational vector, the exact reciprocal deviation, the closed upper logarithm
-cap, empty hosts, zero-product and logarithm-domain failures, and failure
-of the uniform probability bound if the column-range cap is omitted.
+These bounds control reciprocal row masses in the
+[collision-avoidance comparison](ENDPOINT-TRANSITION-AVOIDANCE.md).
+That relative comparison improves the initial row variance to less than
+1/100 in the [bootstrap estimate](ENDPOINT-TRANSITION-BOOTSTRAP.md).
 
-These are initial estimates, not a transition maximizer theorem. The
-refined collision-intensity/LLL comparison and subsequent small row-deficit
-bootstrap remain separate obligations before this advances an endpoint range.
+## Formal statements
+
+[TransitionProductBounds](../DR/Endpoint/TransitionProductBounds.lean), [TransitionRowBounds](../DR/Endpoint/TransitionRowBounds.lean).

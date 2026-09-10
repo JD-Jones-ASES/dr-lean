@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact fixed-board K4 ordinary blocks; mathematical data only, no Lab imports."""
+"""Exact fixed-board K4 ordinary blocks reconstructed from rational coefficient data."""
 from __future__ import annotations
 import argparse
 from fractions import Fraction as Q

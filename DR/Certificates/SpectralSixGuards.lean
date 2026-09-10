@@ -9,8 +9,8 @@ import Mathlib.Algebra.CharZero.Infinite
 /-!
 # Exact scalar guards for the order-six spectral argument
 
-The rational polynomials and complete coefficient tables are reconstructed
-from Section 5 of Analytic-Lab's P0174 `SQUARE_ENDPOINT_6.md`. Every table has
+The rational polynomials control denominator signs and crossing bounds
+for the order-six scalar comparison. Every complete coefficient table has
 a proved rational polynomial identity and a positive checked margin on the
 entire closed interval [0,31/100]. No sampled numerical signs are used.
 -/

@@ -1,19 +1,20 @@
 # Size-sensitive endpoint marginal bounds
 
-The three `ConsecutiveCutGeometry`, `ConsecutiveCutMarginals`, and
-`ConsecutiveCutShared` modules prove the analytic marginal estimates
-needed by the finite consecutive active-cut argument. They operate on
-actual rectangular endpoint contenders, with arbitrary zero entries.
-The single remaining scalar input is the chosen normalized row cap `H`:
+Let P be a nonnegative m by n matrix of total mass one, with 2≤m≤n,
+and suppose its m-draw separation probability is at least the uniform value.
+Write r and c for its row and column masses, a=m!/m^m, b=(n)_m/n^m,
+R=m^m∏r_i, S=m! e_m(c)/b, and T=m^m rookSum(P,m).
+Here e_m sums products over m-element column subsets, and rookSum sums
+products over matchings without ordering their rows. The estimates below
+hold for any real H satisfying
 
 ```
 H ≥ 1,    m b/[2(1-b)] ≤ (H-1)^2,
 ```
 
-where `b=distinctUniformProbability n m`. They do not assume the desired
-subset bounds, a balanced dominating matrix, or the final endpoint
-inequality. The finite range's common cap `H=101/100` is subsequently
-checked by rational arithmetic.
+The scalar cap implies m r_i≤H for every row. The choice H=101/100
+satisfies it throughout the finite consecutive range 19≤m≤29, n=m+1;
+the general marginal inequalities do not require that particular choice.
 
 ## Exact coefficients
 
@@ -34,7 +35,7 @@ column_discrepancy² ≤ B_l d_c/(1-b),
   ≤ [A_k+(a/b)B_l] delta/(1-b).
 ```
 
-The row cap comes from the already proved product-deficit singleton
+The row cap comes from the proved product-deficit singleton
 bound. The scalar inequality
 `(x-1)²/(2H²) ≤ x-1-log x` on `0<x≤H` is derived from the proved
 inverse-variance log inequality, splitting at `x=1`. Summing and using
@@ -47,17 +48,12 @@ Cauchy–Schwarz; empty/full subsets and signed total-one inputs remain
 valid. A proved two-term weighted Cauchy inequality combines the two
 estimates using their shared rook-deficit budget.
 
-The source is the first-family marginal argument in the Lab's
-`P0174_rybin_semimatchings/ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md`. The
-cut coefficient is exactly `[A_k+(a/b)B_l]/(k/m+l/n-1)²`. Its connection
-to actual subsets retains a strictly positive cut demand. Finite cut
-certificates and the permanent-floor contradiction remain separate
-obligations beyond this analytic increment.
+For a cut with positive demand p=k/m+l/n−1, divide the joint estimate
+by p². The resulting coefficient is [A_k+(a/b)B_l]/p². The
+[consecutive endpoint proof](ENDPOINT_CONSECUTIVE_CUTS.md) uses this
+coefficient to control the loss in a balanced dilation and compare its
+complementary zero rectangle with a permanent lower bound.
 
-## Verification
+## Formal statements
 
-Run `lake --wfail build Test.ConsecutiveCutMarginals`. Tests include both
-sides of the logarithmic bound, the cap endpoint, signed projection,
-empty/full subsets, zero axis coefficients, the actual 19×20 contender
-with its cap discharged, and a false stronger projection coefficient.
-Ten public axiom audits expose only the standard Lean axioms.
+[ConsecutiveCutGeometry](../DR/Endpoint/ConsecutiveCutGeometry.lean), [ConsecutiveCutMarginals](../DR/Endpoint/ConsecutiveCutMarginals.lean), [ConsecutiveCutShared](../DR/Endpoint/ConsecutiveCutShared.lean).

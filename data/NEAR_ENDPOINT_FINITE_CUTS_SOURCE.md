@@ -1,40 +1,39 @@
-# Finite near-endpoint scalar certificates, n=21,...,25
+# Finite near-endpoint scalar certificates, n=21,…,25
 
-Source: Analytic-Lab P0174 `ACTIVE_CUT_RECTANGULAR_EXTENSIONS.md`, literal
-NEAR_CASES table and displayed near-endpoint cut equations. Source SHA256:
-`4ae2b41d7b6e1969c180501bc336cb567f12fe787ff853bcf465f1d37f32e28e`.
-The exact source literals were extracted with ast.literal_eval and compared
-against the Lean left-endpoint/excess clauses; no source implementation was
-imported. `NEAR_ENDPOINT_CUT_REPLAY.json` records the independent rational
-replay and exact worst relative margins.
+[NearEndpointCutRational](../DR/Endpoint/NearEndpointCutRational.lean) defines
+five exact cubic brackets and excesses:
 
-The five lower endpoints times10^8 are4976889,4741862,4527961,4332468,4153110;
-each upper endpoint is larger by10^−8. The excesses times10^9 are1112507,
-1014678,929196,854069,787692. Every cubic bracket is checked with its exact
-strict signs, its0<lo<hi<1/m domain, and the lower-reference comparison
-μ_(n+1)(1+excess)<m!*x(lo)^(m−2)*h(hi),m=n−1.
+| n | Lower endpoint ×10⁸ | Excess ×10⁹ |
+| --- | --- | --- |
+| 21 | 4976889 | 1112507 |
+| 22 | 4741862 | 1014678 |
+| 23 | 4527961 | 929196 |
+| 24 | 4332468 | 854069 |
+| 25 | 4153110 | 787692 |
 
-For every admissible ordered cut size(k,l), exact rational gates verify
-Ckl*a/(1−a)<1/10000 and beta−a−m²*Ckl*beta²/[4(1−a)]>3a/10000.
-The reference beta uses the maximum of the declared two-zero scalar floor
-and the actual zero-rectangle floor on mixed cuts, and the declared scalar
-floor on axis cuts. Real cast lemmas connect every term to the existing
-actual matrix/cut definitions, preserving the μ_(n+1) denominator.
+Each upper endpoint exceeds the lower endpoint by 10⁻⁸. Exact inequalities
+verify the strict cubic signs, 0<lo<hi<1/m, and
+μₙ₊₁(1+excess)<m! x(lo)ᵐ⁻² h(hi), where m=n−1.
+The [scalar polynomial argument](TWO_ZERO_POLYNOMIAL_SOURCE.md) explains
+why this bracket gives a permanent-formula lower bound.
 
-The five Fin(n+1)×Fin(n+1) universal gates cover230,252,275,299,324 admissible
-non-whole positive ordered cut sizes, totaling1380. Whole and nonpositive
-cuts are excluded by explicit implications and are not discarded from an
-unrecorded lookup table. The separate actual-matrix proof handles whole cuts.
+For every admissible ordered cut size (k,l), the certificates verify
+Cₖₗa/(1−a)<1/10000 and
+β−a−m²Cₖₗβ²/[4(1−a)]>3a/10000.
+On mixed cuts β uses the maximum of the two-zero floor and the zero-rectangle
+floor; axis cuts use the two-zero floor. The cast lemmas preserve the actual
+matrix definitions and the boundary-floor denominator μₙ₊₁.
 
-Validation: `lake --wfail build Test.NearEndpointCutCertificates`,3504jobs,
-10examples,5standard-only axiom reports,322Lean lines. Each dimension's actual
-gate took3.2–4.2seconds. Source-literal comparison and a separate Fraction
-replay also passed all1380 comparisons. Tests reject a reversed bracket
-sign, extending the literal bracket table to26, removal of the two-zero
-improvement, and omission of one positive ordered cut. No native_decide,
-new axiom, or numerical optimizer is used.
+[NearEndpointCutCertificates](../DR/Endpoint/NearEndpointCutCertificates.lean)
+checks respectively 230, 252, 275, 299 and 324 positive ordered cut sizes that
+are not whole cuts: 1,380 cases. Whole and nonpositive cuts remain explicit
+branches of the [matrix argument](NEAR_ENDPOINT_CUTS_SOURCE.md).
+The [two-zero theorem](../DR/Endpoint/TwoZeroPermanent.lean) supplies the actual
+matrix interpretation of the scalar floor.
 
-**Scope:** these are exact scalar certificates. Their declared two-zero
-reference is not yet known here to bound every relevant matrix permanent.
-That requires the separate face-reduction/univariate theorem. No final
-near-endpoint UniformMaximizer declaration is claimed in this increment.
+```sh
+lake --wfail build Test.NearEndpointCutCertificates
+```
+
+Tests reject reversed bracket signs, an extension of the literal table to
+n=26, removal of the two-zero improvement, and omission of a positive cut.

@@ -1,6 +1,6 @@
 import DR.Certificates.Gram
 
-/-! Exact data generated from the 17 rational entries in Lab FOUR_BY_FOUR.md.
+/-! Exact rational coefficient and Gram data for the 4×4, K=3 inequality.
 Regenerate with scripts/generate_four_by_four_three.py; Lean separately checks every entry. -/
 namespace DittertRybin.Certificates
 

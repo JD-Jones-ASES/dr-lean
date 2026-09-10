@@ -7,8 +7,8 @@ import Mathlib.Algebra.CharZero.Infinite
 /-!
 # Exact spectral scalar certificate at dimension eight
 
-This is the degree-sixteen scalar gap from Analytic-Lab
-`probes/P0174_rybin_semimatchings/SPECTRAL_SQUARE_ENDPOINT.md`.
+The degree-sixteen gap compares the spectral cut estimate with the
+permanent lower bound at dimension eight.
 The 17 rational coefficients are reconstructed from the displayed scalar
 polynomial. Lean proves the exact polynomial identity, checks every rational
 coefficient against the stated positive margin, and proves strict positivity

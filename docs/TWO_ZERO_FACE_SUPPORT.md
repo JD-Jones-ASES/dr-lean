@@ -22,12 +22,12 @@ uniform constant. Thus every minimum on the two-zero face has strict Hall
 expansion. A fresh application of Hall's theorem constructs a full permutation
 with any chosen row-column pair forced and every other matched cell positive.
 Every cofactor is consequently positive, including cofactors at forbidden cells.
-The earlier one-sided comparison now gives cofactor at least the permanent at
+The one-sided comparison gives cofactor at least the permanent at
 every allowed cell.
 
-This is an internal proof of the support prerequisite. It does not yet assert
-repeated-support averaging, a reduced matrix representation, or the final
-two-zero permanent gap. The application is motivated by
+This is an internal proof of the support prerequisite. The [repeated-support reduction](TWO_ZERO_REDUCTION.md) uses these cofactor
+bounds to derive the reduced matrix representation, which then yields the
+[two-zero permanent gap](TWO_ZERO_PERMANENT.md). The application is motivated by
 [Pula, Song and Wanless (2011)](https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf).
 
 Run `lake build +Test.TwoZeroFaceSupport` for the exact values, signed identity,

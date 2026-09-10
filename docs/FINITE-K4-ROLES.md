@@ -8,12 +8,11 @@ operation. This account describes the exact role catalogue and its
 connection to the physical formula; it does not supply matrix positivity
 or a complete finite K=4 theorem.
 
-The mathematical source is Analytic-Lab P0174 `quintic_certificate.py` and
-the associated quintic certificate notes. The universal catalogue has 407
-roles; the four-row restriction has 391, in the same lexicographic order
-as the two finite four-row coefficient families. The separate four-by-four
-restriction has 376 roles. The generator checks these counts, and Lean
-independently verifies completeness for the 407- and 391-role catalogues.
+The universal catalogue has 407 roles; the four-row restriction has 391,
+in the same lexicographic order as the two finite four-row coefficient
+families. The separate four-by-four restriction has 376 roles. The generator
+checks these counts, and Lean proves completeness of the 407- and
+391-role catalogues.
 
 ## From physical labels to a finite table
 
@@ -88,7 +87,6 @@ The generator and six corruption/boundary controls also run under Python
 retain arbitrary relabelings, repeated and empty tuples, and explicitly
 reject merging row/column transposes or collapsing distinct labels.
 
-The catalogue test build passed 2,486 jobs and seven standard-only axiom
-audits. Large finite coverage checks are split by index or row, with their
-elaboration serialized to limit overlapping kernel reduction caches. The
-coverage statements and all literal cases are unchanged by that scheduling.
+Finite coverage is checked separately by index or row, then assembled into
+the complete coverage theorem. Each check uses the defining role formula
+and ordinary kernel reduction.

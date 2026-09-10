@@ -8,7 +8,7 @@ import Mathlib.Tactic.NormNum
 /-! Scalar permanent formula on the two-independent-zero face. This module
 proves the two-parameter equalization on the full closed parameter rectangle.
 It does not assume or assert that an arbitrary matrix has this form.
-Mathematical source: Lab P0174 `TWO_ZERO_PERMANENT_GAP.md`, equations (3)--(7). -/
+-/
 
 namespace DittertRybin
 

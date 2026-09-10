@@ -1,5 +1,12 @@
 # Exact near-square and doubled endpoint ranges
 
+For an m×n nonnegative matrix P of total mass one, let F_k(P) be the
+probability that k independent cell draws have distinct rows or distinct
+columns, with inclusive OR. Write U_ij=1/(mn) and (n)_m=n(n−1)…(n−m+1).
+At the endpoint k=m, put a=m!/m^m and b=(n)_m/n^m. The sharp statement is
+F_m(P)≤a+b−ab, with equality if and only if P=U. A contender means a
+probability board satisfying F_m(P)≥F_m(U).
+
 The exported theorems are the full sharp iid separation-probability
 inequality with uniform equality if and only if the board is uniform:
 
@@ -9,15 +16,13 @@ inequality with uniform equality if and only if the board is uniform:
 Both theorems include transposition and the entire closed probability
 simplex. They discharge the scalar hypotheses of the proved arithmetic
 boundary-scaling theorem. No transport, positivity, or local-maximizer
-assumption remains in either public statement.
+assumption remains in either theorem statement.
 
-## Sources and shared recurrence
+## Factorial recurrence
 
-The accepted ranges and exact bases are from the Lab notes
-`P0174_rybin_semimatchings/PANG_RECTANGULAR_ENDPOINT.md` and
-`P0174_rybin_semimatchings/ENDPOINT_ARITHMETIC_SCALING.md`.
-The proof below retains their factorial recurrence and uses a common
-rational bound for the two polynomial weights.
+A factorial recurrence controls the uniform distinct-column probability.
+Combining its geometric decay with polynomial weight growth reduces
+both infinite ranges to exact rational base inequalities.
 
 Write `a_m=m!/m^m`, `b_m=(2m)_m/(2m)^m`, and
 
@@ -56,18 +61,11 @@ criterion are also monotone, so the first base and recurrence cover the
 whole interval `m≤n≤2m`. For doubled boards the arithmetic gain is
 exactly `m`, reducing the weight exponent from five to three.
 
-## Files and verification
-
 `DoubleRecurrence` proves the factorial, binomial, decay, and column
 monotonicity steps. `DoubleWeights` proves the common weighted induction.
 `NearSquareParameters` and `DoubleParameters` prove the actual scalar
 inequalities; `NearSquare` and `Double` connect them to boundary scaling.
 
-Run `lake --wfail build Test.EndpointNearDouble`. The tests include
-the recurrence at its first admissible dimension, both closed interval
-endpoints, the smaller doubled threshold, transposition, full-simplex
-equality, and strictness of every zero-entry board. Exact negative
-controls show that the stated criterion fails at the threshold
-predecessors and at `80×160` if the arithmetic gain is omitted. Those
-controls do not assert that P2 fails there. Eleven axiom audits expose
-only the standard Lean axioms.
+## Formal statements
+
+[DoubleRecurrence](../DR/Endpoint/DoubleRecurrence.lean), [DoubleWeights](../DR/Endpoint/DoubleWeights.lean), [NearSquareParameters](../DR/Endpoint/NearSquareParameters.lean), [DoubleParameters](../DR/Endpoint/DoubleParameters.lean), [NearSquare](../DR/Endpoint/NearSquare.lean), [Double](../DR/Endpoint/Double.lean).

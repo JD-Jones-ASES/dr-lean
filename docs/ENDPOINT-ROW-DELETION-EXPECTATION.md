@@ -26,14 +26,12 @@ Row normalization is unnecessary for the theorem, so its scope also
 includes zero rows and unnormalized nonnegative weights. The interchange
 and indicator equalities themselves allow signed weights.
 
-This is P0174 `ENDPOINT_LOCALIZED_COLLISION_KERNEL.md`, equation (3), in
-explicit quadratic form. The earlier localized probability estimates
-use sums indexed by increasing sample pairs. Identifying the single-pair
-participation mass with that sum and bounding the deficit-two mass by
-its corresponding sum remain explicit next obligations, as does the
-deleted-board rook normalization.
+The [participation identities](ENDPOINT-PARTICIPATION-LOCALIZATION.md)
+express u_i exactly as the sum of the doubleton masses involving i,
+and bound v_i by the corresponding deficit-two pattern sum.
+[Deleted-row rook normalization](ENDPOINT-ROW-DELETION-ROOK.md)
+then converts this expectation into the endpoint averaging kernel.
 
-Replay: `lake build Test.RowCollisionIncidence Test.RowDeletionExpectation`.
-Controls distinguish participants from edge counts and use a nonnormalized
-three-row law of total assignment mass thirty. Empty rows, signed equality
-interfaces, and the zero diagonal are retained.
+## Formal statements
+
+[RowCollisionIncidence](../DR/Endpoint/RowCollisionIncidence.lean), [RowDeletionExpectation](../DR/Endpoint/RowDeletionExpectation.lean).

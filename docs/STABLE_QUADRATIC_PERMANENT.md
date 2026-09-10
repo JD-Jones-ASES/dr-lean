@@ -17,8 +17,8 @@ coefficient is the actual permanent, giving 4 c20 c02 <= permanent(A)^2.
 The independent `TwoZeroMixedCoefficients` algebra identifies the two pure
 coefficients with one half of the corresponding repeated-row permanents.
 That identification turns this discriminant bound into the classical
-Alexandrov permanent inequality. The face-averaging and final two-zero floor
-are subsequent obligations, not hypotheses of these results.
+Alexandrov permanent inequality. [Face averaging](TWO_ZERO_REDUCTION.md) and the
+[two-zero floor](TWO_ZERO_PERMANENT.md) follow from this inequality.
 
 The stability closure used here was formalized from
 [Gurvits (2008)](https://arxiv.org/abs/0711.3496v2).

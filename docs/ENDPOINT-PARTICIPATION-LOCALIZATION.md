@@ -20,8 +20,6 @@ identity. The deficit-two term is replaced in the lower-bound direction,
 because its coefficient is negative. The resulting quadratic form uses
 exactly the localized loads already bounded in `RowCollisionLocalized`.
 
-Replay: `lake build Test.RowIncidenceLocalization`. The interfaces retain
-signed weights where only equalities are used, nonnegative unnormalized
-weights for the mass bound, positive avoidance for the normalized matrix
-bound, and empty row hosts. The deleted-board rook normalization remains
-a separate obligation; this package does not claim a new endpoint range.
+## Formal statements
+
+[RowIncidenceLocalization](../DR/Endpoint/RowIncidenceLocalization.lean), [RowDeficitLocalization](../DR/Endpoint/RowDeficitLocalization.lean), [RowLocalizedExpectation](../DR/Endpoint/RowLocalizedExpectation.lean), [RowCollisionLocalized](../DR/Endpoint/RowCollisionLocalized.lean).

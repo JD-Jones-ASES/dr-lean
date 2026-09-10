@@ -7,11 +7,10 @@ closed probability simplex has positive entries, uniform is its unique
 global maximizer. The sharp inequality and its equality case apply to
 every nonnegative probability board, including zero entries.
 
-This is a direct compactness variant of the Lab's
-`P0174_rybin_semimatchings/POSITIVE_GLOBAL_MAXIMA.md`. Its hypothesis
-concerns **all** global maximizers; it does not claim that positivity of
-one given maximizer alone identifies that matrix. Boundary exclusion is
-a separate required input to any unconditional endpoint application.
+The hypothesis concerns **all** global maximizers. The conclusion follows
+by choosing a greatest-norm member of that compact set and using reverse
+averaging. Boundary exclusion supplies the positivity hypothesis in each
+unconditional endpoint application.
 
 ## Proof
 
@@ -33,11 +32,11 @@ a separate required input to any unconditional endpoint application.
    centered-square identity on the full simplex says uniform uniquely
    minimizes this norm, so all global maximizers are uniform.
 
-The proof uses no assumed positivity theorem, Hessian criterion,
-convergence statement, or Hwang theorem. The Lab note separately records
-the historical endpoint attribution to Suk Geun Hwang and its stronger
-pointwise positive-maximizer formulation; no priority claim is made for
-this compactness variant.
+This compactness argument proves only the implication stated above.
+It does not assume a pointwise theorem identifying an arbitrary positive
+maximizer. For the classical square positive-maximizer result of Suk Geun
+Hwang and its relation to Dittert's conjecture, see the Cheon–Wanless
+reference in [Sources](SOURCES.md).
 
 ## Verification
 

@@ -7,7 +7,7 @@ import DR.Endpoint.RowDeletionKernel
 
 The exhaustive assignment classification gives `E[-L] ≥ (1 - 3D)I - J`,
 where `D` is the expected number of colliding row pairs. This is the matrix
-input of P0174 `ENDPOINT_COLLISION_CLUSTER_STRIPS.md`, section 4. The law is
+estimate used to control the endpoint averaging kernel. The law is
 one independent column choice per row; applying it to a retained board uses
 that board's own normalized row law.
 -/

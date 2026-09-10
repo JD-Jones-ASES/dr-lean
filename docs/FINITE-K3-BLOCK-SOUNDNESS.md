@@ -10,12 +10,10 @@ It assumes neither the desired inequality nor a property of the full seed
 matrices. The adapter has dimensions `2 ≤ m` and `4 ≤ n`; a concrete result
 still requires an actual certificate at those dimensions.
 
-The mathematical source is Analytic-Lab P0174
-`FINITE_RECTANGLE_CERTIFICATES_K3.md`, equations (4)–(8) and its strict
-uniqueness argument. The formalization keeps the source's original
-coefficient roles and iid functional. The Lab source owns the mathematical
-reduction and rational catalogue; the present Lean layers prove its
-semantics. No claim of worldwide novelty follows from this implementation.
+The construction consists of a quartic identity and a decomposition of
+its quadratic matrices into eight positive blocks. The
+[certificate account](FINITE-K3-CERTIFICATES.md) defines the coefficient
+roles and explains their connection to the sampling probability.
 
 ## Matrix meaning and indexing
 
@@ -89,8 +87,8 @@ lake build Test.PrincipalKernel Test.FiniteK3Ordinary \
   Test.FiniteK3Physical Test.FiniteK3EnvelopeSoundness
 ```
 
-The combined replay passed 2,463 jobs and fourteen axiom audits, each
-reporting only `propext`, `Classical.choice`, and `Quot.sound`.
+The tests audit the logical dependencies and exercise the block-to-matrix
+soundness theorem on explicit certificates.
 
 The tests retain the unequal aggregate kernel vector, row-major indexing,
 empty ordinary-column identities and the strict nonempty requirement.
@@ -101,8 +99,8 @@ ordinary-column count by one fails the kernel equation. The end-to-end
 `M4N6.valid`, obtains sharp value 13/18, and separately checks the signed,
 unnormalized quartic identity.
 
-The later complete replay has now checked every one of the 1,330 catalogue
-entries and all 87 coverage shards. The [complete K=3 assembly](ORDER-THREE-COMPLETE.md)
+The finite proof contains all 1,330 catalogue entries and all 87 coverage
+shards. The [complete K=3 assembly](ORDER-THREE-COMPLETE.md)
 applies this soundness theorem to every finite gap and joins the infinite
-ranges. See the [replay receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) for
+ranges. See the [finite coefficient catalogue](../data/FINITE_K3_COMPLETE_REPLAY.md) for
 coverage and the [certificate account](FINITE-K3-CERTIFICATES.md) for the identities.

@@ -54,7 +54,7 @@ def DittertMaximizer (n : ℕ) : Prop :=
 def collisionConstant (k : ℕ) : ℕ :=
   k.choose 2 * ((k.choose 2) ^ 2).choose 2
 
-/-- The sharper sufficient dimension threshold from the Lab proof. -/
+/-- A sufficient dimension threshold for the collision-kernel averaging bound. -/
 def largeBoardThreshold (k : ℕ) : ℕ :=
   128 * (k - 2) * (collisionConstant k + 1) ^ 2
 

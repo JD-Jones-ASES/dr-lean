@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Reproduce the dimension-independent 93-role K=3 catalogue.
 
-The input is the literal four-pair representative scan and first-occurrence
-canonicalization in P0174 FINITE_RECTANGLE_CERTIFICATES_K3.md. No numerical
+The four pair representatives are identified by equality of their row and
+column coordinates; first-occurrence labels define the canonical role. No numerical
 solver, ambient-dimension cutoff, or stored discovery status is used.
 """
 from pathlib import Path

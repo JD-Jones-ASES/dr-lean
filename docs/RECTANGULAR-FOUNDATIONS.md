@@ -1,14 +1,48 @@
 # Rectangular proof foundations
 
-These modules supply the rectangular proofs. Their intermediate conditional
-inequalities are connected to actual probability matrices in the complete
-theorems linked below. The [theorem inventory](THEOREMS.md) owns current
-principal completion and release status. Mathematical sources are recorded
-in Analytic-Lab's P0174 evidence and the linked proof accounts.
+The rectangular proofs use collision identities, marginal concentration,
+and averaging on the full probability simplex. The intermediate estimates
+below are connected to the original sampling probability in the linked
+proofs. [Theorems](THEOREMS.md) lists their exact conclusions.
+
+## Two samples
+
+At two samples, failure means drawing the same cell twice. Therefore
+
+    F_2(P) = 1 - sum_ij P_ij^2,
+    F_2(U) - F_2(P) = sum_ij (P_ij - 1/(mn))^2.
+
+Every term on the right is nonnegative, and the sum vanishes exactly at
+uniform. [OrderTwo](../DR/Rectangular/OrderTwo.lean) proves this identity
+and the sharp theorem for all nonempty rectangles, including zero entries.
+
+## Every order on sufficiently large rectangles
+
+For k>=4, write c=choose(k,2)*choose(choose(k,2)^2,2) and
+D_k=128(k-2)(c+1)^2. If both dimensions are at least D_k, the uniform board
+is the unique maximizer. [LargeBoards](../DR/Rectangular/LargeBoards.lean)
+also proves the simpler sufficient threshold min(m,n)>=k^21.
+
+To prove this, choose a global maximizer by compactness. Since it does at
+least as well as uniform, collision estimates bound its marginal deviations.
+After any two columns are removed, the retained matrix has positive mass;
+its normalization satisfies the concentration hypotheses of the occupation
+kernel bound. If C is the averaging kernel and E its positive coefficient,
+then for every real row vector x,
+
+    x^T C x >= (2/5) E sum_i x_i^2.
+
+Averaging two columns changes the objective by a positive multiple of this
+quadratic form at their difference. At a maximum the increase is at most
+zero, so the columns must agree. Applying the same argument after
+transposition forces equal rows. Total mass one then identifies the matrix
+as uniform. This classifies every maximizer and gives both the sharp bound
+and its exact equality case on the full closed simplex. The argument uses
+no square Dittert theorem or permanent lower bound.
 
 ## Three rows at three samples
 
-The complete sharp inequality and exact equality case now hold on every
+The complete sharp inequality and exact equality case hold on every
 3-by-N probability simplex, N>=3, and its transpose. The
 [three-row proof](THREE-ROW-PROOF.md) explains the support-preserving reduction
 and exclusion of every one-, two-, and three-doubleton boundary family.
@@ -17,12 +51,12 @@ entry. All original zero entries are covered. The N=2 countercontrol proves
 that the lower dimension guard is necessary for uniqueness.
 
 The four-row K=3 strip N>=960 is also proved, including its transpose.
-The finite four-through-nine-row cases and all infinite ranges are now joined
+The finite four-through-nine-row cases and all infinite ranges are joined
 in the [complete K=3 proof](ORDER-THREE-COMPLETE.md).
 
 ## Four rows at four samples
 
-The explicit polynomial two-column kernel is now identified with the actual
+The explicit polynomial two-column kernel is identified with the actual
 sampling kernel. For a nonnegative remaining-column board T, let s be its
 total mass, alpha the sum of squared column masses, and V the squared
 variance of its row marginals after division by s. The proved estimate is
@@ -42,7 +76,7 @@ actual global maxima satisfying these explicit deletion bounds have equal
 selected columns. The actual contender bounds are supplied by the analytic
 tail argument described below.
 
-The scalar gauge bound is now proved independently in
+The scalar gauge bound is proved independently in
 [FourRowScalarGauge](../DR/Rectangular/FourRowScalarGauge.lean):
 
     (sum_i r_i sqrt(1-g_i))^2 >= 29/32 + (61/512) sum_i(r_i-1/4)^2.
@@ -62,18 +96,15 @@ three leading inputs in
 The scalar input and actual collision remainder are discharged. The
 [four-row input account](FOUR-ROW-INPUTS.md) gives the exact remainder and
 the complete corrected minorant and its actual compact-extremum reductions.
-The full closed-simplex K=4 analytic tail N>=500 and its transpose are now proved
+The full closed-simplex K=4 analytic tail N>=500 and its transpose are proved
 in [FourRowTail](../DR/Rectangular/FourRowTail.lean). Two finite quintic certificate
-families now cover the intermediate column counts in the
+families cover the intermediate column counts in the
 [complete four-row theorem](FOUR-ROW-PROOF.md). The square N=4 case is proved
-independently. The source is
-`FOUR_ROW_K4_GLOBAL.md`, whose analytic cutoff N>=500 supersedes the earlier
-N>=6400 cutoff. No conditional kernel estimate is counted as the complete
-4-by-N theorem.
+independently. These three ranges cover every N>=4.
 
 ## Marginal concentration and row assignments
 
-The canonical elementary sums now satisfy Newton and Maclaurin inequalities
+The canonical elementary sums satisfy Newton and Maclaurin inequalities
 on the closed nonnegative domain. For x>=0 of mass one on d coordinates, set
 
     E_k = d^k e_k(x) / choose(d,k),
@@ -103,7 +134,7 @@ intersection has an m! factor. Tests include unequal row masses, signed
 weights, the empty assignment and zero-row normalization. Original row laws
 and laws after deleting columns must be handled separately in later proofs.
 
-The [endpoint contender bridge](../DR/Endpoint/Contenders.lean) now proves,
+The [endpoint contender bridge](../DR/Endpoint/Contenders.lean) proves,
 for a=m!/m^m, b=(N)_m/N^m, normalized row product R, normalized column
 success S, and normalized rook value T,
 
@@ -127,10 +158,8 @@ Finally [FactorialDecay](../DR/Endpoint/FactorialDecay.lean) proves
     a_m <= m^(-14),  m>=128.
 
 Bernoulli proves the half-step recurrence; an exact base and rational ratio
-bound prove the polynomial comparison for every later integer. This is the
-concentration prerequisite from `ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`, not
-a sampled factorial check or a completed endpoint range.
+bound prove the polynomial comparison for every later integer. This concentration estimate is used in the
+[all-aspect endpoint proof](ENDPOINT-ALL-ASPECTS.md).
 
-All modules use the standard Lean axiom allowlist. The full release still
-requires the exact current principal and packaging checks recorded in
-[PROGRESS](PROGRESS.md) and [VERIFICATION](VERIFICATION.md).
+The proof dependencies are checked by the full transitive axiom audit.
+[Verification](VERIFICATION.md) gives the reproducible commands.

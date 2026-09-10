@@ -7,7 +7,7 @@ import DR.Certificates.Gram
 The rational certificate reconstructs the leading 13-by-13 block of
 `L_path - (1/20)(I - J/14)`. Its exact LDL factors have positive pivots;
 the full shifted matrix has the constant vector in its kernel. This is
-an equivalent centered form of the Lab's zero-sum path certificate.
+the centered form of the spectral lower bound on the zero-sum subspace.
 -/
 
 namespace DittertRybin

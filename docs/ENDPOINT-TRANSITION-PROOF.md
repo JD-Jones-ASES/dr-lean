@@ -1,5 +1,12 @@
 # Full endpoint P2 on the transition interval
 
+For an m×n nonnegative matrix P of total mass one, let F_k(P) be the
+probability that k independent cell draws have distinct rows or distinct
+columns, with inclusive OR. Write U_ij=1/(mn) and (n)_m=n(n−1)…(n−m+1).
+At the endpoint k=m, put a=m!/m^m and b=(n)_m/n^m. The sharp statement is
+F_m(P)≤a+b−ab, with equality if and only if P=U. A contender means a
+probability board satisfying F_m(P)≥F_m(U).
+
 `DR/Endpoint/Transition.lean` proves
 
 ```
@@ -9,15 +16,16 @@ DittertRybin.uniform_maximum_transition_endpoint
   UniformMaximizer m n m ∧ UniformMaximizer n m m.
 ```
 
-This is precisely the closed transition interval
-`m*(m-1)/20<=n<=10000*m^2` in the accepted Lab
-`ENDPOINT_ALL_ASPECT_RATIOS_LARGE_M.md`. Both orientations retain arbitrary
-nonnegative entries, total mass one, and equality if and only if the board
-is uniform. The sharp value is `a_m+(1-a_m)*(n)_m/n^m`.
+Thus the closed column interval is m(m−1)/20≤n≤10000m².
+Both orientations include every nonnegative matrix of total mass one,
+and equality holds exactly at uniformity. The sharp value is
+a_m+(1−a_m)(n)_m/n^m, where a_m=m!/m^m.
 
 ## Original and deleted row laws
 
-The original board first supplies the full contender relation
+Let π=∏_i(m r_i), and let p_original be the probability of distinct
+columns under one independent draw from each normalized original row.
+The original board supplies the contender relation
 `pi*(1-p_original)>=1-b`. Coarse row and reciprocal-deviation estimates
 then bound its actual collision graph. The refined finite local lemma
 compares `p_original` to `b`, giving product deficit `<1/2000` and original
@@ -43,31 +51,14 @@ closed-simplex Maclaurin equality to force the uniform board. Compactness
 supplies existence. The transpose argument preserves both the exact value
 and matrix equality.
 
-## Attribution and verification boundary
+## Mathematical references
 
-The accepted transition argument and collision specialization are local
-P0174 Lab work. The published probabilistic antecedents are Haeupler, Saha
-and Srinivasan, *New Constructive Aspects of the Lovasz Local Lemma*,
-arXiv:1001.1231v5, Theorems 1.1 and 2.1; the finite conditional probability
-argument itself is proved in this project. Mathlib supplies standard finite
-algebra, real analysis, compactness and matrix theory.
+The conditional local-lemma framework is due to Haeupler, Saha and
+Srinivasan, [New Constructive Aspects of the Lovasz Local Lemma](https://arxiv.org/abs/1001.1231v5),
+Theorems 1.1 and 2.1. The finite argument here derives the conditional
+product bound from finite weighted sums and independence of disjoint
+row coordinates.
 
-The collision-foundation agent formalized the actual probability,
-normalization, transition estimates and assembly. The root agent supplied
-the scalar/matrix square completion, sequential elementary coefficient
-lower bound, factorial guard and one-sided product-equality closure.
-Independent semantic review and exact-commit CI are separate integration
-gates maintained by the root.
+## Formal statements
 
-Verification: `lake build Test.Transition Test.TransitionDeletion` passed
-3318 jobs, with twelve standard-only axiom audits and no warnings. Tests include
-both closed interval endpoints at `m=10^18`, both orientations, the explicit
-sharp-value iff on the full closed simplex, an actual contender-kernel
-signature, the looser transition row budget, and a genuine one-column
-boundary case for the generic optimization adapter. All proof checking uses
-the ordinary Lean kernel.
-
-This completes the transition interval. It does not alone establish all
-endpoint aspect ratios: the arithmetic lower strip and quadratic upper
-strip, and their exact overlaps with the LLL strip, remain separate inputs
-to the all-aspect release target.
+[Transition](../DR/Endpoint/Transition.lean), [EndpointKernelClosure](../DR/Endpoint/EndpointKernelClosure.lean), [TransitionDeletion](../DR/Endpoint/TransitionDeletion.lean).

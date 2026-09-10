@@ -7,7 +7,7 @@ import DR.Square.MarginalDiscrepancy
 The inverse-variance budgets of the two marginal vectors are coupled by the
 actual stationarity equations. Three exact bootstrap steps improve the
 initial entropy envelope. No positive-cell or connectivity assumption is made.
-This implements Appendix A of Analytic-Lab P0174 `SQUARE_ENDPOINT_5.md`.
+The resulting envelope applies to every stationary contender in dimension five.
 -/
 
 namespace DittertRybin

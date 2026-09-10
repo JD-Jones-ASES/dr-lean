@@ -4,10 +4,9 @@ import Mathlib.Tactic.Ring
 /-!
 # The corrected four-row minorant objective
 
-These literal definitions follow P0174 HIGHER_ORDER_COLLISIONS.md. The
-homogeneous expression has degree three in the row coordinates. Its pair
+The homogeneous expression has degree three in the row coordinates. Its pair
 sum is ordered and therefore carries coefficient two, equivalent to the
-source's coefficient four on unordered pairs. Nothing here asserts positivity.
+coefficient four on unordered pairs. Nothing here asserts positivity.
 -/
 
 namespace DittertRybin

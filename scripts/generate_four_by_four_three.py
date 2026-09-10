@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reconstruct the Lab's 17-entry K=3 4x4 seed and its shifted exact LDL data.
+"""Reconstruct the 17-entry K=3 4x4 coefficient matrix and its shifted exact LDL data.
 
 Only integer/Fraction arithmetic is used. The generated Lean file contains
 witness data; Gram validity against the formula-defined matrix is checked by
@@ -69,7 +69,7 @@ def main():
                                 for k in range(15))
                for i in range(15) for j in range(15)):
         raise ArithmeticError("The exact 4x4 principal Gram reconstruction failed")
-    out = ["import DR.Certificates.Gram", "", "/-! Exact data generated from the 17 rational entries in Lab FOUR_BY_FOUR.md.",
+    out = ["import DR.Certificates.Gram", "", "/-! Exact rational coefficient and Gram data for the 4×4, K=3 inequality.",
            "Regenerate with scripts/generate_four_by_four_three.py; Lean separately checks every entry. -/",
            "namespace DittertRybin.Certificates", "", "def fourByFourThreeGram : GramCertificate 15 15 where",
            "  weights := ![" + ", ".join(map(rational, weights)) + "]",

@@ -7,8 +7,8 @@ import Mathlib.Tactic.FinCases
 /-!
 # The exact order-five two-block certificates
 
-The four rational polynomials come from Appendix C of Analytic-Lab P0174
-`SQUARE_ENDPOINT_5.md`. Their 500 tensor coefficients certify the whole
+The four rational polynomials compare the two-block permanent floors with
+the spectral crossing bound. Their 500 tensor coefficients certify the whole
 triangle u,v≥0, u+v≤13/50 through u=(13/50)x,v=(13/50)(1−x)y.
 -/
 

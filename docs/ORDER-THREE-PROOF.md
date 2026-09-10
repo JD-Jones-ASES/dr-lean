@@ -1,7 +1,7 @@
 # Unconditional order-three Dittert endpoint
 
-The proof occupies the ten `DR/Square/OrderThree*.lean` modules, 1479 lines.
-Integration entry point: `import DR.Square.OrderThreeFinal`.
+The proof is in [OrderThreeFinal](../DR/Square/OrderThreeFinal.lean) and
+its dependencies.
 
 ## Principal results
 
@@ -39,35 +39,23 @@ or order-three maximization theorem is assumed in either principal result.
 5. `OrderThreeSupport` proves the finite support classification by 512
    explicit Boolean cases and `decide +kernel`. This is not a native
    computation axiom or an assumed support-classification statement.
-   An independent Python enumeration found 265 masks with nonempty axes
-   and no uncovered mask. The Lean theorem itself proves the exhaustion.
+   The Lean theorem proves that these cases exhaust every support mask.
 6. `OrderThreeRelabel` proves objective/mass invariance under permutations.
    `OrderThreeFinal` combines all canonical cases, obtains nonempty axes
    from the contender marginal theorem, then uses `Maximizers` to obtain
    the full inequality and unique equality on the entire simplex.
 
-## Provenance
+## Relation to the rectangular theorem
 
-This is the endpoint-only prerequisite requested in the Lab's
-`P0174_rybin_semimatchings/SQUARE_SPINOUT_AUDIT.md`, using the mathematical
-arguments in `THREE_ROW_PROPER_SUPPORTS_K3.md`,
-`THREE_ROW_SINGLETONS_K3.md`, `SINGLE_ZERO_RECTANGLE_K3.md`, and
-`POSITIVE_GLOBAL_MAXIMA.md`. The finite three-blend positive proof and
-direct disconnected-family bounds simplify the formalization. This
-handoff does not claim that order-three Dittert is a new mathematical
-result, nor does it widen to an arbitrary rectangular K=3 theorem.
+This argument proves the square three-sample endpoint. The separate
+[three-row theorem](THREE-ROW-PROOF.md) extends the support method to every
+three-row rectangle. The [complete three-sample theorem](ORDER-THREE-COMPLETE.md)
+combines that family with infinite bounds and finite certificates.
+Attribution for the square formulation and earlier results is in
+[Sources](SOURCES.md).
 
 ## Verification
 
-- `lake build DR.Square.OrderThreeFinal`: passed, 3205 jobs.
-- All ten modules are free of `sorry`, `admit`, custom axioms, and
-  `native_decide`; relevant `git diff --check` passed.
-- `/private/tmp/DROrderThreeAxioms.lean` checks all 86 public
-  definitions/theorems and checks both principal theorem types. It passed;
-  every dependency list is a subset of `propext`, `Classical.choice`, and
-  `Quot.sound`. There are no additional axioms or native-evaluation axioms.
-- Combined repository tests, exact-commit CI and the complete publication gate
-  are tracked in PROGRESS.md.
-
-There is no remaining order-three mathematical obligation in these modules.
-The full square and rectangle release gate remains open.
+Run `lake build DR.Square.OrderThreeFinal Test.AllSquareOrders`.
+[The complete axiom audit](../Test/Axioms.lean) checks the proof dependencies;
+[Verification](VERIFICATION.md) gives the full independent checks.

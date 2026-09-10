@@ -16,7 +16,7 @@ scalar tangent inequality for `log`. Together these give the sharp factor two
 in the discrepancy estimate, including empty and full subsets. No positivity
 of individual matrix cells is used: only the positive marginals are needed.
 
-This implements Section 3 of the Analytic-Lab P0174 spectral square note.
+The shared row and column deficit budget controls the sum of both discrepancies.
 -/
 
 open scoped BigOperators

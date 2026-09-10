@@ -19,15 +19,15 @@ The proof orders the two dimensions and joins these exact ranges:
 | 9 | Certificates n=9..11 | n≥12 |
 | At least 10 | No gap | All n at least the smaller side |
 
-All 1,330 finite certificates and 87 exact dispatch shards have passed Lean.
+The finite proof contains 1,330 certificates and 87 exact dispatch shards.
 Each certificate proves the literal polynomial equations and positive blocks
 required by [the physical soundness theorem](FINITE-K3-BLOCK-SOUNDNESS.md).
 Six finite-strip adapters cover exactly the listed integer intervals. The
 [infinite components](ORDER-THREE-RANGES.md) and transposition finish every
-rectangle. The [replay receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) records
-canonical coverage, generated-source reproduction and the trust audits.
+rectangle. The [coverage account](../data/FINITE_K3_COMPLETE_REPLAY.md) explains
+the dispatchers, generated-source reproduction, and axiom audits.
 
-Two additional required release results now follow:
+Two corollaries follow:
 
 - [SmallSideFinal.lean](../DR/Rectangular/SmallSideFinal.lean) combines K=2,
   complete K=3 and the four-row K=4 proof for every admissible

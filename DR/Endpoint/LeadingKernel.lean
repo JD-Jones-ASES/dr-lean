@@ -9,9 +9,9 @@ import Mathlib.Analysis.Real.Sqrt
 
 The polynomial complementary-product definition retains every boundary row.
 The rank-one criterion follows from finite Cauchy--Schwarz, generalizing the
-already proved four-row argument. The intended gauge application is P0174
-`ENDPOINT_LEADING_GLOBAL.md`; no minimum or positivity assumption is built
-into the kernel definition.
+four-row criterion. The column cost is the square root of the kernel
+quadratic form; summing it defines the leading gauge. No minimum or
+positivity assumption is built into the kernel definition.
 -/
 namespace DittertRybin
 open scoped BigOperators

@@ -17,24 +17,19 @@ optimizer shape, stationary feasibility, polynomial identity, or restricted
 face bound is a premise. The endpoint probability theorem requires the
 additional leading-term and remainder estimates maintained separately.
 
-## Source and proof changes
+## Proof
 
-The mathematical source is Analytic-Lab P0174,
-`HIGHER_ORDER_COLLISIONS.md`, sections “Exact boundary theorem” through
-“Completion of the corrected four-row minorant,” together with the exact
-`k4_minorant_certificate.py` replay. The polynomial and coefficient data
-were developed in that investigation. The Lean proof uses Mathlib's
-published finite-sum, real analysis, compactness, and polynomial theory;
-no peer-repository implementation is an input.
+The proof minimizes the displayed kernel gap over the two closed
+probability simplices. Boundary faces reduce to lower-dimensional
+inequalities; stationary interior points reduce to an exact polynomial
+with nonnegative Bernstein coefficients.
 
-The formal proof makes three elementary replacements within the source
-argument. The two-support estimate uses an exact square completion. The
+The two-support estimate uses an exact square completion. The
 three-row and full fixed-square extremum steps use an explicit rational
 rotation preserving the required moments, whose product derivative is
 `2(a−b)(a−c)(b−c)`. Finally, a maximum squared norm among tied actual face
 minima rules out nonzero flat directions, including the singular
-discriminant case. These replacements discharge the source's analytic
-reductions inside Lean.
+discriminant case.
 
 ## Dependency map
 
@@ -87,9 +82,6 @@ discriminant, negative discriminant, zero affine-product coefficient,
 signed row scaling, nonunit row mass, multiple zero rows, all repeated-pair
 orientations, and stationary coordinates exactly zero.
 
-The principal axiom audit is printed by `Test.FourRowMinorantFinal`.
-The final local replay passed **2,395 build jobs and five principal axiom
-audits**, with no warnings. The proper-face replay separately passed 2,388
-jobs and eight audits.
-The allowed logical dependencies are `propext`, `Classical.choice`, and
-`Quot.sound`; there are no custom axioms or unfinished proof terms.
+`Test.FourRowMinorantFinal` prints the principal axiom audit. The proof uses
+only `propext`, `Classical.choice`, and `Quot.sound` as logical dependencies;
+there are no custom axioms or unfinished proof terms.

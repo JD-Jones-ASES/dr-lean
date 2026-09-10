@@ -1,20 +1,17 @@
 # Finite K=3 certificates and the actual sampling probability
 
-The separate 4-by-4 and 4-by-5 cases are complete, including all zero entries,
-exact uniform equality, and the transposed 5-by-4 case. The finite-envelope
-soundness bridge is now complete, the contiguous range 4-by-N for 6<=N<=21
-is proved, and the 4-by-959 pilot certificate is checked.
-Full replay and dimension coverage for all 1,330 finite
-rectangles remain in progress. This account separates completed proofs from
-those pending data.
+Exact polynomial certificates prove the three-sample inequality and unique
+uniform equality for the finite rectangle ranges listed below. They include
+every zero entry. The [complete assembly](ORDER-THREE-COMPLETE.md) combines
+these certificates with the infinite ranges to cover every rectangle with
+both dimensions at least three.
 
 ## Literal coefficient roles and polynomial identity
 
-The source is Analytic-Lab P0174 `FINITE_RECTANGLE_CERTIFICATES_K3.md`.
 Each physical entry Q_ef[a,b] depends on the equality relations of four row
 labels and four column labels. [FiniteK3Orbits](../DR/Certificates/FiniteK3Orbits.lean)
 proves completeness of the fifteen patterns on each axis and checks the 225
-pattern pairs against the source's 93 canonical roles. Multiplier-pair and
+pattern pairs against 93 canonical roles. Multiplier-pair and
 quadratic-pair reversal preserve the actual entry. Row/column transposition
 remains a separate operation.
 
@@ -48,7 +45,7 @@ PSD pair matrices and an exact constant quadratic kernel for diagonal pairs.
 At mass one some diagonal multiplier is positive, including on support faces.
 Thus no positive-entry premise is added to obtain strict uniqueness.
 
-## Completed small cases
+## Small cases
 
 [The 4-by-4 proof](../DR/Rectangular/FourByFourThree.lean) establishes
 
@@ -68,7 +65,7 @@ The actual pair matrices have floor 2/5 on the constant-orthogonal space;
 nonnegative unordered-pair weights give the displayed 1/5 stability bound.
 Squared distance vanishes exactly at uniform, independently of positivity.
 
-## Remaining envelope
+## Finite rectangle ranges
 
 | Rows | Columns | Cases |
 |---|---|---:|
@@ -80,7 +77,7 @@ Squared distance vanishes exactly at uniform, independently of positivity.
 | 9 | 9 through 11 | 3 |
 | Total | | 1,330 |
 
-The [complete physical block bridge](FINITE-K3-BLOCK-SOUNDNESS.md) now identifies
+The [complete physical block bridge](FINITE-K3-BLOCK-SOUNDNESS.md) identifies
 every seed from four representative pairs and transports its actual aggregate
 kernel and eight strict H/B0 blocks. `FiniteK3EnvelopeValid.uniformMaximizer`
 derives the original inequality and iff uniform equality directly from these
@@ -89,15 +86,14 @@ finite rational obligations. The checked 4-by-6 instance has sharp value 13/18.
 proves `UniformMaximizer 4 n 3` for every 6<=n<=21 from sixteen actual checked
 certificates, with both endpoints included.
 
-The [self-contained source record](../data/FINITE_K3_SOURCE.md) and
-[exact dimension manifest](../data/finite_k3_manifest.json) contain all 1,330
-planned cases. The manifest is a coverage specification, not a completion log.
-Their bounded Lean replay and complete dispatcher must finish before the
-all-rectangle K=3 theorem can be assembled with
-[the infinite ranges](ORDER-THREE-RANGES.md).
+The [certificate construction](../data/FINITE_K3_SOURCE.md) and
+[dimension manifest](../data/finite_k3_manifest.json) specify all 1,330 cases.
+Each case has a proved certificate. The six exact strip dispatchers in the
+[complete assembly](ORDER-THREE-COMPLETE.md) cover the listed intervals,
+which meet the [infinite ranges](ORDER-THREE-RANGES.md) without a gap.
 
 The generators reproduce the present source data with
 `python3 scripts/generate_finite_k3_quartic.py --check` and
 `python3 scripts/generate_four_by_five_three.py --check`. Their validation
 remains active under Python `-O`; Lean independently checks the generated
-identities. No numerical discovery status is accepted as proof.
+identities. The proved coefficient identities and matrix bounds supply the proof.

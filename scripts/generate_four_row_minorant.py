@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Reproduce the exact repeated-row minorant coefficient checks.
 
-Source: Analytic-Lab P0174 HIGHER_ORDER_COLLISIONS.md, equation (11), and
-k4_minorant_certificate.py COMPACT_TERMS. The 21 literal integer monomials
+The 21 literal integer monomials
 are independently checked against the displayed compactification in Lean.
 All 35^3 elevated coefficients are checked by ordinary Lean kernel reduction.
 This certificate proves only the repeated-row family, not the complete minorant.
@@ -32,7 +31,7 @@ def render():
     data=f'''import DR.Certificates.BernsteinTransform
 import Mathlib.Tactic.FinCases
 
-/-! Exact repeated-row certificate data from P0174 equation (11).
+/-! Exact repeated-row minorant coefficients after rational compactification.
 Regenerate with `scripts/generate_four_row_minorant.py --check`.
 The common coefficient denominator is 1122^3 = 1412467848. -/
 

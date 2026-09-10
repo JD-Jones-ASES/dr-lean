@@ -1,81 +1,80 @@
-# Mathematical sources and provenance
+# Mathematical sources
 
-The mathematical statement and the proof are separate provenance questions.
+The [theorem statements](THEOREMS.md) specify the full matrix domains and
+equality cases. The square Dittert proof is an alternative proof; the
+unrestricted rectangular question remains open. The following sources explain
+the mathematical antecedents and the methods adapted in the formalization.
 
-- **Rybin's rectangular formulation:** Dmitry Rybin's
-  [P2 post](https://x.com/DmitryRybin1/status/2096907360140697791), supplied
-  by JD as the only statement location he found. Direct retrieval on
-  2026-09-09 returned a cache miss. The statement used here is fixed explicitly
-  in the Lean definitions and Lab notes; independent retrieval of the post
-  text is not claimed, and no immediate paper source is inferred.
-- **Published square semimatching antecedent:** G.-S. Cheon and I. M. Wanless,
+## Dittert and semimatchings
+
+- G.-S. Cheon and Ian M. Wanless,
   [An interpretation of the Dittert conjecture in terms of semi-matchings](https://doi.org/10.1016/j.disc.2007.01.008),
-  Discrete Mathematics 307 (2007), 2501–2507. Its coefficient-one objective
-  matches square P2. It is not the same intermediate-order normalization
-  as the older Cheon–Hwang sub-Dittert function.
-- **Earlier complete square proof:** Pedro Paulo Marques do Nascimento's
-  [public Dittert project](https://github.com/pedromnasc/dittert-conjecture-proof/tree/894066bbaa715138c98bf3cb7c6fdb4f39a37701),
-  including Hongyuan Lu's attributed small-order contribution. Its July 26
-  unified argument covers n>=11 without Pang's endpoint theorem. A complete
-  assembled route passed our separate local audit of analytic reductions and
-  independently reconstructed exact certificate checks. No substantive gap
-  was found; journal acceptance and formal verification were not established.
-  Our square result must be described as an alternative proof, not a first
-  resolution. The audit is not imported as a proof or formal dependency.
-- **Minimum dilation and domination:** Gi-Sang Cheon and Ian M. Wanless,
-  [Some results towards the Dittert conjecture on permanents](https://users.monash.edu.au/~iwanless/papers/DittertIndecompLAA.pdf),
-  Linear Algebra and its Applications 436 (2012), 791–801. Lemma 2.3 supplies
-  the minimum-dilation antecedent; Lemma 2.2 credits the domination criterion
-  to C.-K. Li. This is a different paper from the 2007 interpretation.
-  The rectangular transport, minimum and active cuts are proved internally.
-- **Boundary scaling and ratio method:** Zhekai Pang,
-  [arXiv:2606.01531v1](https://arxiv.org/abs/2606.01531v1), supplies the method
-  adapted in the endpoint boundary arguments. His theorem is for square
-  dimensions n>=17, not arbitrary rectangles. The
-  [boundary source note](BOUNDARY_PERMANENT.md) retains the Knopp–Sinkhorn
-  attribution through Pang and distinguishes the internally proved floor
-  from the original paper, which was not independently used here.
-- **Other square literature:**
-  [Kafidov, arXiv:2607.19439v1](https://arxiv.org/abs/2607.19439v1), and
-  [Li–Xiong–Yang, arXiv:2607.29191v2](https://arxiv.org/abs/2607.29191v2).
-  Their square endpoint scope is not widened to rectangles or intermediate orders.
-- **Conditional local lemma:** Bernhard Haeupler, Barna Saha and Aravind
-  Srinivasan, [New Constructive Aspects of the Lovasz Local Lemma](https://arxiv.org/abs/1001.1231v5).
-  Its conditioning framework is adapted in the collision strips. The finite
-  weighted-sum argument and actual independence are proved internally;
-  no resampling algorithm or external probability axiom is claimed.
-- **Van der Waerden prerequisite:** Leonid Gurvits,
-  [stable homogeneous polynomial capacity proof](https://arxiv.org/abs/0711.3496v2),
-  Electronic Journal of Combinatorics 15 (2008), R66; and Monique Laurent
-  and Alexander Schrijver,
-  [On Leonid Gurvits' proof for permanents](https://ir.cwi.nl/pub/16667),
-  American Mathematical Monthly 117 (2010), 903–911. The latter supplies
-  the selected matrix-specific equality route. [CAPACITY-ROUTE](CAPACITY-ROUTE.md)
-  identifies the completed formal capacity and stability prerequisites
-  and the zero-capacity boundary correction when reading the univariate
-  equality statement.
+  *Discrete Mathematics* 307 (2007), 2501–2507. This gives the square
+  semimatching interpretation. For a probability matrix, the event is
+  distinct rows **or** distinct columns in independent draws with replacement.
+- Dmitry Rybin, [rectangular P2 question](https://x.com/DmitryRybin1/status/2096907360140697791).
+  The post text has not been independently verified. The precise question
+  considered here is stated directly in [the definitions](../DR/Semimatching.lean)
+  and [Challenge](../Challenge.lean); the attribution is not a proof dependency.
+- Pedro Paulo Marques do Nascimento,
+  [Dittert conjecture proof project](https://github.com/pedromnasc/dittert-conjecture-proof/tree/894066bbaa715138c98bf3cb7c6fdb4f39a37701),
+  with Hongyuan Lu's attributed small-order contribution. This supplies an
+  earlier complete square argument. The present proof uses a spectral and
+  stationary-cut route, with separate small-order proofs. It imports no code
+  or certificates from that project and makes no first-resolution claim.
+- Additional square results: [Kafidov, arXiv:2607.19439v1](https://arxiv.org/abs/2607.19439v1)
+  and [Li–Xiong–Yang, arXiv:2607.29191v2](https://arxiv.org/abs/2607.29191v2).
+  Kafidov's argument is an antecedent for the shared row/column deficit bound.
+  These papers' square scope is distinct from the rectangular and
+  intermediate-order statements proved here.
+- Hwang, [A note on a conjecture on permanents](https://doi.org/10.1016/0024-3795(86)90212-0),
+  *Linear Algebra and its Applications* 76 (1986), 31–44. The positive global
+  maximizer and supported-cell stationarity antecedents are cited through
+  Cheon–Wanless (2012), p. 792 and Lemma 3.6. The original 1986 article is
+  not a separately used source. The [positive-maximizer argument](POSITIVE_MAXIMIZERS.md)
+  is proved directly by compactness and feasible averaging.
 
-- **Two-zero permanent face:** Kyle Pula, Seok-Zun Song and Ian M. Wanless,
+## Permanent bounds and equality
+
+- Leonid Gurvits,
+  [Van der Waerden/Schrijver-Valiant like Conjectures and Stable (aka Hyperbolic) Homogeneous Polynomials: One Theorem for all](https://arxiv.org/abs/0711.3496v2),
+  *Electronic Journal of Combinatorics* 15 (2008), R66. The stable homogeneous
+  polynomial capacity method supplies the permanent lower bound.
+- Monique Laurent and Alexander Schrijver,
+  [On Leonid Gurvits's proof for permanents](https://ir.cwi.nl/pub/16667),
+  *American Mathematical Monthly* 117 (2010), 903–911. Its matrix-specific
+  argument supplies the equality method. The [capacity proof](CAPACITY-ROUTE.md)
+  includes zero-polynomial and zero-capacity cases explicitly.
+- Kyle Pula, Seok-Zun Song and Ian M. Wanless,
   [Minimum permanents on two faces of the polytope of doubly stochastic matrices](https://cs.du.edu/~mathfiles/preprints/nsm-math-preprint-1022.pdf)
-  (2011), supplies the repeated-support face and reduced scalar model context.
-  The [actual matrix reduction](TWO_ZERO_REDUCTION.md), Alexandrov inequality,
-  feasible averaging and [quantitative floors](TWO_ZERO_PERMANENT.md) are
-  proved internally, allowing arbitrary additional zeros.
+  (2011). Repeated-support face reduction and scalar equalization lead to the
+  [two-zero matrix representation](TWO_ZERO_REDUCTION.md) and
+  [permanent bounds](TWO_ZERO_PERMANENT.md). The formal proof derives the face
+  minimum, cofactor estimates, Alexandrov inequality and feasible averaging;
+  additional zero entries are allowed.
 
-The informal source of this development is Analytic-Lab P0174, audited at
-`bdce7f70f49d8b79ee756df6724ed3822e0c7f20` and integrated on main at
-`1be1af0f8e9346bdd32a80745537bde916f004f7`. The private Lab retains the
-complete proof notes, sources and independent replay archive (108 executions,
-69 source fingerprints). Those are informal and computer-assisted evidence,
-not substitutes for the proofs required in this repository.
+## Rectangular endpoint methods
 
-Our square argument uses supported-cell stationarity, an explicit singular
-pair and balanced spectral cuts, with separate small-order arguments. Our
-all-order rectangle argument uses collision concentration and strict matrix
-averaging. Shared established permanent and transport theory keeps its
-attribution and must be proved or found in trusted Lean dependencies.
-Novelty beyond the bounded source comparison has not been established.
+- Gi-Sang Cheon and Ian M. Wanless,
+  [Some results towards the Dittert conjecture on permanents](https://users.monash.edu.au/~iwanless/papers/DittertIndecompLAA.pdf),
+  *Linear Algebra and its Applications* 436 (2012), 791–801. Lemma 2.3 gives
+  the minimum-dilation argument; Lemma 2.2 credits the domination criterion
+  to C.-K. Li. The [rectangular transport](../DR/Endpoint/RectangularTransport.lean)
+  and [minimum dilation](../DR/Endpoint/MinimumDilation.lean) are proved in Lean.
+- Zhekai Pang,
+  [Proof of Dittert's conjecture for dimensions n >= 17](https://arxiv.org/abs/2606.01531v1).
+  Boundary scaling and the quantitative permanent-ratio method are adapted
+  in the rectangular endpoint arguments. Pang's theorem is square-only.
+  The [one-zero permanent bound](BOUNDARY_PERMANENT.md) retains the
+  Knopp–Sinkhorn attribution through Pang; the original Knopp–Sinkhorn paper
+  is not a separately used source.
+- Bernhard Haeupler, Barna Saha and Aravind Srinivasan,
+  [New Constructive Aspects of the Lovasz Local Lemma](https://arxiv.org/abs/1001.1231v5).
+  The conditioning framework is adapted in the collision strips. Finite
+  weighted-sum conditioning and the required independence are proved in Lean;
+  no resampling algorithm is formalized.
 
-The linked proof accounts accompany the actual formalized proofs. Readers
-need no private Lab access to inspect theorem hypotheses or replay the
-complete proof repository.
+Published results are mathematical sources, not added axioms. Their required
+consequences are proved in the repository or supplied by the pinned Mathlib
+dependency. The formalization is source-based. No source-author endorsement,
+independent human refereeing or broader novelty claim is asserted.

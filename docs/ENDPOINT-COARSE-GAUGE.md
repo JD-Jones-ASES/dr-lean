@@ -1,15 +1,13 @@
 # Quantitative endpoint leading gauge for every m >= 5
 
-This package formalizes sections 3 and 5 of Analytic-Lab P0174's
-`ENDPOINT_LEADING_GLOBAL.md`, using its original complementary-product
-kernel and actual column costs. Astra implemented the proof. It uses the
-Lab's accepted analytic argument and the independently proved
-Newton-Maclaurin foundation; no peer implementation, numerical optimizer,
-or lower-order P2 theorem is an input.
+For a row-mass vector r, let B(r) have diagonal entries one and
+off-diagonal entries 1−(m−2)!∏_{a∉{i,j}}r_a. For each column v_j of P,
+define its cost as √(v_jᵀB(r)v_j), and let G be the sum of these costs.
+The following inequalities give a positive modulus in the row variance.
 
 For every nonnegative `m × N` probability board with `m >= 5`, let
 `a = m!/m^m`, `s0 = sqrt(1-a)`, `V = sum_i (r_i-1/m)^2`, and
-`G = sum_j sqrt(v_j^T B(r) v_j)`. The final public theorems prove
+`G = sum_j sqrt(v_j^T B(r) v_j)`. The final theorems prove
 
 ```
 endpointLeadingGauge_coarse_lower:    s0 + (a/1000)V <= G
@@ -41,7 +39,7 @@ The proof is split into five modules:
   endpoints yields the strict row-square bound and the original kernel's
   positive definiteness.
 - `LeadingCoarseProduct` proves the closed-simplex product estimate
-  `product_i(m r_i) <= 1-V` from the already proved degree-two
+  `product_i(m r_i) <= 1-V` from the proved degree-two
   Newton-Maclaurin comparison. The actual positive-semidefinite norm
   bound then gives `G-s0 >= aV/2`; the PSD premise remains explicit in
   this intermediate lemma.
@@ -56,17 +54,6 @@ The proof is split into five modules:
   stationarity, row cap, or optimizer shape is assumed in these global
   statements.
 
-This package establishes all three quantitative estimates (1q) in the
-source, together with the unquantified lower bounds. The source's separate
-sharp equality classification for arbitrary unequal column masses is not
-claimed as a new exported iff theorem here; endpoint equality is supplied
-by the later strict-averaging closure.
+## Formal statements
 
-Validation: `lake --wfail build Test.EndpointLeadingCoarse` passed 3277 jobs,
-thirteen persistent examples and ten standard-only axiom audits, without warnings. Controls include
-signed `d`, the first dimension, failure after dropping the scalar
-`k >= 3` guard, the closed `T=11` endpoint, a zero-coordinate product,
-failure for signed row masses, the actual penalty derivative, `N<m`,
-a uniform one-column board, and an actual board with four zero rows.
-All exact scalar algebra is checked by the ordinary Lean kernel, without
-`sorry`, new axioms, or native evaluation.
+[LeadingCoarseScalars](../DR/Endpoint/LeadingCoarseScalars.lean), [LeadingCoarseStationary](../DR/Endpoint/LeadingCoarseStationary.lean), [LeadingCoarseProduct](../DR/Endpoint/LeadingCoarseProduct.lean), [LeadingCoarseMinimum](../DR/Endpoint/LeadingCoarseMinimum.lean), [LeadingCoarse](../DR/Endpoint/LeadingCoarse.lean).

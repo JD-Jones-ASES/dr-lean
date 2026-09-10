@@ -7,7 +7,7 @@ The bounds apply to every nonnegative probability board whose m-sample
 success is at least the uniform value. They first prove positivity of the
 original row sums, and only then use the independent normalized-row law.
 The exact shared deficit and collision-avoidance relation are the common
-inputs of P0174's arithmetic and all-aspect-ratio endpoint arguments.
+inputs of the arithmetic and all-aspect-ratio endpoint bounds.
 -/
 
 namespace DittertRybin

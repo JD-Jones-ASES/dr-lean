@@ -1,7 +1,7 @@
 import DR.Certificates.BernsteinTransform
 import Mathlib.Tactic.FinCases
 
-/-! Exact repeated-row certificate data from P0174 equation (11).
+/-! Exact repeated-row minorant coefficients after rational compactification.
 Regenerate with `scripts/generate_four_row_minorant.py --check`.
 The common coefficient denominator is 1122^3 = 1412467848. -/
 

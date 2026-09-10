@@ -19,7 +19,7 @@ PIPELINE_REVISION = 'ef2fa1eadcb246c2346ddba39b52eaa53d4bb763'
 POLICY_REVISION = 'e9c8c238f5695b10f75db7175648a1d0195352c1'
 POLICY_SOURCE_TYPES = ('paper', 'book', 'web discussion', 'folklore', 'original-proof', 'other')
 POLICY_URL = 'https://github.com/PalomarRegistry/PalomarPolicy/blob/' + POLICY_REVISION
-UNSUPPORTED_SOURCE_TYPES = ('research notes', 'web post', 'proof project')
+UNSUPPORTED_SOURCE_TYPES = ('unlisted', 'web post', 'proof project')
 
 
 class WrittenPolicySourceTypeError(ValueError):

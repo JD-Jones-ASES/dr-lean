@@ -5,7 +5,7 @@ import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
 
 /-! Scalar first-order exclusion for S columns `(0,b,b)` and T columns `(c,d,d)`.
-This is the three-row specialization of the Lab's single-zero-rectangle proof.
+The inequalities specialize the zero-rectangle stationarity equations to three rows.
 All four first-order conditions include the inequalities at actual zero entries. -/
 
 namespace DittertRybin

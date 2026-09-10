@@ -12,7 +12,7 @@ Success means distinct rows OR distinct columns, including their intersection.
 Every stated maximum includes the full closed simplex and exact uniform equality.
 The remaining unrestricted rectangular problem is not claimed here.
 
-This statement draft includes all twenty release targets. Its intentional theorem
+This file states all twenty principal theorems. Its intentional theorem
 placeholders are isolated from Solution and every proof-library module.
 -/
 

@@ -1,7 +1,9 @@
 # Minimum rectangular dilation
 
-[MinimumDilation](../DR/Endpoint/MinimumDilation.lean) constructs a balanced
-probability board from the original real capacities. It takes the finite
+Let m,n>0 and let P be a nonnegative m×n matrix of total mass one.
+A balanced probability board has row sums 1/m and column sums 1/n.
+[MinimumDilation](../DR/Endpoint/MinimumDilation.lean) constructs such a
+board dominated by a positive multiple of P. It takes the finite
 minimum of `cutMass(P,I,J)/p(I,J)` over all positive cut demands
 `p=|I|/m+|J|/n−1`. Positive cuts must have positive actual mass; individual
 cells may vanish. The whole cut supplies the upper bound one.
@@ -14,15 +16,15 @@ dilation: every competing nonnegative factor is at most the active ratio.
 Unit dilation identifies the original board with its balanced board by
 equal total mass. No permanent-minimizer theorem is assumed.
 
-The proof is the finite-cut construction used by the accepted P0174 active-cut
-endpoint arguments. Its dependencies are the internally proved real
-[rectangular transport theorem](../DR/Endpoint/RectangularTransport.lean) and
-[cut identities](../DR/Endpoint/CutDeficit.lean).
+For each positive cut, q≤cutMass(P,I,J)/p ensures that the capacities
+P/q satisfy the balanced transport criterion. The finite minimum attains
+one of these ratios. The [rectangular transport theorem](../DR/Endpoint/RectangularTransport.lean)
+therefore constructs B. At a minimizing cut, the identity
+cutMass(B,I,J)=p+cutMass(B,Iᶜ,Jᶜ), together with qB≤P, forces the
+complementary mass to vanish. This is the minimum-dilation method of
+Cheon and Wanless, [Some results towards the Dittert conjecture on permanents](https://users.monash.edu.au/~iwanless/papers/DittertIndecompLAA.pdf),
+Lemma 2.3; their domination criterion credits C.-K. Li.
 
-`lake --wfail build Test.MinimumDilation` passed 2,423 jobs, eight examples,
-and six standard-only axiom audits. The tests use a strictly positive 3-by-3
-board whose optimal balanced dilation is 7/8 and whose balanced board gains
-a zero cell. They instantiate the finite existence theorem over all cuts,
-bound every competitor using the physical active cut, retain unit dilation,
-and reject positive dilation when an original row is zero. These are geometry
-checks; the separate permanent and probability arguments remain downstream.
+## Formal statements
+
+[MinimumDilation](../DR/Endpoint/MinimumDilation.lean), [RectangularTransport](../DR/Endpoint/RectangularTransport.lean), [CutDeficit](../DR/Endpoint/CutDeficit.lean).

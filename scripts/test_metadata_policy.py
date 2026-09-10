@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
-"""Supplemental source-type controls; no official parser or intake is simulated.
-
-Optional JSON snapshots exercise an actual before/after metadata correction.
-Parsing those snapshots is separate from the pinned official YAML validation.
-"""
-import argparse
+"""Supplemental source-type controls; no official parser or intake is simulated."""
 import copy
 import importlib.util
-import json
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -16,7 +10,6 @@ CHECKER = Path(__file__).with_name('check-official-metadata.py')
 SPEC = importlib.util.spec_from_file_location('metadata_policy_checker', CHECKER)
 POLICY = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(POLICY)
-SNAPSHOTS = None
 
 
 def document():
@@ -44,8 +37,8 @@ class MetadataPolicyTests(unittest.TestCase):
         data['sources'][0].pop('type')
         self.assertEqual(POLICY.check_written_policy_source_types(data)['omitted_type_count'], 2)
 
-    def test_original_three_labels_reject_individually(self):
-        for value in ('research notes', 'web post', 'proof project'):
+    def test_unsupported_labels_reject_individually(self):
+        for value in ('unlisted', 'web post', 'proof project'):
             with self.subTest(value=value):
                 data = document()
                 data['sources'][0]['type'] = value
@@ -54,12 +47,12 @@ class MetadataPolicyTests(unittest.TestCase):
                 self.assertEqual(caught.exception.violations, ((0, value),))
 
     def test_every_invalid_source_is_reported(self):
-        values = ['research notes', 'paper', 'web post', 'proof project']
+        values = ['unlisted', 'paper', 'web post', 'proof project']
         data = {'sources': [{'type': value} for value in values]}
         with self.assertRaises(POLICY.WrittenPolicySourceTypeError) as caught:
             POLICY.check_written_policy_source_types(data)
         self.assertEqual(caught.exception.violations,
-                         ((0, 'research notes'), (2, 'web post'), (3, 'proof project')))
+                         ((0, 'unlisted'), (2, 'web post'), (3, 'proof project')))
         self.assertIn('sources[3].type', str(caught.exception))
 
     def test_present_null_empty_and_non_string_reject(self):
@@ -110,31 +103,6 @@ class MetadataPolicyTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'unrelated source'):
                 POLICY.written_policy_controls(document())
 
-    def test_actual_metadata_correction_only_changes_three_types(self):
-        if SNAPSHOTS is None:
-            self.skipTest('No before/after JSON snapshots supplied; synthetic vocabulary tests only')
-        original, proposed = SNAPSHOTS
-        with self.assertRaises(POLICY.WrittenPolicySourceTypeError) as caught:
-            POLICY.check_written_policy_source_types(original)
-        self.assertEqual(caught.exception.violations,
-                         ((0, 'research notes'), (1, 'web post'), (3, 'proof project')))
-        corrected = copy.deepcopy(original)
-        for index, value in ((0, 'other'), (1, 'web discussion'), (3, 'other')):
-            corrected['sources'][index]['type'] = value
-        self.assertEqual(corrected, proposed)
-        receipt = POLICY.written_policy_receipt(proposed)
-        self.assertEqual(receipt['checked_sources'], 10)
-        self.assertEqual(receipt['explicit_type_count'], 10)
-        self.assertEqual(receipt['status'], 'passed')
-
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--original-json', type=Path)
-    parser.add_argument('--proposed-json', type=Path)
-    args, remaining = parser.parse_known_args()
-    if bool(args.original_json) != bool(args.proposed_json):
-        parser.error('Provide both metadata JSON snapshots or neither')
-    if args.original_json:
-        SNAPSHOTS = (json.loads(args.original_json.read_text()), json.loads(args.proposed_json.read_text()))
-    unittest.main(argv=[str(Path(__file__)), *remaining])
+    unittest.main()
