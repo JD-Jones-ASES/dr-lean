@@ -32,9 +32,11 @@ the twenty-target inventory, mathematical data, and dependency pins are
 unchanged by this metadata correction. Full arbitrary-rectangle P2 remains
 outside the proved scope.
 
-To avoid repeating unchanged compilation for this correction, the workflow
-also provides optional reuse of the reviewed producer's complete Linux build.
-It compares all proof inputs exactly and still requires every consumer check
-and fresh independent kernels. The [verification guide](../VERIFICATION.md#optional-reuse-of-the-reviewed-linux-build)
-describes the requirements; the option itself is not evidence of a successful
-artifact restore or release.
+A one-off cache proposal for this correction depended on a complete successful
+Linux build of `da67b34f27d7b590bb4596435d0f77c48c192ccc`. That producer,
+run `34432295599`, hit GitHub's six-hour limit before completing its build.
+The proposed cache therefore could not be used. Its helper and dispatch option
+were retired when the [two-stage workflow](../VERIFICATION.md#two-stage-independent-build)
+was activated; the [timeout and replacement record](2026-09-10-staged-verification.md)
+preserves the evidence. The replacement still requires the corrected metadata
+and every exact-commit proof and independent-kernel gate.

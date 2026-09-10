@@ -3,12 +3,6 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-    inputs:
-      reuse_reviewed_proof_cache:
-        description: 'Reuse only the successful reviewed da67 Linux compiled input; rerun every release gate'
-        required: false
-        type: boolean
-        default: false
 permissions:
   contents: read
   actions: read
@@ -16,7 +10,7 @@ concurrency:
   group: dr-development-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  build:
+  build-prefix:
     runs-on: ubuntu-24.04
     timeout-minutes: 360
     steps:
@@ -34,8 +28,12 @@ jobs:
           python3 scripts/check-source.py
           python3 scripts/test_bounded_project_build.py
           python3 -O scripts/test_bounded_project_build.py
-          python3 scripts/test_reviewed_proof_cache.py
-          python3 -O scripts/test_reviewed_proof_cache.py
+          python3 scripts/test_staged_project_build.py
+          python3 -O scripts/test_staged_project_build.py
+          python3 scripts/test_stage_build_artifact.py
+          python3 -O scripts/test_stage_build_artifact.py
+          python3 scripts/test_staged_workflow.py
+          python3 -O scripts/test_staged_workflow.py
           python3 scripts/generate_finite_k3_envelope.py --all --dispatch --manifest --check
           python3 scripts/generate_finite_k3_strips.py --check
           python3 scripts/test_finite_k3_envelope.py
@@ -77,18 +75,85 @@ jobs:
           swap-storage: false
       - name: Fetch pinned mathematical dependencies
         run: lake exe cache get
-      - name: Optionally restore reviewed compiled input only
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_reviewed_proof_cache }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/restore-reviewed-proof-cache.py --expected-commit "$GITHUB_SHA"
-      - name: Build completed proof modules and audit all project axioms
+      - name: Build the dependency prefix
         run: |
           python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+            --stage prefix --cut 679 --stage-receipt .verification/build-prefix-stage.json \
             --report .verification/bounded-project-plan.json \
             --log .verification/bounded-project-build.jsonl
-      - name: Recompute the global axiom audit after compiled-input reuse
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_reviewed_proof_cache }}
+      - name: Pack the exact successful prefix
+        run: |
+          python3 scripts/stage_build_artifact.py pack --project . --cut 679 \
+            --receipt .verification/build-prefix-stage.json \
+            --ledger .verification/bounded-project-build.jsonl \
+            --plan .verification/bounded-project-plan.json --output "$RUNNER_TEMP/proof-prefix"
+      - name: Preserve the exact prefix for this attempt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: linux-proof-prefix-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/proof-prefix/
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve prefix source and build receipts
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: prefix-receipts-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .verification/build-prefix-stage.json
+            .verification/bounded-project-plan.json
+            .verification/bounded-project-build.jsonl
+            .verification/release-checks/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90
+  build-final:
+    needs: [build-prefix]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install pinned Elan
+        shell: bash
+        run: |
+          curl --fail --location --proto '=https' --tlsv1.2 \
+            --output "$RUNNER_TEMP/elan.tar.gz" \
+            https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo "df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/dr-elan"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/dr-elan"
+          "$RUNNER_TEMP/dr-elan/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Free space for proof and verifier artifacts
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: true
+          swap-storage: false
+      - name: Fetch pinned mathematical dependencies
+        run: lake exe cache get
+      - name: Restore the exact prefix from this run and attempt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/stage_build_artifact.py restore --project . --cut 679 \
+            --output .verification/restored-prefix
+      - name: Build remaining proof modules and verify complete roots
+        run: |
+          python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+            --stage final --cut 679 --prior-stage-dir .verification/restored-prefix \
+            --stage-receipt .verification/build-complete-stage.json \
+            --report .verification/bounded-project-plan.json \
+            --log .verification/bounded-project-build.jsonl
+      - name: Recompute the global axiom audit
         run: lake env lean Test/Axioms.lean
       - name: Compile public Challenge and check actual semantic controls
         run: |
@@ -126,7 +191,8 @@ jobs:
         with:
           name: proof-receipts-${{ github.sha }}
           path: |
-            .verification/reviewed-proof-cache.json
+            .verification/build-complete-stage.json
+            .verification/restored-prefix/
             .verification/bounded-project-plan.json
             .verification/bounded-project-build.jsonl
             .verification/release-checks/
@@ -165,7 +231,7 @@ jobs:
           if-no-files-found: error
           retention-days: 90
   independent-kernels:
-    needs: [build, metadata]
+    needs: [build-final, metadata]
     runs-on: ubuntu-24.04
     timeout-minutes: 350
     steps:

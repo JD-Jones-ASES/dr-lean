@@ -29,46 +29,91 @@ cycles, omitted modules, source changes and subprocess failures.
 This limits overlap between project modules. It does not limit external
 dependency jobs or asynchronous declarations within one Lean module.
 Individual large finite checks also use small serialized kernel decisions.
-The expanded development job has a 360-minute ceiling to allow the full
-serialized certificate replay. This changes only the time allowance; it
-does not diagnose earlier exit-143 failures or waive any proof check.
+Each staged build job has a 360-minute ceiling. The earlier single-job run
+hit GitHub's six-hour limit; its completed batches all passed, but it did
+not complete the proof gate. The [timeout record](history/2026-09-10-staged-verification.md)
+separates measured work from the remaining unknown runtime.
 All literal proof checks remain required. A dry run verifies the build plan,
 not the Lean proofs.
 
 The workflow frees unused preinstalled runner software with the same pinned
 cleanup action as the official verifier, preserving its tool cache and swap.
-It then builds the complete source from the pinned dependencies.
-It archives only a successful exact-commit Linux build. A separate job verifies
+The two build stages cover the complete source from the pinned dependencies.
+Only their completed build can supply the final Linux proof archive. A separate job verifies
 its source commit, toolchain and archive digest before restoring those outputs
-and running the independent kernels. Both jobs must succeed for the same SHA.
+and running the independent kernels. All required build, metadata and kernel
+jobs must succeed for the same SHA.
 
-### Optional reuse of the reviewed Linux build
+### Two-stage independent build
 
-Normal pushes and default workflow dispatches build from pinned dependencies.
-The optional `reuse_reviewed_proof_cache` dispatch input may reuse compiled
-outputs from the exact reviewed commit
-`da67b34f27d7b590bb4596435d0f77c48c192ccc`, run `34432295599`, attempt 1.
-The helper requires that run's completed successful build job, full 2,736-module
-plan and 1,368-batch success ledger, global axiom audit, Challenge/semantic
-checks, exact archive digest and toolchain, and safe complete compiled files.
-A pending, failed, partial, expired or mismatched producer build is rejected.
+Pushes, default workflow dispatches and same-repository pull requests use
+`build-prefix`, followed by `build-final`. The first job retains all source,
+generator and helper controls and builds the first 679 dependency-ordered
+batches. Its receipt is explicitly partial: no complete-build or release pass.
+The artifact binds the full plan, source tree, workflow, helper and dependency
+pins, successful batch ledger, and hashes of the compiled files to the exact
+commit, run and attempt.
 
-Every Git tree entry and mode outside eight named metadata, documentation,
-workflow and helper paths must match the producer. All Lean sources, public
-statements, target inventory, data, dependency pins and existing proof-verification
-scripts must therefore be identical. The helper restores only `.lake/build`;
-its receipt says `compiled_input_restored`, with `release_verified: false`.
-Thirty-six offline controls cover provenance, source changes, incomplete
-ledgers, unsafe archives and failed restores. They do not establish that a
-real Linux artifact has been restored.
+The workflow invokes the prefix as follows:
 
-The consumer still runs the entire bounded build, then directly recomputes
-`Test/Axioms.lean`, compiles Challenge, runs the actual semantic controls,
-and creates a new archive bound to its own exact commit. Its corrected
-metadata and fresh all-twenty Comparator/Lean-kernel/NanoDa verification must
-succeed. Producer metadata or kernel status grants no consumer release pass.
-The optional producer archive expires after seven days; future default runs
-remain independent of it.
+```sh
+python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+  --stage prefix --cut 679 --stage-receipt .verification/build-prefix-stage.json \
+  --report .verification/bounded-project-plan.json \
+  --log .verification/bounded-project-build.jsonl
+python3 scripts/stage_build_artifact.py pack --project . --cut 679 \
+  --receipt .verification/build-prefix-stage.json \
+  --ledger .verification/bounded-project-build.jsonl \
+  --plan .verification/bounded-project-plan.json --output "$RUNNER_TEMP/proof-prefix"
+```
+
+The second job starts from a fresh checkout and pinned dependencies. The
+restore helper authenticates the current attempt's successful prefix job and
+its unique artifact, then safely restores only the checked `.lake/build`
+files. It rejects missing, changed, unsafe or stale evidence. These commands
+require the workflow's actual GitHub context; restore also requires `GH_TOKEN`:
+
+```sh
+python3 scripts/stage_build_artifact.py restore --project . --cut 679 \
+  --output .verification/restored-prefix
+python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
+  --stage final --cut 679 --prior-stage-dir .verification/restored-prefix \
+  --stage-receipt .verification/build-complete-stage.json \
+  --report .verification/bounded-project-plan.json \
+  --log .verification/bounded-project-build.jsonl
+lake env lean Test/Axioms.lean
+lake build +Challenge
+python3 scripts/check-release.py --lean-controls
+```
+
+The final helper builds every remaining batch, checks an exhaustive ledger
+with no overlaps or omissions, and explicitly builds both `DR` and `Test`.
+The workflow then directly recomputes the global axiom audit, compiles Challenge,
+runs the actual semantic controls, and creates a new archive for this SHA.
+Even the complete-build receipt retains `release_verified: false`. The metadata
+job and fresh all-twenty Comparator/Lean-kernel/NanoDa checks must also pass.
+
+Rerunning `build-final` must include the prefix job in the new attempt;
+reusing an earlier attempt's partial prefix is rejected. A later kernel-only
+rerun may consume the already accepted complete archive for the identical SHA
+and must still pass every independent-kernel check. Same-repository PRs bind
+the tested merge commit separately from the API's PR head commit. Fork PRs are outside this transfer
+protocol. The former optional `da67` cache and its dispatch input are retired:
+the proposed producer timed out before it could supply a complete artifact.
+
+The reproducible [toy handoff](../scripts/smoke_staged_handoff.py) exercises
+actual Lean compilation, packing, restoration, suffix completion and a direct
+axiom audit in two disposable checkouts:
+
+```sh
+python3 scripts/smoke_staged_handoff.py --lake-bin "$(command -v lake)" \
+  --output .verification/staged-smoke.json
+```
+
+It uses the installed Lean 4.33.0 toolchain and mocks GitHub provenance only.
+Its success is not a hosted Linux CI or independent-kernel result. The
+[activation record](history/2026-09-10-staged-verification.md) records the
+offline controls and the exact limits of this smoke test.
 
 ### Public statement checks
 
@@ -154,6 +199,11 @@ Do not substitute a narrower statement, an empty target list, a successful
 foundation build, or a metadata status field for the completed objective.
 
 ## Current evidence
+
+At the staged workflow's activation on 2026-09-10, run `34432295599` had timed
+out and no replacement staged CI run had started or passed. See the
+[dated record](history/2026-09-10-staged-verification.md) and subsequent
+[exact-commit workflow runs](https://github.com/JD-Jones-ASES/dr-lean/actions/workflows/development.yml).
 
 See [PROGRESS](PROGRESS.md) for actual build results and missing work. The
 current toolchain is Lean 4.33.0 with the exact Mathlib dependency graph from
