@@ -16,35 +16,33 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
-The complete square Dittert theorem for every n>=1, the K=2 theorem and
-the all-order large-board theorem, including unique equality, are proved
-locally. For K>=4 the latter applies whenever
-both dimensions are at least the explicit D_K in the theorem plan; K^21 is
-a simpler sufficient threshold. The complete [three-row K=3 family](docs/THREE-ROW-PROOF.md), with arbitrary
-N>=3 and its transpose, is also proved locally. The [four-row K=3 strip](docs/ORDER-THREE-RANGES.md)
-for N>=960 and the separate [4-by-4 and 4-by-5 K=3 stability certificates](docs/FINITE-K3-CERTIFICATES.md)
-are complete too.
-The [finite K=3 block bridge](docs/FINITE-K3-BLOCK-SOUNDNESS.md) is complete,
-with the complete 4-by-N range 6<=N<=21 and a checked 4-by-959 pilot;
-the full 1,330-case replay is in progress.
-The complete [four-row K=4 theorem](docs/FOUR-ROW-PROOF.md) is proved locally
-for every N>=4 and its transpose, including all boundary matrices and iff equality.
-The [finite K=4 probability bridge](docs/FINITE-K4-QUINTIC-BRIDGE.md) now
-connects the literal equations to the signed functional, with all 2,704
-physical patterns and both fixed seeds checked. The
-[fixed-board K=4 theorems](docs/FIXED-BOARD-ORDER-FOUR.md) are complete locally
-for 5-by-5 and 20-by-20, with exact uniform equality on the closed simplex. The
-[endpoint matrix estimate](docs/ENDPOINT-MATRIX-INTERFACE.md) proves the exact
-3/32 margin from explicit moment assumptions. Its
-[actual deleted-board kernel](docs/ENDPOINT-ACTUAL-KERNEL-POSITIVITY.md),
-[localized load bounds](docs/ENDPOINT-LOCALIZED-KERNEL-BOUNDS.md), and
-[one-sided equality closure](docs/ENDPOINT-COLUMN-RIGIDITY.md) are proved.
-The [LLL endpoint strip](docs/ENDPOINT-LLL-STRIP-PROOF.md) is complete locally:
-m>=128 and 64m^(3/2)<=N<=m(m-1)/20, whenever this interval is nonempty,
-including transpose and iff uniform equality.
-The remaining promised
-rectangular families are in progress.
-The completed square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
+Fourteen of the twenty required release targets are now proved locally:
+all square Dittert orders, K=2 and K=3 on all admissible rectangles,
+K=4 on every four-row rectangle and on 5-by-5 and 20-by-20,
+the two large-board thresholds, all admissible orders for smaller side at
+most four and for 5-by-5, the arithmetic, near-square and doubled endpoint
+ranges, and the LLL endpoint strip. The remaining endpoint families are active work.
+
+The [complete K=3 proof](docs/ORDER-THREE-COMPLETE.md) joins all 1,330
+kernel-verified finite certificates and 87 coverage shards with the proved
+infinite ranges. The [four-row K=4 proof](docs/FOUR-ROW-PROOF.md) and
+[fixed-board K=4 proofs](docs/FIXED-BOARD-ORDER-FOUR.md) likewise retain
+actual polynomial identities, physical matrix soundness and strict equality.
+
+The [arithmetic endpoint proof](docs/ENDPOINT-BOUNDARY-SCALING.md) applies
+for m>=128 and m<=N<=m(m-1)/(22 log m). Its common-divisor criterion connects
+actual marginal deficits, balanced transport, rectangular padding and the
+internally proved boundary permanent bound. The
+[LLL endpoint strip](docs/ENDPOINT-LLL-STRIP-PROOF.md) applies for m>=128 and
+64m^(3/2)<=N<=m(m-1)/20 when nonempty. A separate
+[transition theorem](docs/ENDPOINT-TRANSITION-PROOF.md) now covers
+m>=10^18, m<=N, m(m-1)<=20N and N<=10000m^2. This transition result is one component
+of the still-pending all-aspect endpoint theorem, not an additional completed
+release target. All these results include transpose and iff uniform equality. The
+[near-square and doubled ranges](docs/ENDPOINT_NEAR_DOUBLE.md) now cover
+m>=117 with m<=N<=2m, and m>=80 with N=2m, respectively.
+
+The square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),
 and [all orders at least six](docs/SPECTRAL-PROOF.md).
 

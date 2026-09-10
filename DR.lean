@@ -191,3 +191,11 @@ import DR.Rectangular.TwentyByTwentyOrderFour
 import DR.Certificates.FiniteK4FixedCheckedBlocks
 import DR.Rectangular.FourRowFinal
 import DR.Endpoint.LLLStrip
+import DR.Endpoint.Arithmetic
+import DR.Endpoint.Transition
+import DR.Endpoint.RowClusterKernel
+import DR.Rectangular.OrderThreeFinal
+import DR.Rectangular.SmallSideFinal
+import DR.Rectangular.FiveByFiveFinal
+import DR.Endpoint.NearSquare
+import DR.Endpoint.Double

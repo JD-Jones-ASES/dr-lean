@@ -15,7 +15,7 @@ statements, their actual proofs and axiom dependencies determine completion.
 |---|---|---|
 | `DittertRybin.dittert_unique_maximum` | All n>=1; nonnegative square A of total mass n; Phi(A)<=2-n!/n^n, equality exactly A_ij=1/n. | Proved locally; [square proof](ORDER-FIVE-PROOF.md) completes the last case |
 | `DittertRybin.uniform_maximum_order_two` | K=2 on every M,N>=2. | Proved locally |
-| `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Pending; complete three-row family, 4-by-4 and 4-by-5, four-row 6<=N<=21 and N>=960, all min(M,N)>=10 and five-through-nine-row infinite strips proved; see [range map](ORDER-THREE-RANGES.md) |
+| `DittertRybin.uniform_maximum_order_three` | K=3 on every M,N>=3. | Proved locally; [complete K=3 proof](ORDER-THREE-COMPLETE.md) |
 | `DittertRybin.uniform_maximum_four_rows` | K=4 on every 4 by N, N>=4, and transpose. | Proved locally; [complete four-row proof](FOUR-ROW-PROOF.md) |
 | `DittertRybin.uniform_maximum_five_by_five_order_four` | K=4 on the full 5 by 5 probability simplex. | Proved locally; [exact certificate proof](FIXED-BOARD-ORDER-FOUR.md) |
 | `DittertRybin.uniform_maximum_twenty_by_twenty_order_four` | K=4 on the full 20 by 20 probability simplex. | Proved locally; [exact certificate proof](FIXED-BOARD-ORDER-FOUR.md) |
@@ -26,13 +26,13 @@ statements, their actual proofs and axiom dependencies determine completion.
 | `DittertRybin.uniform_maximum_quartic_endpoint_strip` | K=m, m>=16, N>=20000 m^4, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_combined_endpoint_strip` | K=m, m>=5, N>=10^11 m^2, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_consecutive_endpoint` | K=m on m by (m+1), m>=19, and transpose. | Pending |
-| `DittertRybin.uniform_maximum_short_endpoint` | K=m on m by N with m>=117 and m<=N<=2m, and transpose. | Pending |
+| `DittertRybin.uniform_maximum_short_endpoint` | K=m on m by N with m>=117 and m<=N<=2m, and transpose. | Proved locally; [exact recurrence and boundary scaling](ENDPOINT_NEAR_DOUBLE.md) |
 | `DittertRybin.uniform_maximum_square_near_endpoint` | K=n-1 on n by n, n>=21. | Pending |
-| `DittertRybin.uniform_maximum_arithmetic_endpoint` | K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose. | Pending |
-| `DittertRybin.uniform_maximum_double_endpoint` | K=m on m by 2m for m>=80, and transpose. | Pending |
+| `DittertRybin.uniform_maximum_arithmetic_endpoint` | K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose. | Proved locally; [boundary scaling](ENDPOINT-BOUNDARY-SCALING.md) |
+| `DittertRybin.uniform_maximum_double_endpoint` | K=m on m by 2m for m>=80, and transpose. | Proved locally; [exact recurrence and boundary scaling](ENDPOINT_NEAR_DOUBLE.md) |
 | `DittertRybin.uniform_maximum_lll_endpoint` | K=m, m>=128, 64m^(3/2)<=N<=m(m-1)/20, and transpose, when the interval is nonempty. | Proved locally; [actual collision proof](ENDPOINT-LLL-STRIP-PROOF.md); lower cutoff equivalence proved |
-| `DittertRybin.uniform_maximum_small_side` | Every 2<=K<=min(M,N) when 2<=min(M,N)<=4. | Pending |
-| `DittertRybin.uniform_maximum_five_by_five` | Every 2<=K<=5 on 5 by 5. | Pending |
+| `DittertRybin.uniform_maximum_small_side` | Every 2<=K<=min(M,N) when 2<=min(M,N)<=4. | Proved locally; all admissible K=2,3,4 |
+| `DittertRybin.uniform_maximum_five_by_five` | Every 2<=K<=5 on 5 by 5. | Proved locally; all K=2,3,4,5 |
 
 ## Dependency order
 

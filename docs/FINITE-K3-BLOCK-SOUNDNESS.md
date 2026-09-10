@@ -101,8 +101,8 @@ ordinary-column count by one fails the kernel equation. The end-to-end
 `M4N6.valid`, obtains sharp value 13/18, and separately checks the signed,
 unnormalized quartic identity.
 
-This generic soundness result and the checked pilot do not assert that all
-1,330 catalogue entries have completed their Lean replay. The catalogue
-worker and the exact dimension-coverage theorem must separately finish
-before the all-rectangle K=3 statement is assembled. See
-[the full certificate account](FINITE-K3-CERTIFICATES.md).
+The later complete replay has now checked every one of the 1,330 catalogue
+entries and all 87 coverage shards. The [complete K=3 assembly](ORDER-THREE-COMPLETE.md)
+applies this soundness theorem to every finite gap and joins the infinite
+ranges. See the [replay receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) for
+coverage and the [certificate account](FINITE-K3-CERTIFICATES.md) for the identities.

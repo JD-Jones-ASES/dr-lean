@@ -22,6 +22,14 @@ jobs:
           python3 scripts/check-source.py
           python3 scripts/test_bounded_project_build.py
           python3 -O scripts/test_bounded_project_build.py
+          python3 scripts/generate_finite_k3_envelope.py --all --dispatch --manifest --check
+          python3 scripts/generate_finite_k3_strips.py --check
+          python3 scripts/test_finite_k3_envelope.py
+          python3 scripts/test_finite_k3_dispatch.py
+          python3 -O scripts/generate_finite_k3_envelope.py --all --dispatch --manifest --check
+          python3 -O scripts/generate_finite_k3_strips.py --check
+          python3 -O scripts/test_finite_k3_envelope.py
+          python3 -O scripts/test_finite_k3_dispatch.py
           python3 scripts/generate_order_four_sextic_checks.py --check
           python3 -O scripts/generate_order_four_sextic_checks.py --check
           python3 scripts/generate_finite_k4_fixed_blocks.py --all --check

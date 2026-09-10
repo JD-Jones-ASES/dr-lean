@@ -1,10 +1,11 @@
-# The proved infinite ranges at three samples
+# Infinite components of the complete three-sample proof
 
 The sampling event is the inclusive OR of distinct rows and distinct
 columns for three ordered iid cells. Every theorem here uses all
 nonnegative real probability matrices, including zeros, and proves
 both the sharp uniform bound and equality iff the matrix is uniform.
-The all-rectangle K=3 release target remains pending.
+The all-rectangle K=3 release target is now proved locally; see the
+[complete assembly](ORDER-THREE-COMPLETE.md).
 
 After transposition, write m<=n. The compiled ranges are:
 
@@ -23,10 +24,9 @@ After transposition, write m<=n. The compiled ranges are:
 
 The [complete three-row proof](THREE-ROW-PROOF.md) includes all N>=3 and
 its transpose. The 3-by-3 endpoint is also proved independently in the square
-package. The remaining rectangles are finite: 4-by-4, 4-by-5, and the
-1,330 stored certificate cases (4-by-6 through 4-by-959 and the remaining
-five-through-nine-row ranges). A criterion failing outside the table is
-not a counterexample to P2.
+package. The separate 4-by-4 and 4-by-5 proofs and all 1,330 finite certificate
+cases now complete the gaps in this table. The [replay receipt](../data/FINITE_K3_COMPLETE_REPLAY.md)
+records exact coverage and the final closed-simplex assembly.
 
 ## Actual probability and energy bounds
 

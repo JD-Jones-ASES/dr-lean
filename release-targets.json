@@ -16,7 +16,8 @@
     {
       "declaration": "DittertRybin.uniform_maximum_order_three",
       "scope": "K=3 on every M,N>=3.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Rectangular/OrderThreeFinal.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_four_rows",
@@ -76,7 +77,8 @@
     {
       "declaration": "DittertRybin.uniform_maximum_short_endpoint",
       "scope": "K=m on m by N with m>=117 and m<=N<=2m, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/NearSquare.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_square_near_endpoint",
@@ -86,12 +88,14 @@
     {
       "declaration": "DittertRybin.uniform_maximum_arithmetic_endpoint",
       "scope": "K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Arithmetic.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_double_endpoint",
       "scope": "K=m on m by 2m for m>=80, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Double.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_lll_endpoint",
@@ -102,12 +106,14 @@
     {
       "declaration": "DittertRybin.uniform_maximum_small_side",
       "scope": "Every 2<=K<=min(M,N) when 2<=min(M,N)<=4.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Rectangular/SmallSideFinal.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_five_by_five",
       "scope": "Every 2<=K<=5 on 5 by 5.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Rectangular/FiveByFiveFinal.lean"
     }
   ],
   "full_P2": "open; not a claimed release target"
