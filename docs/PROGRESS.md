@@ -1,119 +1,81 @@
 # Current formalization state
 
-Updated 2026-09-09. Private development continues toward the complete
-[twenty-target release](THEOREMS.md). Eight principal targets are proved
-locally: all square Dittert orders with exact equality, all rectangular K=2,
-the complete four-row K=4 family, both fixed-board K=4 theorems, the LLL
-endpoint strip, the all-order large-board bound, and its K^21 corollary. Full arbitrary-
-rectangle P2 remains open.
+Updated 2026-09-09. Fourteen of the twenty required release targets are
+proved locally. The repository remains private, and the complete release
+gate has not passed. Full arbitrary-rectangle Rybin P2 remains open.
 
-## Completed subfamilies and certificate foundations
+## Completed principal results
 
-- [Three-row K=3](THREE-ROW-PROOF.md): every 3-by-N with N>=3 and transpose,
-  including all zero supports and uniform iff equality.
-- [K=3 infinite ranges](ORDER-THREE-RANGES.md): min(M,N)>=10,
-  the five-through-nine-row strips, and four-row N>=960.
-- [Small K=3 certificates](FINITE-K3-CERTIFICATES.md): 4-by-4 and 4-by-5
-  stability bounds, plus the complete 4-by-N range 6<=N<=21. The 4-by-959
-  pilot certificate is checked too.
-- [Finite K=3 block soundness](FINITE-K3-BLOCK-SOUNDNESS.md): all 33
-  coefficient equations, eight actual small blocks, exact aggregate kernels
-  and four-pair coverage imply the original sharp probability theorem.
-  Signed quartic algebra and closed-simplex uniform equality are proved.
-- [Complete four-row K=4](FOUR-ROW-PROOF.md): every N>=4 and transpose,
-  joining the square case, exact finite intervals and analytic tail.
-  Boundary matrices and unique equality are retained.
-- [Finite K=4 probability bridge](FINITE-K4-QUINTIC-BRIDGE.md): all 2,704
-  physical equality patterns, 91 sparse equations, exact ten-seed host
-  transport, and the actual signed quintic probability identity. Both
-  four-row polynomial families and the two fixed seeds have their exact
-  sharp coefficient identities. All 680 four-row Bernstein matrices and
-  2,760 positive pivots and twenty full weighted kernels are checked;
-  the final physical assembly is complete.
-- [Endpoint collision matrix estimate](ENDPOINT-MATRIX-INTERFACE.md): the
-  exact 3/32 quadratic margin from explicit moment bounds, with signed and
-  zero test vectors. Actual deletion-pattern classification, participation
-  masses, local-lemma ratios and their localized expectation bound are proved.
-- [Fixed-board K=4](FIXED-BOARD-ORDER-FOUR.md): complete 5-by-5 and 20-by-20
-  sharp probability theorems, with iff uniform equality. Twenty exact full
-  weighted kernels and eighty strict blocks certify all physical seeds.
-- [Actual endpoint kernel](ENDPOINT-ACTUAL-KERNEL-POSITIVITY.md): exact
-  deleted-row rook normalization and quadratic conjugacy. The
-  [elementary lower bound](ENDPOINT-ELEMENTARY-LOWER-BOUND.md),
-  [uniform avoidance estimate](ENDPOINT-UNIFORM-AVOIDANCE-BOUND.md),
-  [deleted-row balance](ENDPOINT-DELETED-ROW-BALANCE.md),
-  [localized bounds](ENDPOINT-LOCALIZED-KERNEL-BOUNDS.md), and
-  [one-sided equality closure](ENDPOINT-COLUMN-RIGIDITY.md) are proved.
-- [LLL endpoint strip](ENDPOINT-LLL-STRIP-PROOF.md): m>=128 and
-  64m^(3/2)<=N<=m(m-1)/20, including transpose, closed-simplex boundary
-  and iff uniform equality. Lean proves equivalence of the real-power
-  cutoff and the integer squared cutoff used in the release declaration.
+- All square Dittert orders, with sharp value and unique equality.
+- K=2 and [K=3](ORDER-THREE-COMPLETE.md) on every admissible rectangle.
+- K=4 on every [four-row rectangle](FOUR-ROW-PROOF.md), and on
+  [5-by-5 and 20-by-20](FIXED-BOARD-ORDER-FOUR.md).
+- The all-order large-board threshold and its simpler K^21 corollary.
+- Every admissible K when the smaller side is at most four, and every
+  K=2,3,4,5 on 5-by-5.
+- The [arithmetic endpoint range](ENDPOINT-BOUNDARY-SCALING.md):
+  m>=128 and m<=N<=m(m-1)/(22 log m).
+- The [short and doubled endpoint ranges](ENDPOINT_NEAR_DOUBLE.md):
+  m>=117, m<=N<=2m; and m>=80, N=2m.
+- The [LLL endpoint strip](ENDPOINT-LLL-STRIP-PROOF.md):
+  m>=128 and 64m^(3/2)<=N<=m(m-1)/20, whenever nonempty.
 
-The complete square proof has separate readable accounts for
-[order three](ORDER-THREE-PROOF.md), [order four](ORDER-FOUR-PROOF.md),
-[order five](ORDER-FIVE-PROOF.md), and [all orders at least six](SPECTRAL-PROOF.md).
-Its van der Waerden and stability prerequisites are proved internally.
-The proof is an attributed alternative to the earlier complete Dittert proof.
+All results concern actual nonnegative probability matrices, allow zero
+entries, and give the sharp uniform bound with equality exactly at uniform.
+Rectangular endpoint families include transposition. K=1 retains its
+separate nonuniqueness exception. Exact declarations and hypotheses are in
+[THEOREMS](THEOREMS.md) and [release-targets.json](../release-targets.json).
 
 ## Remaining work
 
-The finite K=3 source catalogue contains all 1,330 canonical rectangles.
-Their full generated replay is running in the working checkout. The present
-curated checkpoint includes seventeen checked case files: sixteen for
-4-by-N with 6<=N<=21, and the 4-by-959 pilot. The
-[dimension manifest](../data/finite_k3_manifest.json) describes the complete
-planned coverage; it is not a list of successful checks. The full dispatcher
-must finish before the all-rectangle K=3 target is marked complete.
+The six pending principal targets are the all-aspect large endpoint,
+quadratic, quartic and combined long-column strips, consecutive rectangles
+from m=19, and square near-endpoints K=n-1 from n=21.
 
-The other endpoint ranges still need their complete parameter arguments and
-actual global-maximizer assembly; proved conditional kernel bounds alone
-do not complete those principal targets.
-The endpoint work keeps original-row and deleted-column avoidance laws
-distinct. The full exact scopes and remaining
-corollaries are in [THEOREMS](THEOREMS.md).
+The complete [transition endpoint theorem](ENDPOINT-TRANSITION-PROOF.md)
+is a proved component of the all-aspect result. The
+[collision-cluster estimate](ENDPOINT-COLLISION-CLUSTER.md) is a proved
+input to the long-column work. General leading-gauge stability,
+minimum-dilation geometry, zero-rectangle permanent floors and the remaining
+finite cuts continue in separate working files. These foundations do not
+replace any pending principal theorem. Original-row and deleted-row
+avoidance laws remain distinct.
 
 ## Verification boundary
 
-The latest curated local build passed **4,559 jobs**, with all **38,776
-project declarations** audited against `propext`, `Classical.choice`, and
-`Quot.sound`. It emitted no warnings; hashes of every curated Lean source
-remained unchanged during the completed combined build. The closure contains
-1,107 Lean modules. Source guards, corruption controls, normal and optimized
-Python regeneration, and documentation checks passed.
+The fourteen-target mathematical checkpoint
+`fd7971f06ecbd2f0dc13c40022f2883ead747d60` passed a combined
+`lake --wfail build +DR +Test`: **6,021 jobs**, **195,889 project declarations
+audited**, and **2,569 included Lean source hashes unchanged**. No warnings
+were emitted. The only permitted transitive axioms are `propext`,
+`Classical.choice` and `Quot.sound`.
 
-Independent CI builds the exact tracked DR/Test import closure in dependency
-order with at most two requested project modules per batch (554 batches
-for this checkpoint). Thirteen scheduler controls pass in normal and
-optimized Python. Literal K4 checks are split and serialized, including all
-52-by-52 pattern gates and all 182 fixed-seed coefficient equations.
-The square order-four coefficient checker is now split into fourteen
-serialized chunks; all 450 theorem statements and proof bodies are preserved.
-The exact fixed-board generator and its fourteen rejection controls also
-run in independent CI, with and without Python optimization.
-The expanded CI job has a 360-minute ceiling; this grants replay time and
-does not diagnose earlier termination failures or replace any required gate.
+The isolated source package passed **26** generator/control commands,
+including ordinary and optimized Python, and **257** local Markdown links.
+The complete K3 [receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) records all
+1,330 case proofs, 87 exact dispatch shards, canonical coverage, regeneration
+and corruption controls. The tracked import closure contains 2,698 files;
+its strict build plan has 1,285 batches of at most two requested modules.
+The subsequent update to this progress page changes no Lean source.
 
-Private main and the durable source checkout remain at independently
-verified `71ab5fb1e4bae27fbd43f26ab06f2e1646750836`.
+Independent CI is required for the exact private checkpoint and its default
+branch before release. Private main and the durable source checkout remain
+at independently verified `71ab5fb1e4bae27fbd43f26ab06f2e1646750836`.
 Its [main replay](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34387704231)
-succeeded. Later local proofs have not yet cleared independent CI:
+succeeded. Later local proofs have not yet cleared that independent gate.
+Earlier exit-143 runs remain unaccepted; their termination cause is
+unconfirmed. A local proof or a dry build plan does not replace CI.
 
-| Checkpoint | Independent replay status |
-|---|---|
-| `ce018413` full square | Cancelled; unaccepted |
-| `bdd1db2f`, `486d70d7`, `2d4449e2`, `17406a61`, `f1fe2631` | Failed with exit code 143; no Lean proof error reported in the retrieved failure logs; unaccepted |
-| `21b65fb5` | Cancelled; unaccepted |
-| `232a8383` | Failed with exit code 143 while checking the square order-four coefficient module; no Lean proof error reported; unaccepted |
-| `04fa7de3` | Independent replay still running at this update |
-| Fixed-board/endpoint checkpoint documented here | Local verification passed; independent CI required |
+The complete [public-release gate](VERIFICATION.md), including all twenty
+targets, Challenge/Solution, Comparator and NanoDa, remains pending. JD
+will submit to Palomar manually after that gate passes.
 
-The termination cause is unconfirmed. A local build does not substitute for
-independent replay, default-branch verification, or the
-[full public-release gate](VERIFICATION.md). JD will submit to Palomar
-manually after the complete repository passes that gate.
+## Detailed records
 
-The detailed earlier checkpoint observations are preserved in the
-[dated development record](history/2026-09-09-development.md) and the
-[quintic/endpoint record](history/2026-09-09-quintic-endpoint-development.md), and the
-[fixed-board/endpoint record](history/2026-09-09-fixed-board-endpoint-development.md).
-Their historical status text is superseded by this page and the actual verification receipts.
+The [latest development record](history/2026-09-09-complete-low-orders-endpoints.md)
+explains the mathematical additions and verification. Earlier records retain
+[initial development](history/2026-09-09-development.md),
+[quintic/endpoint work](history/2026-09-09-quintic-endpoint-development.md), and
+[the eight-target checkpoint](history/2026-09-09-fixed-board-endpoint-development.md).
+Their historical state is superseded by the current inventory and actual
+verification receipts.
