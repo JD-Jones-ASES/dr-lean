@@ -10,7 +10,7 @@ from pathlib import Path
 import re
 import unittest
 
-HEADER = "name: Complete proof and independent kernel checks\non:\n  push:\n  pull_request:\n  workflow_dispatch:\npermissions:\n  contents: read\n  actions: read\nconcurrency:\n  group: dr-development-${{ github.ref }}\n  cancel-in-progress: true\n"
+HEADER = "name: Complete proof and independent kernel checks\non:\n  workflow_dispatch:\npermissions:\n  contents: read\n  actions: read\nconcurrency:\n  group: dr-development-${{ github.ref }}\n  cancel-in-progress: true\n"
 SOURCE_COMMANDS = [
     "python3 scripts/check-release.py",
     "python3 -O scripts/check-release.py",

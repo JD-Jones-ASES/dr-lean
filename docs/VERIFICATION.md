@@ -56,6 +56,10 @@ done
 
 ## Two-stage Linux build
 
+The hosted workflow is **manual-only**: pushes and pull requests do not start
+it. A maintainer must explicitly authorize another hosted run. The commands
+above also work locally, without consuming GitHub Actions minutes.
+
 The workflow splits the same dependency-ordered build between
 `build-prefix` and `build-final`, each with a 360-minute ceiling. The
 prefix runs source, generator and helper controls and the first 679 batches.
@@ -108,6 +112,10 @@ nothing about the correctness or novelty of the mathematical proofs.
 
 ## Independent statement and kernel checks
 
+Independent Comparator/NanoDa replay is deferred to Palomar intake for the
+current private inspection. The following commands remain available to reproduce
+that additional check; it has not been completed for this repository.
+
 On Linux, after the complete build:
 
 ```sh
@@ -136,12 +144,26 @@ nonzero exits fail. The pinned revisions follow the
 
 ## Reading the evidence
 
-Inspect the [exact-commit workflow](https://github.com/JD-Jones-ASES/dr-lean/actions/workflows/development.yml)
-and its receipts. A complete verification requires successful build, metadata
-and independent-kernel jobs for the same candidate SHA, with matching source
-and artifact digests. A partial prefix or complete-build receipt alone is not
-complete verification. A successful receipt for earlier bytes does not verify
-a revised candidate.
+The [complete Linux build](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34461176430/job/102879092766)
+succeeded for commit `927efcc21afdd7f85597515e20805d43fd5e946c`: all 1,368
+dependency batches and roots, a fresh axiom audit of 197,437 declarations,
+Challenge compilation, and all five semantic controls. The current Lean
+source differs from that commit only in comments; every non-comment byte and
+all twenty statements were independently checked as unchanged. Generator
+algorithms and numerical certificate data are also unchanged.
+
+The [metadata check](https://github.com/JD-Jones-ASES/dr-lean/actions/runs/34480870886/job/102883040836)
+passed for the current metadata bytes. That run also completed its first build
+stage. Its duplicate final build and the earlier run's independent-kernel job
+were canceled to conserve hosted compute. A canceled workflow is not a passing
+workflow. No complete fresh CI run or independent-kernel acceptance is claimed
+for the current commit.
+
+For a complete independent replay, inspect the
+[exact-commit workflow](https://github.com/JD-Jones-ASES/dr-lean/actions/workflows/development.yml)
+and require successful build, metadata and independent-kernel jobs for the same
+candidate SHA, with matching source and artifact digests. A partial prefix or
+complete-build receipt alone does not establish both-kernel acceptance.
 
 The receipts distinguish source checks, Lean compilation, transitive axiom
 audits, metadata checks, statement comparison and the two kernel results.

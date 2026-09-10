@@ -20,10 +20,15 @@ the proof library must never import Challenge. Prove finite-certificate
 soundness in Lean; a Python check is not a substitute for a proof.
 
 Keep modules small, docstrings mathematical, imports targeted, and proofs
-readable. Build edited modules before integration; verify DR, Test, Solution,
-and Challenge, inspect transitive axioms and exact statement alignment, and
-require independent CI and Comparator/NanoDa acceptance for all twenty
-principal theorems on the exact candidate commit.
+readable. Build edited proof modules before integration; verify DR, Test,
+Solution and Challenge, and inspect transitive axioms and exact statement
+alignment. Reusing completed build evidence after comment-only Lean changes
+requires checking all non-comment source and statement identities. State the
+tested commit and every incomplete or deferred check accurately.
+
+The hosted workflow is manual-only and expensive. Do not start or rerun it
+without JD Jones's explicit approval. Independent Comparator/NanoDa replay is
+deferred to Palomar intake for this private inspection; do not claim it passed.
 
 Work in coherent codex/ branches and commit and push private checkpoints.
 Do not force-push. Distinguish completed checks from checks still pending.
