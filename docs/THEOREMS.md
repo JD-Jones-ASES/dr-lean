@@ -25,7 +25,7 @@ statements, their actual proofs and axiom dependencies determine completion.
 | `DittertRybin.uniform_maximum_quadratic_endpoint_strip` | K=m, m>=96, N>=10000 m^2, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_quartic_endpoint_strip` | K=m, m>=16, N>=20000 m^4, and transpose. | Pending |
 | `DittertRybin.uniform_maximum_combined_endpoint_strip` | K=m, m>=5, N>=10^11 m^2, and transpose. | Pending |
-| `DittertRybin.uniform_maximum_consecutive_endpoint` | K=m on m by (m+1), m>=19, and transpose. | Pending |
+| `DittertRybin.uniform_maximum_consecutive_endpoint` | K=m on m by (m+1), m>=19, and transpose. | Proved locally; [finite cuts and infinite tail](ENDPOINT_CONSECUTIVE_CUTS.md) |
 | `DittertRybin.uniform_maximum_short_endpoint` | K=m on m by N with m>=117 and m<=N<=2m, and transpose. | Proved locally; [exact recurrence and boundary scaling](ENDPOINT_NEAR_DOUBLE.md) |
 | `DittertRybin.uniform_maximum_square_near_endpoint` | K=n-1 on n by n, n>=21. | Pending |
 | `DittertRybin.uniform_maximum_arithmetic_endpoint` | K=m, m>=128, m<=N<=m(m-1)/(22 log m), and transpose. | Proved locally; [boundary scaling](ENDPOINT-BOUNDARY-SCALING.md) |

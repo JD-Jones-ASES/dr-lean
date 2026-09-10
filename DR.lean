@@ -199,3 +199,10 @@ import DR.Rectangular.SmallSideFinal
 import DR.Rectangular.FiveByFiveFinal
 import DR.Endpoint.NearSquare
 import DR.Endpoint.Double
+import DR.Endpoint.MinimumDilation
+import DR.Square.ZeroRectangle
+import DR.Endpoint.Consecutive
+import DR.Endpoint.NearEndpointMarginals
+import DR.Endpoint.NearEndpointParameters
+import DR.Endpoint.LeadingSaturated
+import DR.Endpoint.LongColumnClosure

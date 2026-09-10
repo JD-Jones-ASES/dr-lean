@@ -72,7 +72,8 @@
     {
       "declaration": "DittertRybin.uniform_maximum_consecutive_endpoint",
       "scope": "K=m on m by (m+1), m>=19, and transpose.",
-      "status": "pending"
+      "status": "proved locally",
+      "file": "DR/Endpoint/Consecutive.lean"
     },
     {
       "declaration": "DittertRybin.uniform_maximum_short_endpoint",

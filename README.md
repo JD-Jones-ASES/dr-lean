@@ -16,11 +16,11 @@ complete square Dittert by our alternative proof, complete rectangular K=3,
 complete four-row K=4, the all-order large-board theorem, the large-endpoint
 ranges, and their stated corollaries. Full arbitrary-rectangle P2 remains open.
 
-Fourteen of the twenty required release targets are now proved locally:
+Fifteen of the twenty required release targets are now proved locally:
 all square Dittert orders, K=2 and K=3 on all admissible rectangles,
 K=4 on every four-row rectangle and on 5-by-5 and 20-by-20,
 the two large-board thresholds, all admissible orders for smaller side at
-most four and for 5-by-5, the arithmetic, near-square and doubled endpoint
+most four and for 5-by-5, the arithmetic, consecutive, near-square and doubled endpoint
 ranges, and the LLL endpoint strip. The remaining endpoint families are active work.
 
 The [complete K=3 proof](docs/ORDER-THREE-COMPLETE.md) joins all 1,330
@@ -41,6 +41,9 @@ of the still-pending all-aspect endpoint theorem, not an additional completed
 release target. All these results include transpose and iff uniform equality. The
 [near-square and doubled ranges](docs/ENDPOINT_NEAR_DOUBLE.md) now cover
 m>=117 with m<=N<=2m, and m>=80 with N=2m, respectively.
+The [consecutive endpoint proof](docs/ENDPOINT_CONSECUTIVE_CUTS.md) covers
+every m>=19 on m by (m+1), and transpose. Exact finite cut inequalities for
+19<=m<=29 join an all-integer factorial recurrence from m=30.
 
 The square proof has readable accounts for [order three](docs/ORDER-THREE-PROOF.md),
 [order four](docs/ORDER-FOUR-PROOF.md), [order five](docs/ORDER-FIVE-PROOF.md),

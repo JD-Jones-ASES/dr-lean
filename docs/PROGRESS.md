@@ -1,6 +1,6 @@
 # Current formalization state
 
-Updated 2026-09-09. Fourteen of the twenty required release targets are
+Updated 2026-09-09. Fifteen of the twenty required release targets are
 proved locally. The repository remains private, and the complete release
 gate has not passed. Full arbitrary-rectangle Rybin P2 remains open.
 
@@ -15,6 +15,8 @@ gate has not passed. Full arbitrary-rectangle Rybin P2 remains open.
   K=2,3,4,5 on 5-by-5.
 - The [arithmetic endpoint range](ENDPOINT-BOUNDARY-SCALING.md):
   m>=128 and m<=N<=m(m-1)/(22 log m).
+- The [consecutive endpoint range](ENDPOINT_CONSECUTIVE_CUTS.md):
+  m>=19 and N=m+1, with transpose.
 - The [short and doubled endpoint ranges](ENDPOINT_NEAR_DOUBLE.md):
   m>=117, m<=N<=2m; and m>=80, N=2m.
 - The [LLL endpoint strip](ENDPOINT-LLL-STRIP-PROOF.md):
@@ -28,22 +30,31 @@ separate nonuniqueness exception. Exact declarations and hypotheses are in
 
 ## Remaining work
 
-The six pending principal targets are the all-aspect large endpoint,
-quadratic, quartic and combined long-column strips, consecutive rectangles
-from m=19, and square near-endpoints K=n-1 from n=21.
+The five pending principal targets are the all-aspect large endpoint,
+quadratic, quartic and combined long-column strips, and square near-endpoints
+K=n-1 from n=21.
 
 The complete [transition endpoint theorem](ENDPOINT-TRANSITION-PROOF.md)
 is a proved component of the all-aspect result. The
 [collision-cluster estimate](ENDPOINT-COLLISION-CLUSTER.md) is a proved
-input to the long-column work. General leading-gauge stability,
-minimum-dilation geometry, zero-rectangle permanent floors and the remaining
-finite cuts continue in separate working files. These foundations do not
-replace any pending principal theorem. Original-row and deleted-row
-avoidance laws remain distinct.
+input to the long-column work. The [global saturated gauge](ENDPOINT-SATURATED-GAUGE.md)
+is now proved for every probability board with m>=96. The
+[long-column closure](ENDPOINT-LONG-COLUMN-CLOSURE.md) derives the actual
+positive kernels and full uniqueness from explicit contender row and column
+caps; deriving those caps remains downstream work.
+
+[Minimum dilation](ENDPOINT-MINIMUM-DILATION.md) and the actual
+[zero-rectangle permanent floor](../data/ZERO_RECTANGLE_SOURCE.md) are now
+proved and used in the consecutive theorem. The
+[near-endpoint padding and discrepancy](../data/NEAR_ENDPOINT_FOUNDATION_SOURCE.md)
+and [all-n>=26 scalar tail](../data/NEAR_ENDPOINT_PARAMETERS_SOURCE.md) are
+proved. The separate two-independent-zero permanent gap and remaining finite
+near-endpoint cuts are active. These foundations do not replace any pending
+principal theorem. Original-row and deleted-row avoidance laws remain distinct.
 
 ## Verification boundary
 
-The fourteen-target mathematical checkpoint
+The prior fourteen-target mathematical checkpoint
 `fd7971f06ecbd2f0dc13c40022f2883ead747d60` passed a combined
 `lake --wfail build +DR +Test`: **6,021 jobs**, **195,889 project declarations
 audited**, and **2,569 included Lean source hashes unchanged**. No warnings
@@ -56,7 +67,14 @@ The complete K3 [receipt](../data/FINITE_K3_COMPLETE_REPLAY.md) records all
 1,330 case proofs, 87 exact dispatch shards, canonical coverage, regeneration
 and corruption controls. The tracked import closure contains 2,698 files;
 its strict build plan has 1,285 batches of at most two requested modules.
-The subsequent update to this progress page changes no Lean source.
+The fifteen-target integration passed `lake --wfail build +DR +Test`:
+**6,090 jobs**, **196,549 project declarations audited**, and **2,638 included
+Lean source hashes unchanged**, with no warnings. It adds 69 reviewed Lean
+modules to the previous closure. Its isolated source package passed **26**
+generator/control commands and **281** local Markdown links. The curated
+package has **2,781 files**; the strict plan has **1,319** batches of at most
+two requested modules. The historical full K3 cold replay was not repeated:
+its unchanged sources and all regeneration/corruption controls were checked.
 
 Independent CI is required for the exact private checkpoint and its default
 branch before release. Private main and the durable source checkout remain
@@ -72,10 +90,11 @@ will submit to Palomar manually after that gate passes.
 
 ## Detailed records
 
-The [latest development record](history/2026-09-09-complete-low-orders-endpoints.md)
+The [latest development record](history/2026-09-09-consecutive-endpoint.md)
 explains the mathematical additions and verification. Earlier records retain
 [initial development](history/2026-09-09-development.md),
 [quintic/endpoint work](history/2026-09-09-quintic-endpoint-development.md), and
-[the eight-target checkpoint](history/2026-09-09-fixed-board-endpoint-development.md).
+[the eight-target checkpoint](history/2026-09-09-fixed-board-endpoint-development.md),
+and [the fourteen-target checkpoint](history/2026-09-09-complete-low-orders-endpoints.md).
 Their historical state is superseded by the current inventory and actual
 verification receipts.
