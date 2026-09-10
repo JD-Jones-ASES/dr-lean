@@ -3,6 +3,12 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      reuse_reviewed_proof_cache:
+        description: 'Reuse only the successful reviewed da67 Linux compiled input; rerun every release gate'
+        required: false
+        type: boolean
+        default: false
 permissions:
   contents: read
   actions: read
@@ -17,6 +23,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Check proof source
         run: |
           python3 scripts/check-release.py
@@ -27,6 +34,8 @@ jobs:
           python3 scripts/check-source.py
           python3 scripts/test_bounded_project_build.py
           python3 -O scripts/test_bounded_project_build.py
+          python3 scripts/test_reviewed_proof_cache.py
+          python3 -O scripts/test_reviewed_proof_cache.py
           python3 scripts/generate_finite_k3_envelope.py --all --dispatch --manifest --check
           python3 scripts/generate_finite_k3_strips.py --check
           python3 scripts/test_finite_k3_envelope.py
@@ -68,11 +77,19 @@ jobs:
           swap-storage: false
       - name: Fetch pinned mathematical dependencies
         run: lake exe cache get
+      - name: Optionally restore reviewed compiled input only
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_reviewed_proof_cache }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/restore-reviewed-proof-cache.py --expected-commit "$GITHUB_SHA"
       - name: Build completed proof modules and audit all project axioms
         run: |
           python3 scripts/bounded_project_build.py --check-tracked-coverage --batch-size 2 \
             --report .verification/bounded-project-plan.json \
             --log .verification/bounded-project-build.jsonl
+      - name: Recompute the global axiom audit after compiled-input reuse
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_reviewed_proof_cache }}
+        run: lake env lean Test/Axioms.lean
       - name: Compile public Challenge and check actual semantic controls
         run: |
           lake build +Challenge
@@ -109,6 +126,7 @@ jobs:
         with:
           name: proof-receipts-${{ github.sha }}
           path: |
+            .verification/reviewed-proof-cache.json
             .verification/bounded-project-plan.json
             .verification/bounded-project-build.jsonl
             .verification/release-checks/
@@ -125,6 +143,10 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: "3.11.10"
+      - name: Check written metadata policy controls
+        run: |
+          python3 scripts/test_metadata_policy.py
+          python3 -O scripts/test_metadata_policy.py
       - name: Validate the pinned official metadata profile
         shell: bash
         run: |

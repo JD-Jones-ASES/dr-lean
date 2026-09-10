@@ -42,6 +42,36 @@ It archives only a successful exact-commit Linux build. A separate job verifies
 its source commit, toolchain and archive digest before restoring those outputs
 and running the independent kernels. Both jobs must succeed for the same SHA.
 
+### Optional reuse of the reviewed Linux build
+
+Normal pushes and default workflow dispatches build from pinned dependencies.
+The optional `reuse_reviewed_proof_cache` dispatch input may reuse compiled
+outputs from the exact reviewed commit
+`da67b34f27d7b590bb4596435d0f77c48c192ccc`, run `34432295599`, attempt 1.
+The helper requires that run's completed successful build job, full 2,736-module
+plan and 1,368-batch success ledger, global axiom audit, Challenge/semantic
+checks, exact archive digest and toolchain, and safe complete compiled files.
+A pending, failed, partial, expired or mismatched producer build is rejected.
+
+Every Git tree entry and mode outside eight named metadata, documentation,
+workflow and helper paths must match the producer. All Lean sources, public
+statements, target inventory, data, dependency pins and existing proof-verification
+scripts must therefore be identical. The helper restores only `.lake/build`;
+its receipt says `compiled_input_restored`, with `release_verified: false`.
+Thirty-six offline controls cover provenance, source changes, incomplete
+ledgers, unsafe archives and failed restores. They do not establish that a
+real Linux artifact has been restored.
+
+The consumer still runs the entire bounded build, then directly recomputes
+`Test/Axioms.lean`, compiles Challenge, runs the actual semantic controls,
+and creates a new archive bound to its own exact commit. Its corrected
+metadata and fresh all-twenty Comparator/Lean-kernel/NanoDa verification must
+succeed. Producer metadata or kernel status grants no consumer release pass.
+The optional producer archive expires after seven days; future default runs
+remain independent of it.
+
+### Public statement checks
+
 The twenty public statements are independently written in Challenge with four
 fully fixed definitions and Mathlib-only imports. Its twenty intentional holes
 are statement markers; Solution imports none of them and has no proof holes.
@@ -74,9 +104,16 @@ process must exit successfully. Timeouts and missing acceptance lines fail.
 
 The workflow also runs the exact official Palomar metadata profile under
 Python 3.11.10 with hash-pinned PyYAML 6.0.3. Negative controls must reject
-missing authors and maintainers. This component replay does not itself
-perform Palomar's protected-Challenge provenance audit, external intake,
-human refereeing, or registration. JD performs manual submission.
+missing authors and maintainers. A separate supplement enforces the six
+source-type spellings in the pinned written policy, with controls for the
+three rejected earlier labels, all six allowed spellings, and omission. The
+receipt distinguishes this vocabulary check from the official parser and
+origin checks. See the [metadata correction](history/2026-09-10-metadata-policy.md)
+for the policy/parser difference and preserved attribution.
+
+This component replay does not itself perform Palomar's protected-Challenge
+provenance audit, external intake, human refereeing, or registration.
+JD performs manual submission.
 
 Tool revisions follow the reviewed official
 [Palomar workflow](https://github.com/PalomarRegistry/PalomarSubmission/blob/ef2fa1eadcb246c2346ddba39b52eaa53d4bb763/.github/workflows/submission.yml):

@@ -24,7 +24,7 @@ classification:
 
 sources:
   - title: "Analytic-Lab P0174: Dittert and rectangular semimatching proof notes"
-    type: "research notes"
+    type: "other"
     id: "JD-Jones-ASES/Analytic-Lab@bdce7f70f49d8b79ee756df6724ed3822e0c7f20"
     relationship: "formalizes"
     note: >-
@@ -34,7 +34,7 @@ sources:
       is a proof dependency. This attribution is not a priority claim.
   - title: "Rybin P2: independent-cell rectangular semimatching problem"
     authors: ["Dmitry Rybin"]
-    type: "web post"
+    type: "web discussion"
     location: "https://x.com/DmitryRybin1/status/2096907360140697791"
     relationship: "background"
     author_endorsement: "not-contacted"
@@ -56,7 +56,7 @@ sources:
     contributors:
       - name: "Hongyuan Lu"
         role: "Attributed small-order contribution in the source project"
-    type: "proof project"
+    type: "other"
     location: "https://github.com/pedromnasc/dittert-conjecture-proof/tree/894066bbaa715138c98bf3cb7c6fdb4f39a37701"
     relationship: "independently-proves"
     author_endorsement: "not-contacted"
