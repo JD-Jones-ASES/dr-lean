@@ -24,7 +24,7 @@ natural. Each endpoint statement includes the transpose. The square
 near-endpoint statement has $k=n-1$, not $k=n$.
 
 For the square Dittert statement, $A$ instead has total mass $n$ and
-$\Phi(A)=\prod_i r_i+\prod_j c_j-\operatorname{per}(A)$. Its equality
+$\Phi(A)=\prod_i r_i+\prod_j c_j-\mathrm{per}(A)$. Its equality
 matrix has entries $1/n$.
 
 ## The twenty principal statements

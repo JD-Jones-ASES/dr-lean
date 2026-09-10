@@ -72,7 +72,7 @@ where R and C are the whole-matrix marginal products. Both factors lie in
 inequality in its homogeneous form, yields
 
 $$
-\operatorname{per}D\ge E(w):=
+\mathrm{per}(D)\ge E(w):=
 \frac{3a-b-w}{2a^2}+\frac{2L-w-a+b}{2Lb}-\delta
 -\frac{61}{32}\left(\frac{10-a-b-w}{8}\right)^4.
 $$

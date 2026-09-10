@@ -56,7 +56,7 @@ For a nonnegative square matrix $A$ of order $n\geq1$ and total mass $n$,
 let $r_i$ and $c_j$ be its row and column sums. Then
 
 $$
-\prod_i r_i+\prod_j c_j-\operatorname{per}(A)
+\prod_i r_i+\prod_j c_j-\mathrm{per}(A)
 \leq 2-\frac{n!}{n^n},
 $$
 

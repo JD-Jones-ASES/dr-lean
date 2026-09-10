@@ -5,7 +5,7 @@ matrix with total mass $n$. Write $r_i=\sum_j A_{ij}$,
 $c_j=\sum_i A_{ij}$, and $\gamma_n=n!/n^n$. The theorem is
 
 $
-  \prod_i r_i+\prod_j c_j-\operatorname{per}(A)\leq2-\gamma_n,
+  \prod_i r_i+\prod_j c_j-\mathrm{per}(A)\leq2-\gamma_n,
 $
 
 with equality if and only if every entry is $1/n$. Zero entries and
@@ -19,7 +19,7 @@ For a probability matrix $P$, the scaling $A=nP$ is a bijection onto
 the entire mass-$n$ domain and
 
 $
- F_n(P)=\gamma_n\left(\prod_i r_i+\prod_j c_j-\operatorname{per}(A)\right).
+ F_n(P)=\gamma_n\left(\prod_i r_i+\prod_j c_j-\mathrm{per}(A)\right).
 $
 
 [Normalization.lean](../DR/Square/Normalization.lean) proves the equivalence,
@@ -31,7 +31,7 @@ inequality and its unique equality case.
 ## Permanent and transport foundations
 
 The capacity argument proves van der Waerden's bound
-$\operatorname{per}(B)\geq\gamma_n$ for every doubly stochastic matrix
+$\mathrm{per}(B)\geq\gamma_n$ for every doubly stochastic matrix
 $B$, with equality exactly at the constant matrix. The proof constructs
 the row-product polynomial, proves its stability, proves closure under
 differentiation and zero specialization with the zero-polynomial alternative,
