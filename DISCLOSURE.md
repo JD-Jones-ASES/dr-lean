@@ -21,5 +21,3 @@ Actual outcomes must be read from receipts for the exact checked commit,
 as explained in [Verification](docs/VERIFICATION.md). Detailed monetary
 accounting is unavailable.
 
-The repository remains private for JD Jones's inspection. Publication or
-submission requires a new explicit instruction from JD Jones.
